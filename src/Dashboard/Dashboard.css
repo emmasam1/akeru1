@@ -1,0 +1,368 @@
+.pointer{
+    cursor: pointer;
+}
+.top25{
+    top: 25px;
+    right: 0;
+    z-index: 1;
+}
+.w100{
+    width: 100%;
+}
+.my-close-icon{
+    float: left;
+    left: 265px;
+    cursor: pointer;
+}
+.bg-dashboard-color{
+    background: #E8E8E8;
+}
+.sidebar{
+    height: 100vh;
+    width: 251px;
+    background: #282733;
+    z-index: 1;
+}
+.title-container{
+    background: #1B1B28;
+    color: white;
+    position: absolute;
+    left: 0;
+    width: 251px;
+}
+.title-container h3{
+    padding: 10px 0 0 40px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 34px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+.dash-error {
+    color: red;
+    font-size: 10px;
+    position: relative;
+    bottom: 15px;
+    margin: 0 0 -5px 0;
+}
+.w280{
+    width: 280px;
+}
+.dash-left{
+    left: 41px;
+}
+.btn-gray{
+    background: rgba(208, 225, 204, 0.25);
+}
+.w35{
+    width: 35px;
+    margin: -7px 5px 0 0;
+}
+.w370{
+    width: 410px;
+}
+.mt{
+    top: 55px;
+}
+.m-t{
+    margin: 55px 0 0 0;
+}
+.mb{
+    margin: 0 0 30px 0;
+}
+.pl-3{
+    padding: 0 0 0 40px;
+}
+.left-width{
+    left: 251px;
+    width: 80.5vw;
+    top: 50px;
+    height: 91.8vh;
+}
+.left-width-home{
+    left: 251px;
+    width: 80.5vw;
+}
+.link-color{
+    color: #FFFFFFB2 !important;
+}
+.link-p{
+    padding: 8px 0;
+}
+.font14{
+    font-size: 14px;
+}
+.img-fix{
+    width: 17px;
+    position: relative;
+    bottom: 2px;
+    margin: 0 20px 0 0;
+}
+.sidebar-img img{
+    width: 149px;
+    height: 47px;
+}
+.sidebar-img{
+    margin: 100px 0 0 0;
+}
+.dashborad-nav{
+    height: 53px;
+    background: #201F2B;
+    width: 100vw;
+    z-index: 1;
+}
+.user-info{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 16px;
+    color: #959CB6;
+    top: 9px;
+    margin: 0 0 0 6px;
+}
+.user-img{
+    margin: 0 0 0 8px;
+    width: 34px;
+    height: 34px;
+}
+.user-info-holder{
+    padding: 9px 0 0 0;
+    margin: 0 20px 0 0;
+}
+.sm-card{
+    width: 345px;
+    height: 190px;
+    background-color: #FFF;
+}
+.number{
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 68px;
+    letter-spacing: 0em;
+    text-align: left;
+    top: 10px;
+}
+.number-img{
+    width: 90px;
+    height: 90px;
+}
+.number-h4-text{
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+.number-sapn{
+    letter-spacing: -0.284358px;
+    color: rgba(3, 3, 3, 0.5);
+}
+.number-p{
+    letter-spacing: -0.284358px;
+    color: #10462E;
+}
+.number-icon {
+    width: 15px;
+    height: 13px;
+    margin: 5px 5px 0 0;
+}
+.link-dashboard-style{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: #393939;
+}
+
+
+.truck-text{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    color: #181C32;
+}
+.dash-input-holder{
+    width: 159px;
+    height: 34px;
+    position: relative;
+    bottom: 5px;
+    margin: 0 0 0 10px;
+}
+.dash-input-holder img{
+    width: 15px;
+    margin: 0 5px 0 5px;
+    cursor: pointer;
+}
+.dash-input-holder input{
+    width: 80%;
+    outline: none !important;
+}
+.dash-details-title{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: #393939;
+}
+.dash-p{
+    padding: 0 0 0 100px;
+}
+.progress {
+    background-color: transparent;
+    height: 3px;
+    position: relative;
+    bottom: 20px;
+}
+.dash-btn-back-holder{
+    width: 395px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 15px 0 0;
+}
+.dash-truck-nav{
+    width: 500px;
+}
+.dash-form-p{
+    padding: 0 220px 0 0;
+}
+.dash-label{
+    width: 240px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    color: #4A4B68;
+    top: 7px;
+}
+.dash-input-file{
+    height: 85px;
+    width: 100px;
+    margin: 0 0 0 177px;
+}
+.dash-file-label-left{
+    left: 40px;
+}
+.dash-plus-holder {
+    background: white;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    right: 10px;
+    top: 50px;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 1.4px;
+}
+.dash-next-btn-holder {
+    margin: 1px 0 0 0;
+    padding: 0 15px 10px 0;
+}
+
+.setting-label{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    color: #393939;
+}
+.setting-p{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17px;
+    color: #393939;
+}
+.setting-input-height{
+    height: 35px;
+}
+.setting-input-width{
+    width: 525px;
+}
+.setting-label-bottom{
+    bottom: 15px;
+}
+.btn-view-all{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: #000005;
+}
+.m-0-15{
+    margin: 0 15px;
+}
+.p-bg{
+    background: #5E6278;
+}
+.p-i-bg{
+    background: #F5F8FA;
+}
+.round-div{
+    width: 20px;
+    height: 20px;
+    padding: 2px 0 0 0;
+    cursor: pointer;
+}
+.w-100{
+    width: 100px !important;
+}
+.plus{
+    top: 7px;
+    right: 11px;
+}
+.minus{
+    top: 7px;
+    left: 11px;
+}
+.l-color{
+    color: rgba(57, 57, 57, 0.5);
+}
+.review-p{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 23px;
+    color: #4A4B68;
+}
+.review-truck-details{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    color: #4A4B68;
+}
+.des-div {
+    text-align: right;
+    width: 211px;
+}
+.date-color{
+    color: #F64E60
+}
+.rev-btn{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 17px;
+    color: #20E682;
+    border: none;
+    outline: none;
+    width: 50px;
+    background-color: transparent;
+}
+.rev-btn img{
+    top: 1px;
+    left: 5px;
+}
+.rev-pad{
+    padding: 0 125px 0 0 !important;
+}
+.basic{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 23px;
+    text-align: right;
+    color: #FFA500;
+}

@@ -1,0 +1,12 @@
+{
+    "TRIPS":"http://localhost:5000/infos",
+    "DASHBOARD" : "http://localhost:5000/dashinfo",
+    "REGISTER" : "https://peaceful-atoll-40814.herokuapp.com/accounts/register/client",
+    "LOGIN" : "https://peaceful-atoll-40814.herokuapp.com/accounts/login/client",
+    "REQUEST" : "https://peaceful-atoll-40814.herokuapp.com/requests",
+    "DRIVERS" : "https://peaceful-atoll-40814.herokuapp.com/drivers",
+    "ASSIGN" : "https://peaceful-atoll-40814.herokuapp.com/request/assign",
+    "APPROVE" : "https://peaceful-atoll-40814.herokuapp.com/accounts/approve"
+
+
+}
