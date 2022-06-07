@@ -4,7 +4,7 @@ import loaderImg from '../image/hiw-truck.png'
 function Loader(){
     return(
         <div className='d-flex justify-content-center position-absolute load-container'>
-           <div class="loader"></div>
+           <img src={loaderImg} alt="loader" />
         </div>
     )
 }

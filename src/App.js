@@ -20,7 +20,7 @@ import Card from "./components/Card";
 import Bank from "./components/Bank";
 import Dashboard from "./Dashboard/Dashboard";
 import DashboardHome from "./Dashboard/DashboardHome";
-import DashRequest from "./Dashboard/DashRequest";
+import AdminRequest from "./Dashboard/AdminRequest";
 import Trucks from "./Dashboard/Trucks";
 import Newrequest from "./Dashboard/Newrequest";
 import Notfound from "./components/Notfound";
@@ -52,7 +52,7 @@ function App() {
           <Route path="" element={<DashboardHome />}>
             <Route path="" element={<Newrequest />} />
           </Route>
-          <Route path="request" element={<DashRequest />} />
+          <Route path="request" element={<AdminRequest />} />
           <Route path="trucks" element={<Trucks />} />
           <Route path="drivers" element={<Driver />} />
         </Route>

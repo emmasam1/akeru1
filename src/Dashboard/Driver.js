@@ -11,8 +11,10 @@ function Driver() {
       .then((res) => {
         let driverInfo = res.data.data;
         if(!driverInfo){
-          isLoading(true)
+          setIsLoading(true)
+          console.log("i am here");
         }else{
+          setIsLoading(false)
           setDriverInfo(driverInfo);
         }
       })
@@ -24,8 +26,8 @@ function Driver() {
   return (
     <div className="p-3 position-relative left-width-home left-width">
       <h3>All Drivers</h3>
-      <div class="card">
-        <div class="card-body">
+      <div className="card">
+        <div className="card-body">
 
           <table className="table table-hover  mt-4">
             <thead className="table-dark">
@@ -52,12 +54,12 @@ function Driver() {
                     <td>{e.phone}</td>
                     <td>{e.city}</td>
                     <td>{e.rating}</td>
-                    <td> {e.approved ? <span class="badge bg-success">Approved</span> : <span class="badge bg-secondary">Pending..</span>} </td>
+                    <td> {e.approved ? <span className="badge bg-success">Approved</span> : <span className="badge bg-secondary">Pending..</span>} </td>
                     <td className="d-flex justify-content-center flex-column position-relative">
                      
-                      <div class="table-dropdown">
-                        <span><i class="bi bi-three-dots btn btn-light fs-6" ></i></span>
-                        <div class="table-dropdown-content">
+                      <div className="table-dropdown">
+                        <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
+                        <div className="table-dropdown-content">
                           {e.approved?null:<a href="#" className="btn">Approve</a>}
                           <a href="#" className="btn">Delete</a>
                         </div>
