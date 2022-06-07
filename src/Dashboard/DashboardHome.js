@@ -8,6 +8,9 @@ import Trips from './Trips';
 function DashboardHome() {
   return (
     <div className="p-3 position-relative left-width-home">
+      <br/>
+      <br/>
+      <br/>
       <div className="d-flex justify-content-between">
         <div className="rounded sm-card p-4">
           <div className="d-flex justify-content-between">
@@ -58,10 +61,12 @@ function DashboardHome() {
         </div>
       </div>
 
-      <div className="float-end d-flex mt-3 justify-content-between w280">
-        <Link to="/admin-dashboard/request"><button className="btn btn-gray btn-sm">+ Add new request</button></Link>
+      <div className="float-end d-flex mt-3 justify-content-between ">
+
+        <Link to="/admin-dashboard/request"><button className="btn btn-gray btn-sm mr-4">+ Add new request</button></Link>  <span className="m-2">   </span>
         <button className="btn btn-dark btn-sm">Export report</button>
       </div>
+      <br/>
 
       <div className="bg-white m-t rounded p-2">
           <Trips />

@@ -2,6 +2,10 @@ import React from "react";
 import google from "../image/appStore.png";
 import apple from "../image/apple.png";
 import home from "../image/home.png";
+import ic_download from "../image/ic_download.png";
+import ic_list from "../image/ic_list.png";
+import user from "../image/hiw_user.png";
+import truck from "../image/hiw-truck.png";
 import Ongoing from "../image/ongoingtrip.png";
 import incoming from "../image/incoming.png";
 import Ellipse from "../image/Ellipse.png";
@@ -59,6 +63,42 @@ function Partner() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="  mt-3 mobile-sm-width">
+        <div className="algin-width">
+          <div className="container px-3 py-3">
+            <br />
+            <br />
+            <h1 className="text-center how_it_works_title">Register as a Haulier on Akeru app </h1>
+            <br />
+            <br />
+            <br />
+            <div className="row how_it_works_cols">
+              <div className="col-md-3">
+                <img src={ic_download} alt="icon" />
+                <h5 className="how_it_works_col_title">Download the app.</h5>
+                <p className="how_it_works_col_desc">Akeru's app can be downloaded from the App Store for iPhone users or the Play Store for Android users.</p>
+              </div>
+              <div className="col-md-3">
+                <img src={user} alt="icon" />
+                <h5 className="how_it_works_col_title">Register.</h5>
+                <p className="how_it_works_col_desc">To begin using the app and getting order requests, create an account with Akeru.</p>
+              </div>
+              <div className="col-md-3">
+                <img src={ic_list} alt="icon" />
+                <h5 className="how_it_works_col_title">Upload documents.</h5>
+                <p className="how_it_works_col_desc">Upload all required documents to complete your registration as this may prevent you from receiving order request</p>
+              </div>
+              <div className="col-md-3">
+                <img src={truck} alt="icon" />
+                <h5 className="how_it_works_col_title">Enjoy the app</h5>
+                <p className="how_it_works_col_desc">Through the app you can request for Cash advance, manage your income and toggle on and off when you wish to accept orders</p>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
 
@@ -231,15 +271,15 @@ function Partner() {
         <div className="footer_h2_holder">
           <h2>Do you own a Truck? Join us and start earning</h2>
         </div>
-        <div style={{ width: "400px" }} className="own_item_holder">
-          <div className="d-flex justify-left">
-            <span className="m-2"><i class="bi bi-check-square-fill akeru-primary m-1"></i> No obligation</span>
-            <span className="m-2"> <i class="bi bi-check-square-fill akeru-primary m-1"></i>Full features</span>
+        <div className="own_item_holder container ">
+          <div className="row justify-left">
+            <span className="col-md-6"><i class="bi bi-check-square-fill akeru-primary m-1"></i> No obligation</span>
+            <span className="col-md-6"> <i class="bi bi-check-square-fill akeru-primary m-1"></i>Full features</span>
           </div>
-
-          <div className="d-flex justify-left">
-            <span className="m-2"><i class="bi bi-check-square-fill akeru-primary m-1"></i>Instant payout </span>
-            <span className="m-2"><i class="bi bi-check-square-fill akeru-primary m-1"></i> Reporting dashboard</span>
+          
+          <div className="row justify-left mt-2">
+            <span className="col-md-6"><i class="bi bi-check-square-fill akeru-primary m-1"></i>Instant payout </span>
+            <span className="col-md-6"><i class="bi bi-check-square-fill akeru-primary m-1"></i> Reporting dashboard</span>
           </div>
         </div>
         <div className="join_btn_holder">
@@ -248,8 +288,8 @@ function Partner() {
           </Link>
         </div>
       </div>
-      <div className="main_width bg-img p-5 mw100 mobile-sm-pad">
-        <h2 className="text-white text-center w900">What are you waiting for?</h2>
+      <div className=" bg-img p-5 mw100 mobile-sm-pad">
+        <h2 className="text-white text-center w900 pt-5">What are you waiting for?</h2>
         <p className="text-white text-center">
           Join thousands of our partners and start earning
         </p>

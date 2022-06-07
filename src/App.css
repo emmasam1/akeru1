@@ -408,6 +408,38 @@ input[type="text"]::placeholder {
   background-color: var(--turckDivColor2);
   height: 150px;
 }
+.own_item_holder{
+  width: 40%;
+}
+.how_it_works_title{
+font-size: 32px;
+font-weight: 700;
+line-height: 39px;
+}
+.how_it_works_subtitle{
+font-size: 18px;
+font-weight: 500;
+line-height: 22px;
+}
+.how_it_works_col_title{
+font-size: 18px;
+font-weight: 700;
+line-height: 22px;
+text-align: left;
+padding-top: 10px;
+}
+.how_it_works_col_desc{
+font-size: 14px;
+font-weight: 400;
+line-height: 17px;
+letter-spacing: 0em;
+text-align: left;
+}
+.how_it_works_cols img{
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
 .footer{
   background-color: var(--linkColor);
   padding: 0 0 30px 0;
@@ -475,7 +507,7 @@ input[type="text"]::placeholder {
 /* LOGIN */
 .login_div_height{
   padding: 0 0 130px 0;
-  height: 520px;
+  height: 545px;
 }
 .login{
  padding: 18px 37px !important;
@@ -490,7 +522,11 @@ input[type="text"]::placeholder {
   font-weight: 900;
 }
 .login_p_text{
-  font-size: 14px;
+font-size: 16px;
+font-weight: 600;
+line-height: 22px;
+letter-spacing: 0em;
+text-align: center;
 }
 .login_p_text span{
   color: #607d8bd4;
@@ -516,7 +552,7 @@ input[type="text"]::placeholder {
 }
 .login_input{
   background-color: var(--inputBackground);
-  height: 30px;
+  height: 45px;
   border-radius: 0 !important;
   border: none;
   outline: none !important;
@@ -535,7 +571,7 @@ input[type="text"]::placeholder {
   font-size: .5rem;
 }
 .tnc{
-  font-size: 10px;
+  font-size: 14px;
 }
 .reg_btn_style button{
   border: none;
@@ -547,7 +583,7 @@ input[type="text"]::placeholder {
   padding: 10px 15px 10px 15px;
 }
 .reg_div_height{
-  height: 670px;
+  height: 812px;
   padding: 0;
 }
 
@@ -925,7 +961,7 @@ img-style{
 }
 .bg-img{
   background-image: url("../src/image/bgImg.png");
-  height: 270px;
+  height: 370px;
   background-size: cover;
   margin: 20px auto -16px;
   background-repeat: no-repeat;
@@ -1073,4 +1109,31 @@ label span input {
 
 .akeru-primary{
   color:#D0E1CC !important;
+}
+.badge{
+  border-radius: 0px !important;
+  font-weight: 500 !important;
+}
+
+.table-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.table-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.table-dropdown:hover .table-dropdown-content {
+  display: block;
+}
+.btn{
+  border-radius: 8px !important;
+  padding: 10px 20px;
 }

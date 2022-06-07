@@ -141,7 +141,7 @@ function Login() {
                 );
               })}
             </div>
-            <div className=" btn_style d-flex justify-content-center">
+            <div className="btn_style d-flex justify-content-center">
               <button className="login w900">Sign in</button>
             </div>
           </form>

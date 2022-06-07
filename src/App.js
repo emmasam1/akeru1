@@ -10,6 +10,7 @@ import Request from "./components/Request";
 import RequestNext from "./components/RquestNext";
 import Proflie from "./components/Profile";
 import Partner from "./components/Partner";
+import HowItWorks from "./components/HowItWorks";
 import Ongoing from "./components/Ongoing";
 import Current from "./components/Current";
 import Pending from "./components/Pending";
@@ -36,6 +37,7 @@ function App() {
         <Route path="/request" element={<Request />} />
         <Route path="/detail" element={<RequestNext />} />
         <Route path="/partner" element={<Partner />} />
+        <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/profile" element={<Proflie />}>
           <Route path="" element={<Current />} />
           <Route path="ongoing" element={<Ongoing />} />

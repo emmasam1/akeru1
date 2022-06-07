@@ -23,10 +23,9 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 m_auto">
               <Link
-                to="/"
+                to="/how-it-works"
                 className="nav_margin link-dark text-decoration-none fw-bold fs-small"
               >
-                {" "}
                 How it works
               </Link>
 

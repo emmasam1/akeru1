@@ -25,7 +25,7 @@ function Home() {
         <div className="main_width position-absolute">
           <div className="position-relative">
             <div className="row hero_pad_top">
-              <div className="col col-sm-6">
+              <div className=" col-md-6">
                 <div className="mw100">
                   <p className="hero_p_top_text m-0 w900 mw100">
                     Get a response within 1 minute
@@ -36,7 +36,7 @@ function Home() {
                   </p>
                 </div>
               </div>
-              <div className="col col-sm-6 d-flex justify-content-end d-flex-justify-content-center">
+              <div className=" col-md-6 d-flex justify-content-end d-flex-justify-content-center">
                 <form>
                 <div className="my_card">
                   <input type="text" placeholder="Pick up:"className="input-home"/>
@@ -144,7 +144,7 @@ function Home() {
             </div>
           </div>
 
-          <div className="col display">
+          <div className="col-lg-6 col-md-6 col-sm-6 display">
             <div className='position-absolute w90'>
             <img src={truck} alt="truck" className="truck" />
             <div className="lower_truck_div">
@@ -228,15 +228,15 @@ function Home() {
         <div className="footer_h2_holder">
           <h2>Do you own a Truck? Join us and start earning</h2>
         </div>
-        <div style={{ width: "400px" }} className="own_item_holder">
-          <div className="d-flex justify-left">
-          <span className="m-2"><i class="bi bi-check-square-fill akeru-primary m-1"></i> No obligation</span>
-          <span  className="m-2"> <i class="bi bi-check-square-fill akeru-primary m-1"></i>Full features</span>
+        <div className="own_item_holder container ">
+          <div className="row justify-left">
+            <span className="col-md-6"><i class="bi bi-check-square-fill akeru-primary m-1"></i> No obligation</span>
+            <span className="col-md-6"> <i class="bi bi-check-square-fill akeru-primary m-1"></i>Full features</span>
           </div>
-
-          <div className="d-flex justify-left">
-            <span  className="m-2"><i class="bi bi-check-square-fill akeru-primary m-1"></i>Instant payout </span>
-            <span  className="m-2"><i class="bi bi-check-square-fill akeru-primary m-1"></i> Reporting dashboard</span> 
+          
+          <div className="row justify-left mt-2">
+            <span className="col-md-6"><i class="bi bi-check-square-fill akeru-primary m-1"></i>Instant payout </span>
+            <span className="col-md-6"><i class="bi bi-check-square-fill akeru-primary m-1"></i> Reporting dashboard</span>
           </div>
         </div>
         <div className="join_btn_holder">

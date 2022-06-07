@@ -3,6 +3,17 @@
       overflow: hidden;
     }
   }
+
+  @media  (max-width: 900px) and (-webkit-device-pixel-ratio: 2)  {
+   
+    .how_it_works_cols{
+      text-align: center !important;
+    }
+    .how_it_works_col_title{
+      text-align: center;
+    }
+   
+  }
   
   @media only screen and (min-width: 481px) and (max-width: 575px) and (-webkit-device-pixel-ratio: 2)  {
     /* .w90{
@@ -546,7 +557,7 @@
     .own_truck{
       flex-direction: column;
       width: 95% !important;
-      height: 200px;
+      height: 300px;
     }
     .footer_h2_holder{
       width: 255px;
