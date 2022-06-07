@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../image/akeru.png";
 import { Link } from "react-router-dom";
 
 function Navbar() {
-  const [user, setUset] = useState()
+  const [user, setUser] = useState()
+  useEffect(() => {
+    let user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      setUser(user);
+    }
+  }, []);
   return (
     <div className="fixed-top bg-white nav-container">
        <nav className="navbar navbar-expand-lg navbar-light bg-white main_width fixed-top sm_nav_width">
@@ -46,12 +52,17 @@ function Navbar() {
               </Link>
             </ul>
             <div className="d-flex nav_flex_direction">
-              <Link
+               {user ? <Link
+                to="/#"
+                className="nav_margin link-dark text-decoration-none fw-bold fs-small nav_link_padding"
+              >
+                Logout
+              </Link> : <Link
                 to="/signin"
                 className="nav_margin link-dark text-decoration-none fw-bold fs-small nav_link_padding"
               >
                 Login
-              </Link>
+              </Link>}
               <Link
                 to="/register"
                 className="link_border_style nav_margin register_link link-dark sm-margin_nav text-decoration-none fw-bold fs-small m-0"

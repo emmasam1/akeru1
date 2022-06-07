@@ -7,7 +7,6 @@ import google from "../image/google.png";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ROUTE from "../route.json";
-import Proflie from './Profile';
 function Login() {
 
   const navigate = useNavigate();
@@ -37,6 +36,7 @@ function Login() {
             setTimeout(() => {
               setError(<div className="error_green">Login successfull</div>);
             }, 5000);
+            localStorage.setItem('user', JSON.stringify(res.data));
             navigate('/Profile');
             // console.log("success");
           }

@@ -1,5 +1,4 @@
 import React from "react";
-import user from "../image/user.png";
 import { Link, Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';

@@ -45,7 +45,7 @@ function DashRequest() {
           console.log(res.data)
           if (res.data.type === "SUCCESS") {
             axios.get(ROUTE.DRIVERS).then(function (res) {
-              let drivers = res
+              //let drivers = res
               setDrivers(res)
               setShowResults(true)
               //console.log(driver.data.data);
