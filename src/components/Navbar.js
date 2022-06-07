@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../image/akeru.png";
 import { Link } from "react-router-dom";
+
 function Navbar() {
+  const [user, setUset] = useState()
   return (
     <div className="fixed-top bg-white nav-container">
        <nav className="navbar navbar-expand-lg navbar-light bg-white main_width fixed-top sm_nav_width">
