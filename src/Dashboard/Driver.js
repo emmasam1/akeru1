@@ -12,7 +12,6 @@ function Driver() {
         let driverInfo = res.data.data;
         if(!driverInfo){
           setIsLoading(true)
-          console.log("i am here");
         }else{
           setIsLoading(false)
           setDriverInfo(driverInfo);
