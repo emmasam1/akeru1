@@ -20,7 +20,10 @@
 body{
   font-family: "Inter", sans-serif;
 }
-
+.btn-logout{
+  font-size: 14.4px;
+  margin: 0 10px 0 0;
+}
 .error{
   color: red;
   font-size: 10px;
@@ -455,7 +458,7 @@ text-align: left;
   width: 70px;
 }
 .footer_col_holder{
-  width: 50%;
+  width: 458px;
 }
 .footer_h6{
   font-size: 14px;
@@ -464,13 +467,9 @@ text-align: left;
 .footer_li{
   color: var(--whiteColor) !important;
   font-size: 14px;
-  width: 100%;
+  width: 100px;
   list-style: none;
   line-height: 2;
-}
-.footer-link{
-text-decoration: none !important;
-color: var(--whiteColor) !important;
 }
 .footer_h2_holder{
   width: 337px;

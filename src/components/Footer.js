@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 import fl from "../image/footerlogo.png";
 
 function Footer() {
@@ -15,8 +14,8 @@ function Footer() {
               <div className="col my_col_settings col-footer">
                 <h6 className="footer_h6">Services</h6>
                 <li className="footer_li">Routes</li>
-                <li className="footer_li"><Link className='footer-link' to="/how-it-works">How It Works</Link></li>
-                <li className="footer_li"> <Link className='footer-link' to="/request">Request haulage</Link></li>
+                <li className="footer_li">How it works</li>
+                <li className="footer_li">Request haulage</li>
               </div>
               <div className="col my_col_settings col-footer">
                 <h6 className="footer_h6">Legal</h6>

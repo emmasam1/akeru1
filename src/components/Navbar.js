@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import logo from "../image/akeru.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
+
+  const navigate = useNavigate();
+
   const [user, setUser] = useState()
   useEffect(() => {
     let user = JSON.parse(localStorage.getItem('user'));
@@ -10,6 +13,13 @@ function Navbar() {
       setUser(user);
     }
   }, []);
+
+  const handleLogout = () => {
+    window.localStorage.clear();
+    navigate('/');
+  }
+
+
   return (
     <div className="fixed-top bg-white nav-container">
        <nav className="navbar navbar-expand-lg navbar-light bg-white main_width fixed-top sm_nav_width">
@@ -52,12 +62,10 @@ function Navbar() {
               </Link>
             </ul>
             <div className="d-flex nav_flex_direction">
-               {user ? <Link
-                to="/#"
-                className="nav_margin link-dark text-decoration-none fw-bold fs-small nav_link_padding"
-              >
+               {user ? <button onClick={handleLogout} className="btn border-0 w900 btn-logout">
+               
                 Logout
-              </Link> : <Link
+               </button> : <Link
                 to="/signin"
                 className="nav_margin link-dark text-decoration-none fw-bold fs-small nav_link_padding"
               >
