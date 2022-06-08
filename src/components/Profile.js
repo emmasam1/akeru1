@@ -1,13 +1,18 @@
 import React from "react";
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet ,useNavigate} from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Underconstruction from './Underconstruction';
 function Proflie() {
   const [image, setImage] = React.useState([]);
   const [imageURL, setImageURL] = React.useState([]);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
+    if(localStorage.getItem('user')==null){
+      navigate('/signin');
+    }
+
     if (image.lenght < 1) return;
     const newImageurl = [];
     image.forEach((img) => newImageurl.push(URL.createObjectURL(img)));

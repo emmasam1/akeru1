@@ -21,7 +21,6 @@ function Login() {
   const handSubmit = (e) => {
     e.preventDefault();
     const isValid = formValidation();
-
     if (isValid) {
       axios
         .post(ROUTE.LOGIN, { email, passwd })
