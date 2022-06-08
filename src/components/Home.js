@@ -230,13 +230,13 @@ function Home() {
         </div>
         <div className="own_item_holder container ">
           <div className="row justify-left">
-            <span className="col-md-6"><i class="bi bi-check-square-fill akeru-primary m-1"></i> No obligation</span>
-            <span className="col-md-6"> <i class="bi bi-check-square-fill akeru-primary m-1"></i>Full features</span>
+            <span className="col-md-6"><i className="bi bi-check-square-fill akeru-primary m-1"></i> No obligation</span>
+            <span className="col-md-6"> <i className="bi bi-check-square-fill akeru-primary m-1"></i>Full features</span>
           </div>
           
           <div className="row justify-left mt-2">
-            <span className="col-md-6"><i class="bi bi-check-square-fill akeru-primary m-1"></i>Instant payout </span>
-            <span className="col-md-6"><i class="bi bi-check-square-fill akeru-primary m-1"></i> Reporting dashboard</span>
+            <span className="col-md-6"><i className="bi bi-check-square-fill akeru-primary m-1"></i>Instant payout </span>
+            <span className="col-md-6"><i className="bi bi-check-square-fill akeru-primary m-1"></i> Reporting dashboard</span>
           </div>
         </div>
         <div className="join_btn_holder">
