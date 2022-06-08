@@ -39,9 +39,9 @@ function Partner() {
                   <h1 className="hero_h1_text">
                   Become an <br/> Akeru’s partner
                   </h1>
-                  <p className="hero_p_bottom_text pt-1">
+                  {/* <p className="hero_p_bottom_text pt-1">
                     Download the app and start earning
-                  </p>
+                  </p> */}
                   <div className="d-flex justify-left">
                     <span className="m-2"><i class="bi bi-check2 m-1"></i> Instant pay out</span>
                     <span className="m-2"> <i class="bi bi-check2 m-1"></i>Competitive pricing</span>
