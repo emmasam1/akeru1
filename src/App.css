@@ -455,7 +455,7 @@ text-align: left;
   width: 70px;
 }
 .footer_col_holder{
-  width: 458px;
+  width: 50%;
 }
 .footer_h6{
   font-size: 14px;
@@ -464,9 +464,13 @@ text-align: left;
 .footer_li{
   color: var(--whiteColor) !important;
   font-size: 14px;
-  width: 100px;
+  width: 100%;
   list-style: none;
   line-height: 2;
+}
+.footer-link{
+text-decoration: none !important;
+color: var(--whiteColor) !important;
 }
 .footer_h2_holder{
   width: 337px;
