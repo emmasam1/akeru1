@@ -240,6 +240,7 @@
     }
     .join_img_holder img{
       width: 40px;
+      object-fit: contain;
     }
     .rmp{
       padding: 0 0 0 0 !important;
