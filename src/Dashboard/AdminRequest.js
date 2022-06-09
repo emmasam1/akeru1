@@ -3,26 +3,31 @@ import { NavLink } from "react-router-dom";
 import ROUTE from "../route.json";
 import axios from "axios";
 import Loader from "./Loader";
+import Modal from "./Modal";
 function Request() {
   const [isLoading, setIsLoading] = useState(false);
   const [modal, setModal] = useState(false);
 
-  const [requestData, setRequestData] =useState([])
+  const [requestData, setRequestData] = useState([])
   useEffect(()=>{
     axios.get(ROUTE.REQUEST)
     .then((res) => {
       let requestData = res.data.data
-      if(requestData){
-        setRequestData(requestData)
-        console.log('hear');  
-      }else{
+      if(!requestData){
         setIsLoading(true) 
+        console.log("waitung for data");
+      }else{
+        setRequestData(requestData) 
       }
     })
     .catch((err) => {
       console.log(err);
     })
   },[])
+
+  const closeModal = (props) => {
+    setModal(false)
+  }
 
   return (
     <>
@@ -70,8 +75,8 @@ function Request() {
               </NavLink>
             </div>
 
-            <div className="request-modal"></div>
-
+           
+            
       <table className="table table-hover  mt-4">
         <thead className="table-dark">
           <tr>
@@ -92,7 +97,7 @@ function Request() {
         <tbody className="position-relative">
          {isLoading ? <Loader /> : requestData.map((e, i) =>{
            return(
-             <tr key={e.user_id}>
+             <tr key={e.user_id} id={e.user_id}>
                <td>{i + 1}</td>
                <td>{e.pick_up}</td>
                <td>{e.drop_off}</td>
@@ -109,13 +114,15 @@ function Request() {
                     <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                       <div className="table-dropdown-content r-0">
                         {e.approved?null:<a href="#" className="btn">Assign</a>}
-                        <button className="btn" onClick={()=>{setModal(true)}}>Set qoute</button>
+                        <button className="btn" onClick={()=>{setModal(true, e.user_id)}}>Set qoute</button>
                       </div>
                     </div>
+                    {modal ? <Modal closeModal={closeModal}/> : null}
                 </td>
              </tr>
            )
          })}
+        
         </tbody>
       </table>
     </div>
