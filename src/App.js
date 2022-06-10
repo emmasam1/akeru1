@@ -21,6 +21,7 @@ import Bank from "./components/Bank";
 import Dashboard from "./Dashboard/Dashboard";
 import DashboardHome from "./Dashboard/DashboardHome";
 import AdminRequest from "./Dashboard/AdminRequest";
+import AllClients from "./Dashboard/AllClients";
 import Trucks from "./Dashboard/Trucks";
 import Newrequest from "./Dashboard/Newrequest";
 import DashRequest from "./Dashboard/DashRequest";
@@ -50,13 +51,15 @@ function App() {
           <Route path="bank-transfer" element={<Bank />} />
         </Route>
         <Route path="/admin-dashboard" element={<Dashboard />}>
-          <Route path="" element={<DashboardHome />}>
-            <Route path="" element={<Newrequest />} />
+            <Route path="index" element={<DashboardHome />}>
+            <Route path="index" element={<Newrequest />} />
           </Route>
           <Route path="request" element={<AdminRequest />} />
           <Route path="trucks" element={<Trucks />} />
           <Route path="new-request" element={<DashRequest />} />
           <Route path="drivers" element={<Driver />} />
+          <Route path="customers" element={<AllClients />} />
+          
         </Route>
       </Routes>
     </>

@@ -5,6 +5,7 @@
     "LOGIN" : "https://peaceful-atoll-40814.herokuapp.com/accounts/login/client",
     "REQUEST" : "https://peaceful-atoll-40814.herokuapp.com/requests",
     "DRIVERS" : "https://peaceful-atoll-40814.herokuapp.com/drivers",
+    "CLIENTS" : "https://peaceful-atoll-40814.herokuapp.com/clients",
     "ASSIGN" : "https://peaceful-atoll-40814.herokuapp.com/request/assign",
     "APPROVE" : "https://peaceful-atoll-40814.herokuapp.com/accounts/approve"
 

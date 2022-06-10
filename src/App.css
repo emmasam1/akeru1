@@ -1,5 +1,6 @@
 :root {
   --bottonColor: #d0e1cc;
+  --primaryColor:#d0e1cc;
   --linkColor: #000;
   --heroColo: rgba(22, 103, 2, 0.2);
   --trangleColor: rgb(22 103 2 / 5%);
@@ -1146,3 +1147,4 @@ label span input {
   border-radius: 8px !important;
   padding: 10px 20px;
 }
+

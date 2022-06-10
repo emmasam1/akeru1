@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import dot from "../image/dots.svg";
 import driver from "../image/driver.svg";
@@ -7,23 +7,30 @@ import setting from "../image/Setting.svg";
 import cart from "../image/cart.svg";
 import user from "../image/User.svg";
 import akeru from '../image/footerlogo.png'
+
+
+
 function Sidebar() {
+  const [active, setActive] = useState("index");
+
   return (
     <div className="sidebar d-flex flex-column pl-3 position-fixed">
       
       <div className="position-relative mt">
         <Link
-          to="/admin-dashboard"
-          className="d-flex link-color text-decoration-none link-p font14 mb"
+          to="/admin-dashboard/index"
+          onClick={()=>setActive("index")}
+          className={`d-flex link-color text-decoration-none link-p font14 mb ${active=="index"?"dash-active":""} `}
         >
           <span>
             <img src={dot} alt="icon" className="img-fix" />
           </span>{" "}
-          Dashboard
+          Dashboard 
         </Link>
         <Link
           to="/admin-dashboard/request"
-          className="d-flex link-color text-decoration-none link-p font14 mb"
+          onClick={()=>setActive("request")}
+          className={`d-flex link-color text-decoration-none link-p font14 mb ${active=="request"?"dash-active":""} `}
         >
           <span>
             <img src={cart} alt="icon" className="img-fix" />
@@ -32,7 +39,8 @@ function Sidebar() {
         </Link>
         <Link
           to="/admin-dashboard/trucks"
-          className="d-flex link-color text-decoration-none link-p font14 mb"
+          onClick={()=>setActive("trucks")}
+          className={`d-flex link-color text-decoration-none link-p font14 mb ${active=="trucks"?"dash-active":""} `}
         >
           <span>
             <img src={truck} alt="icon" className="img-fix" />
@@ -41,7 +49,8 @@ function Sidebar() {
         </Link>
         <Link
           to="/admin-dashboard/drivers"
-          className="d-flex link-color text-decoration-none link-p font14 mb"
+          onClick={()=>setActive("drivers")}
+          className={`d-flex link-color text-decoration-none link-p font14 mb ${active=="drivers"?"dash-active":""} `}
         >
           <span>
             <img src={driver} alt="icon" className="img-fix" />
@@ -49,8 +58,9 @@ function Sidebar() {
           Drivers
         </Link>
         <Link
-          to="#"
-          className="d-flex link-color text-decoration-none link-p font14 mb"
+          to="/admin-dashboard/customers"
+          onClick={()=>setActive("customers")}
+          className={`d-flex link-color text-decoration-none link-p font14 mb ${active=="customers"?"dash-active":""} `}
         >
           <span>
             <img src={user} alt="icon" className="img-fix" />
@@ -59,7 +69,8 @@ function Sidebar() {
         </Link>
         <Link
           to="/admin-dashboard/settings"
-          className="d-flex link-color text-decoration-none link-p font14 mb"
+          onClick={()=>setActive("settings")}
+          className={`d-flex link-color text-decoration-none link-p font14 mb ${active=="settings"?"dash-active":""} `}
         >
           <span>
             <img src={setting} alt="icon" className="img-fix" />
