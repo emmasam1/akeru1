@@ -22,10 +22,10 @@ function SetQuoteModal(props) {
       <div className="request-modal">
         <i className="bi bi-x-lg close-icon" onClick={() => props.closeModal()}></i>
         <div className="d-flex justify-content-between flex-mobile-d ">
-          <div className="g-col-6 grid-left p-3 bg-white rounded reqNext h400">
+          <div className="g-col-6 dash-grid-left p-3 bg-white rounded reqNext h400">
             <h1 className="text-center req_h1">Request Data</h1>
             <p className="text-center req_first_p pt-2 w900">
-              <span>{props.data.pickup} </span> &nbsp;{" "}
+              <span>{props.data.pick_up} </span> &nbsp;{" "}
               <img src={arrow} alt="icon" /> &nbsp;{" "}
               <span>{props.data.drop_off}</span>
             </p>
@@ -38,7 +38,7 @@ function SetQuoteModal(props) {
             
            
           </div>
-          <div className="g-col-6 grid-right rounded bg-white p-3 reqNext h345">
+          <div className="g-col-6 right-grid-right rounded bg-white p-3 reqNext h345">
             <h4 className="text-center w900 req_h4 mb-4">40 T0N TRUCK</h4>
             <div className="border-bottom border-2 mb-3">
               <div className="d-flex justify-content-between ">
@@ -85,7 +85,7 @@ function SetQuoteModal(props) {
                 to="/payment"
                 className="link-dark text-decoration-none milestone_link pt-1 w-170 pro_p w900 p-0"
               >
-                Udpate Request Quote 
+                Update Request Quote 
               </Link>
             </div>
 

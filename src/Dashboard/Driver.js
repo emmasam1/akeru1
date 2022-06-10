@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ROUTE from "../route.json";
 import Loader from "./Loader";
+import EditUser from "./Dash-Components/EditUser";
 function Driver() {
   const [driverInfo, setDriverInfo] = useState([]);
+  const [aUser, setAuser] = useState({})
   const [isLoading, setIsLoading] = useState(false);
+  const [ modal, setModal] = useState(false)
   useEffect(() => {
     axios
       .get(ROUTE.DRIVERS)
@@ -22,11 +25,18 @@ function Driver() {
       });
   }, []);
 
+  const handleEdit = (row) => {
+    setModal(true)
+    console.log(row)
+  }
+
   return (
     <div className="p-3 position-relative left-width-home left-width">
       <h3>All Drivers</h3>
       <div className="card">
         <div className="card-body">
+
+          {modal ? <EditUser aUser={aUser.data}/> : null}
 
           <table className="table table-hover  mt-4">
             <thead className="table-dark">
@@ -59,10 +69,9 @@ function Driver() {
                       <div className="table-dropdown">
                         <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                         <div className="table-dropdown-content">
-                          {e.approved?null:<a href="#" className="btn">Approve</a>}
-                          <a href="#" className="btn">Edit</a>
-                          <a href="#" className="btn">Delete</a>
-                          
+                          {e.approved?null:<button className="btn">Approve</button>}
+                          <button className="btn" onClick={()=>{handleEdit(e); setAuser(e)}} data-e={e}>Edit</button>
+                          <button className="btn">Delete</button>
                         </div>
                       </div>
                     </td>

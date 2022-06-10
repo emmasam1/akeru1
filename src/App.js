@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import "./Responsive.css";
 import Home from "./components/Home";
-import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Request from "./components/Request";
@@ -26,7 +25,8 @@ import Trucks from "./Dashboard/Trucks";
 import Newrequest from "./Dashboard/Newrequest";
 import DashRequest from "./Dashboard/DashRequest";
 import Notfound from "./components/Notfound";
-import Driver from "./Dashboard/Driver"
+import Driver from "./Dashboard/Driver";
+import Pro from "./Dashboard/InexNewRequest";
 
 function App() {
   return (
@@ -51,7 +51,8 @@ function App() {
           <Route path="bank-transfer" element={<Bank />} />
         </Route>
         <Route path="/admin-dashboard" element={<Dashboard />}>
-            <Route path="index" element={<DashboardHome />}>
+          <Route path="index" element={<DashboardHome />}>
+          <Route path="" element={<Pro />} />
             <Route path="index" element={<Newrequest />} />
           </Route>
           <Route path="request" element={<AdminRequest />} />
@@ -59,7 +60,6 @@ function App() {
           <Route path="new-request" element={<DashRequest />} />
           <Route path="drivers" element={<Driver />} />
           <Route path="customers" element={<AllClients />} />
-          
         </Route>
       </Routes>
     </>
