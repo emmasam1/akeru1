@@ -11,9 +11,9 @@ function Modal(props) {
           <div className="g-col-6 grid-left p-3 bg-white rounded reqNext h400">
             <h1 className="text-center req_h1">Your request summary</h1>
             <p className="text-center req_first_p pt-2 w900">
-              <span>Garki</span> &nbsp;{" "}
+              <span>{props.data.pickup} </span> &nbsp;{" "}
               <img src={arrow} alt="icon" /> &nbsp;{" "}
-              <span>Kado Market Abuja</span>
+              <span>{props.data.drop_off}</span>
             </p>
             <p className="text-center text-muted t-13 w900">March 17, 2022</p>
             <p className="text-center text-muted t-13 w900">

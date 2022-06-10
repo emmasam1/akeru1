@@ -14,6 +14,7 @@
   --profileImageHolder: #C4C4C4;
   --proProgressPending: #D0E1CC;
   --proCompleted: #F5F8FA;
+
   --tableHeaderColor: #F3F6F9;
 
 }
@@ -1110,8 +1111,12 @@ label span input {
   padding: 14px 24px;
 }
 
-.akeru-primary{
+.akeru-text-primary{
   color:#D0E1CC !important;
+}
+
+.akeru-bg-primary{
+  background-color:#D0E1CC !important;
 }
 .badge{
   border-radius: 0px !important;

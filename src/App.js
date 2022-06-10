@@ -23,6 +23,7 @@ import DashboardHome from "./Dashboard/DashboardHome";
 import AdminRequest from "./Dashboard/AdminRequest";
 import Trucks from "./Dashboard/Trucks";
 import Newrequest from "./Dashboard/Newrequest";
+import DashRequest from "./Dashboard/DashRequest";
 import Notfound from "./components/Notfound";
 import Driver from "./Dashboard/Driver"
 
@@ -54,6 +55,7 @@ function App() {
           </Route>
           <Route path="request" element={<AdminRequest />} />
           <Route path="trucks" element={<Trucks />} />
+          <Route path="new-request" element={<DashRequest />} />
           <Route path="drivers" element={<Driver />} />
         </Route>
       </Routes>

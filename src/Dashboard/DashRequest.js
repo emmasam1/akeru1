@@ -110,13 +110,13 @@ function DashRequest() {
   return (
     <div>
       <div className="p-3 position-relative left-width">
-        <div className="d-flex mb-1">
+        {/* <div className="d-flex mb-1">
           <h1 className="truck-text">Total orders (402)</h1>
           <div className="d-flex bg-white rounded dash-input-holder">
             <img src={search} alt="icon" />
             <input className="border-0" />
           </div>
-        </div>
+        </div> */}
 
         <div>
     </div>
@@ -124,7 +124,7 @@ function DashRequest() {
         <div className="container-fliud d-flex justify-content-around ">
       { showResults ? <Results drivers={drivers.data} handleClose={handleClose} handleChange={handleChange}/> : null }
           <div className="card_form_holder p-3 position-absolute mt-4">
-            <h1 className="text-center">Request a truck</h1>
+            <h1 className="text-center">Create A Request</h1>
           
             <form onSubmit={handSubmit}>
               <input
@@ -259,7 +259,7 @@ function DashRequest() {
                   Request quote
                 </Link>
               </div> */}
-              <button className="my_btn">Request quote</button>
+              <button className="my_btn">Create Request</button>
             </form>
           </div>
         </div>

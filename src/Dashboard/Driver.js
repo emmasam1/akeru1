@@ -60,7 +60,9 @@ function Driver() {
                         <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                         <div className="table-dropdown-content">
                           {e.approved?null:<a href="#" className="btn">Approve</a>}
+                          <a href="#" className="btn">Edit</a>
                           <a href="#" className="btn">Delete</a>
+                          
                         </div>
                       </div>
                     </td>
