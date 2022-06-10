@@ -19,7 +19,7 @@ function Sidebar() {
           <span>
             <img src={dot} alt="icon" className="img-fix" />
           </span>{" "}
-          Dashborad
+          Dashboard
         </Link>
         <Link
           to="/admin-dashboard/request"
@@ -28,7 +28,7 @@ function Sidebar() {
           <span>
             <img src={cart} alt="icon" className="img-fix" />
           </span>
-          Request
+          Requests
         </Link>
         <Link
           to="/admin-dashboard/trucks"
