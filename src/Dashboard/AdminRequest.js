@@ -19,7 +19,7 @@ function Request() {
   const [drivers, setDrivers] = useState([])
   const [requestData, setRequestData] = useState([])
    const [refreshKey, setRefreshKey] = useState(0);
-   const [selectedIndex, setSelectedIndex] = useState(0);
+ 
   useEffect(() => {
     setIsLoading(true)
     axios.get(ROUTE.REQUEST + `?page=${paginate.page}&limit=${paginate.limit}&type=all_time`)
@@ -95,7 +95,14 @@ function Request() {
   }
 
   const deleteData=()=>{
-    alert(selectedIndex)
+    axios.delete(ROUTE.REQUEST+`/${aRequest.request_id}`)
+      .then((res) => {
+        alert(res.data.msg)
+        refreshPageData()
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   }
 
   const refreshPageData=()=>{
@@ -218,7 +225,7 @@ function Request() {
                           <div className="table-dropdown-content r-0">
                             {e.amount <1 ? null : <button className="btn" onClick={() => {setARequest(e); setAssignModal(true); }}>Assign</button>}
                             <button className="btn" onClick={() => { setARequest(e); setModal(true); }}>Set qoute</button>
-                            <button className="btn text-danger" onClick={() => { setARequest(e); setSelectedIndex(i); setDeleteModal(true); }}>Delete</button>
+                            <button className="btn text-danger" onClick={() => { setARequest(e);  setDeleteModal(true); }}>Delete</button>
 
                           </div>
                         </div>
@@ -232,7 +239,8 @@ function Request() {
             </table>
             {modal ? <SetQuoteModal closeModal={closeModal} data={aRequest} refresh={refreshPageData} /> : null}
             {assignModal ? <AssignDriverModal closeModal={closeModal} drivers={drivers} request={aRequest} refresh={refreshPageData} /> : null}
-            {deleteModal ? <DeleteModal closeModal={closeModal} deleteMethod={deleteData}  refresh={refreshPageData} /> : null}
+            {deleteModal ? <DeleteModal closeModal={closeModal} deleteMethod={deleteData}  refresh={refreshPageData}  
+            title="Delete Request?" descp="Are you sure you want to delete this request?"/> : null}
 
             <nav aria-label="Page navigation example">
               <ul class="pagination">
@@ -249,6 +257,9 @@ function Request() {
 
               </ul>
             </nav>
+            <br/>
+            <br/>
+            <br/>
           </div>
         </div>
       </div>

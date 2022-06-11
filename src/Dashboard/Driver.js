@@ -4,12 +4,16 @@ import ROUTE from "../route.json";
 import Loader from "./Loader";
 import EditUser from "./Dash-Components/EditUser";
 import ApproveModal from "./Dash-Components/ApproveModal";
+import DeleteModal from "./Dash-Components/DeleteModal";
 function Driver() {
   const [driverInfo, setDriverInfo] = useState([]);
   const [aUser, setAuser] = useState({})
   const [isLoading, setIsLoading] = useState(false);
   const [ modal, setModal] = useState(false)
   const [approve, setApprove] = useState(false)
+  const [deleteModal, setDeleteModal] = useState(false);
+  const [refreshKey, setRefreshKey] = useState(0);
+
   useEffect(() => {
     setIsLoading(true)
     axios
@@ -26,11 +30,27 @@ function Driver() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [refreshKey]);
+
+  const deleteData=()=>{
+    axios.delete(ROUTE.DRIVERS+`/${aUser.driver_id}`)
+      .then((res) => {
+        alert(res.data.msg)
+        refreshPageData()
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
 
   const handleClose = () => {
     setModal(false)
     setApprove(false)
+    setDeleteModal(false)
+  }
+
+  const refreshPageData=()=>{
+    setRefreshKey(refreshKey => refreshKey +1)
   }
 
   return (
@@ -41,6 +61,8 @@ function Driver() {
 
           {modal ? <EditUser data={aUser} handleClose={handleClose}/> : null}
           {approve ? <ApproveModal  data={aUser}  handleClose={handleClose}/> : null}
+          {deleteModal ? <DeleteModal closeModal={handleClose} deleteMethod={deleteData}  refresh={refreshPageData}
+           title="Delete Driver?" descp="Are you sure you want to delete this driver?" /> : null}
 
           <table className="table table-hover  mt-4">
             <thead className="table-dark">
@@ -75,7 +97,7 @@ function Driver() {
                         <div className="table-dropdown-content">
                           {e.approved?null:<button className="btn" onClick={()=>{setApprove(true); setAuser(e)}}>Approve</button>}
                           <button className="btn" onClick={()=>{setModal(true); setAuser(e)}}>Edit</button>
-                          <button className="btn">Delete</button>
+                          <button className="btn text-danger" onClick={() => { setAuser(e);  setDeleteModal(true); }}>Delete</button>
                         </div>
                       </div>
                     </td>
@@ -84,6 +106,9 @@ function Driver() {
               })}
             </tbody>
           </table>
+          <br/>
+            <br/>
+            <br/>
         </div>
       </div>
     </div>
