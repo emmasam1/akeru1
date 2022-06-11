@@ -3,6 +3,22 @@
   right: 0;
   z-index: 1;
 }
+.dash-grid-right{
+  width: 432px;
+}
+.user-modal{
+  background-color: white;
+  height: 300px;
+  width: 300px;
+}
+.dash-grid-left{
+  width: 550px;
+  margin: 0 11px 0 10px;
+}
+.sub-nav{
+  height: 40px;
+  padding: 5px 0 0 0;
+}
 .overlay{
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 10;
