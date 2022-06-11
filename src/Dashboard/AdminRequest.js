@@ -99,6 +99,8 @@ function Request() {
   }
 
 
+
+
   return (
     <>
       <div className="p-3 position-relative left-width-home left-width">
@@ -210,7 +212,7 @@ function Request() {
                         <div className="table-dropdown">
                           <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                           <div className="table-dropdown-content r-0">
-                            {e.approved ? null : <button className="btn" onClick={() => { setAssignModal(true); }}>Assign</button>}
+                            {e.approved ? null : <button className="btn" onClick={() => {setARequest(e); setAssignModal(true); }}>Assign</button>}
                             <button className="btn" onClick={() => { setARequest(e); setModal(true); }}>Set qoute</button>
                             <button className="btn text-danger" onClick={() => { setARequest(e); setSelectedIndex(i); setDeleteModal(true); }}>Delete</button>
 
@@ -225,7 +227,7 @@ function Request() {
               </tbody>
             </table>
             {modal ? <SetQuoteModal closeModal={closeModal} data={aRequest} /> : null}
-            {assignModal ? <AssignDriverModal closeModal={closeModal} drivers={drivers} /> : null}
+            {assignModal ? <AssignDriverModal closeModal={closeModal} drivers={drivers} request={aRequest} /> : null}
             {deleteModal ? <DeleteModal closeModal={closeModal} deleteMethod={deleteData}  /> : null}
 
             <nav aria-label="Page navigation example">

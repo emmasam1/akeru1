@@ -1,19 +1,33 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import arrow from "../../image/Arrow.png";
+import ROUTE from "../../route.json";
+import axios from "axios";
 
 function AssignDriverModal(props) {
 
   const [driver, setDriver] = useState({});
 
   const setDriverDetails=(index)=>{
-    console.log(props.drivers[index]);
     setDriver(props.drivers[index])
   }
 
-  const deleteRequest=(data)=>{
-
-  }
+ const  assignRequest=()=>{
+   if(driver.driver_id){
+   
+    let data ={  "request_id":props.request.request_id,  "driver_id":driver.driver_id }
+    axios.post(ROUTE.REQUEST+`/assign`, data)
+      .then((res) => {
+        console.log(res);
+        alert(res.data.msg)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+   }else{
+     alert("Please select a driver")
+   }
+ }
 
   return (
     <div className='overlay position-fixed d-flex align-self-center'>
@@ -50,7 +64,6 @@ function AssignDriverModal(props) {
                   {driver.firstname} {driver.lastname}
                 </p>
               </div>
-
               <div className="d-flex justify-content-between">
                 <p className="req_pro">Email</p>
                 <p className="req_pro_next">
@@ -70,18 +83,16 @@ function AssignDriverModal(props) {
                 </p>
               </div>
             </div>
-            
-
           </div>
         </div>
         <hr />
         <div className="d-flex justify-content-center mt-3  mb-3 m37">
-          <Link
-            to="/payment"
+          <button
+            onClick={()=>{assignRequest()}}
             className="link-dark text-decoration-none milestone_link pt-1 w-170 pro_p w900 p-0"
           >
             Assign Request
-          </Link>
+          </button>
         </div>
       </div>
     </div>
