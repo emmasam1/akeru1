@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function EditUser(props) {
   const [fName, setFName] = useState(props.data.firstname);
-  const [lName, setLName] = useState(props.data.lName);
+  const [lName, setLName] = useState(props.data.lastname);
   const [email, setEmail] = useState(props.data.email);
   const [phone, setPhone] = useState(props.data.phone);
   const [city, setCity] = useState(props.data.city);
