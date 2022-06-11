@@ -18,7 +18,7 @@ function Sidebar() {
       
       <div className="position-relative mt">
         <Link
-          to="/admin-dashboard/index"
+          to="/admin-dashboard"
           onClick={()=>setActive("index")}
           className={`d-flex link-color text-decoration-none link-p font14 mb ${active==="index"?"dash-active":""} `}
         >

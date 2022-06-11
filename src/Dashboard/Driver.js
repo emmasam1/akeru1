@@ -9,6 +9,7 @@ function Driver() {
   const [isLoading, setIsLoading] = useState(false);
   const [ modal, setModal] = useState(false)
   useEffect(() => {
+    setIsLoading(true)
     axios
       .get(ROUTE.DRIVERS)
       .then((res) => {
@@ -25,9 +26,8 @@ function Driver() {
       });
   }, []);
 
-  const handleEdit = (row) => {
-    setModal(true)
-    console.log(row)
+  const handleClose = () => {
+    setModal(false)
   }
 
   return (
@@ -36,7 +36,7 @@ function Driver() {
       <div className="card">
         <div className="card-body">
 
-          {modal ? <EditUser aUser={aUser.data}/> : null}
+          {modal ? <EditUser data={aUser} handleClose={handleClose}/> : null}
 
           <table className="table table-hover  mt-4">
             <thead className="table-dark">
@@ -70,7 +70,7 @@ function Driver() {
                         <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                         <div className="table-dropdown-content">
                           {e.approved?null:<button className="btn">Approve</button>}
-                          <button className="btn" onClick={()=>{handleEdit(e); setAuser(e)}} data-e={e}>Edit</button>
+                          <button className="btn" onClick={()=>{setModal(true); setAuser(e)}}>Edit</button>
                           <button className="btn">Delete</button>
                         </div>
                       </div>

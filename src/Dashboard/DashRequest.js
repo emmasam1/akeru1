@@ -109,7 +109,7 @@ function DashRequest() {
 
   return (
     <div>
-      <div className="p-3 position-relative left-width">
+      <div className="p-3 position-relative left-width left-width-home h100vh">
         {/* <div className="d-flex mb-1">
           <h1 className="truck-text">Total orders (402)</h1>
           <div className="d-flex bg-white rounded dash-input-holder">

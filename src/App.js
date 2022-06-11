@@ -51,9 +51,9 @@ function App() {
           <Route path="bank-transfer" element={<Bank />} />
         </Route>
         <Route path="/admin-dashboard" element={<Dashboard />}>
-          <Route path="index" element={<DashboardHome />}>
+          <Route path="" element={<DashboardHome />}>
           <Route path="" element={<Pro />} />
-            <Route path="index" element={<Newrequest />} />
+            <Route path="" element={<Newrequest />} />
           </Route>
           <Route path="request" element={<AdminRequest />} />
           <Route path="trucks" element={<Trucks />} />
