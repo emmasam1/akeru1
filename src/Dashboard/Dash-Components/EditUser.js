@@ -1,13 +1,38 @@
 import React, { useState } from "react";
+import ROUTE from "../../route.json";
+import axios from "axios";
 
 function EditUser(props) {
   const [fName, setFName] = useState(props.data.firstname);
   const [lName, setLName] = useState(props.data.lastname);
   const [email, setEmail] = useState(props.data.email);
   const [phone, setPhone] = useState(props.data.phone);
-  const [city, setCity] = useState(props.data.city);
+  const [city, setCity] =   useState(props.data.city);
 
-  const UpdateUser = (e) => {};
+  const updateUser = (e) => {
+    if(email!="" &&  email!=null){
+      let data={
+        "firstname": fName,
+        "lastname": lName,
+        "email": email,
+        "phone": phone,
+        "city": city,
+        "user_id":props.data.user_id
+    }
+    axios.put(ROUTE.DRIVERS, data)
+      .then((res) => {
+        console.log(res);
+        props.refresh()
+        alert(res.data.msg)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    }else{
+      alert("Provide drivers email before updating")
+    }
+
+  };
 
   return (
     <div className="overlay position-fixed d-flex justify-content-center">
@@ -53,7 +78,7 @@ function EditUser(props) {
             name="city"
           />
 
-          <button className="my_btn w900">Save</button>
+          <button className="my_btn w900" onClick={()=>updateUser()}>Update Driver</button>
         </form>
       </div>
     </div>
