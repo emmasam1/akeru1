@@ -52,7 +52,7 @@ function Request() {
 
   const updatePaginate = (data) => {
     setPaginate({ "page": data, "limit": paginate.limit, "pages":  paginate.pages, "total": paginate.total })
-    setRefreshKey(refreshKey => refreshKey +1)
+    refreshPageData()
   }
 
   const closeModal = (props) => {
@@ -96,6 +96,10 @@ function Request() {
 
   const deleteData=()=>{
     alert(selectedIndex)
+  }
+
+  const refreshPageData=()=>{
+    setRefreshKey(refreshKey => refreshKey +1)
   }
 
 
@@ -226,9 +230,9 @@ function Request() {
 
               </tbody>
             </table>
-            {modal ? <SetQuoteModal closeModal={closeModal} data={aRequest} /> : null}
-            {assignModal ? <AssignDriverModal closeModal={closeModal} drivers={drivers} request={aRequest} /> : null}
-            {deleteModal ? <DeleteModal closeModal={closeModal} deleteMethod={deleteData}  /> : null}
+            {modal ? <SetQuoteModal closeModal={closeModal} data={aRequest} refresh={refreshPageData} /> : null}
+            {assignModal ? <AssignDriverModal closeModal={closeModal} drivers={drivers} request={aRequest} refresh={refreshPageData} /> : null}
+            {deleteModal ? <DeleteModal closeModal={closeModal} deleteMethod={deleteData}  refresh={refreshPageData} /> : null}
 
             <nav aria-label="Page navigation example">
               <ul class="pagination">

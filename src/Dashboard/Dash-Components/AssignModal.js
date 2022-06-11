@@ -19,6 +19,7 @@ function AssignDriverModal(props) {
     axios.post(ROUTE.REQUEST+`/assign`, data)
       .then((res) => {
         console.log(res);
+        props.refresh()
         alert(res.data.msg)
       })
       .catch((err) => {

@@ -1,6 +1,8 @@
 import React ,{useState} from 'react'
 import { Link } from 'react-router-dom'
 import arrow from "../../image/Arrow.png";
+import ROUTE from "../../route.json";
+import axios from "axios";
 
 function SetQuoteModal(props) {
 
@@ -15,6 +17,23 @@ function SetQuoteModal(props) {
     let hr=newDate.getHours();
     let min=newDate.getMinutes();
     return `${year}-${month}-${day} ${hr}:${min}`;
+  }
+
+  const updateQuote =()=>{
+    if(amount!=""){
+      let data={ "request_id":props.data.request_id,  "amount":parseFloat(amount) }
+    axios.post(ROUTE.REQUEST+`/set-quote`, data)
+      .then((res) => {
+        console.log(res);
+        props.refresh()
+        alert(res.data.msg)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    }else{
+      alert("Provide an amount for this request before sending")
+    }
   }
 
   return (
@@ -89,12 +108,14 @@ function SetQuoteModal(props) {
         </div>
         <hr/>
         <div className="d-flex justify-content-center mt-3  mb-3 m37">
-              <Link
-                to="/payment"
+              <button
+                onClick={()=>{
+                  updateQuote()
+                }}
                 className="link-dark text-decoration-none milestone_link pt-1 w-170 pro_p w900 p-0"
               >
                 Udpate Request Quote 
-              </Link>
+              </button>
             </div>
       </div>
     </div>
