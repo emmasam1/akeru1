@@ -239,7 +239,8 @@ function Request() {
             </table>
             {modal ? <SetQuoteModal closeModal={closeModal} data={aRequest} refresh={refreshPageData} /> : null}
             {assignModal ? <AssignDriverModal closeModal={closeModal} drivers={drivers} request={aRequest} refresh={refreshPageData} /> : null}
-            {deleteModal ? <DeleteModal closeModal={closeModal} deleteMethod={deleteData}  refresh={refreshPageData} /> : null}
+            {deleteModal ? <DeleteModal closeModal={closeModal} deleteMethod={deleteData}  refresh={refreshPageData}  
+            title="Delete Request?" descp="Are you sure you want to delete this request?"/> : null}
 
             <nav aria-label="Page navigation example">
               <ul class="pagination">

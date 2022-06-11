@@ -57,7 +57,8 @@ function Driver() {
         <div className="card-body">
 
           {modal ? <EditUser data={aUser} handleClose={handleClose}/> : null}
-          {deleteModal ? <DeleteModal closeModal={handleClose} deleteMethod={deleteData}  refresh={refreshPageData} /> : null}
+          {deleteModal ? <DeleteModal closeModal={handleClose} deleteMethod={deleteData}  refresh={refreshPageData}
+           title="Delete Driver?" descp="Are you sure you want to delete this driver?" /> : null}
 
           <table className="table table-hover  mt-4">
             <thead className="table-dark">
