@@ -212,7 +212,7 @@ function Request() {
                         <div className="table-dropdown">
                           <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                           <div className="table-dropdown-content r-0">
-                            {e.approved ? null : <button className="btn" onClick={() => {setARequest(e); setAssignModal(true); }}>Assign</button>}
+                            {e.amount <1 ? null : <button className="btn" onClick={() => {setARequest(e); setAssignModal(true); }}>Assign</button>}
                             <button className="btn" onClick={() => { setARequest(e); setModal(true); }}>Set qoute</button>
                             <button className="btn text-danger" onClick={() => { setARequest(e); setSelectedIndex(i); setDeleteModal(true); }}>Delete</button>
 
