@@ -71,7 +71,6 @@ function Driver() {
                         <div className="table-dropdown-content">
                           {e.approved?null:<button className="btn">Approve</button>}
                           <button className="btn" onClick={()=>{setModal(true); setAuser(e)}}>Edit</button>
-                          <button className="btn">View</button>
                           <button className="btn">Delete</button>
                         </div>
                       </div>
