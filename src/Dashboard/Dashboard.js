@@ -12,7 +12,10 @@ function Dashboard(props) {
         <div className="dashboard-container">
           <Navbar />
               <Outlet />
+              <br/>
+            <br/> <br/>
             </div>
+            
           </div>
     </>
   );

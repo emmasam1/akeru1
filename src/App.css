@@ -1148,3 +1148,10 @@ label span input {
   padding: 10px 20px;
 }
 
+.page-link{
+  color: #000 !important;
+}
+.active>.page-link, .page-link.active{
+  background-color: var(--btnColor);
+  border-color: var(--btnColor);
+}
