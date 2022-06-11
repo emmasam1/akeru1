@@ -8,7 +8,6 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ROUTE from "../route.json";
 function Login() {
-
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -28,15 +27,19 @@ function Login() {
           if (res.data.error) {
             setError(res.data.error);
             setTimeout(() => {
-              setError(<div className="justify-content-center"><div className="error_red">Invalide user details</div></div>);
+              setError(
+                <div className="justify-content-center">
+                  <div className="error_red">Invalide user details</div>
+                </div>
+              );
             }, 2000);
             // console.log("invalide user details");
           } else {
             setTimeout(() => {
               setError(<div className="error_green">Login successfull</div>);
             }, 5000);
-            localStorage.setItem('user', JSON.stringify(res.data));
-            navigate('/Profile');
+            localStorage.setItem("user", JSON.stringify(res.data));
+            navigate("/Profile");
             // console.log("success");
           }
         })
@@ -92,7 +95,7 @@ function Login() {
             </Link>
           </p>
           <form onSubmit={handSubmit}>
-          {error  ? error : ""}
+            {error ? error : ""}
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">
                 Email
