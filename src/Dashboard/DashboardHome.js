@@ -76,7 +76,7 @@ function DashboardHome() {
             <img src={user} alt="icon" className="number-img" />
           </div>
           <div>
-            <h4 className="number-h4-text">Customers or clients</h4>
+            <h4 className="number-h4-text">Customers/Clients</h4>
             {/* <div className="d-flex">
               <img src={bendarrow} alt="icon" className="number-icon" />
               <p className="number-p d-flex">
@@ -92,7 +92,7 @@ function DashboardHome() {
             <img src={driver} alt="icon" className="number-img" />
           </div>
           <div>
-            <h4 className="number-h4-text">Drivers or partners</h4>
+            <h4 className="number-h4-text">Drivers/partners</h4>
             {/* <div className="d-flex">
               <img src={bendarrow} alt="icon" className="number-icon" />
               <p className="number-p d-flex">
