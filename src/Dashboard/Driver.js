@@ -70,12 +70,7 @@ function Driver() {
                         <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                         <div className="table-dropdown-content">
                           {e.approved?null:<button className="btn">Approve</button>}
-<<<<<<< Updated upstream
                           <button className="btn" onClick={()=>{setModal(true); setAuser(e)}}>Edit</button>
-=======
-                          <button className="btn">View</button>
-                          <button className="btn" onClick={()=>{handleEdit(e); setAuser(e)}} data-e={e}>Edit</button>
->>>>>>> Stashed changes
                           <button className="btn">Delete</button>
                         </div>
                       </div>
