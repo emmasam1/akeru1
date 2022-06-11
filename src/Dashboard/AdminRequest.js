@@ -21,18 +21,19 @@ function Request() {
    const [refreshKey, setRefreshKey] = useState(0);
    const [selectedIndex, setSelectedIndex] = useState(0);
   useEffect(() => {
+    setIsLoading(true)
     axios.get(ROUTE.REQUEST + `?page=${paginate.page}&limit=${paginate.limit}&type=all_time`)
       .then((res) => {
 
         let requestData = res.data.data
         console.log(res.data.paginate);
         if (!requestData) {
-          setIsLoading(true)
+          
           console.log("waitung for data");
         } else {
           setRequestData(requestData)
           setPaginate(res.data.paginate)
-
+          setIsLoading(false)
         }
       })
       .catch((err) => {
@@ -100,7 +101,6 @@ function Request() {
 
   return (
     <>
-
       <div className="p-3 position-relative left-width-home left-width">
 
         <div className="d-flex flex-sm-column justify-content-between flex-md-row flex-lg-row flex-xl-row">

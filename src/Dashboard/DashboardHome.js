@@ -44,38 +44,8 @@ function DashboardHome() {
       })
   }, [])
 
-  const [request, setRequest] = useState([])
-  const [clientsInfo, setClientsInfo] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    axios.get(ROUTE.REQUEST)
-    .then((res) => {
-      let request = res.data.data;
-        setRequest(request);
-      console.log(request);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  }, [])
-
-  useEffect(() => {
-    axios
-      .get(ROUTE.CLIENTS)
-      .then((res) => {
-        let clientsInfo = res.data.data;
-        if(!clientsInfo){
-          setIsLoading(true)
-        }else{
-          setIsLoading(false)
-          setClientsInfo(clientsInfo);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  
 
 
   return (
@@ -87,7 +57,6 @@ function DashboardHome() {
         <div className="rounded sm-card p-4">
           <div className="d-flex justify-content-between">
             <h4 className="number position-relative">{requestData.length}</h4>
-            <h4 className="number position-relative">{request.length}</h4>
             <img src={car} alt="icon" className="number-img" />
           </div>
           <div>
@@ -104,7 +73,6 @@ function DashboardHome() {
         <div className="rounded sm-card p-4">
           <div className="d-flex justify-content-between">
             <h4 className="number position-relative">{customers.length}</h4>
-            <h4 className="number position-relative">{clientsInfo.length}</h4>
             <img src={user} alt="icon" className="number-img" />
           </div>
           <div>
