@@ -436,4 +436,11 @@ width: 50% !important;
     padding: 20px 30px;
     color: #000 !important;
   }
+  .width-90{
+    width: 90%;
+    margin: auto;
+  }
+  .width-350{
+    width: 350px;
+  }
   

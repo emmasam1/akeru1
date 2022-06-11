@@ -3,11 +3,13 @@ import axios from "axios";
 import ROUTE from "../route.json";
 import Loader from "./Loader";
 import EditUser from "./Dash-Components/EditUser";
+import ApproveModal from "./Dash-Components/ApproveModal";
 function Driver() {
   const [driverInfo, setDriverInfo] = useState([]);
   const [aUser, setAuser] = useState({})
   const [isLoading, setIsLoading] = useState(false);
   const [ modal, setModal] = useState(false)
+  const [approve, setApprove] = useState(false)
   useEffect(() => {
     setIsLoading(true)
     axios
@@ -28,6 +30,7 @@ function Driver() {
 
   const handleClose = () => {
     setModal(false)
+    setApprove(false)
   }
 
   return (
@@ -37,6 +40,7 @@ function Driver() {
         <div className="card-body">
 
           {modal ? <EditUser data={aUser} handleClose={handleClose}/> : null}
+          {approve ? <ApproveModal  data={aUser}  handleClose={handleClose}/> : null}
 
           <table className="table table-hover  mt-4">
             <thead className="table-dark">
@@ -69,7 +73,7 @@ function Driver() {
                       <div className="table-dropdown">
                         <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                         <div className="table-dropdown-content">
-                          {e.approved?null:<button className="btn">Approve</button>}
+                          {e.approved?null:<button className="btn" onClick={()=>{setApprove(true); setAuser(e)}}>Approve</button>}
                           <button className="btn" onClick={()=>{setModal(true); setAuser(e)}}>Edit</button>
                           <button className="btn">Delete</button>
                         </div>

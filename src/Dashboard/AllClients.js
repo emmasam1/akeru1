@@ -2,9 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ROUTE from "../route.json";
 import Loader from "./Loader";
+import ClientModal from "./Dash-Components/ClientModal";
+import DeleteClient from "./Dash-Components/DeleteClient";
 function AllClients() {
   const [clientsInfo, setClientsInfo] = useState([]);
+  const [aClient, setAClient] = useState({})
   const [isLoading, setIsLoading] = useState(false);
+  const [modal, setModal] = useState(false)
+  const [removeClient, setRemoveClient] = useState(false)
   useEffect(() => {
     axios
       .get(ROUTE.CLIENTS)
@@ -22,11 +27,18 @@ function AllClients() {
       });
   }, []);
 
+  const handleClose = () => {
+    setModal(false)
+    setRemoveClient(false)
+  }
+
   return (
     <div className="p-3 position-relative left-width-home left-width">
       <h3>All Customers</h3>
       <div className="card">
         <div className="card-body">
+          {modal ? <ClientModal handleClose={handleClose} data={aClient}/> : null}
+          {removeClient ? <DeleteClient handleClose={handleClose}/> : null}
 
           <table className="table table-hover  mt-4">
             <thead className="table-dark">
@@ -53,8 +65,8 @@ function AllClients() {
                       <div className="table-dropdown">
                         <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                         <div className="table-dropdown-content">
-                          <a href="#" className="btn">Edit</a>
-                          <a href="#" className="btn">Delete</a>
+                          <button className="btn" onClick={()=>{setModal(true); setAClient(e)}}>Edit</button>
+                          <button className="btn" onClick={()=>{setRemoveClient(true)}}>Delete</button>
                           
                         </div>
                       </div>
