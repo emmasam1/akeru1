@@ -13,7 +13,7 @@ function Sidebar(props) {
 
   return (
     <div className={props.sidebar ? "close" : "open"}>
-      <div className="sidebar d-flex flex-column pl-3 position-fixed">
+      <div className="nav-margin">
         <div className="title-container d-flex justify-content-between">
           <h3>ADMIN</h3>
           <div></div>

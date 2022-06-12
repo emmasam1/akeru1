@@ -575,4 +575,7 @@
     row-gap: 15px;
     grid-template-columns: auto auto;
   }
+  .nav-margin{
+    margin: 0 0 0 30px;
+  }
 }
