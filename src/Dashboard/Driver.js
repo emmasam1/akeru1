@@ -69,7 +69,7 @@ function Driver() {
   }
 
   return (
-    <div className="p-3 position-relative left-width-home left-width">
+    <div className="p-3 position-relative left-width-home left-width left-width-mobile">
       <h3>All Drivers</h3>
       <div className="card">
         <div className="card-body">

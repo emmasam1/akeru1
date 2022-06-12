@@ -12,11 +12,13 @@ function Sidebar(props) {
   const [active, setActive] = useState("index");
 
   return (
-    <div className={props.sidebar ? "close" : "open"}>
+    <div className={props.sidebar ? "open" : "close"}>
       <div className="nav-margin">
         <div className="title-container d-flex justify-content-between">
           <h3>ADMIN</h3>
-          <div></div>
+          <div>
+          <i class="bi bi-justify position-relative arrow" onClick={props.showSidebar}></i>
+          </div>
         </div>
 
         <div className="position-relative mt">
@@ -34,7 +36,7 @@ function Sidebar(props) {
           </Link>
           <Link
             to="/admin-dashboard/request"
-            onClick={() => setActive("request")}
+          onClick={() => setActive("request")}
             className={`d-flex link-color text-decoration-none link-p font14 mb ${
               active === "request" ? "dash-active" : ""
             } `}

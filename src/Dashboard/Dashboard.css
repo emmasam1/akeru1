@@ -24,7 +24,7 @@
 } 
  .open{
   height: 100vh;
-  width: 243px;
+  width: 200px;
   background: #282733;
   z-index: 999;
   display: flex;
@@ -33,6 +33,7 @@
   margin: 0 0 0 0;
   transition: 0.8s ease-in-out;
 } 
+
 .dashboard-container {
   width: 100vw;
 }
@@ -195,7 +196,7 @@
   height: 53px;
   background: #201f2b;
   width: 82%;
-  z-index: 999;
+  z-index: 1;
   right: 0;
 }
 .user-info {
@@ -568,14 +569,27 @@
     padding: 70px 0 0 0;
   }
   .card-body {
-    overflow: auto;
+    width: 1020px;
   }
   .testing-flex {
-    display: grid !important;
     row-gap: 15px;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto;
   }
   .nav-margin{
     margin: 0 0 0 30px;
+  }
+  .dash_link_bg_color{
+    width: 100%;
+  }
+  .left-width-mobile{
+    left: 0;
+    width: 780px;
+  }
+  .mobile-flex-card{
+    flex-direction: column;
+    grid-gap: 10px;
+  }
+  .sm-card{
+    width: 100%;
   }
 }

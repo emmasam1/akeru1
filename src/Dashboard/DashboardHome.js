@@ -53,7 +53,7 @@ function DashboardHome() {
       <br/>
       <br/>
       <br/>
-      <div className="d-flex justify-content-between">
+      <div className="d-flex justify-content-between mobile-flex-card">
         <div className="rounded sm-card p-4">
           <div className="d-flex justify-content-between">
             <h4 className="number position-relative">{requestData.length}</h4>

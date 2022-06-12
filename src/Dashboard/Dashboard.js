@@ -10,7 +10,7 @@ function Dashboard() {
   return (
     <>
       <div className="container-fluid p-0 m-0 d-flex bg-dashboard-color">
-        <Sidebar sidebar={sidebar}/>
+        <Sidebar sidebar={sidebar} showSidebar={showSidebar}/>
         <div className="dashboard-container">
           <Navbar showSidebar={showSidebar}/>
               <Outlet />

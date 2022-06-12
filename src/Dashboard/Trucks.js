@@ -4,15 +4,15 @@ import Form from './Form';
 function Trucks() {
   return (
     <>
-      <div className="p-3 position-relative left-width">
+      <div className="p-3 position-relative left-width left-width-mobile">
           <div className="d-flex mb-1">
               <h1 className="truck-text">TRUCKS 54</h1>
-              <div className="d-flex bg-white rounded dash-input-holder">
+              <div className="d-flex bg-white rounded dash-input-holder form-mobile">
                   <img src={search} alt="icon" />
                   <input className="border-0"/>
               </div>
           </div>
-          <div className="bg-white rounded dash-p">
+          <div className="bg-white rounded dash-p"> 
                 <Form />
           </div>
       </div>

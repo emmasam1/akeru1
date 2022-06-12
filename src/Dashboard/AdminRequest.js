@@ -114,7 +114,7 @@ function Request() {
 
   return (
     <>
-      <div className="p-3 position-relative left-width-home left-width">
+      <div className="p-3 position-relative left-width-home left-width left-width-mobile">
 
         <div className="d-flex flex-sm-column justify-content-between flex-md-row flex-lg-row flex-xl-row testing-flex">
           <NavLink to="#" className="link-dark text-decoration-none a" onClick={() => { setactiveTabIndex(0) }}>
