@@ -3,56 +3,56 @@
   right: 0;
   z-index: 1;
 }
-.arrow::before{
-  color: #FFF;
+.arrow::before {
+  color: #fff;
   margin: 20px 10px 0 0;
   cursor: pointer;
+  display: none;
 }
-.dash-grid-right{
+.dash-grid-right {
   width: 432px;
 }
-.close{
+ .close{
   transition: 850ms;
-  margin: 0 0 0 -150px;
-  background: #282733;
+  margin: 0 0 0 -215px;
   height: 100vh;
   z-index: 1;
   display: flex;
   flex-direction: column;
   position: fixed;
   width: 211px;
-}
-.open{
+} 
+ .open{
   height: 100vh;
   width: 243px;
   background: #282733;
-  z-index: 1;
+  z-index: 999;
   display: flex;
   flex-direction: column;
   position: fixed;
   margin: 0 0 0 0;
   transition: 0.8s ease-in-out;
-}
-.dashboard-container{
+} 
+.dashboard-container {
   width: 100vw;
 }
-.h100vh{
+.h100vh {
   height: 100vh;
 }
-.user-modal{
+.user-modal {
   background-color: white;
   border-radius: 5px;
   width: 400px;
 }
-.dash-grid-left{
+.dash-grid-left {
   width: 550px;
   margin: 0 11px 0 10px;
 }
-.sub-nav{
+.sub-nav {
   height: 40px;
   padding: 5px 0 0 0;
 }
-.overlay{
+.overlay {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 10;
   left: 251px;
@@ -61,10 +61,10 @@
   top: 0;
   padding: 140px 0 0 0;
 }
-.r-0{
+.r-0 {
   right: 0;
 }
-.close-icon{
+.close-icon {
   font-size: 20px;
   cursor: pointer;
   float: right;
@@ -72,25 +72,25 @@
   right: 10px;
   top: 10px;
 }
-.request-modal{
+.request-modal {
   width: 60%;
   background-color: white;
   position: absolute;
   left: 20%;
   border-radius: 8px;
 }
-.grid-left{
-width: 50% !important;
-}
-.grid-right{
+.grid-left {
   width: 50% !important;
-  }
-.dash_link_bg_color{
+}
+.grid-right {
+  width: 50% !important;
+}
+.dash_link_bg_color {
   width: 185px;
   height: 100px;
   background-color: var(--proCompleted);
 }
-.activeClass{
+.activeClass {
   background-color: var(--proProgressPending) !important;
 }
 .w100 {
@@ -104,12 +104,12 @@ width: 50% !important;
 .bg-dashboard-color {
   background: #e8e8e8;
 }
-/* .sidebar {
+.sidebar {
   height: 100vh;
   width: 18%;
   background: #282733;
   z-index: 1;
-} */
+}
 .title-container {
   background: #1b1b28;
   color: white;
@@ -170,7 +170,7 @@ width: 50% !important;
   width: 80.4vw;
 }
 .link-color {
-  color: #ffffffb2 ;
+  color: #ffffffb2;
 }
 .link-p {
   padding: 8px 0;
@@ -215,6 +215,12 @@ width: 50% !important;
 .user-info-holder {
   padding: 9px 0 0 0;
   margin: 0 20px 0 0;
+  width: 130px;
+}
+.notification-icon {
+  width: 25px;
+  position: relative;
+  bottom: 4px;
 }
 .sm-card {
   width: 345px;
@@ -452,43 +458,41 @@ width: 50% !important;
   text-align: right;
   color: #ffa500;
 }
-.load-container{
-    width: 100%;
-    top: 20px;
+.load-container {
+  width: 100%;
+  top: 20px;
 }
-.loader{
+.loader {
   width: 90px;
-
 }
-.document-img{
+.document-img {
   width: 60%;
   height: 70px;
   object-fit: cover;
 }
-  .dash-active{
-    background-color: var(--primaryColor);
-    padding: 20px 30px;
-    color: #000 !important;
-  }
-  .width-90{
-    width: 90%;
-    margin: auto;
-  }
-  .width-350{
-    width: 350px;
-  }
+.dash-active {
+  background-color: var(--primaryColor);
+  padding: 20px 30px;
+  color: #000 !important;
+}
+.width-90 {
+  width: 90%;
+  margin: auto;
+}
+.width-350 {
+  width: 350px;
+}
 
-  #breathing-loader {
-     -webkit-animation: breathing 2s ease-out infinite normal;
-    animation: breathing 2s ease-out infinite normal;
-    font-family:'Lantinghei SC';
-    font-size: 16px;
-    color: #fff;
-    -webkit-font-smoothing: antialiased;
-    border-radius: 2px;
-    text-align: center;    
-    }
-
+#breathing-loader {
+  -webkit-animation: breathing 2s ease-out infinite normal;
+  animation: breathing 2s ease-out infinite normal;
+  font-family: "Lantinghei SC";
+  font-size: 16px;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  border-radius: 2px;
+  text-align: center;
+}
 
 @-webkit-keyframes breathing {
   0% {
@@ -538,4 +542,37 @@ width: 50% !important;
   }
 }
 
-  
+@media only screen and (max-width: 600px) {
+  .dashboard-container {
+    overflow-x: auto;
+  }
+  .sidebar {
+    margin: 0 0 0 -200px;
+  }
+  .dashboard-nav {
+    width: 100%;
+  }
+  .left-width-home {
+    width: 100%;
+    left: 0;
+  }
+  .arrow::before {
+    display: block;
+  }
+  .card {
+    overflow: auto;
+  }
+  .overlay {
+    left: 0;
+    width: 100%;
+    padding: 70px 0 0 0;
+  }
+  .card-body {
+    overflow: auto;
+  }
+  .testing-flex {
+    display: grid !important;
+    row-gap: 15px;
+    grid-template-columns: auto auto;
+  }
+}
