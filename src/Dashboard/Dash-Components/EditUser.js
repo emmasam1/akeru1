@@ -17,9 +17,9 @@ function EditUser(props) {
         "email": email,
         "phone": phone,
         "city": city,
-        "user_id":props.data.user_id
+        
     }
-    axios.put(ROUTE.DRIVERS, data)
+    axios.put(ROUTE.DRIVERS+`/${props.data.driver_id}/account`, data)
       .then((res) => {
         console.log(res);
         props.refresh()
