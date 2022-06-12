@@ -12,15 +12,25 @@ import akeru from '../image/footerlogo.png'
 
 function Sidebar() {
   const [active, setActive] = useState("index");
-  const [show,setShow]=useState(true)
+  const [sidebar, setSidebar]=useState(false)
+
+  const closeSidebar = () =>{
+     setSidebar(true)
+    }
+
+    const openSidebar = () =>{
+      setSidebar(false)
+     }
+
 
   return (
+    <div className={sidebar ? "close" : "open"} >
     <div className="sidebar d-flex flex-column pl-3 position-fixed">
       <div className="title-container d-flex justify-content-between">
         <h3>ADMIN</h3>
         <div>
-      <i class="bi bi-arrow-left position-relative" onClick={()=>setShow(false)}></i>
-      <i class="bi bi-arrow-right-short"></i>
+      <i class="bi bi-arrow-left position-relative arrow" onClick={()=>{closeSidebar()}}></i>
+      <i class="bi bi-arrow-right position-relative arrow" onClick={()=>{openSidebar()}}></i>
       </div>
       </div>
       
@@ -89,6 +99,7 @@ function Sidebar() {
       <div className="sidebar-img">
           <img src={akeru} alt="" />
       </div>
+    </div>
     </div>
   );
 }

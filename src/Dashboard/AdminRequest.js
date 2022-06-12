@@ -26,7 +26,6 @@ function Request() {
       .then((res) => {
 
         let requestData = res.data.data
-        console.log(res.data.paginate);
         if (!requestData) {
           
           console.log("waitung for data");
