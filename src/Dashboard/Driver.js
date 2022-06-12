@@ -37,6 +37,7 @@ function Driver() {
       .then((res) => {
         alert(res.data.msg)
         refreshPageData()
+        setDeleteModal(false)
       })
       .catch((err) => {
         console.log(err);
@@ -46,7 +47,7 @@ function Driver() {
   const handleClose = () => {
     setModal(false)
     setApprove(false)
-    setDeleteModal(false)
+    
   }
 
   const refreshPageData=()=>{
