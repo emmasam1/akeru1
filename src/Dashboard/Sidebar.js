@@ -12,9 +12,17 @@ import akeru from '../image/footerlogo.png'
 
 function Sidebar() {
   const [active, setActive] = useState("index");
+  const [show,setShow]=useState(true)
 
   return (
     <div className="sidebar d-flex flex-column pl-3 position-fixed">
+      <div className="title-container d-flex justify-content-between">
+        <h3>ADMIN</h3>
+        <div>
+      <i class="bi bi-arrow-left position-relative" onClick={()=>setShow(false)}></i>
+      <i class="bi bi-arrow-right-short"></i>
+      </div>
+      </div>
       
       <div className="position-relative mt">
         <Link

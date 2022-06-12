@@ -3,10 +3,7 @@ import notification from "../image/Notification.svg";
 import user from "../image/user.png";
 function Navbar() {
   return (
-    <div className="container-fluid dashborad-nav position-fixed">
-      <div className="title-container">
-        <h3>ADMIN</h3>
-      </div>
+    <div className="container-fluid dashboard-nav position-fixed">
       <div className="float-end d-flex justify-content-between user-info-holder">
         <img src={notification} alt="icon" />
         <p className="user-info position-relative">
