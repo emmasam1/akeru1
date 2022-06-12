@@ -19,10 +19,11 @@ function EditUser(props) {
         "city": city,
         
     }
-    axios.put(ROUTE.DRIVERS+`/${props.data.driver_id}/account`, data)
+    axios.put(ROUTE.DRIVERS+`/${props.data.driver_id}`, data)
       .then((res) => {
         console.log(res);
         props.refresh()
+        props.handleClose()
         alert(res.data.msg)
       })
       .catch((err) => {
@@ -78,7 +79,7 @@ function EditUser(props) {
             name="city"
           />
 
-          <button className="my_btn w900" onClick={()=>updateUser()}>Update Driver</button>
+          <button type="button" className="my_btn w900" onClick={()=>updateUser()}>Update Driver</button>
         </form>
       </div>
     </div>

@@ -37,7 +37,7 @@ function Driver() {
       .then((res) => {
         alert(res.data.msg)
         refreshPageData()
-        setDeleteModal(false)
+        handleClose()
       })
       .catch((err) => {
         console.log(err);
@@ -47,11 +47,25 @@ function Driver() {
   const handleClose = () => {
     setModal(false)
     setApprove(false)
-    
+    setDeleteModal(false)
   }
 
   const refreshPageData=()=>{
     setRefreshKey(refreshKey => refreshKey +1)
+  }
+
+  const approveDriver=()=>{
+    let data={"email": aUser.email}
+    axios.post(ROUTE.SITE_URL+`/accounts/approve`,data)
+      .then((res) => {
+        alert(res.data.msg)
+        refreshPageData()
+        handleClose()
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("An error occured while approving driver, try again")
+      })
   }
 
   return (
@@ -60,8 +74,8 @@ function Driver() {
       <div className="card">
         <div className="card-body">
 
-          {modal ? <EditUser data={aUser} handleClose={handleClose}/> : null}
-          {approve ? <ApproveModal  data={aUser}  handleClose={handleClose}/> : null}
+          {modal ? <EditUser data={aUser} handleClose={handleClose} refresh={refreshPageData}/> : null}
+          {approve ? <ApproveModal  data={aUser}  handleClose={handleClose} approveDriver={approveDriver}/> : null}
           {deleteModal ? <DeleteModal closeModal={handleClose} deleteMethod={deleteData}  refresh={refreshPageData}
            title="Delete Driver?" descp="Are you sure you want to delete this driver?" /> : null}
 
