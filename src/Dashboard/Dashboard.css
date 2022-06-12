@@ -432,6 +432,11 @@ width: 50% !important;
   width: 90px;
 
 }
+.document-img{
+  width: 60%;
+  height: 70px;
+  object-fit: cover;
+}
   .dash-active{
     background-color: var(--primaryColor);
     padding: 20px 30px;

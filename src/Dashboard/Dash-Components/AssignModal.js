@@ -21,6 +21,7 @@ function AssignDriverModal(props) {
         console.log(res);
         props.refresh()
         alert(res.data.msg)
+        props.closeModal()
       })
       .catch((err) => {
         console.log(err);

@@ -6,7 +6,7 @@ import axios from "axios";
 
 function SetQuoteModal(props) {
 
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState(props.data.amount);
   
   const changeDate=(date)=>{
 
@@ -27,6 +27,7 @@ function SetQuoteModal(props) {
         console.log(res);
         props.refresh()
         alert(res.data.msg)
+        props.closeModal()
       })
       .catch((err) => {
         console.log(err);

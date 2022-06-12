@@ -96,7 +96,7 @@ function Driver() {
                       <div className="table-dropdown">
                         <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                         <div className="table-dropdown-content">
-                          {e.approved?null:<button className="btn" onClick={()=>{setApprove(true); setAuser(e)}}>Approve</button>}
+                          {<button className="btn" onClick={()=>{setApprove(true); setAuser(e)}}> {e.approved?"View":"Approve"}</button>}
                           <button className="btn" onClick={()=>{setModal(true); setAuser(e)}}>Edit</button>
                           <button className="btn text-danger" onClick={() => { setAuser(e);  setDeleteModal(true); }}>Delete</button>
                         </div>
