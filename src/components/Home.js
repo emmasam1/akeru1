@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import ROUTE from "../route.json";
 import { Link } from "react-router-dom";
+
 import truck from "../image/truck.png";
 import vector from "../image/Vector.png";
 import vector2 from "../image/Vector2.png";
@@ -10,12 +13,106 @@ import vector6 from "../image/Vector6.png";
 import cola from "../image/Big_cola.png";
 import Casera from "../image/The-La-Casera.png";
 import unilever from "../image/unilever.png";
-import Navbar from './Navbar';
-import Footer from './Footer'
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+
 function Home() {
+  const [pick_up, setpick_up] = useState("");
+  const [drop_off, setdrop_off] = useState("");
+  const [date, setdate] = useState("");
+  const [item, setItem] = useState("");
+  const [truck_type, setTruckType] = useState("");
+  const [weight, setWeight] = useState("");
+  const [amount, setAmount] = useState("");
+
+  const [pick_upErr, setpick_upErr] = useState({});
+  const [drop_offErr, setdrop_offErr] = useState({});
+  const [dateErr, setdateErr] = useState({});
+  const [itemErr, setItemErr] = useState({});
+  const [typeErr, setTypeErr] = useState({});
+  const [weightErr, setWeightErr] = useState({});
+  const [amountErr, setamountErr] = useState({});
+
+  const handSubmit = (e) => {
+    e.preventDefault();
+    const isValid = formValidation();
+
+    const user = JSON.parse(localStorage.getItem("user"));
+    let user_id = user;
+
+    if (isValid && user) {
+      axios
+        .post(ROUTE.REQUEST, {
+          user_id,
+          weight,
+          item,
+          date,
+          pick_up,
+          drop_off,
+          truck_type,
+          amount,
+        })
+        .then(function (res) {
+          console.log(res);
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
+    }
+  };
+
+  const formValidation = () => {
+    const pick_upErr = {};
+    const drop_offErr = {};
+    const dateErr = {};
+    const itemErr = {};
+    const typeErr = {};
+    const weightErr = {};
+    const amountErr = {};
+    let isValid = true;
+
+    if (!pick_up) {
+      pick_upErr.pick_up = "pick up location required";
+      isValid = false;
+    }
+    if (!drop_off) {
+      drop_offErr.drop_off = "Drop-off location required";
+      isValid = false;
+    }
+    if (!date) {
+      dateErr.date = "Please select a date";
+      isValid = false;
+    }
+    if (!item) {
+      itemErr.item = "What item are you shipping";
+      isValid = false;
+    }
+    if (!truck_type) {
+      typeErr.truck_type = "What vehicle do you need";
+      isValid = false;
+    }
+    if (!weight) {
+      weightErr.weight = "What is the weight of your goods";
+      isValid = false;
+    }
+    if (!amount) {
+      amountErr.amount = "Amount required";
+      isValid = false;
+    }
+
+    setpick_upErr(pick_upErr);
+    setdrop_offErr(drop_offErr);
+    setdateErr(dateErr);
+    setItemErr(itemErr);
+    setTypeErr(typeErr);
+    setWeightErr(weightErr);
+    setamountErr(amountErr);
+    return isValid;
+  };
+
   return (
     <>
-    <Navbar />
+      <Navbar />
       <div className="container-fliud d-flex justify-content-around hero_style">
         <div className="triangle"></div>
         <div className="triangle rotate"></div>
@@ -30,43 +127,145 @@ function Home() {
                   <p className="hero_p_top_text m-0 w900 mw100">
                     Get a response within 1 minute
                   </p>
-                  <h1 className="hero_h1_text w900 mw100">On-demand haulage service</h1>
+                  <h1 className="hero_h1_text w900 mw100">
+                    On-demand haulage service
+                  </h1>
                   <p className="hero_p_bottom_text pt-1 ">
-                  Book a reliable truck to move your goods from any part of the country. 
+                    Book a reliable truck to move your goods from any part of
+                    the country.
                   </p>
                 </div>
               </div>
               <div className=" col-md-6 d-flex justify-content-end d-flex-justify-content-center">
-                <form>
-                <div className="my_card">
-                  <input type="text" placeholder="Pick up:"className="input-home"/>
-                  <input type="text" placeholder="To:" className="input-home"/>
-                  <input type="date" placeholder="When:" className="input-date"/>
+                <form onSubmit={handSubmit}>
+                  <div className="my_card">
+                    <input
+                      type="text"
+                      placeholder="pick up:"
+                      className="input-home"
+                      name="pick_up"
+                      value={pick_up}
+                      onChange={(e) => setpick_up(e.target.value)}
+                    />
+                    {Object.keys(pick_upErr).map((key) => {
+                      return (
+                        <p className="dash-error" key={pick_upErr}>
+                          {pick_upErr[key]}
+                        </p>
+                      );
+                    })}
+                    <input
+                      type="text"
+                      placeholder="To:"
+                      className="input-home"
+                      name="drop_off"
+                      value={drop_off}
+                      onChange={(e) => setdrop_off(e.target.value)}
+                    />
+                    {Object.keys(drop_offErr).map((key) => {
+                      return (
+                        <p className="dash-error" key={drop_offErr}>
+                          {drop_offErr[key]}
+                        </p>
+                      );
+                    })}
+                    <input
+                      type="date"
+                      placeholder="When:"
+                      className="input-home input-date"
+                      name="date"
+                      value={date}
+                      onChange={(e) => setdate(e.target.value)}
+                    />
+                    {Object.keys(dateErr).map((key) => {
+                      return (
+                        <p className="dash-error" key={dateErr}>
+                          {dateErr[key]}
+                        </p>
+                      );
+                    })}
 
-                  <select className="select">
-                    <option>Type</option>
-                    <option>Cover body</option>
-                    <option>Tanker</option>
-                    <option>Dumper</option>
-                    <option>Cage lift</option>
-                    <option>Tarpaulin</option>
-                    <option>Refridgerator</option>
-                    <option>Animal transporter</option>
-                    <option>Container transporter</option>
-                    <option>Timber carrier</option>
-                    <option>Van</option>
-                    <option>Platform</option>
-                  </select>
-                  <select className="select">
-                    <option>Weight in Tons</option>
-                    <option>10 Tons</option>
-                    <option>15 Tons</option>
-                    <option>20 Tons</option>
-                    <option>40 Tons</option>
-                  </select>
+                    <input
+                      type="text"
+                      placeholder="Item:"
+                      className="input-home"
+                      name="item"
+                      value={item}
+                      onChange={(e) => setItem(e.target.value)}
+                    />
+                    {Object.keys(itemErr).map((key) => {
+                      return (
+                        <p className="dash-error" key={itemErr}>
+                          {itemErr[key]}
+                        </p>
+                      );
+                    })}
 
-                  <Link to="/detail" className="link-dark"><button className="my_btn w900">Request quote</button></Link>
-                </div>
+                    <input
+                      type="text"
+                      placeholder="Amount:"
+                      className="input-home"
+                      name="amount"
+                      value={amount}
+                      onChange={(e) => setAmount(e.target.value)}
+                    />
+                    {Object.keys(amountErr).map((key) => {
+                      return (
+                        <p className="dash-error" key={amountErr}>
+                          {amountErr[key]}
+                        </p>
+                      );
+                    })}
+
+                    <select
+                      className="select"
+                      name="truck_type"
+                      value={truck_type}
+                      onChange={(e) => setTruckType(e.target.value)}
+                    >
+                      <option>Type</option>
+                      <option>Cover body</option>
+                      <option>Tanker</option>
+                      <option>Dumper</option>
+                      <option>Cage lift</option>
+                      <option>Tarpaulin</option>
+                      <option>Refridgerator</option>
+                      <option>Animal transporter</option>
+                      <option>Container transporter</option>
+                      <option>Timber carrier</option>
+                      <option>Van</option>
+                      <option>Platform</option>
+                    </select>
+                    {Object.keys(typeErr).map((key) => {
+                      return (
+                        <p className="dash-error" key={typeErr}>
+                          {typeErr[key]}
+                        </p>
+                      );
+                    })}
+
+                    <select
+                      className="select"
+                      name="weight"
+                      value={weight}
+                      onChange={(e) => setWeight(e.target.value)}
+                    >
+                      <option>Weight in Tons</option>
+                      <option>10 Tons</option>
+                      <option>15 Tons</option>
+                      <option>20 Tons</option>
+                      <option>40 Tons</option>
+                    </select>
+                    {Object.keys(weightErr).map((key) => {
+                      return (
+                        <p className="dash-error" key={weightErr}>
+                          {weightErr[key]}
+                        </p>
+                      );
+                    })}
+
+                    <button className="my_btn w900">Request quote</button>
+                  </div>
                 </form>
               </div>
             </div>
@@ -87,7 +286,6 @@ function Home() {
                 This goes further than what you expected, here you can
                 communicate two really important product features with icons.
               </p>
-
             </div>
 
             <div className="p-3">
@@ -145,29 +343,29 @@ function Home() {
           </div>
 
           <div className="col-lg-6 col-md-6 col-sm-6 display">
-            <div className='position-absolute w90'>
-            <img src={truck} alt="truck" className="truck" />
-            <div className="lower_truck_div">
-              <div className="d-flex">
-                <div className="rounded-circle d-flex justify-content-center round_div_style">
-                  <img src={vector6} alt="icon" />
+            <div className="position-absolute w90">
+              <img src={truck} alt="truck" className="truck" />
+              <div className="lower_truck_div">
+                <div className="d-flex">
+                  <div className="rounded-circle d-flex justify-content-center round_div_style">
+                    <img src={vector6} alt="icon" />
+                  </div>
+                  <p className="round_div_p">Truck Requested</p>
                 </div>
-                <p className="round_div_p">Truck Requested</p>
+                <hr className="horizontal_line" />
+                <hr className="horizontal_line2" />
               </div>
-              <hr className="horizontal_line" />
-              <hr className="horizontal_line2" />
-            </div>
 
-            <div className="lower_truck_div2">
-              <div className="d-flex">
-                <div className="rounded-circle d-flex justify-content-center round_div_style">
-                  <img src={vector5} alt="icon" />
+              <div className="lower_truck_div2">
+                <div className="d-flex">
+                  <div className="rounded-circle d-flex justify-content-center round_div_style">
+                    <img src={vector5} alt="icon" />
+                  </div>
+                  <p className="round_div_p">1 hour to delivery</p>
                 </div>
-                <p className="round_div_p">1 hour to delivery</p>
+                <hr className="horizontal_line" />
+                <hr className="horizontal_line2" />
               </div>
-              <hr className="horizontal_line" />
-              <hr className="horizontal_line2" />
-            </div>
             </div>
           </div>
         </div>
@@ -187,15 +385,20 @@ function Home() {
       <div className="main_width mt-3 div_bg md-p">
         <div className="m_auto milestone d-flex pt-5 pb-2 rmp fd ht">
           <div className="tc">
-            <h2 className="milestone_header truck_h6_text">Some of our milestones</h2>
+            <h2 className="milestone_header truck_h6_text">
+              Some of our milestones
+            </h2>
             <p className="milestone_text">
               We’ve been really busy this year making thing like this happen
             </p>
           </div>
           <div className="sm">
-          <Link to="/request" className="milestone_link link-dark pt-3 w900 btn_p">
-            Request a quote
-          </Link>
+            <Link
+              to="/request"
+              className="milestone_link link-dark pt-3 w900 btn_p"
+            >
+              Request a quote
+            </Link>
           </div>
         </div>
         <div className="col_div">
@@ -230,18 +433,31 @@ function Home() {
         </div>
         <div className="own_item_holder container ">
           <div className="row justify-left">
-            <span className="col-md-6"><i className="bi bi-check-square-fill akeru-primary m-1"></i> No obligation</span>
-            <span className="col-md-6"> <i className="bi bi-check-square-fill akeru-primary m-1"></i>Full features</span>
+            <span className="col-md-6">
+              <i className="bi bi-check-square-fill akeru-primary m-1"></i> No
+              obligation
+            </span>
+            <span className="col-md-6">
+              {" "}
+              <i className="bi bi-check-square-fill akeru-primary m-1"></i>Full
+              features
+            </span>
           </div>
-          
+
           <div className="row justify-left mt-2">
-            <span className="col-md-6"><i className="bi bi-check-square-fill akeru-primary m-1"></i>Instant payout </span>
-            <span className="col-md-6"><i className="bi bi-check-square-fill akeru-primary m-1"></i> Reporting dashboard</span>
+            <span className="col-md-6">
+              <i className="bi bi-check-square-fill akeru-primary m-1"></i>
+              Instant payout{" "}
+            </span>
+            <span className="col-md-6">
+              <i className="bi bi-check-square-fill akeru-primary m-1"></i>{" "}
+              Reporting dashboard
+            </span>
           </div>
         </div>
         <div className="join_btn_holder">
-          <Link to='/signin' className="link-dark w900 footer_btn">
-          Join us
+          <Link to="/signin" className="link-dark w900 footer_btn">
+            Join us
           </Link>
         </div>
       </div>

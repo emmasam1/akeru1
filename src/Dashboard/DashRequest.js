@@ -160,7 +160,7 @@ function DashRequest() {
               <input
                 type="date"
                 placeholder="When:"
-                className="input-home"
+                className="input-home input-date"
                 name="date"
                 value={date}
                 onChange={(e) => setdate(e.target.value)}

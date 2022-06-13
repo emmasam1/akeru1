@@ -131,7 +131,7 @@ border-radius: 8px;
   padding: 10px 0 100px 0;
   position: relative;
   top: 73px;
-  height: 526px;
+  height: 600px;
   margin: 0 0 85px 0;
 }
 .hero_pad_top{
@@ -185,7 +185,6 @@ border-radius: 8px;
 .my_card {
   background-color: var(--whiteColor);
   width: 400px;
-  height: 350px;
   padding: 10px;
 }
 .input-home {
