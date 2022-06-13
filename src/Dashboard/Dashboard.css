@@ -6,7 +6,7 @@
 .dash-grid-right {
   width: 432px;
 }
- .close{
+.close {
   transition: 850ms;
   margin: 0 0 0 -215px;
   height: 100vh;
@@ -15,8 +15,8 @@
   flex-direction: column;
   position: fixed;
   width: 211px;
-} 
- .open{
+}
+.open {
   height: 100vh;
   width: 245px;
   background: #282733;
@@ -27,7 +27,12 @@
   margin: 0 0 0 0;
   padding: 0 0 0 40px;
   transition: 0.8s ease-in-out;
-} 
+}
+.burger::before {
+  margin: 20px 15px 0 0;
+  cursor: pointer;
+  display: none;
+}
 
 .dashboard-container {
   width: 100vw;
@@ -51,11 +56,12 @@
 .overlay {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 10;
-  left: 251px;
+  left: 245px;
   width: 80.4vw;
   height: 100vh;
   top: 0;
-  padding: 140px 0 0 0;
+  padding: 80px 0 0 0;
+  align-items: center !important;
 }
 .r-0 {
   right: 0;
@@ -567,25 +573,31 @@
     row-gap: 15px;
     grid-template-columns: auto;
   }
-  .nav-margin{
+  .nav-margin {
     margin: 0 0 0 30px;
   }
-  .dash_link_bg_color{
+  .dash_link_bg_color {
     width: 100%;
   }
-  .left-width-mobile{
+  .left-width-mobile {
     left: 0;
     width: 780px;
   }
-  .mobile-flex-card{
+  .mobile-flex-card {
     flex-direction: column;
     grid-gap: 10px;
   }
-  .sm-card{
+  .sm-card {
     width: 100%;
   }
-  .open{
+  .open {
     width: 200px;
     padding: 0 0 0 0;
+  }
+  .burger::before {
+    margin: 20px 15px 0 0;
+    cursor: pointer;
+    display: block;
+    color: #FFF;
   }
 }
