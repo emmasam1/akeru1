@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import ROUTE from "../route.json";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 import truck from "../image/truck.png";
 import vector from "../image/Vector.png";
 import vector2 from "../image/Vector2.png";
@@ -17,6 +16,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 function Home() {
+  const navigate = useNavigate();
   const [pick_up, setpick_up] = useState("");
   const [drop_off, setdrop_off] = useState("");
   const [date, setdate] = useState("");
@@ -38,26 +38,35 @@ function Home() {
     const isValid = formValidation();
 
     const user = JSON.parse(localStorage.getItem("user"));
-    let user_id = user;
+
 
     if (isValid && user) {
+      let user_id = user.user_id;
+      let data={
+        "user_id":user_id,
+        "drop_off":drop_off,
+        "pick_up":pick_up,
+        "date":date,
+        "item":item,
+        "weight":weight,
+        "truck_type":truck_type
+        
+    }
       axios
-        .post(ROUTE.REQUEST, {
-          user_id,
-          weight,
-          item,
-          date,
-          pick_up,
-          drop_off,
-          truck_type,
-          amount,
-        })
+        .post(ROUTE.REQUEST,data)
         .then(function (res) {
           console.log(res);
+          alert("Request create successfully")
+          navigate("/profile/ongoing")
         })
         .catch(function (err) {
           console.log(err);
         });
+    }else{
+      if(user==null){
+        alert("Please login before making a request")
+        navigate("/signin")
+      }
     }
   };
 
