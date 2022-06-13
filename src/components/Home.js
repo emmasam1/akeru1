@@ -16,7 +16,9 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 function Home() {
-  const navigate = useNavigate();
+
+  let navigate = useNavigate();
+
   const [pick_up, setpick_up] = useState("");
   const [drop_off, setdrop_off] = useState("");
   const [date, setdate] = useState("");
@@ -68,6 +70,7 @@ function Home() {
         navigate("/signin")
       }
     }
+   
   };
 
   const formValidation = () => {
