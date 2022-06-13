@@ -18,7 +18,7 @@
 }
 .open {
   height: 100vh;
-  width: 245px;
+  width: 250px;
   background: #282733;
   z-index: 999;
   display: flex;
@@ -164,7 +164,7 @@
 }
 .left-width {
   left: 251px;
-  width: 80.5vw;
+  width: 80vw;
   margin: 55px 0 0 0;
 }
 .left-width-home {
