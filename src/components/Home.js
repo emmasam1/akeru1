@@ -59,7 +59,7 @@ function Home() {
         .then(function (res) {
           console.log(res);
           alert("Request create successfully")
-          navigate("/profile/ongoing")
+          navigate("/ongoing")
         })
         .catch(function (err) {
           console.log(err);

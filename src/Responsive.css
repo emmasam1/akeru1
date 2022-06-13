@@ -1,22 +1,20 @@
-@media only screen and (min-width: 600px){
-    .hero_style{
-      overflow: hidden;
-    }
+@media only screen and (min-width: 600px) {
+  .hero_style {
+    overflow: hidden;
   }
+}
 
-  @media  (max-width: 900px) and (-webkit-device-pixel-ratio: 2)  {
-   
-    .how_it_works_cols{
-      text-align: center !important;
-    }
-    .how_it_works_col_title{
-      text-align: center;
-    }
-   
+@media (max-width: 900px) and (-webkit-device-pixel-ratio: 2) {
+  .how_it_works_cols {
+    text-align: center !important;
   }
-  
-  @media only screen and (min-width: 481px) and (max-width: 575px) and (-webkit-device-pixel-ratio: 2)  {
-    /* .w90{
+  .how_it_works_col_title {
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 575px) and (-webkit-device-pixel-ratio: 2) {
+  /* .w90{
       width: 90%;
     }
     .sm-margin_nav{
@@ -132,598 +130,595 @@
      .tc{
          text-align: center;
      } */
-     .nf_div{
-      width: 90%;
-    }
-    .nav_settings{
-      margin: 10px 0 0 0 !important;
-    }
-    .sm_nav_width{
-      width: 90% !important;
-    }
-    .sm-margin_nav{
-      margin: 10px 0 10px 0 !important;
-    }
-    .nav_flex_direction{
-      flex-direction: column;
-      height: 70px;
-    }
-    .link_border_style{
-      padding: 0;
-      background-color: transparent;
-    }
-    .nav_link_padding{
-      padding: 0;
-    }
-    .flex-mobile-d{
-      flex-direction: column !important;
-    }
-    .login_input{
-      height: 50px;
-    }
-    .test-height{
-      min-height: calc(100vh - 54px);
-    }
-    .w700{
-      width: 700px !important;
-    }
-    .triangle-login{
-      display: none;
-    }
-    .bg-sm-white{
-      background-color: #FFF !important;
-    }
-    .mobile-nav-with{
-      width: 90% !important;
-    }
-    .hero_style{
-      overflow: hidden;
-      width: 100% !important;
-      padding: 0 0 200px 0;
-      height: 675px;
-    }
-    .hs{
-      height: 900px !important;
-    }
-    .hero_h1_text{
-      font-size: 10vw;
-      width: 100%;
-      font-weight: bolder;
-    }
-    .f32{
-      font-size: 10vw;
-    }
-    .hero_p_top_text{
-      font-size: 4vw;
-      width: 150px;
-    }
-    .pt-style{
-      padding: 32px 0 0 0 !important;
-    }
-    .footer_btn{
-      padding: 3px 20px 0 20px;
-      margin: 0 0 18px 0;
-    }
-    .col-sm-height{
-      height: 292px;
-    }
-   .w0{
-     width: 100% !important;
-   }
-    .footer_col_holder{
-      width: 100%;
-    }
-    .hero_p_bottom_text{
-      font-size: 12px !important;
-      padding: 0 48px 0 0;
-    }
-    .main_width{
-      width: 100%;
-    }
-    /* .truck{
+  .nf_div {
+    width: 90%;
+  }
+  .nav_settings {
+    margin: 10px 0 0 0 !important;
+  }
+  .sm_nav_width {
+    width: 90% !important;
+  }
+  .sm-margin_nav {
+    margin: 10px 0 10px 0 !important;
+  }
+  .nav_flex_direction {
+    flex-direction: column;
+    height: 70px;
+  }
+  .link_border_style {
+    padding: 0;
+    background-color: transparent;
+  }
+  .nav_link_padding {
+    padding: 0;
+  }
+  .flex-mobile-d {
+    flex-direction: column !important;
+  }
+  .login_input {
+    height: 50px;
+  }
+  .test-height {
+    min-height: calc(100vh - 54px);
+  }
+  .w700 {
+    width: 700px !important;
+  }
+  .triangle-login {
+    display: none;
+  }
+  .bg-sm-white {
+    background-color: #fff !important;
+  }
+  .mobile-nav-with {
+    width: 90% !important;
+  }
+  .hero_style {
+    overflow: hidden;
+    width: 100% !important;
+    padding: 0 0 200px 0;
+    height: 675px;
+  }
+  .hs {
+    height: 900px !important;
+  }
+  .hero_h1_text {
+    font-size: 10vw;
+    width: 100%;
+    font-weight: bolder;
+  }
+  .f32 {
+    font-size: 10vw;
+  }
+  .hero_p_top_text {
+    font-size: 4vw;
+    width: 150px;
+  }
+  .pt-style {
+    padding: 32px 0 0 0 !important;
+  }
+  .footer_btn {
+    padding: 3px 20px 0 20px;
+    margin: 0 0 18px 0;
+  }
+  .col-sm-height {
+    height: 292px;
+  }
+  .w0 {
+    width: 100% !important;
+  }
+  .footer_col_holder {
+    width: 100%;
+  }
+  .hero_p_bottom_text {
+    font-size: 12px !important;
+    padding: 0 48px 0 0;
+  }
+  .main_width {
+    width: 100%;
+  }
+  /* .truck{
       width: 280px;
       position: relative;
       margin: 0 110px 0 0;
     } */
-    .truck_h6_text{
-      font-size: 20px !important;
-      padding: 0 5px 0 5px;
-    }
-    .turck_p_text_holder{
-      width: 215px;
-    }
-    .truck_div_width{
-      width: 215px;
-    }
-    .join_img_holder{
-      width: 253px;
-    }
-    .join_img_holder img{
-      width: 40px;
-      object-fit: contain;
-    }
-    .rmp{
-      padding: 0 0 0 0 !important;
-    }
-    .milestone{
-      flex-direction: column !important;
-      padding: 18px 0px 0 0 !important;
-      height: 165px;
-    }
-    .milestone_link{
-      position: relative;
-      bottom: 8px;
-      padding: 6px 10px 0px 10px !important;
-    }
-    .pro_p{
-      padding: 18px 37px !important;
-    }
-    .tac{
-      text-align: center !important;
-    }
-    .own_truck{
-      flex-direction: column;
-      width: 95% !important;
-      height: 200px;
-    }
-    .footer_h2_holder{
-      padding: 10px 5px 0 10px;
-      margin: auto;
-    }
-    .footer_h2_holder h2{
-      font-size: 18px;
-    }
-    .own_item_holder{
-      width: 300px !important;
-      margin: auto;
-    }
-    .form-check-input{
-      margin: 7px 0 0 -20px !important;
-    }
-    .my_col_settings{
-      width: 100% !important;
-    }
-   .join_btn_holder{
-      display: flex;
-      justify-content: center;
-      padding: 0 0 8px 0;
-      position: relative;
-      bottom: 5px;
-      width: 100%;
-   }
-   .col-footer{
-     width: 50% !important;
-     padding: 20px 0 0 12px;
-   }
-   .footer{
-     padding: 6px !important;
-   }
-   .footer_text_holder{
-     width: 95% !important;
-     flex-direction: column;
-   }
-   .reg_log{
+  .truck_h6_text {
+    font-size: 20px !important;
+    padding: 0 5px 0 5px;
+  }
+  .turck_p_text_holder {
+    width: 215px;
+  }
+  .truck_div_width {
+    width: 215px;
+  }
+  .join_img_holder {
+    width: 253px;
+  }
+  .join_img_holder img {
+    width: 40px;
+    object-fit: contain;
+  }
+  .rmp {
+    padding: 0 0 0 0 !important;
+  }
+  .milestone {
+    flex-direction: column !important;
+    padding: 18px 0px 0 0 !important;
+    height: 165px;
+  }
+  .milestone_link {
+    position: relative;
+    bottom: 8px;
+    padding: 6px 10px 0px 10px !important;
+  }
+  .pro_p {
+    padding: 18px 37px !important;
+  }
+  .tac {
+    text-align: center !important;
+  }
+  .own_truck {
+    flex-direction: column;
+    width: 95% !important;
+    height: 200px;
+  }
+  .footer_h2_holder {
+    padding: 10px 5px 0 10px;
+    margin: auto;
+  }
+  .footer_h2_holder h2 {
+    font-size: 18px;
+  }
+  .own_item_holder {
+    width: 300px !important;
+    margin: auto;
+  }
+  .form-check-input {
+    margin: 7px 0 0 -20px !important;
+  }
+  .my_col_settings {
+    width: 100% !important;
+  }
+  .join_btn_holder {
+    display: flex;
+    justify-content: center;
+    padding: 0 0 8px 0;
+    position: relative;
+    bottom: 5px;
+    width: 100%;
+  }
+  .col-footer {
+    width: 50% !important;
+    padding: 20px 0 0 12px;
+  }
+  .footer {
+    padding: 6px !important;
+  }
+  .footer_text_holder {
+    width: 95% !important;
+    flex-direction: column;
+  }
+  .reg_log {
     display: flex;
     flex-direction: column;
     height: 97px;
     left: 0;
-   }
-   .navbar-nav{
-     padding: 5px 0 0 0px;
-   }
-   .nav_margin {
+  }
+  .navbar-nav {
+    padding: 5px 0 0 0px;
+  }
+  .nav_margin {
     margin: 10px 30px 0 0;
   }
-  .sm{
+  .sm {
     display: flex;
     justify-content: center;
   }
-    .display{
-      display: none;
-    }
-    .mobile-sm{
-      flex-direction: column !important;
-    }
-    .mobile-sm-d{
-      width: 100%;
-      margin: 0 0 10px 0;
-    }
-    .mw100{
-      width: 100% !important;
-    }
-    .card_form_holder{
-      width: 95% !important;
-      padding: 20px 10px 20px 10px !important;
-      box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    }
-    .settings{
-      right: 9px;
-    }
-    .sm-hero-height{
-      height: 460px;
-    }
-    .btn_style button{
-      height: 45px;
-      padding: 0 20px 0 20px !important;
-      margin: 0 0 10px 0;
-    }
-    .reg_btn_style button{
-      padding: 5px 15px 5px 15px !important;
-      font-size: 15px;
-    }
-    .reg-mobile-height{
-      height: 700px;
-    }
-    .mobile-sm-width{
-      width: 90% !important;
-      padding: 0 0 0 0 !important;
-    }
-    .mobile-sm-pad{
-      padding: 75px 0 0 0 !important;
-    }
-    .col-pad-left{
-      padding: 0 0 0 0 !important;
-    }
-    .mobile-sm-partner-p{
-      font-size: 4vw;
-    }
-    .mobile-sm-img{
-      width: 162px;
-    }
-    .mobile-sm-incoming{
-      height: 90px;
-      width: 220px;
-      padding: 0 10px 0 10px !important;
-  margin: 70px 34px 0 0 !important;
-    }
-    .col-pad p{
-      padding: 0 !important;
-    }
-    .sm-padding{
-      padding: 10px 0 10px 0 !important;
-    }
-    .incoming-div {
-      background: #10462E;
-      height: 107px;
-      width: 236px;
+  .display {
+    display: none;
+  }
+  .mobile-sm {
+    flex-direction: column !important;
+  }
+  .mobile-sm-d {
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+  .mw100 {
+    width: 100% !important;
+  }
+  .card_form_holder {
+    width: 95% !important;
+    padding: 20px 10px 20px 10px !important;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  }
+  .settings {
+    right: 9px;
+  }
+  .sm-hero-height {
+    height: 460px;
+  }
+  .btn_style button {
+    height: 45px;
+    padding: 0 20px 0 20px !important;
+    margin: 0 0 10px 0;
+  }
+  .reg_btn_style button {
+    padding: 5px 15px 5px 15px !important;
+    font-size: 15px;
+  }
+  .reg-mobile-height {
+    height: 700px;
+  }
+  .mobile-sm-width {
+    width: 90% !important;
+    padding: 0 0 0 0 !important;
+  }
+  .mobile-sm-pad {
+    padding: 75px 0 0 0 !important;
+  }
+  .col-pad-left {
+    padding: 0 0 0 0 !important;
+  }
+  .mobile-sm-partner-p {
+    font-size: 4vw;
+  }
+  .mobile-sm-img {
+    width: 162px;
+  }
+  .mobile-sm-incoming {
+    height: 90px;
+    width: 220px;
+    padding: 0 10px 0 10px !important;
+    margin: 70px 34px 0 0 !important;
+  }
+  .col-pad p {
+    padding: 0 !important;
+  }
+  .sm-padding {
+    padding: 10px 0 10px 0 !important;
+  }
+  .incoming-div {
+    background: #10462e;
+    height: 107px;
+    width: 236px;
   }
   .div-margin {
-      margin: 67px 30px 0 0;
+    margin: 67px 30px 0 0;
   }
-  .incoming-top-div{
+  .incoming-top-div {
     padding: 10px 5px 0 5px !important;
-      height: 50px;
+    height: 50px;
   }
-  .sm-margin{
+  .sm-margin {
     margin: 35px 40px 0 0px !important;
   }
-  .sm-mobile-rel{
+  .sm-mobile-rel {
     position: relative;
-      right: 120px;
-      top: 10px;
+    right: 120px;
+    top: 10px;
   }
-  .reqNext{
-      width: 100% !important;
-      margin: 0 0 20px 0 !important;
+  .reqNext {
+    width: 100% !important;
+    margin: 0 0 20px 0 !important;
   }
-  .pt-15{
+  .pt-15 {
     padding-top: 15px !important;
   }
-  .nrh{
+  .nrh {
     height: 800px;
   }
-  .m37{
+  .m37 {
     margin: 37px 0 0 0 !important;
   }
-.h345{
-  height: 345px;
-}
-.h400{
-  height: 400px;
-}
+  .h345 {
+    height: 345px;
   }
-  
-  @media only screen and (min-width: 320px) and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
-    .nf_div{
-      width: 90%;
-    }
-    .my_card{
-      background-color: var(--whiteColor);
-  width: 100% !important;
-  height: 350px;
-  padding: 10px;
-    }
-    .nav_settings{
-      margin: 10px 0 0 0 !important;
-    }
-    .sm_nav_width{
-      width: 90% !important;
-    }
-    .sm-margin_nav{
-      margin: 10px 0 10px 0 !important;
-    }
-    .nav_flex_direction{
-      flex-direction: column;
-      height: 70px;
-    }
-    .link_border_style{
-      padding: 0;
-      background-color: transparent;
-    }
-    .nav_link_padding{
-      padding: 0;
-    }
-    .flex-mobile-d{
-      flex-direction: column !important;
-    }
-    .login_input{
-      height: 50px;
-    }
-    .test-height{
-      min-height: calc(100vh - 54px);
-    }
-    .w700{
-      width: 700px !important;
-    }
-    .triangle-login{
-      display: none;
-    }
-    .bg-sm-white{
-      background-color: #FFF !important;
-    }
-    .mobile-nav-with{
-      width: 90% !important;
-    }
-    .hero_style{
-      overflow: hidden;
-      width: 100% !important;
-      padding: 0 0 200px 0;
-      height: 625px;
-    }
-    .hs{
-      height: 900px !important;
-    }
-    .hero_h1_text{
-      font-size: 10vw;
-      width: 100%;
-      font-weight: bolder;
-    }
-    .f32{
-      font-size: 10vw;
-    }
-    .hero_p_top_text{
-      font-size: 4vw;
-      width: 150px;
-    }
-    .pt-style{
-      padding: 32px 0 0 0 !important;
-    }
-    .footer_btn{
-      padding: 3px 20px 0 20px;
-      margin: 0 0 18px 0;
-    }
-    .col-sm-height{
-      height: 292px;
-    }
-   .w0{
-     width: 100% !important;
-   }
-    .footer_col_holder{
-      width: 100%;
-    }
-    .hero_p_bottom_text{
-      font-size: 12px !important;
-      padding: 0 48px 0 0;
-    }
-    .main_width{
-      width: 100%;
-    }
-    /* .truck{
+  .h400 {
+    height: 400px;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .nf_div {
+    width: 90%;
+  }
+  .my_card {
+    background-color: var(--whiteColor);
+    width: 100% !important;
+    padding: 10px;
+  }
+  .nav_settings {
+    margin: 10px 0 0 0 !important;
+  }
+  .sm_nav_width {
+    width: 90% !important;
+  }
+  .sm-margin_nav {
+    margin: 10px 0 10px 0 !important;
+  }
+  .nav_flex_direction {
+    flex-direction: column;
+    height: 70px;
+  }
+  .link_border_style {
+    padding: 0;
+    background-color: transparent;
+  }
+  .nav_link_padding {
+    padding: 0;
+  }
+  .flex-mobile-d {
+    flex-direction: column !important;
+  }
+  .login_input {
+    height: 50px;
+  }
+  .test-height {
+    min-height: calc(100vh - 54px);
+  }
+  .w700 {
+    width: 700px !important;
+  }
+  .triangle-login {
+    display: none;
+  }
+  .bg-sm-white {
+    background-color: #fff !important;
+  }
+  .mobile-nav-with {
+    width: 90% !important;
+  }
+  .hero_style {
+    overflow: hidden;
+    width: 100% !important;
+    padding: 0 0 200px 0;
+    height: 700px;
+  }
+  .hs {
+    height: 900px !important;
+  }
+  .hero_h1_text {
+    font-size: 10vw;
+    width: 100%;
+    font-weight: bolder;
+  }
+  .f32 {
+    font-size: 10vw;
+  }
+  .hero_p_top_text {
+    font-size: 4vw;
+    width: 150px;
+  }
+  .pt-style {
+    padding: 32px 0 0 0 !important;
+  }
+  .footer_btn {
+    padding: 3px 20px 0 20px;
+    margin: 0 0 18px 0;
+  }
+  .col-sm-height {
+    height: 292px;
+  }
+  .w0 {
+    width: 100% !important;
+  }
+  .footer_col_holder {
+    width: 100%;
+  }
+  .hero_p_bottom_text {
+    font-size: 12px !important;
+    padding: 0 48px 0 0;
+  }
+  .main_width {
+    width: 100%;
+  }
+  /* .truck{
       width: 280px;
       position: relative;
       margin: 0 110px 0 0;
     } */
-    .truck_h6_text{
-      font-size: 20px !important;
-      padding: 0 5px 0 5px;
-    }
-    .turck_p_text_holder{
-      width: 215px;
-    }
-    .truck_div_width{
-      width: 215px;
-    }
-    .join_img_holder{
-      width: 253px;
-    }
-    .join_img_holder img{
-      width: 40px;
-    }
-    .rmp{
-      padding: 0 0 0 0 !important;
-    }
-    .milestone{
-      flex-direction: column !important;
-      padding: 18px 0px 0 0 !important;
-      height: 165px;
-    }
-    .milestone_link{
-      position: relative;
-      bottom: 8px;
-      padding: 6px 10px 0px 10px !important;
-    }
-    .tac{
-      text-align: center !important;
-    }
-    .own_truck{
-      flex-direction: column;
-      width: 95% !important;
-      height: 300px;
-    }
-    .footer_h2_holder{
-      width: 255px;
-      padding: 10px 5px 0 10px;
-      margin: auto;
-    }
-    .footer_h2_holder h2{
-      font-size: 18px;
-    }
-    .own_item_holder{
-      width: 300px !important;
-      margin: auto;
-    }
-    .form-check-input{
-      margin: 7px 0 0 -20px !important;
-    }
-    .my_col_settings{
-      width: 100% !important;
-    }
-   .join_btn_holder{
-      display: flex;
-      justify-content: center;
-      padding: 0 0 8px 0;
-      position: relative;
-      bottom: 5px;
-      width: 100%;
-   }
-   .col-footer{
-     width: 50% !important;
-     padding: 20px 0 0 12px;
-   }
-   .footer{
-     padding: 6px !important;
-   }
-   .footer_text_holder{
-     width: 95% !important;
-     flex-direction: column;
-   }
-   .reg_log{
+  .truck_h6_text {
+    font-size: 20px !important;
+    padding: 0 5px 0 5px;
+  }
+  .turck_p_text_holder {
+    width: 215px;
+  }
+  .truck_div_width {
+    width: 215px;
+  }
+  .join_img_holder {
+    width: 253px;
+  }
+  .join_img_holder img {
+    width: 40px;
+  }
+  .rmp {
+    padding: 0 0 0 0 !important;
+  }
+  .milestone {
+    flex-direction: column !important;
+    padding: 18px 0px 0 0 !important;
+    height: 165px;
+  }
+  .milestone_link {
+    position: relative;
+    bottom: 8px;
+    padding: 6px 10px 0px 10px !important;
+  }
+  .tac {
+    text-align: center !important;
+  }
+  .own_truck {
+    flex-direction: column;
+    width: 95% !important;
+    height: 300px;
+  }
+  .footer_h2_holder {
+    width: 255px;
+    padding: 10px 5px 0 10px;
+    margin: auto;
+  }
+  .footer_h2_holder h2 {
+    font-size: 18px;
+  }
+  .own_item_holder {
+    width: 300px !important;
+    margin: auto;
+  }
+  .form-check-input {
+    margin: 7px 0 0 -20px !important;
+  }
+  .my_col_settings {
+    width: 100% !important;
+  }
+  .join_btn_holder {
+    display: flex;
+    justify-content: center;
+    padding: 0 0 8px 0;
+    position: relative;
+    bottom: 5px;
+    width: 100%;
+  }
+  .col-footer {
+    width: 50% !important;
+    padding: 20px 0 0 12px;
+  }
+  .footer {
+    padding: 6px !important;
+  }
+  .footer_text_holder {
+    width: 95% !important;
+    flex-direction: column;
+  }
+  .reg_log {
     display: flex;
     flex-direction: column;
     height: 97px;
     left: 0;
-   }
-   .navbar-nav{
-     padding: 5px 0 0 0px;
-   }
-   .nav_margin {
+  }
+  .navbar-nav {
+    padding: 5px 0 0 0px;
+  }
+  .nav_margin {
     margin: 10px 30px 0 0;
   }
-  .sm{
+  .sm {
     display: flex;
     justify-content: center;
   }
-    .display{
-      display: none;
-    }
-    .mobile-sm{
-      flex-direction: column !important;
-    }
-    .mobile-sm-d{
-      width: 100%;
-      margin: 0 0 10px 0;
-    }
-    .mw100{
-      width: 100% !important;
-    }
-    .card_form_holder{
-      width: 95% !important;
-      padding: 20px 10px 20px 10px !important;
-      box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    }
-    .settings{
-      right: 9px;
-    }
-    .sm-hero-height{
-      height: 460px;
-    }
-    .btn_style button{
-      height: 45px;
-      padding: 0 20px 0 20px !important;
-      margin: 0 0 10px 0;
-    }
-    .reg_btn_style button{
-      padding: 5px 15px 5px 15px !important;
-      font-size: 15px;
-    }
-    .reg-mobile-height{
-      height: 700px;
-    }
-    .mobile-sm-width{
-      width: 90% !important;
-      padding: 0 0 0 0 !important;
-    }
-    .mobile-sm-pad{
-      padding: 75px 0 0 0 !important;
-    }
-    .col-pad-left{
-      padding: 0 0 0 0 !important;
-    }
-    .mobile-sm-partner-p{
-      font-size: 4vw;
-    }
-    .mobile-sm-img{
-      width: 162px;
-    }
-    .mobile-sm-incoming{
-      height: 90px;
-      width: 220px;
-      padding: 0 10px 0 10px !important;
-  margin: 70px 34px 0 0 !important;
-    }
-    .col-pad p{
-      padding: 0 !important;
-    }
-    .sm-padding{
-      padding: 10px 0 10px 0 !important;
-    }
-    .incoming-div {
-      background: #10462E;
-      height: 107px;
-      width: 236px;
+  .display {
+    display: none;
+  }
+  .mobile-sm {
+    flex-direction: column !important;
+  }
+  .mobile-sm-d {
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+  .mw100 {
+    width: 100% !important;
+  }
+  .card_form_holder {
+    width: 95% !important;
+    padding: 20px 10px 20px 10px !important;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  }
+  .settings {
+    right: 9px;
+  }
+  .sm-hero-height {
+    height: 460px;
+  }
+  .btn_style button {
+    height: 45px;
+    padding: 0 20px 0 20px !important;
+    margin: 0 0 10px 0;
+  }
+  .reg_btn_style button {
+    padding: 5px 15px 5px 15px !important;
+    font-size: 15px;
+  }
+  .reg-mobile-height {
+    height: 700px;
+  }
+  .mobile-sm-width {
+    width: 90% !important;
+    padding: 0 0 0 0 !important;
+  }
+  .mobile-sm-pad {
+    padding: 75px 0 0 0 !important;
+  }
+  .col-pad-left {
+    padding: 0 0 0 0 !important;
+  }
+  .mobile-sm-partner-p {
+    font-size: 4vw;
+  }
+  .mobile-sm-img {
+    width: 162px;
+  }
+  .mobile-sm-incoming {
+    height: 90px;
+    width: 220px;
+    padding: 0 10px 0 10px !important;
+    margin: 70px 34px 0 0 !important;
+  }
+  .col-pad p {
+    padding: 0 !important;
+  }
+  .sm-padding {
+    padding: 10px 0 10px 0 !important;
+  }
+  .incoming-div {
+    background: #10462e;
+    height: 107px;
+    width: 236px;
   }
   .div-margin {
-      margin: 67px 30px 0 0;
+    margin: 67px 30px 0 0;
   }
-  .incoming-top-div{
+  .incoming-top-div {
     padding: 10px 5px 0 5px !important;
-      height: 50px;
+    height: 50px;
   }
-  .sm-margin{
+  .sm-margin {
     margin: 35px 46px 0 0px !important;
   }
-  .sm-mobile-rel{
+  .sm-mobile-rel {
     position: relative;
-      right: 120px;
-      top: 10px;
+    right: 120px;
+    top: 10px;
   }
-  .reqNext{
-      width: 100% !important;
-      margin: 0 0 20px 0 !important;
+  .reqNext {
+    width: 100% !important;
+    margin: 0 0 20px 0 !important;
   }
-  .pt-15{
+  .pt-15 {
     padding-top: 15px !important;
   }
-  .nrh{
+  .nrh {
     height: 885px;
   }
-  .m37{
+  .m37 {
     margin: 37px 0 0 0 !important;
   }
-.h345{
-  height: 345px;
-}
-.error_red{
-  left: 35px;
-}
-.error_green{
-  left: 35px;
-}
-.home-padding{
-  padding: 10px 62px !important;
-  position: relative;
-  top: 10px;
-
-}
-  
+  .h345 {
+    height: 345px;
   }
+  .error_red {
+    left: 35px;
+  }
+  .error_green {
+    left: 35px;
+  }
+  .home-padding {
+    padding: 10px 62px !important;
+    position: relative;
+    top: 10px;
+  }
+}
