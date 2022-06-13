@@ -3,12 +3,6 @@
   right: 0;
   z-index: 1;
 }
-.arrow::before {
-  color: #fff;
-  margin: 20px 10px 0 0;
-  cursor: pointer;
-  display: none;
-}
 .dash-grid-right {
   width: 432px;
 }
@@ -557,9 +551,6 @@
   .left-width-home {
     width: 100%;
     left: 0;
-  }
-  .arrow::before {
-    display: block;
   }
   .card {
     overflow: auto;
