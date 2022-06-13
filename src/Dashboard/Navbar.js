@@ -2,7 +2,6 @@ import React from "react";
 import notification from "../image/Notification.svg";
 import user from "../image/user.png";
 function Navbar(props) {
-  console.log(props);
   return (
     <div className="container-fluid dashboard-nav position-fixed d-flex justify-content-between ">
       <i class="bi bi-justify position-relative arrow" onClick={props.showSidebar}></i>

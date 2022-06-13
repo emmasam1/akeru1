@@ -24,13 +24,14 @@
 } 
  .open{
   height: 100vh;
-  width: 200px;
+  width: 245px;
   background: #282733;
   z-index: 999;
   display: flex;
   flex-direction: column;
   position: fixed;
   margin: 0 0 0 0;
+  padding: 0 0 0 40px;
   transition: 0.8s ease-in-out;
 } 
 
@@ -591,5 +592,9 @@
   }
   .sm-card{
     width: 100%;
+  }
+  .open{
+    width: 200px;
+    padding: 0 0 0 0;
   }
 }

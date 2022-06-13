@@ -12,7 +12,7 @@ function Sidebar(props) {
   const [active, setActive] = useState("index");
 
   return (
-    <div className={props.sidebar ? "open" : "close"}>
+    <div className={props.sidebar ? "close" : "open"}>
       <div className="nav-margin">
         <div className="title-container d-flex justify-content-between">
           <h3>ADMIN</h3>
