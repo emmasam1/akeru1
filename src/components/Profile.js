@@ -174,6 +174,19 @@ function Proflie() {
             aria-labelledby="nav-profile-tab"
           >
             <div className="d-flex flex-sm-column justify-content-between flex-md-row flex-lg-row flex-xl-row">
+            <Link to="/profile/pending" className="link-dark text-decoration-none">
+              <div className="on-going pt-3">
+                <div className="d-flex justify-content-between p-3">
+                  <h2 className="w900">0</h2>
+                  <div className="line-h">
+                    <span>
+                      Pending
+                      <br /> order
+                    </span>
+                  </div>
+                </div>
+              </div>
+              </Link>
               <Link to="/profile/ongoing" className="link-dark text-decoration-none">
               <div className="pending pt-3">
                 <div className="d-flex justify-content-between p-3">
@@ -187,19 +200,7 @@ function Proflie() {
                 </div>
               </div>
               </Link>
-              <Link to="/profile/pending" className="link-dark text-decoration-none">
-              <div className="on-going pt-3">
-                <div className="d-flex justify-content-between p-3">
-                  <h2 className="w900">0</h2>
-                  <div className="line-h">
-                    <span>
-                      Pending
-                      <br /> order
-                    </span>
-                  </div>
-                </div>
-              </div>
-              </Link>
+              
               <Link to="/profile/complete" className="link-dark text-decoration-none">
               <div className="completed pt-3">
                 <div className=" d-flex justify-content-between p-3">
