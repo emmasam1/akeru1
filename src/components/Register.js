@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from './Navbar';
 import Footer from './Footer'
 import axios from 'axios';
@@ -7,7 +7,7 @@ import ROUTE from '../route.json'
 import Loading from "./Loading";
 import ShowMessage from "./ShowMessage";
 function Register() {
-
+  const navigate = useNavigate();
   const [ fullname, setFullname ] = useState('')
   const [ company, setCompany ] = useState('')
   const [ email, setEmail ] = useState('')
@@ -43,8 +43,8 @@ function Register() {
           //console.log(res.data.msg);
         }
         else{
-          setError(<div className="error_green">Successfully created.</div>)
-         // console.log(res.data.msg);
+
+          navigate("/request");
         }
        
       }).catch(err => {

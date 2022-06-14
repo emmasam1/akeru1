@@ -63,7 +63,7 @@ function Home() {
           console.log(res);
           setIsLoading(false)
           alert("Request create successfully")
-          navigate("/ongoing")
+          navigate("/profile/ongoing")
         })
         .catch(function (err) {
           console.log(err);
