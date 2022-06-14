@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ROUTE from "../route.json";
 import Loader from "./Loader";
@@ -10,6 +10,12 @@ import driver from "../image/DashDriver.png";
 import Trips from './Trips';
 
 function DashboardHome() {
+  const navigate = useNavigate();
+
+  if(localStorage.getItem('admin')==null){
+    navigate('/signin');
+  }
+  
   const [requestData, setRequestData] = useState([])
   const [customers, setCustomers] = useState([])
   const [drivers, setDrivers] = useState([])

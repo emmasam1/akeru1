@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ROUTE from "../route.json";
 import Loader from "./Loader";
@@ -6,6 +7,12 @@ import EditUser from "./Dash-Components/EditUser";
 import ApproveModal from "./Dash-Components/ApproveModal";
 import DeleteModal from "./Dash-Components/DeleteModal";
 function Driver() {
+  const navigate = useNavigate();
+
+  if(localStorage.getItem('admin')==null){
+    navigate('/signin');
+  }
+
   const [driverInfo, setDriverInfo] = useState([]);
   const [aUser, setAuser] = useState({})
   const [isLoading, setIsLoading] = useState(false);

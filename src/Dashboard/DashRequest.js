@@ -1,9 +1,15 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import search from "../image/Search.svg";
 import ROUTE from "../route.json";
 import Results from "./Results";
 function DashRequest() {
+  const navigate = useNavigate();
+
+  if(localStorage.getItem('admin')==null){
+    navigate('/signin');
+  }
   const [pick_up, setpick_up] = useState("");
   const [drop_off, setdrop_off] = useState("");
   const [date, setdate] = useState("");

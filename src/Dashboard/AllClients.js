@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ROUTE from "../route.json";
 import Loader from "./Loader";
 import ClientModal from "./Dash-Components/ClientModal";
 import DeleteClient from "./Dash-Components/DeleteClient";
 function AllClients() {
+  const navigate = useNavigate();
+
+  if(localStorage.getItem('admin')==null){
+    navigate('/signin');
+  }
   const [clientsInfo, setClientsInfo] = useState([]);
   const [aClient, setAClient] = useState({})
   const [isLoading, setIsLoading] = useState(false);
