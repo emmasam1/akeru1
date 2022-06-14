@@ -15,9 +15,11 @@ function Navbar() {
   }, []);
 
   const handleLogout = () => {
+   if(window.confirm("Are you sure you want to logout??")){
     window.localStorage.clear();
     navigate('/');
     window.location.reload(); 
+   }
   }
 
 

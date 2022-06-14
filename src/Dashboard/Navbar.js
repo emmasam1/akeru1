@@ -8,9 +8,11 @@ function Navbar(props) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    window.localStorage.clear();
-    navigate('/');
-    window.location.reload(); 
+    if(window.confirm("Are you sure you want to logout??")){
+      window.localStorage.clear();
+      navigate('/');
+      window.location.reload(); 
+     }
   }
   return (
     <div className="container-fluid dashboard-nav position-fixed d-flex justify-content-between ">
