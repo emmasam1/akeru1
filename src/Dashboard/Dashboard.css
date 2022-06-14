@@ -486,6 +486,19 @@
 .width-350 {
   width: 350px;
 }
+.setting-input{
+  margin: 0 15px 0 0;
+}
+input[type="text"]::placeholder {
+  font-size: 14px;
+  position: relative;
+  font-weight: 600;
+  bottom: 1px;
+}
+.w64{
+  width: 64%;
+  height: 46px;
+}
 
 #breathing-loader {
   -webkit-animation: breathing 2s ease-out infinite normal;

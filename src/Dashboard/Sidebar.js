@@ -83,7 +83,7 @@ function Sidebar(props) {
             Customers
           </Link>
           <Link
-            to="/admin-dashboard/settings"
+            to="/admin-dashboard/setting"
             onClick={() => setActive("settings")}
             className={`d-flex link-color text-decoration-none link-p font14 mb ${
               active === "settings" ? "dash-active" : ""
