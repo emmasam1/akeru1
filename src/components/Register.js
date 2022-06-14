@@ -4,6 +4,8 @@ import Navbar from './Navbar';
 import Footer from './Footer'
 import axios from 'axios';
 import ROUTE from '../route.json'
+import Loading from "./Loading";
+import ShowMessage from "./ShowMessage";
 function Register() {
 
   const [ fullname, setFullname ] = useState('')
@@ -13,6 +15,8 @@ function Register() {
   const [ passwd, setPasswd ] = useState('')
   const [ compasswd, setComPasswd ] = useState('')
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   // const [ err, setErr ] = useState({
   //   fullname,company,email,phone,passwd, compasswd
@@ -28,10 +32,14 @@ function Register() {
     const isValid = formValidation()
 
     if(isValid){
+      setIsLoading(true)
       axios.post(ROUTE.REGISTER, {fullname, company, email, phone, passwd})
       .then(res => {
-        if (res.data.msg === "Email or phone number already exists") {
-          setError(<div className="error_red">Email or phone number already exists</div>)
+        if (res.data.error ) {
+          
+          setHasError(true)
+            setError(res.data.msg);
+            setIsLoading(false)
           //console.log(res.data.msg);
         }
         else{

@@ -14,6 +14,7 @@ import Casera from "../image/The-La-Casera.png";
 import unilever from "../image/unilever.png";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Loading from "./Loading";
 
 function Home() {
 
@@ -34,8 +35,10 @@ function Home() {
   const [typeErr, setTypeErr] = useState({});
   const [weightErr, setWeightErr] = useState({});
   const [amountErr, setamountErr] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const handSubmit = (e) => {
+    setIsLoading(true)
     e.preventDefault();
     const isValid = formValidation();
 
@@ -58,6 +61,7 @@ function Home() {
         .post(ROUTE.REQUEST,data)
         .then(function (res) {
           console.log(res);
+          setIsLoading(false)
           alert("Request create successfully")
           navigate("/ongoing")
         })
@@ -66,6 +70,7 @@ function Home() {
         });
     }else{
       if(user==null){
+        setIsLoading(false)
         alert("Please login before making a request")
         navigate("/signin")
       }
@@ -276,7 +281,7 @@ function Home() {
                       );
                     })}
 
-                    <button className="my_btn w900">Request quote</button>
+                    <button className="my_btn w900"> <Loading loading={isLoading} false_text={"Request quote "}/> </button>
                   </div>
                 </form>
               </div>

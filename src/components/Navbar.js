@@ -72,12 +72,14 @@ function Navbar() {
               >
                 Login
               </Link>}
-              <Link
+              {user? <Link  to="/profile" className="link-dark"><i class="bi bi-person-circle fs-3"></i></Link> :<Link
                 to="/register"
                 className="link_border_style nav_margin register_link link-dark sm-margin_nav text-decoration-none fw-bold fs-small m-0"
               >
                 Register
-              </Link>
+              </Link>}
+              
+              
             </div>
           </div>
         </div>

@@ -1154,3 +1154,29 @@ label span input {
   background-color: var(--btnColor);
   border-color: var(--btnColor);
 }
+
+.loader4 {
+  width:25px;
+  height:25px;
+  display:inline-block;
+  padding:0px;
+  border-radius:100%;
+  border:2px solid;
+  border-top-color:rgb(0, 0, 0);
+  border-bottom-color:rgba(255,255,255, 0.3);
+  border-left-color:rgb(0, 0, 0);
+  border-right-color:rgba(255,255,255, 0.3);
+  -webkit-animation: loader4 1s ease-in-out infinite;
+  animation: loader4 1s ease-in-out infinite;
+}
+@keyframes loader4 {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+@-webkit-keyframes loader4 {
+  from {-webkit-transform: rotate(0deg);}
+  to {-webkit-transform: rotate(360deg);}
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{border-bottom: 5px solid black !important; color: #000 !important; font-weight: 700;}
+.nav-tabs .nav-link{color: gray !important; font-weight: 700;}

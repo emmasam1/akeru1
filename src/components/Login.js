@@ -7,37 +7,40 @@ import google from "../image/google.png";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ROUTE from "../route.json";
+import Loading from "./Loading";
+import ShowMessage from "./ShowMessage";
+
 function Login() {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [passwd, setPasswd] = useState("");
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const [emailErr, setEmailErr] = useState({});
   const [passwdErr, setPasswdErr] = useState({});
   const [error, setError] = useState("");
 
   const handSubmit = (e) => {
+    
     e.preventDefault();
     const isValid = formValidation();
     if (isValid) {
+      setIsLoading(true)
       axios
         .post(ROUTE.LOGIN, { email, passwd })
         .then(function (res) {
           if (res.data.error) {
-            setError(res.data.error);
-            setTimeout(() => {
-              setError(
-                <div className="justify-content-center">
-                  <div className="error_red">Invalide user details</div>
-                </div>
-              );
-            }, 2000);
+            console.log(res.data);
+            setHasError(true)
+            setError(res.data.msg);
+            setIsLoading(false)
+            
             // console.log("invalide user details");
           } else {
-            setTimeout(() => {
-              setError(<div className="error_green">Login successfull</div>);
-            }, 5000);
+            setHasError(false)
+            setError("Login Successful");
+            setIsLoading(false)
             localStorage.setItem("user", JSON.stringify(res.data));
             navigate("/Profile");
             // console.log("success");
@@ -45,6 +48,7 @@ function Login() {
         })
         .catch(function (err) {
           console.log(err);
+          setIsLoading(false)
         });
     }
     //can clear from input here
@@ -95,7 +99,7 @@ function Login() {
             </Link>
           </p>
           <form onSubmit={handSubmit}>
-            {error ? error : ""}
+             
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">
                 Email
@@ -143,15 +147,18 @@ function Login() {
                 );
               })}
             </div>
+            
+              <ShowMessage  hasError={hasError} message={error}/>
+            
             <div className="btn_style d-flex justify-content-center">
-              <button className="login w900">Sign in</button>
+              <button className="login w900"><Loading loading={isLoading} false_text={"Sign in "}/> </button>
             </div>
           </form>
           <div
             className="d-flex justify-content-between m_auto login_icon_holder
           "
           >
-            <img
+            {/* <img
               src={facebook}
               alt="icon"
               style={{ width: "35px", height: "35px" }}
@@ -165,7 +172,8 @@ function Login() {
               src={linkedin}
               alt="icon"
               style={{ width: "30px", height: "30px", margin: "3px 0 0 0" }}
-            />
+            /> */}
+
           </div>
         </div>
       </div>
