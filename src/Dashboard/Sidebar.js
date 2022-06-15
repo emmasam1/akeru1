@@ -17,7 +17,7 @@ function Sidebar(props) {
         <div className="title-container d-flex justify-content-between">
           <h3>ADMIN</h3>
           <div>
-          <i class="bi bi-justify position-relative burger" onClick={props.showSidebar}></i>
+          <i className="bi bi-justify position-relative burger" onClick={props.showSidebar}></i>
           </div>
         </div>
 

@@ -25,6 +25,12 @@ function Navbar(props) {
         <div className="rounded-circle user-img">
           <img src={user} alt="" className="img-fluid rounded-circle" />
         </div>
+        <div className="dropdown">
+          <i className="bi bi-caret-down-fill text-white position-relative admin-nav-dropdown" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></i>
+            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><Link className="dropdown-item" to="#">Logout</Link></li>
+            </ul>
+        </div>
       </div>
     </div>
   );
