@@ -17,12 +17,13 @@ function AllClients() {
   const [modal, setModal] = useState(false)
   const [removeClient, setRemoveClient] = useState(false)
   useEffect(() => {
+    setIsLoading(true)
     axios
       .get(ROUTE.CLIENTS)
       .then((res) => {
         let clientsInfo = res.data.data;
         if(!clientsInfo){
-          setIsLoading(true)
+         
         }else{
           setIsLoading(false)
           setClientsInfo(clientsInfo);
@@ -82,6 +83,9 @@ function AllClients() {
               })}
             </tbody>
           </table>
+          <br/>
+            <br/>
+            <br/>
         </div>
       </div>
     </div>
