@@ -5,6 +5,7 @@ import "./Responsive.css";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
+
 import Request from "./components/Request";
 import RequestNext from "./components/RquestNext";
 import Proflie from "./components/Profile";
@@ -27,6 +28,7 @@ import DashRequest from "./Dashboard/DashRequest";
 import Notfound from "./components/Notfound";
 import Driver from "./Dashboard/Driver";
 import Pro from "./Dashboard/InexNewRequest";
+import ForgotPassword from "./components/ForgotPassword";
 
 function App() {
   return (
@@ -35,6 +37,7 @@ function App() {
         <Route path="*" element={<Notfound />} />
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/register" element={<Register />} />
         <Route path="/request" element={<Request />} />
         <Route path="/detail" element={<RequestNext />} />

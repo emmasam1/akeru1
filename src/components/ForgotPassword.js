@@ -3,58 +3,57 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import facebook from "../image/facebook1.png";
 import linkedin from "../image/linkedinimage.png";
-import google from "../image/google.png";
+import bottle_bird from "../image/bird-bottle.png"; 
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ROUTE from "../route.json";
 import Loading from "./Loading";
 import ShowMessage from "./ShowMessage";
 
-function Login() {
+function ForgotPassword() {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
-  const [passwd, setPasswd] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [emailErr, setEmailErr] = useState({});
-  const [passwdErr, setPasswdErr] = useState({});
   const [error, setError] = useState("");
 
   const handSubmit = (e) => {
     
+    
     e.preventDefault();
+   
     const isValid = formValidation();
     if (isValid) {
-      setIsLoading(true)
-      if(email=="admin@akeru.com" && passwd=="web365"){
-        localStorage.setItem("admin", JSON.stringify({"email":"admin@akeru.com", "passwd": "web365"}));
-        navigate("/admin-dashboard");
-      }else{
-        axios
-        .post(ROUTE.LOGIN, { email, passwd })
-        .then(function (res) {
-          if (res.data.error) {
-            console.log(res.data);
-            setHasError(true)
-            setError(res.data.msg);
-            setIsLoading(false)
+      localStorage.setItem("forgot_email", email);
+      navigate("/Profile");
+
+      // setIsLoading(true)
+      //   axios
+      //   .post(ROUTE.FORGOTPASSWORD, { email })
+      //   .then(function (res) {
+      //     if (res.data.error) {
+      //       console.log(res.data);
+      //       setHasError(true)
+      //       setError(res.data.msg);
+      //       setIsLoading(false)
             
-            // console.log("invalide user details");
-          } else {
-            setHasError(false)
-            setError("Login Successful");
-            setIsLoading(false)
-            localStorage.setItem("user", JSON.stringify(res.data));
-            navigate("/Profile");
-            // console.log("success");
-          }
-        })
-        .catch(function (err) {
-          console.log(err);
-          setIsLoading(false)
-        });
-      }
+      //       // console.log("invalide user details");
+      //     } else {
+      //       setHasError(false)
+      //       setError("Login Successful");
+      //       setIsLoading(false)
+      //       localStorage.setItem("user", JSON.stringify(res.data));
+      //       navigate("/Profile");
+      //       // console.log("success");
+      //     }
+      //   })
+      //   .catch(function (err) {
+      //     console.log(err);
+      //     setIsLoading(false)
+      //   });
+      
       
     }
     //can clear from input here
@@ -62,7 +61,6 @@ function Login() {
 
   const formValidation = () => {
     const emailErr = {};
-    const passwdErr = {};
     let isValid = true;
     const regex =
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -74,15 +72,11 @@ function Login() {
       emailErr.email = "Invalid email format";
       isValid = false;
     }
-    if (!passwd) {
-      passwdErr.passwd = "Password is required";
-      isValid = false;
-    }
-    if (!email || !passwd) {
+    
+    if (!email ) {
     }
 
     setEmailErr(emailErr);
-    setPasswdErr(passwdErr);
     return isValid;
   };
 
@@ -96,14 +90,10 @@ function Login() {
         <div className="triangle rotate triangle-login"></div>
 
         <div className="card_form_holder p-5 position-absolute mt-4">
-          <h1 className="text-center">Sign In</h1>
+          <h1 className="text-center">Forgot your password?</h1>
 
           <p className="text-center login_p_text">
-            <span>or create</span>{" "}
-            <Link to="/register" className="link-dark">
-              an Account
-            </Link>
-          </p>
+            <span>Don’t worry, it happens to the best of us.</span> </p>
           <form onSubmit={handSubmit}>
              
             <div className="mb-3">
@@ -127,58 +117,17 @@ function Login() {
               })}
             </div>
 
-            <div className="mb-3">
-              <label
-                htmlFor="exampleInputPassword1"
-                className="form-label d-flex justify-content-between"
-              >
-                Password
-                <Link to="/forgot-password" className="link-dark">
-                  Forgot Password?
-                </Link>
-              </label>
-              <input
-                type="password"
-                name="password"
-                value={passwd}
-                onChange={(e) => setPasswd(e.target.value)}
-                className="login_input"
-                id="exampleInputPassword1"
-              />
-              {Object.keys(passwdErr).map((key) => {
-                return (
-                  <p className="error" key={passwdErr}>
-                    {passwdErr[key]}
-                  </p>
-                );
-              })}
-            </div>
-            
               <ShowMessage  hasError={hasError} message={error}/>
             
             <div className="btn_style d-flex justify-content-center">
-              <button className="login w900"><Loading loading={isLoading} false_text={"Sign in "}/> </button>
+              <button className="login w900"><Loading loading={isLoading} false_text={"Recover password"}/> </button>
             </div>
           </form>
           <div
             className="d-flex justify-content-between m_auto login_icon_holder
           "
           >
-            {/* <img
-              src={facebook}
-              alt="icon"
-              style={{ width: "35px", height: "35px" }}
-            />
-            <img
-              src={google}
-              alt="icon"
-              style={{ width: "22px", height: "22px", margin: "7px 0 0 0" }}
-            />
-            <img
-              src={linkedin}
-              alt="icon"
-              style={{ width: "30px", height: "30px", margin: "3px 0 0 0" }}
-            /> */}
+            
 
           </div>
         </div>
@@ -188,4 +137,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default ForgotPassword;
