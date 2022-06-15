@@ -1181,3 +1181,5 @@ label span input {
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{border-bottom: 5px solid black !important; color: #000 !important; font-weight: 700;}
 .nav-tabs .nav-link{color: gray !important; font-weight: 700;}
+.accordion-header{background-color: #f1f1f1 !important;}
+.accordion-item{background-color: #f1f1f1 !important;}

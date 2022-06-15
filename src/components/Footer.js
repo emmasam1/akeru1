@@ -20,7 +20,7 @@ function Footer() {
               <div className="col my_col_settings col-footer">
                 <h6 className="footer_h6">Legal</h6>
                 <li className="footer_li"><Link className='link-light text-decoration-none' to="/privacy-policy">Privacy Policy</Link></li> 
-                <li className="footer_li">FAQ</li>
+                <li className="footer_li"><Link className='link-light text-decoration-none' to="/faq">FAQ</Link></li>
               </div>
               <div className="col my_col_settings col-footer">
                 <h6 className="footer_h6">More</h6>

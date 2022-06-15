@@ -32,7 +32,7 @@ function PrivacyPolicy() {
                     <div className="container px-3 py-3">
                         <br />
                         <br />
-                        <h1 className="text-left how_it_works_title">Privacy Policy</h1>
+                        <h1 className="text-left how_it_works_title fs-1">Privacy Policy</h1>
 
                         <br />
                         <p><b>Shuttlers.ng will never share your personal info with third parties.</b></p>

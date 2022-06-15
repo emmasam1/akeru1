@@ -32,6 +32,7 @@ import ForgotPassword from "./components/ForgotPassword";
 import Setting from "./Dashboard/Setting"
 import Trucks from "./Dashboard/Trucks";
 import PrivacyPolicy from "./components/PrivacyPolicy";
+import FAQ from "./components/Faq";
 
 function App() {
   return (
@@ -45,7 +46,8 @@ function App() {
         <Route path="/request" element={<Request />} />
         <Route path="/detail" element={<RequestNext />} />
         <Route path="/partner" element={<Partner />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} /> 
+        <Route path="/faq" element={<FAQ />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/profile" element={<Proflie />}>
           <Route path="" element={<Current />} />
