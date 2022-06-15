@@ -63,10 +63,11 @@ function Home() {
           console.log(res);
           setIsLoading(false)
           alert("Request create successfully")
-          navigate("/profile/ongoing")
+          navigate("/profile/pending")
         })
         .catch(function (err) {
           console.log(err);
+          alert(err)
         });
     }else{
       if(user==null){

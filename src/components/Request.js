@@ -4,7 +4,7 @@ import ROUTE from "../route.json";
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer'
-
+import Loading from "./Loading";
 function Request() {
 
   let navigate = useNavigate();
@@ -16,7 +16,7 @@ function Request() {
   const [truck_type, setTruckType] = useState("");
   const [weight, setWeight] = useState("");
   const [amount, setAmount] = useState("")
-
+  const [isLoading, setIsLoading] = useState(false);
   const [pick_upErr, setpick_upErr] = useState({});
   const [drop_offErr, setdrop_offErr] = useState({});
   const [dateErr, setdateErr] = useState({});
@@ -33,6 +33,7 @@ function Request() {
 
 
     if (isValid && user) {
+      setIsLoading(true)
       let user_id = user.user_id;
       let data={
         "user_id":user_id,
@@ -49,10 +50,12 @@ function Request() {
         .then(function (res) {
           console.log(res);
           alert("Request create successfully")
-          navigate("/profile/ongoing")
+          navigate("/profile/pending")
         })
         .catch(function (err) {
+          setIsLoading(false)
           console.log(err);
+          alert(err)
         });
     }else{
       if(user==null){
@@ -258,7 +261,7 @@ function Request() {
                   Request quote
                 </Link>
               </div> */}
-              <button className="my_btn w900">Create Request</button>
+              <button className="my_btn w900">  <Loading loading={isLoading} false_text={"Create Request"}/></button>
             </form>
         </div>
       </div>

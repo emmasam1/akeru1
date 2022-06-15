@@ -52,6 +52,7 @@ function Login() {
         })
         .catch(function (err) {
           console.log(err);
+          alert(err)
           setIsLoading(false)
         });
       }
