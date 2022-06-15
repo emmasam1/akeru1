@@ -5,8 +5,16 @@ function Setting() {
   const [ton, setTon] = useState([]);
   const [locate, setLocate] = useState([])
 
-  const [editTon, setEditTon] = useState({})
+  const [editTon, setEditTon] = useState(ton)
+  const [editLocate, setEditLocate] = useState(locate)
 
+  let data1 = {
+    "tons": editTon,
+  }
+
+  let data2 = {
+    "location_name": editLocate
+  }
 
   useEffect(() => {
     axios
@@ -42,6 +50,9 @@ function Setting() {
                 <input
                   placeholder="Enter Tons"
                   className="setting-input input-home w64"
+                  value={editTon.tons}
+                  name="editTon"
+                  onChange={(e)=> setEditTon(e.target.value)}
                 />
                 <button className="btn btn-dark">Add Tons</button>
               </div>
@@ -83,6 +94,9 @@ function Setting() {
                 <input
                   placeholder="Enter Location Name"
                   className="setting-input input-home w64"
+                  value={locate.location_name}
+                  name="editLocate"
+                  onChange={(e)=> setEditLocate(e.target.value)}
                 />
                 <button className="btn btn-dark">Save Location</button>
               </div>
@@ -103,7 +117,7 @@ function Setting() {
                         <th scope="row">{i + 1}</th>
                         <td>{e.location_name}</td>
                         <td className="d-flex justify-content-between">
-                          <button className="btn btn-secondary btn-sm">
+                          <button className="btn btn-secondary btn-sm" data={e} onClick={()=>setEditLocate(e)}>
                             Edit
                           </button>
                           <button className="btn btn-danger btn-sm" data={e} onClick={()=>alert(e.location_name)}>
