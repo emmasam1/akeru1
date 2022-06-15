@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import ROUTE from "../route.json";
 import Loader from "./Loader";
@@ -16,7 +16,7 @@ function Driver() {
   const [driverInfo, setDriverInfo] = useState([]);
   const [aUser, setAuser] = useState({})
   const [isLoading, setIsLoading] = useState(false);
-  const [ modal, setModal] = useState(false)
+  const [modal, setModal] = useState(false)
   const [approve, setApprove] = useState(false)
   const [deleteModal, setDeleteModal] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);

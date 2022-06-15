@@ -29,6 +29,7 @@ import Notfound from "./components/Notfound";
 import Driver from "./Dashboard/Driver";
 import Pro from "./Dashboard/InexNewRequest";
 import ForgotPassword from "./components/ForgotPassword";
+import Setting from "./Dashboard/Setting"
 
 function App() {
   return (
@@ -63,6 +64,7 @@ function App() {
           <Route path="new-request" element={<DashRequest />} />
           <Route path="drivers" element={<Driver />} />
           <Route path="customers" element={<AllClients />} />
+          <Route path="setting" element={<Setting />} />
         </Route>
       </Routes>
     </>

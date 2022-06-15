@@ -1,5 +1,5 @@
 import React from "react";
-function Seetings({ formData, setForm, navigation }) {
+function Settings({ formData, setForm, navigation }) {
   const { pricing, build, fueature, currency } = formData
   return (
     <>
@@ -138,4 +138,4 @@ function Seetings({ formData, setForm, navigation }) {
   );
 }
 
-export default Seetings;
+export default Settings;

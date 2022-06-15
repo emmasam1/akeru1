@@ -218,7 +218,7 @@
 .user-info-holder {
   padding: 9px 0 0 0;
   margin: 0 20px 0 0;
-  width: 130px;
+  width: 190px;
 }
 .notification-icon {
   width: 25px;
@@ -485,6 +485,22 @@
 }
 .width-350 {
   width: 350px;
+}
+.setting-input{
+  margin: 0 15px 0 0;
+}
+input[type="text"]::placeholder {
+  font-size: 14px;
+  position: relative;
+  font-weight: 600;
+  bottom: 1px;
+}
+.w64{
+  width: 64%;
+  height: 46px;
+}
+.admin-nav-dropdown{
+  top: 5px;
 }
 
 #breathing-loader {
