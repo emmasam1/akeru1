@@ -19,7 +19,7 @@ function Navbar(props) {
       <i className="bi bi-justify position-relative burger" onClick={props.showSidebar}></i>
       <div className="float-end d-flex justify-content-between user-info-holder">
         <img src={notification} alt="icon" className="notification-icon"/>
-        <p className="user-info position-relative" onClick={()=>{handleLogout()}}>
+        <p className="user-info position-relative" >
           Hi, <span>Sean</span>
         </p>
         <div className="rounded-circle user-img">
@@ -28,7 +28,7 @@ function Navbar(props) {
         <div className="dropdown">
           <i className="bi bi-caret-down-fill text-white position-relative admin-nav-dropdown" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></i>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><Link className="dropdown-item" to="#">Logout</Link></li>
+              <li onClick={()=>{handleLogout()}}><Link className="dropdown-item" to="#">Logout</Link></li>
             </ul>
         </div>
       </div>
