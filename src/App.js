@@ -22,7 +22,7 @@ import Dashboard from "./Dashboard/Dashboard";
 import DashboardHome from "./Dashboard/DashboardHome";
 import AdminRequest from "./Dashboard/AdminRequest";
 import AllClients from "./Dashboard/AllClients";
-import Trucks from "./Dashboard/Trucks";
+import Alltrucks from "./Dashboard/Alltrucks";
 import Newrequest from "./Dashboard/Newrequest";
 import DashRequest from "./Dashboard/DashRequest";
 import Notfound from "./components/Notfound";
@@ -30,6 +30,7 @@ import Driver from "./Dashboard/Driver";
 import Pro from "./Dashboard/InexNewRequest";
 import ForgotPassword from "./components/ForgotPassword";
 import Setting from "./Dashboard/Setting"
+import Trucks from "./Dashboard/Trucks";
 
 function App() {
   return (
@@ -60,10 +61,11 @@ function App() {
             <Route path="" element={<Newrequest />} />
           </Route>
           <Route path="request" element={<AdminRequest />} />
-          <Route path="trucks" element={<Trucks />} />
+          <Route path="all-trucks" element={<Alltrucks />} />
           <Route path="new-request" element={<DashRequest />} />
           <Route path="drivers" element={<Driver />} />
           <Route path="customers" element={<AllClients />} />
+          <Route path="trucks" element={<Trucks />} />
           <Route path="setting" element={<Setting />} />
         </Route>
       </Routes>

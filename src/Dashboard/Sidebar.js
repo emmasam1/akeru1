@@ -47,7 +47,7 @@ function Sidebar(props) {
             Requests
           </Link>
           <Link
-            to="/admin-dashboard/trucks"
+            to="/admin-dashboard/all-trucks"
             onClick={() => setActive("trucks")}
             className={`d-flex link-color text-decoration-none link-p font14 mb ${
               active === "trucks" ? "dash-active" : ""
