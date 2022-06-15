@@ -60,7 +60,7 @@ function Setting() {
                         <th scope="row">{i + 1}</th>
                         <td>{e.tons}</td>
                         <td className="d-flex justify-content-between">
-                          <button className="btn btn-secondary btn-sm">
+                          <button className="btn btn-secondary btn-sm" data={e} onClick={()=>console.log(e)}>
                             Edit
                           </button>
                           <button className="btn btn-danger btn-sm" data={e} onClick={()=>alert(e.tons)}>
