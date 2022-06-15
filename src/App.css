@@ -463,8 +463,9 @@ text-align: left;
   width: 50%;
 }
 .footer_h6{
-  font-size: 14px;
-  color: darkgray;
+font-size: 14px;
+font-weight: 700;
+color: #757587;
 }
 .footer_li{
   color: var(--whiteColor) !important;

@@ -7,7 +7,7 @@ function Footer() {
       <div className="container-fiuld mt-3 pt-5 footer">
         <div className="main_width d-flex footer_text_holder">
           <div>
-            <img src={fl} alt="logo" className="footer_logo" />
+            <Link className='link-light text-decoration-none' to="/"><img src={fl} alt="logo" className="footer_logo" /></Link>
           </div>
           <div className="footer_col_holder">
             <div className="row row-cols-4">
@@ -19,7 +19,7 @@ function Footer() {
               </div>
               <div className="col my_col_settings col-footer">
                 <h6 className="footer_h6">Legal</h6>
-                <li className="footer_li">Privacy Policy</li>
+                <li className="footer_li"><Link className='link-light text-decoration-none' to="/privacy-policy">Privacy Policy</Link></li> 
                 <li className="footer_li">FAQ</li>
               </div>
               <div className="col my_col_settings col-footer">
