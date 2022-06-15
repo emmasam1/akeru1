@@ -33,7 +33,7 @@ function Navbar(props) {
             </ul>
         </div>
       </div>
-    </div>
+    </div> 
   );
 }
 
