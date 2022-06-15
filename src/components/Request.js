@@ -49,7 +49,7 @@ function Request() {
         .then(function (res) {
           console.log(res);
           alert("Request create successfully")
-          navigate("/ongoing")
+          navigate("/profile/ongoing")
         })
         .catch(function (err) {
           console.log(err);

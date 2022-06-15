@@ -67,20 +67,8 @@ function Proflie() {
       <div className="main_width rounded proDivWhite test-height w700">
         <nav className="d-flex justify-content-between">
           <div className="nav nav-tabs" id="nav-tab" role="tablist">
-            <button
+          <button
               className="nav-link active border-0"
-              id="nav-home-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#nav-home"
-              type="button"
-              role="tab"
-              aria-controls="nav-home"
-              aria-selected="true"
-            >
-              My profile
-            </button>
-            <button
-              className="nav-link border-0 position-relative btn-pro200"
               id="nav-profile-tab"
               data-bs-toggle="tab"
               data-bs-target="#nav-profile"
@@ -91,6 +79,19 @@ function Proflie() {
             >
               Trips
             </button>
+            <button
+              className=" nav-link border-0 position-relative btn-pro200"
+              id="nav-home-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-home"
+              type="button"
+              role="tab"
+              aria-controls="nav-home"
+              aria-selected="true"
+            >
+              My profile
+            </button>
+            
             <button
               className="nav-link border-0 position-relative btn-pro400"
               id="nav-contact-tab"
@@ -108,7 +109,7 @@ function Proflie() {
         </nav>
         <div className="tab-content p-4" id="nav-tabContent">
           <div
-            className="tab-pane fade show active"
+            className="tab-pane fade  "
             id="nav-home"
             role="tabpanel"
             aria-labelledby="nav-home-tab"
@@ -169,7 +170,7 @@ function Proflie() {
           </div>
 
           <div
-            className="tab-pane fade"
+            className="tab-pane fade active show"
             id="nav-profile"
             role="tabpanel"
             aria-labelledby="nav-profile-tab"
