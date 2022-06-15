@@ -108,6 +108,61 @@ function Proflie() {
           <div className="p-3"><Link to="/request" className="btn btn-dark btn-sm">New Request</Link></div>
         </nav>
         <div className="tab-content p-4" id="nav-tabContent">
+
+          <div
+            className="tab-pane fade active show"
+            id="nav-profile"
+            role="tabpanel"
+            aria-labelledby="nav-profile-tab"
+          >
+            <div className="d-flex flex-sm-column justify-content-between flex-md-row flex-lg-row flex-xl-row">
+            <Link to="/profile/pending" className="link-dark text-decoration-none">
+              <div className="on-going pt-3">
+                <div className="d-flex justify-content-between p-3">
+                  <h2 className="w900">0</h2>
+                  <div className="line-h">
+                    <span>
+                      Pending
+                      <br /> order
+                    </span>
+                  </div>
+                </div>
+              </div>
+              </Link>
+              <Link to="/profile/ongoing" className="link-dark text-decoration-none">
+              <div className="pending pt-3">
+                <div className="d-flex justify-content-between p-3">
+                  <h2 className="w900">1</h2>
+                  <div className="line-h">
+                    <span>
+                      Ongoing
+                      <br /> trip
+                    </span>
+                  </div>
+                </div>
+              </div>
+              </Link>
+              
+              <Link to="/profile/complete" className="link-dark text-decoration-none">
+              <div className="completed pt-3">
+                <div className=" d-flex justify-content-between p-3">
+                  <h2 className="w900">320</h2>
+                  <div className="line-h">
+                    <span>
+                      completed
+                      <br /> order
+                    </span>
+                  </div>
+                </div>
+              </div>
+              </Link>
+            </div>
+            <div className="container mt-5">
+              
+             
+              <Outlet />
+            </div>
+          </div>
           <div
             className="tab-pane fade  "
             id="nav-home"
@@ -168,62 +223,6 @@ function Proflie() {
               <button className="btn edit_btn w900" onClick={handleSave}>Save changes</button>
             </div> : null }
           </div>
-
-          <div
-            className="tab-pane fade active show"
-            id="nav-profile"
-            role="tabpanel"
-            aria-labelledby="nav-profile-tab"
-          >
-            <div className="d-flex flex-sm-column justify-content-between flex-md-row flex-lg-row flex-xl-row">
-            <Link to="/profile/pending" className="link-dark text-decoration-none">
-              <div className="on-going pt-3">
-                <div className="d-flex justify-content-between p-3">
-                  <h2 className="w900">0</h2>
-                  <div className="line-h">
-                    <span>
-                      Pending
-                      <br /> order
-                    </span>
-                  </div>
-                </div>
-              </div>
-              </Link>
-              <Link to="/profile/ongoing" className="link-dark text-decoration-none">
-              <div className="pending pt-3">
-                <div className="d-flex justify-content-between p-3">
-                  <h2 className="w900">1</h2>
-                  <div className="line-h">
-                    <span>
-                      Ongoing
-                      <br /> trip
-                    </span>
-                  </div>
-                </div>
-              </div>
-              </Link>
-              
-              <Link to="/profile/complete" className="link-dark text-decoration-none">
-              <div className="completed pt-3">
-                <div className=" d-flex justify-content-between p-3">
-                  <h2 className="w900">320</h2>
-                  <div className="line-h">
-                    <span>
-                      completed
-                      <br /> order
-                    </span>
-                  </div>
-                </div>
-              </div>
-              </Link>
-            </div>
-            <div className="container mt-5">
-              
-             
-              <Outlet />
-            </div>
-          </div>
-          
           <div
             className="tab-pane fade"
             id="nav-contact"
