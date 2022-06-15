@@ -41,12 +41,12 @@ function Review({ formData, setForm, navigation }) {
 
         <div className="d-flex justify-content-between mt-2">
           <span className="review-truck-details">Phone</span>
-          <span className="review-truck-details">080893929848298</span>
+          <span className="review-truck-details">{formData.phone}</span>
         </div>
 
         <div className="d-flex justify-content-between mt-2">
           <span className="review-truck-details">Email</span>
-          <span className="review-truck-details">phillip@yahoo.com</span>
+          <span className="review-truck-details">{formData.email}</span>
         </div>
 
         <div className="d-flex justify-content-between mt-2">
@@ -60,7 +60,7 @@ function Review({ formData, setForm, navigation }) {
 
         <div className="d-flex justify-content-between mt-2">
           <span className="review-truck-details">Registration date</span>
-          <span className="review-truck-details date-color">14 Feb, 2022</span>
+          <span className="review-truck-details date-color">{formData.date}</span>
         </div>
 
         <div className="d-flex justify-content-end">
