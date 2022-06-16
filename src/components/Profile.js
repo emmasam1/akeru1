@@ -2,16 +2,37 @@ import React from "react";
 import { Link, Outlet ,useNavigate} from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import axios from "axios";
+import ROUTE from "../route.json";
 import Underconstruction from './Underconstruction';
 function Proflie() {
   const [image, setImage] = React.useState([]);
   const [imageURL, setImageURL] = React.useState([]);
+  const [company, setCompany] = React.useState("")
+  const [email, setEmail] = React.useState("")
+  const [phone, setPhone] = React.useState("")
+  const [fullname, setFullname] = React.useState("")
+  const [userId, setUserId] = React.useState("")
   const navigate = useNavigate();
 
   React.useEffect(() => {
     if(localStorage.getItem('user')==null){
       navigate('/signin');
     }
+    const userlocal=JSON.parse(localStorage.getItem('user'))
+    axios
+      .get(`${ROUTE.CLIENTS}/${userlocal.user_id}`)
+      .then((res) => {
+        setUserId(res.data.user_id);
+        setCompany(res.data.company)
+        setEmail(res.data.email)
+        setPhone(res.data.phone)
+        setFullname(res.data.fullname)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
 
     if (image.lenght < 1) return;
     const newImageurl = [];
@@ -25,9 +46,9 @@ function Proflie() {
     setImage([...e.target.files]);
   }
 
-  const [company, setCompany] = React.useState('XYZ Limited')
-  const [email, setEmail] = React.useState('james@xyz.com')
-  const [phone, setPhone] = React.useState('0708822939929')
+  
+
+
 
   const [isReadonly, setIsReadonly] = React.useState(true);
 
@@ -117,7 +138,7 @@ function Proflie() {
           >
             <div className="d-flex flex-sm-column justify-content-between flex-md-row flex-lg-row flex-xl-row">
             <Link to="/profile/pending" className="link-dark text-decoration-none">
-              <div className="on-going pt-3">
+              <div className={`pt-3  ${window.location.pathname=="/profile/pending"?"on-going":"pending"}`}>
                 <div className="d-flex justify-content-between p-3">
                   <h2 className="w900">0</h2>
                   <div className="line-h">
@@ -130,7 +151,7 @@ function Proflie() {
               </div>
               </Link>
               <Link to="/profile/ongoing" className="link-dark text-decoration-none">
-              <div className="pending pt-3">
+              <div className={`pt-3  ${window.location.pathname=="/profile/ongoing"?"on-going":"pending"}`}>
                 <div className="d-flex justify-content-between p-3">
                   <h2 className="w900">1</h2>
                   <div className="line-h">
@@ -144,7 +165,7 @@ function Proflie() {
               </Link>
               
               <Link to="/profile/complete" className="link-dark text-decoration-none">
-              <div className="completed pt-3">
+              <div className={`pt-3  ${window.location.pathname=="/profile/complete"?"on-going":"pending"}`}>
                 <div className=" d-flex justify-content-between p-3">
                   <h2 className="w900">320</h2>
                   <div className="line-h">
@@ -158,7 +179,6 @@ function Proflie() {
               </Link>
             </div>
             <div className="container mt-5">
-              
              
               <Outlet />
             </div>

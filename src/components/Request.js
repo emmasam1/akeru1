@@ -1,10 +1,8 @@
-import React, { useState } from "react";
-import axios from "axios";
-import ROUTE from "../route.json";
+import React, { useState,useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer'
-import Loading from "./Loading";
+
 function Request() {
 
   let navigate = useNavigate();
@@ -16,7 +14,6 @@ function Request() {
   const [truck_type, setTruckType] = useState("");
   const [weight, setWeight] = useState("");
   const [amount, setAmount] = useState("")
-  const [isLoading, setIsLoading] = useState(false);
   const [pick_upErr, setpick_upErr] = useState({});
   const [drop_offErr, setdrop_offErr] = useState({});
   const [dateErr, setdateErr] = useState({});
@@ -25,45 +22,49 @@ function Request() {
   const [weightErr, setWeightErr] = useState({});
   const [amountErr, setamountErr] = useState({})
 
+  useEffect(() => {
+    const request = JSON.parse(localStorage.getItem("request"));
+    if (request) {
+      setpick_up(request.pick_up)
+      setdrop_off(request.drop_off)
+      setdate(request.date)
+      setItem(request.item)
+      setTruckType(request.truck_type)
+      setWeight(request.weight)
+      setAmount(request.amount)
+    }
+  }, [])
+
   const handSubmit = (e) => {
     e.preventDefault();
     const isValid = formValidation();
 
     const user = JSON.parse(localStorage.getItem("user"));
 
-
     if (isValid && user) {
-      setIsLoading(true)
+
       let user_id = user.user_id;
-      let data={
-        "user_id":user_id,
-        "drop_off":drop_off,
-        "pick_up":pick_up,
-        "date":date,
-        "item":item,
-        "weight":weight,
-        "truck_type":truck_type
-        
-    }
-      axios
-        .post(ROUTE.REQUEST,data)
-        .then(function (res) {
-          console.log(res);
-          alert("Request create successfully")
-          navigate("/profile/pending")
-        })
-        .catch(function (err) {
-          setIsLoading(false)
-          console.log(err);
-          alert(err)
-        });
-    }else{
-      if(user==null){
+      let data = {
+        "user_id": user_id,
+        "drop_off": drop_off,
+        "pick_up": pick_up,
+        "date": date,
+        "item": item,
+        "weight": weight,
+        "truck_type": truck_type,
+        "amount": amount
+      }
+
+      localStorage.setItem("request", JSON.stringify(data))
+      navigate("/detail")
+
+    } else {
+      if (user == null) {
         alert("Please login before making a request")
-        navigate("/signin")
+
       }
     }
-   
+
   };
 
   const formValidation = () => {
@@ -116,10 +117,10 @@ function Request() {
   };
 
 
-    return ( 
-        <>
-        <Navbar />
-        <div className="container-fliud d-flex justify-content-around backgroundColor hero_style login_div_height">
+  return (
+    <>
+      <Navbar />
+      <div className="container-fliud d-flex justify-content-around backgroundColor hero_style login_div_height">
         <div className="triangle"></div>
         <div className="triangle rotate"></div>
         <div className="triangle"></div>
@@ -129,130 +130,130 @@ function Request() {
           <h1 className="text-center">Request a truck</h1>
 
           <form onSubmit={handSubmit}>
-              <input
-                type="text"
-                placeholder="pick up:"
-                className="input-home"
-                name="pick_up"
-                value={pick_up}
-                onChange={(e) => setpick_up(e.target.value)}
-              />
-              {Object.keys(pick_upErr).map((key) => {
-                return (
-                  <p className="dash-error" key={pick_upErr}>
-                    {pick_upErr[key]}
-                  </p>
-                );
-              })}
-              <input
-                type="text"
-                placeholder="To:"
-                className="input-home"
-                name="drop_off"
-                value={drop_off}
-                onChange={(e) => setdrop_off(e.target.value)}
-              />
-              {Object.keys(drop_offErr).map((key) => {
-                return (
-                  <p className="dash-error" key={drop_offErr}>
-                    {drop_offErr[key]}
-                  </p>
-                );
-              })}
-              <input
-                type="date"
-                placeholder="When:"
-                className="input-home input-date"
-                name="date"
-                value={date}
-                onChange={(e) => setdate(e.target.value)}
-              />
-              {Object.keys(dateErr).map((key) => {
-                return (
-                  <p className="dash-error" key={dateErr}>
-                    {dateErr[key]}
-                  </p>
-                );
-              })}
-              <input
-                type="text"
-                placeholder="Item:"
-                className="input-home"
-                name="item"
-                value={item}
-                onChange={(e) => setItem(e.target.value)}
-              />
-              {Object.keys(itemErr).map((key) => {
-                return (
-                  <p className="dash-error" key={itemErr}>
-                    {itemErr[key]}
-                  </p>
-                );
-              })}
+            <input
+              type="text"
+              placeholder="pick up:"
+              className="input-home"
+              name="pick_up"
+              value={pick_up}
+              onChange={(e) => setpick_up(e.target.value)}
+            />
+            {Object.keys(pick_upErr).map((key) => {
+              return (
+                <p className="dash-error" key={pick_upErr}>
+                  {pick_upErr[key]}
+                </p>
+              );
+            })}
+            <input
+              type="text"
+              placeholder="To:"
+              className="input-home"
+              name="drop_off"
+              value={drop_off}
+              onChange={(e) => setdrop_off(e.target.value)}
+            />
+            {Object.keys(drop_offErr).map((key) => {
+              return (
+                <p className="dash-error" key={drop_offErr}>
+                  {drop_offErr[key]}
+                </p>
+              );
+            })}
+            <input
+              type="date"
+              placeholder="When:"
+              className="input-home input-date"
+              name="date"
+              value={date}
+              onChange={(e) => setdate(e.target.value)}
+            />
+            {Object.keys(dateErr).map((key) => {
+              return (
+                <p className="dash-error" key={dateErr}>
+                  {dateErr[key]}
+                </p>
+              );
+            })}
+            <input
+              type="text"
+              placeholder="Item:"
+              className="input-home"
+              name="item"
+              value={item}
+              onChange={(e) => setItem(e.target.value)}
+            />
+            {Object.keys(itemErr).map((key) => {
+              return (
+                <p className="dash-error" key={itemErr}>
+                  {itemErr[key]}
+                </p>
+              );
+            })}
 
-              <input
-                type="text"
-                placeholder="Amount:"
-                className="input-home"
-                name="amount"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-              />
-              {Object.keys(amountErr).map((key) => {
-                return (
-                  <p className="dash-error" key={amountErr}>
-                    {amountErr[key]}
-                  </p>
-                );
-              })}
+            <input
+              type="text"
+              placeholder="Amount:"
+              className="input-home"
+              name="amount"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+            />
+            {Object.keys(amountErr).map((key) => {
+              return (
+                <p className="dash-error" key={amountErr}>
+                  {amountErr[key]}
+                </p>
+              );
+            })}
 
 
-              <select
-                className="select"
-                name="truck_type"
-                value={truck_type}
-                onChange={(e) => setTruckType(e.target.value)}
-              >
-                <option>Type</option>
-                <option>Cover body</option>
-                <option>Tanker</option>
-                <option>Dumper</option>
-                <option>Cage lift</option>
-                <option>Tarpaulin</option>
-                <option>Refridgerator</option>
-                <option>Animal transporter</option>
-                <option>Container transporter</option>
-                <option>Timber carrier</option>
-                <option>Van</option>
-                <option>Platform</option>
-              </select>
-              {Object.keys(typeErr).map((key) => {
-                return (
-                  <p className="dash-error" key={typeErr}>
-                    {typeErr[key]}
-                  </p>
-                );
-              })}
-              <select
-                className="select"
-                name="weight"
-                value={weight}
-                onChange={(e) => setWeight(e.target.value)}
-              >
-                <option>Weight in Tons</option>
-                <option>10 Tons</option>
-                <option>15 Tons</option>
-                <option>20 Tons</option>
-                <option>40 Tons</option>
-              </select>
-              {Object.keys(weightErr).map((key) => {
-                return (
-                  <p className="dash-error" key={weightErr}>
-                    {weightErr[key]}
-                  </p>
-                );
-              })}
-              {/* 
+            <select
+              className="select"
+              name="truck_type"
+              value={truck_type}
+              onChange={(e) => setTruckType(e.target.value)}
+            >
+              <option>Type</option>
+              <option>Cover body</option>
+              <option>Tanker</option>
+              <option>Dumper</option>
+              <option>Cage lift</option>
+              <option>Tarpaulin</option>
+              <option>Refridgerator</option>
+              <option>Animal transporter</option>
+              <option>Container transporter</option>
+              <option>Timber carrier</option>
+              <option>Van</option>
+              <option>Platform</option>
+            </select>
+            {Object.keys(typeErr).map((key) => {
+              return (
+                <p className="dash-error" key={typeErr}>
+                  {typeErr[key]}
+                </p>
+              );
+            })}
+            <select
+              className="select"
+              name="weight"
+              value={weight}
+              onChange={(e) => setWeight(e.target.value)}
+            >
+              <option>Weight in Tons</option>
+              <option>10 Tons</option>
+              <option>15 Tons</option>
+              <option>20 Tons</option>
+              <option>40 Tons</option>
+            </select>
+            {Object.keys(weightErr).map((key) => {
+              return (
+                <p className="dash-error" key={weightErr}>
+                  {weightErr[key]}
+                </p>
+              );
+            })}
+            {/* 
               <div className="d-flex justify-content-center btn-helper">
                 <Link
                   to="/detail"
@@ -261,13 +262,13 @@ function Request() {
                   Request quote
                 </Link>
               </div> */}
-              <button className="my_btn w900">  <Loading loading={isLoading} false_text={"Create Request"}/></button>
-            </form>
+            <button className="my_btn w900 p-3"> Create Request</button>
+          </form>
         </div>
       </div>
       <Footer />
-        </>
-     );
+    </>
+  );
 }
 
 export default Request;

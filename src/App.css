@@ -625,6 +625,14 @@ text-align: center;
   width: 432px;
   height: 304px;
 }
+
+.grid-left-app{
+  width: 60%;
+  margin: 0 11px 0 10px;
+}
+.grid-right-app{
+  width: 35%;
+}
 .request_height{
   height: 500px;
 }
