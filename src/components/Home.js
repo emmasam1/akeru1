@@ -157,7 +157,7 @@ function Home() {
                   </p>
                 </div>
               </div>
-              <div className=" col-md-6 d-flex justify-content-end d-flex-justify-content-center">
+              <div className=" col-md-6 d-flex justify-content-end d-flex-justify-content-center flex-settings">
                 <form onSubmit={handSubmit}>
                   <div className="my_card">
                     <input
@@ -347,7 +347,7 @@ function Home() {
                     </p>
                   </div>
                 </div>
-                <div className="col">
+                <div className="col-lg-6 col-md-6 col-sm-6">
                   <div>
                     <div className="icon_holder d-flex justify-content-center">
                       <img src={vector3} alt="icon" className="vector_icon2" />
@@ -363,8 +363,7 @@ function Home() {
             </div>
           </div>
 
-          <div className="col-lg-6 col-md-6 col-sm-6 display">
-            <div className="position-absolute w90">
+          <div className="col-lg-6 col-md-6 col-sm-6 display height">
               <img src={truck} alt="truck" className="truck" />
               <div className="lower_truck_div">
                 <div className="d-flex">
@@ -387,7 +386,6 @@ function Home() {
                 <hr className="horizontal_line" />
                 <hr className="horizontal_line2" />
               </div>
-            </div>
           </div>
         </div>
       </div>
@@ -423,7 +421,7 @@ function Home() {
           </div>
         </div>
         <div className="col_div">
-          <div className="row">
+          <div className="row row_setting">
             <div className="col-lg-3 my_col_settings tac">
               <h1 className="milestone_h1">36</h1>
               <p className="milestone_first_p">States covered</p>
@@ -465,7 +463,7 @@ function Home() {
             </span>
           </div>
 
-          <div className="row justify-left mt-2">
+          <div className="row justify-left mt-2 top-settings">
             <span className="col-md-6">
               <i className="bi bi-check-square-fill akeru-primary m-1"></i>
               Instant payout{" "}

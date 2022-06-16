@@ -1,14 +1,137 @@
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) and (-webkit-device-pixel-ratio: 2) {
+  /* NOT FOUND PAGE */
+  .nf_div {
+    width: 80%;
+  }
+  /* NOT FOUND PAGE */
+
+  /* HOME PAGE */
   .hero_style {
     overflow: hidden;
     height: 945px;
   }
-  .main_width{
+  .main_width {
+    margin-top: 10px;
+  }
+  .nav_flex_direction {
+    flex-direction: column;
+    height: 70px;
+  }
+  .register_link {
+    background: transparent;
+    padding: 0;
+  }
+  .nav_margin {
+    margin: 0 30px 15px 0;
+  }
+  .nav_link_padding {
+    padding: 0;
+  }
+  .flex-settings {
+    justify-content: center !important;
+    display: flex !important;
+  }
+  .height {
+    height: 470px !important;
+  }
+  .col-sm-6 {
+    width: 100% !important;
+  }
+  .truck {
+    left: 40px;
+  }
+  .lower_truck_div {
+    right: 15px;
+  }
+  .lower_truck_div2 {
+    right: 15px;
+  }
+  .milestone {
+    flex-direction: column;
+    padding-top: 15px !important;
+    height: 145px;
+    text-align: center;
+  }
+  .sm {
+    margin: 0 auto;
+  }
+  .btn_p {
+    position: relative;
+    bottom: 17px;
+  }
+  .row_setting {
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: 15px;
+  }
+  .own_truck {
+    flex-direction: column;
+    padding: 15px 15px 0 15px !important;
+    height: 230px;
+  }
+  .own_item_holder {
+    width: 90%;
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-top: -50px;
+  }
+  .footer_h2_holder {
+    text-align: center;
+    width: 100%;
+    margin: 0 0 5px 0;
+  }
+  .top-settings {
+    margin-top: 0 !important;
+  }
+  .join_btn_holder {
+    position: relative;
+    bottom: 26px;
+    margin: 0 auto;
+  }
+  .footer_btn {
+    top: 0;
+  }
+  .footer_col_holder {
+    width: 76%;
+  }
+  .col_div {
+    padding: 0 0 0 32px;
+  }
+
+  /* LOGIN */
+  .login-container-height {
+    height: 500px !important;
+  }
+
+  /* PARTNER PAGE */
+  .col-pad-left {
+    padding: 48px 0 0 74px;
+  }
+  .p-text {
+    padding: 0;
+  }
+  .mobile-sm {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .mobile-sm-d{
     width: 100%;
   }
-  .sm_nav_width {
-    width: 90% !important;
+  .bg-img{
+    height: 290px;
   }
+  .img-left {
+    left: 76px;
+}
+.image-width{
+    position: relative;
+    right: 80px;
+}
+
+/* REGISTER PAGE */
+.hero_style-reg{
+  height: 775px !important;
+}
 }
 
 @media (max-width: 900px) and (-webkit-device-pixel-ratio: 2) {

@@ -108,7 +108,7 @@ function Register() {
     return ( 
         <>
         <Navbar />
-        <div className="container-fliud d-flex justify-content-around bg-sm-white backgroundColor hero_style reg_div_height reg-mobile-height">
+        <div className="container-fliud d-flex justify-content-around bg-sm-white backgroundColor hero_style reg_div_height reg-mobile-height hero_style-reg">
         <div className="triangle triangle-login"></div>
         <div className="triangle rotate triangle-login"></div>
         <div className="triangle triangle-login"></div>

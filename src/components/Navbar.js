@@ -81,7 +81,6 @@ function Navbar() {
                 Register
               </Link>}
               
-              
             </div>
           </div>
         </div>
