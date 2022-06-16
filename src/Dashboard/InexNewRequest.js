@@ -1,18 +1,25 @@
 import React, { useEffect, useState }  from 'react'
 import axios from 'axios'
+import Loader from "./Loader";
 
 function InexNewRequest(){
     const [limitedRec, setLimitedRec] = useState([])
     const [modal, setModal] = useState(false);
     const [aRequest, setARequest] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
     
     useEffect(() => {
+      setIsLoading(true)
         let limit = 10;
         axios.get(`https://peaceful-atoll-40814.herokuapp.com/requests?limit=${limit}`)
         .then((res) => {
           let limitedRec = res.data.data;
-          setLimitedRec(limitedRec);
-          console.log(limitedRec);
+          if (!limitedRec) {
+            setIsLoading(true)
+          } else {
+            setIsLoading(false)
+            setLimitedRec(limitedRec);
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -61,7 +68,7 @@ function InexNewRequest(){
               </tr>
             </thead>
             <tbody className="position-relative">
-              { limitedRec.map((e, i) => {
+              { isLoading ? <Loader /> : limitedRec.map((e, i) => {
                 return (
                     <tr key={e.user_id} id={e.user_id}>
                     <td>{i + 1}</td>
