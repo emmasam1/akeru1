@@ -6,9 +6,9 @@
 .card{
   overflow: auto;
 }
-.card-body-width{
+/* .card-body-width{
   width: 1250px;
-}
+} */
 .dash-grid-right {
   width: 432px;
 }

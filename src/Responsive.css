@@ -1,6 +1,13 @@
 @media only screen and (min-width: 600px) {
   .hero_style {
     overflow: hidden;
+    height: 945px;
+  }
+  .main_width{
+    width: 100%;
+  }
+  .sm_nav_width {
+    width: 90% !important;
   }
 }
 
