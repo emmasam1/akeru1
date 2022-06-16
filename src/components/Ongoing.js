@@ -20,7 +20,7 @@ function Ongoing() {
  
   useEffect(() => {
     setIsLoading(true)
-    axios.get(ROUTE.REQUEST + `?page=${paginate.page}&limit=${paginate.limit}&type=all_time`)
+    axios.get(ROUTE.REQUEST + `?page=${paginate.page}&limit=${paginate.limit}&type=all_time&status=ongoing`)
       .then((res) => {
 
         let requestData = res.data.data

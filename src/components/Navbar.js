@@ -50,12 +50,12 @@ function Navbar() {
                 How it works
               </Link>
 
-              <Link
+              {/* <Link
                 to="/route"
                 className="nav_margin link-dark text-decoration-none fw-bold fs-small"
               >
                 Route
-              </Link>
+              </Link> */}
 
               <Link
                 to="/partner"

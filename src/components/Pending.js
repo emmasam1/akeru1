@@ -15,11 +15,13 @@ function Pending() {
   const [activeTabIndex, setactiveTabIndex] = useState(0)
   const [drivers, setDrivers] = useState([])
   const [requestData, setRequestData] = useState([])
-   const [refreshKey, setRefreshKey] = useState(0);
+  const [refreshKey, setRefreshKey] = useState(0);
+  const user = JSON.parse(localStorage.getItem("user"));
  
   useEffect(() => {
     setIsLoading(true)
-    axios.get(ROUTE.REQUEST + `?page=${paginate.page}&limit=${paginate.limit}&type=all_time`)
+    console.log(ROUTE.CLIENTS + `/requests?user_id=${user.user_id}&page=${paginate.page}&limit=${paginate.limit}&type=all_time&status=pending`);
+    axios.get(ROUTE.CLIENTS + `/requests?user_id=${user.user_id}&page=${paginate.page}&limit=${paginate.limit}&type=all_time&status=pending`)
       .then((res) => {
 
         let requestData = res.data.data

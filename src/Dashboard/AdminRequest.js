@@ -13,21 +13,21 @@ function Request() {
   const [assignModal, setAssignModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
   const [paginate, setPaginate] = useState({ "page": 1, "limit": 15, "pages": 0, "total": 0 });
-
+  const [status, setStatus] = useState("pending");
   const [aRequest, setARequest] = useState({});
   const [activeTabIndex, setactiveTabIndex] = useState(0)
   const [drivers, setDrivers] = useState([])
   const [requestData, setRequestData] = useState([])
-   const [refreshKey, setRefreshKey] = useState(0);
- 
+  const [refreshKey, setRefreshKey] = useState(0);
+
   useEffect(() => {
     setIsLoading(true)
-    axios.get(ROUTE.REQUEST + `?page=${paginate.page}&limit=${paginate.limit}&type=all_time`)
+    axios.get(ROUTE.REQUEST + `?page=${paginate.page}&limit=${paginate.limit}&type=all_time&status=${status}`)
       .then((res) => {
 
         let requestData = res.data.data
         if (!requestData) {
-          
+
           console.log("waitung for data");
         } else {
           setRequestData(requestData)
@@ -50,7 +50,25 @@ function Request() {
   }, [refreshKey])
 
   const updatePaginate = (data) => {
-    setPaginate({ "page": data, "limit": paginate.limit, "pages":  paginate.pages, "total": paginate.total })
+    setPaginate({ "page": data, "limit": paginate.limit, "pages": paginate.pages, "total": paginate.total })
+    refreshPageData()
+  }
+
+  const switchTabsData = (data) => {
+    switch (data) {
+      case 0:
+        setStatus("pending")
+        break;
+      case 1:
+        setStatus("ongoing")
+        break;
+      case 2:
+        setStatus("completed")
+        break;
+
+    }
+
+    setactiveTabIndex(data)
     refreshPageData()
   }
 
@@ -63,9 +81,17 @@ function Request() {
   const switchStatusBadge = (data) => {
     switch (data) {
       case "pending":
-        return <span className="badge bg-danger">{data}..</span>
+        return <span className="badge bg-danger">Pending..</span>
       case "accepted":
-        return <span className="badge bg-info">{data}</span>
+        return <span className="badge bg-warning">Accepted</span>
+      case "arrive_pickup":
+        return <span className="badge bg-info">At Pickup</span>
+      case "start_trip":
+        return <span className="badge bg-success">On Transit</span>
+      case "arrive_dropoff":
+        return <span className="badge bg-dark">Completed</span>
+      case "paused_trip":
+        return <span className="badge bg-secondary">PAUSED</span>
     }
   }
 
@@ -77,8 +103,7 @@ function Request() {
         return "On-Going Trips"
       case 2:
         return "Completed Trips"
-      case 3:
-        return "All Request"
+
     }
   }
 
@@ -93,8 +118,8 @@ function Request() {
     return `${year}-${month}-${day} ${hr}:${min}`;
   }
 
-  const deleteData=()=>{
-    axios.delete(ROUTE.REQUEST+`/${aRequest.request_id}`)
+  const deleteData = () => {
+    axios.delete(ROUTE.REQUEST + `/${aRequest.request_id}`)
       .then((res) => {
         closeModal()
         alert(res.data.msg)
@@ -105,8 +130,8 @@ function Request() {
       })
   }
 
-  const refreshPageData=()=>{
-    setRefreshKey(refreshKey => refreshKey +1)
+  const refreshPageData = () => {
+    setRefreshKey(refreshKey => refreshKey + 1)
   }
 
 
@@ -117,7 +142,7 @@ function Request() {
       <div className="p-3 position-relative left-width-home left-width">
 
         <div className="d-flex flex-sm-column justify-content-between flex-md-row flex-lg-row flex-xl-row testing-flex">
-          <NavLink to="#" className="link-dark text-decoration-none a" onClick={() => { setactiveTabIndex(0) }}>
+          <NavLink to="#" className="link-dark text-decoration-none a" onClick={() => { switchTabsData(0) }}>
             <div className={`dash_link_bg_color pt-3  ${activeTabIndex == 0 ? "akeru-bg-primary" : ""}`}>
               <div className="d-flex justify-content-between p-3">
                 <h2 className="w900">{requestData.length}</h2>
@@ -130,7 +155,7 @@ function Request() {
               </div>
             </div>
           </NavLink>
-          <NavLink to="#" className="link-dark text-decoration-none" onClick={() => { setactiveTabIndex(1) }}>
+          <NavLink to="#" className="link-dark text-decoration-none" onClick={() => { switchTabsData(1) }}>
             <div className={`dash_link_bg_color pt-3  ${activeTabIndex == 1 ? "akeru-bg-primary" : ""}`}>
               <div className="d-flex justify-content-between p-3">
                 <h2 className="w900">0</h2>
@@ -144,7 +169,7 @@ function Request() {
             </div>
           </NavLink>
 
-          <NavLink to="#" className="link-dark text-decoration-none" onClick={() => { setactiveTabIndex(2) }}>
+          <NavLink to="#" className="link-dark text-decoration-none" onClick={() => { switchTabsData(2) }}>
             <div className={`dash_link_bg_color pt-3  ${activeTabIndex == 2 ? "akeru-bg-primary" : ""}`}>
               <div className=" d-flex justify-content-between p-3">
                 <h2 className="w900">0</h2>
@@ -158,19 +183,7 @@ function Request() {
             </div>
           </NavLink>
 
-          <NavLink to="#" className="link-dark text-decoration-none" onClick={() => { setactiveTabIndex(3) }}>
-            <div className={`dash_link_bg_color pt-3  ${activeTabIndex == 3 ? "akeru-bg-primary" : ""}`}>
-              <div className=" d-flex justify-content-between p-3">
-                <h2 className="w900">{paginate.total}</h2>
-                <div className="line-h">
-                  <span>
-                    Total
-                    <br /> Request
-                  </span>
-                </div>
-              </div>
-            </div>
-          </NavLink>
+
 
         </div>
         <br />
@@ -194,11 +207,11 @@ function Request() {
                   <th scope="col">PICK UP</th>
                   <th scope="col">DROP OFF</th>
                   <th scope="col">ITEM</th>
-                  <th scope="col">TRUCK TYPE</th>
                   <th scope="col">PAID</th>
                   <th scope="col">WEIGHT</th>
                   <th scope="col">DATE</th>
                   <th scope="col">AMOUNT</th>
+                  <th scope="col">DRIVER</th>
                   <th scope="col">STATUS</th>
                   <th scope="col">PAYMENT TYPE</th>
                   <th scope="col">ACTION</th>
@@ -212,20 +225,20 @@ function Request() {
                       <td>{e.pick_up}</td>
                       <td>{e.drop_off}</td>
                       <td>{e.item}</td>
-                      <td>{e.truck_type}</td>
                       <td>{e.is_paid ? <span className="badge bg-success">Paid</span> : <span className="badge bg-secondary">Awaiting..</span>}</td>
                       <td>{e.weight}</td>
                       <td>{changeDate(e.date)}</td>
                       <td>₦{e.amount.toLocaleString()}</td>
+                      <td>{e.driver_name}</td>
                       <td>{switchStatusBadge(e.status)}</td>
                       <td>{e.payment_type}</td>
                       <td className="d-flex justify-content-center flex-column position-relative">
                         <div className="table-dropdown">
                           <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                           <div className="table-dropdown-content r-0">
-                            {e.amount <1 ? null : <button className="btn" onClick={() => {setARequest(e); setAssignModal(true); }}>Assign</button>}
-                            <button className="btn" onClick={() => { setARequest(e); setModal(true); }}>Set qoute</button>
-                            <button className="btn text-danger" onClick={() => { setARequest(e);  setDeleteModal(true); }}>Delete</button>
+                            {e.amount < 1  ? null : e.status=="pending"? <button className="btn" onClick={() => { setARequest(e); setAssignModal(true); }}>Assign</button>:null}
+                            {e.status=="pending"?<button className="btn" onClick={() => { setARequest(e); setModal(true); }}>Set qoute</button>:null}
+                            <button className="btn text-danger" onClick={() => { setARequest(e); setDeleteModal(true); }}>Delete</button>
 
                           </div>
                         </div>
@@ -239,8 +252,8 @@ function Request() {
             </table>
             {modal ? <SetQuoteModal closeModal={closeModal} data={aRequest} refresh={refreshPageData} /> : null}
             {assignModal ? <AssignDriverModal closeModal={closeModal} drivers={drivers} request={aRequest} refresh={refreshPageData} /> : null}
-            {deleteModal ? <DeleteModal closeModal={closeModal} deleteMethod={deleteData}  refresh={refreshPageData}  
-            title="Delete Request?" descp="Are you sure you want to delete this request?"/> : null}
+            {deleteModal ? <DeleteModal closeModal={closeModal} deleteMethod={deleteData} refresh={refreshPageData}
+              title="Delete Request?" descp="Are you sure you want to delete this request?" /> : null}
 
             <nav aria-label="Page navigation example">
               <ul class="pagination">
@@ -248,7 +261,7 @@ function Request() {
                   let row = []
                   for (let index = 1; index < paginate.pages + 1; index++) {
 
-                    row.push(<li class="page-item"><button onClick={() => { updatePaginate(index)}} class={`page-link ${paginate.page == index ? "active" : ""}`} href="#">{index}</button></li>)
+                    row.push(<li class="page-item"><button onClick={() => { updatePaginate(index) }} class={`page-link ${paginate.page == index ? "active" : ""}`} href="#">{index}</button></li>)
 
                   }
                   return row;
@@ -257,9 +270,9 @@ function Request() {
 
               </ul>
             </nav>
-            <br/>
-            <br/>
-            <br/>
+            <br />
+            <br />
+            <br />
           </div>
         </div>
       </div>
