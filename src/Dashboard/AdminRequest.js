@@ -175,7 +175,7 @@ function Request() {
         </div>
         <br />
         < div className="card">
-          <div className="card-body">
+          <div className="card-body card-body-width">
             <div className="row">
               <div className="col">
                 <h3>{switchPageTitle(activeTabIndex)}</h3>

@@ -41,7 +41,7 @@ function InexNewRequest(){
 
     return(
         <div className="card">
-        <div className="card-body">
+        <div className="card-body card-body-width">
 
           <table className="table table-hover  mt-4">
             <thead className="table-dark">

@@ -95,8 +95,7 @@ function Alltrucks(){
                     <td>{e.model}</td>
                     <td>{e.plate_no}</td>
                     <td>{e.year}</td>
-                    <td className="d-flex justify-content-center flex-column position-relative">
-                     
+                    <td className="d-flex flex-column position-relative">
                       <div className="table-dropdown">
                         <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                         <div className="table-dropdown-content">
