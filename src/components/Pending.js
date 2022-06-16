@@ -20,8 +20,7 @@ function Pending() {
  
   useEffect(() => {
     setIsLoading(true)
-    console.log(ROUTE.CLIENTS + `/requests?user_id=${user.user_id}&page=${paginate.page}&limit=${paginate.limit}&type=all_time&status=pending`);
-    axios.get(ROUTE.CLIENTS + `/requests?user_id=${user.user_id}&page=${paginate.page}&limit=${paginate.limit}&type=all_time&status=pending`)
+    axios.get(ROUTE.CLIENTS + `/requests?user_id=${user.user_id}&page=${paginate.page}&limit=${paginate.limit}&type=all&status=pending`)
       .then((res) => {
 
         let requestData = res.data.data
@@ -38,14 +37,7 @@ function Pending() {
         console.log(err);
       })
 
-    axios.get(ROUTE.DRIVERS)
-      .then((res) => {
-        let requestData = res.data.data
-        setDrivers(requestData)
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+    
   }, [refreshKey])
 
   const updatePaginate = (data) => {

@@ -41,7 +41,7 @@ function SetQuoteModal(props) {
     <div className='overlay position-fixed d-flex align-self-center'>
       <div className="request-modal">
         <i className="bi bi-x-lg close-icon" onClick={() => props.closeModal()}></i>
-        <h1 className="text-center req_h1 mt-2">Set Price For Quote</h1>
+        <h1 className="text-center req_h1 mt-2">{props.justView?"View Request Details":"Set Price For Quote"}</h1>
         <hr/>
         <div className="d-flex justify-content-between flex-mobile-d ">
           <div className="g-col-6 grid-left p-3 bg-white rounded reqNext h400">
@@ -58,7 +58,7 @@ function SetQuoteModal(props) {
             <p className="text-center t-40 w900">{props.data.weight}</p>
             <hr/>
 
-            <p className="text-center t-40 w900"><span className='text-muted'></span>: {props.data.item}</p>
+            <p className="text-center t-40 w900"><span className='text-muted ' >ITEM:</span>{props.data.item}</p>
             
           </div>
           <div className="g-col-6 grid-right rounded bg-white p-3 reqNext h367">
@@ -68,14 +68,14 @@ function SetQuoteModal(props) {
                 <p className="req_pro">X 1 with driver</p><br/>
                 <p className="req_pro_next">
                   <span>&#8358;</span>
-                <input
+                {props.justView?props.data.amount:<input
                 type="number"
                 placeholder="Enter Amount:"
                 className="input-home"
                 name="amount"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-              />
+              />}
                 </p>
               </div>
 
@@ -108,7 +108,7 @@ function SetQuoteModal(props) {
           </div>
         </div>
         <hr/>
-        <div className="d-flex justify-content-center mt-3  mb-3 m37">
+        {props.justView?null:<div className="d-flex justify-content-center mt-3  mb-3 m37">
               <button
                 onClick={()=>{
                   updateQuote()
@@ -117,7 +117,7 @@ function SetQuoteModal(props) {
               >
                 Udpate Request Quote 
               </button>
-            </div>
+            </div>}
       </div>
     </div>
   )

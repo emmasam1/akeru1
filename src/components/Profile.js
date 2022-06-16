@@ -153,7 +153,7 @@ function Proflie() {
               <Link to="/profile/ongoing" className="link-dark text-decoration-none">
               <div className={`pt-3  ${window.location.pathname=="/profile/ongoing"?"on-going":"pending"}`}>
                 <div className="d-flex justify-content-between p-3">
-                  <h2 className="w900">1</h2>
+                  <h2 className="w900">0</h2>
                   <div className="line-h">
                     <span>
                       Ongoing
@@ -167,7 +167,7 @@ function Proflie() {
               <Link to="/profile/complete" className="link-dark text-decoration-none">
               <div className={`pt-3  ${window.location.pathname=="/profile/complete"?"on-going":"pending"}`}>
                 <div className=" d-flex justify-content-between p-3">
-                  <h2 className="w900">320</h2>
+                  <h2 className="w900">0</h2>
                   <div className="line-h">
                     <span>
                       completed

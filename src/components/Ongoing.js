@@ -17,13 +17,15 @@ function Ongoing() {
   const [drivers, setDrivers] = useState([])
   const [requestData, setRequestData] = useState([])
    const [refreshKey, setRefreshKey] = useState(0);
+   const user = JSON.parse(localStorage.getItem("user"));
  
   useEffect(() => {
     setIsLoading(true)
-    axios.get(ROUTE.REQUEST + `?page=${paginate.page}&limit=${paginate.limit}&type=all_time&status=ongoing`)
+    axios.get(ROUTE.CLIENTS + `/requests?user_id=${user.user_id}&page=${paginate.page}&limit=${paginate.limit}&type=all&status=ongoing`)
       .then((res) => {
-
+        console.log(res);
         let requestData = res.data.data
+       
         if (!requestData) {
           
           console.log("waitung for data");
@@ -37,14 +39,7 @@ function Ongoing() {
         console.log(err);
       })
 
-    axios.get(ROUTE.DRIVERS)
-      .then((res) => {
-        let requestData = res.data.data
-        setDrivers(requestData)
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+    
   }, [refreshKey])
 
   const updatePaginate = (data) => {

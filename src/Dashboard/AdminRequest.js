@@ -10,6 +10,7 @@ import DeleteModal from "./Dash-Components/DeleteModal";
 function Request() {
   const [isLoading, setIsLoading] = useState(false);
   const [modal, setModal] = useState(false);
+  const [view, setView] = useState(false);
   const [assignModal, setAssignModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
   const [paginate, setPaginate] = useState({ "page": 1, "limit": 15, "pages": 0, "total": 0 });
@@ -237,7 +238,8 @@ function Request() {
                           <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                           <div className="table-dropdown-content r-0">
                             {e.amount < 1  ? null : e.status=="pending"? <button className="btn" onClick={() => { setARequest(e); setAssignModal(true); }}>Assign</button>:null}
-                            {e.status=="pending"?<button className="btn" onClick={() => { setARequest(e); setModal(true); }}>Set qoute</button>:null}
+                            {e.status=="pending"?<button className="btn" onClick={() => { setARequest(e); setModal(true); setView(false) }}>Set qoute</button>:
+                            <button className="btn" onClick={() => { setARequest(e); setModal(true); setView(true)}}>View</button>}
                             <button className="btn text-danger" onClick={() => { setARequest(e); setDeleteModal(true); }}>Delete</button>
 
                           </div>
@@ -250,7 +252,7 @@ function Request() {
 
               </tbody>
             </table>
-            {modal ? <SetQuoteModal closeModal={closeModal} data={aRequest} refresh={refreshPageData} /> : null}
+            {modal ? <SetQuoteModal closeModal={closeModal} data={aRequest} refresh={refreshPageData} justView={view} /> : null}
             {assignModal ? <AssignDriverModal closeModal={closeModal} drivers={drivers} request={aRequest} refresh={refreshPageData} /> : null}
             {deleteModal ? <DeleteModal closeModal={closeModal} deleteMethod={deleteData} refresh={refreshPageData}
               title="Delete Request?" descp="Are you sure you want to delete this request?" /> : null}
