@@ -1,36 +1,69 @@
-import React, { useEffect, useState } from "react";
+import React, { useState ,useEffect} from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import search from "../image/Search.svg";
+import ROUTE from "../route.json";
 
 function Setting() {
-  const [ton, setTon] = useState([]);
+  const [tonsData, setTonData] = useState([]);
   const [locate, setLocate] = useState([])
 
-  const [editTon, setEditTon] = useState(ton)
+  const [aTon, setATon] = useState({})
+  const [upTon, setUpTon] = useState(false)
   const [editLocate, setEditLocate] = useState(locate)
+  const [refreshTons, setRefreshTons] = useState(0);
 
-  let data1 = {
-    "tons": editTon,
+const createTon= async()=>{
+  let data={"amount":aTon.amount }
+  if(upTon){
+    console.log(ROUTE.SITE_URL+"/tons/"+aTon.id);
+   await axios
+      .put(ROUTE.SITE_URL+"/tons/"+aTon.id, data).then((res) => { setUpTon(false); setATon({amount:""}); alert("Ton Updated") })
+      .catch((err) => {
+        console.log(err);
+      });
+      refreshPageData()
+  }else{
+    await axios
+      .post(ROUTE.SITE_URL+"/tons", data).then((res) => {setATon({amount:""}); alert("Ton Added") })
+      .catch((err) => {
+        console.log(err);
+      });
+      refreshPageData()
   }
+  
+}
 
-  let data2 = {
-    "location_name": editLocate
-  }
+const deleteTon=(id)=>{
+  axios
+  .delete(ROUTE.SITE_URL+"/tons/"+id).then((res) => { alert("Ton Deleted") })
+  .catch((err) => {
+    console.log(err);
+  });
+  refreshPageData()
+}
+
+const refreshPageData = () => {
+  alert("refreshing")
+  setRefreshTons(refreshTons => refreshTons + 1)
+}
+
 
   useEffect(() => {
     axios
-      .get("/db/tons.json")
+      .get(ROUTE.SITE_URL+"/tons")
       .then((res) => {
         let ton = res.data;
-        setTon(ton);
+        setTonData(ton);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [refreshTons]);
 
   useEffect(() => {
     axios
-      .get("/db/location.json")
+      .get(ROUTE.SITE_URL+"/locations")
       .then((res) => {
         let locate = res.data;
         setLocate(locate);
@@ -44,39 +77,40 @@ function Setting() {
     <div className="p-3 position-relative left-width left-width-home">
       <div className="container-fluid">
         <div className="row">
-          <div className="col">
+          <div className="col-md-6">
             <div className="bg-white p-4">
               <div className="d-flex mb-5">
                 <input
-                  placeholder="Enter Tons"
+                  placeholder="Enter number of Tons"
+                  type="number"
                   className="setting-input input-home w64"
-                  value={editTon.tons}
+                  value={aTon.amount}
                   name="editTon"
-                  onChange={(e)=> setEditTon(e.target.value)}
+                  onChange={(e)=> setATon({"amount":e.target.value})}
                 />
-                <button className="btn btn-dark">Add Tons</button>
+                <button className="btn btn-dark" onClick={()=>{ createTon() }}>{upTon?"Update Ton":"Add Tons"}</button>
               </div>
               <table className="table table-bordered">
                 <thead>
                   <tr>
                     <th scope="col">S/N</th>
                     <th scope="col" className="col-6">
-                      NAME OF TONS
+                      AMOUNT
                     </th>
                     <th scope="col">ACTION</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {ton.map((e, i) => {
+                  {tonsData.map((e, i) => {
                     return (
                       <tr key={e.id}>
                         <th scope="row">{i + 1}</th>
-                        <td>{e.tons}</td>
+                        <td>{e.amount}</td>
                         <td className="d-flex justify-content-between">
-                          <button className="btn btn-secondary btn-sm" data={e} onClick={()=>setEditTon(e)}>
+                          <button className="btn btn-secondary btn-sm" data={e} onClick={()=>{setATon(e); setUpTon(true);}}>
                             Edit
                           </button>
-                          <button className="btn btn-danger btn-sm" data={e} onClick={()=>alert(e.tons)}>
+                          <button className="btn btn-danger btn-sm" data={e} onClick={()=>deleteTon(e.id)}>
                             Delete
                           </button>
                         </td>
@@ -88,7 +122,7 @@ function Setting() {
             </div>
           </div>
 
-          <div className="col">
+          {/* <div className="col">
             <div className="bg-white p-4">
               <div className="d-flex mb-5">
                 <input
@@ -120,7 +154,7 @@ function Setting() {
                           <button className="btn btn-secondary btn-sm" data={e} onClick={()=>setEditLocate(e)}>
                             Edit
                           </button>
-                          <button className="btn btn-danger btn-sm" data={e} onClick={()=>alert(e.location_name)}>
+                          <button className="btn btn-danger btn-sm" data={e} onClick={()=>alert(e)}>
                             Delete
                           </button>
                         </td>
@@ -130,7 +164,7 @@ function Setting() {
                 </tbody>
               </table>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

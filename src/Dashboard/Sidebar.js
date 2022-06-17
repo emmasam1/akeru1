@@ -83,6 +83,18 @@ function Sidebar(props) {
             Customers
           </Link>
           <Link
+            to="/admin-dashboard/withdrawals"
+            onClick={() => setActive("withdrawals")}
+            className={`d-flex link-color text-decoration-none link-p font14 mb ${
+              active === "withdrawals" ? "dash-active" : ""
+            } `}
+          >
+            <span>
+              <img src={setting} alt="icon" className="img-fix" />
+            </span>
+            Withdrawals
+          </Link>
+          <Link
             to="/admin-dashboard/setting"
             onClick={() => setActive("settings")}
             className={`d-flex link-color text-decoration-none link-p font14 mb ${

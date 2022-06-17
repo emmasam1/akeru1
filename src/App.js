@@ -33,7 +33,7 @@ import Setting from "./Dashboard/Setting"
 import Trucks from "./Dashboard/Trucks";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import FAQ from "./components/Faq";
-
+import Withdrawals from "./Dashboard/Withdrawals";
 function App() {
   return (
     <>
@@ -70,7 +70,8 @@ function App() {
           <Route path="drivers" element={<Driver />} />
           <Route path="customers" element={<AllClients />} />
           <Route path="trucks" element={<Trucks />} />
-          <Route path="setting" element={<Setting />} />
+          <Route path="setting" element={<Setting />} /> 
+          <Route path="withdrawals" element={<Withdrawals />} />
         </Route>
       </Routes>
     </>
