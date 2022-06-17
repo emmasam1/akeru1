@@ -13,15 +13,13 @@ function Request() {
   const [item, setItem] = useState("");
   const [truck_type, setTruckType] = useState("");
   const [weight, setWeight] = useState("");
-  const [amount, setAmount] = useState("")
-  const [pick_upErr, setpick_upErr] = useState({});
+   const [pick_upErr, setpick_upErr] = useState({});
   const [drop_offErr, setdrop_offErr] = useState({});
   const [dateErr, setdateErr] = useState({});
   const [itemErr, setItemErr] = useState({});
   const [typeErr, setTypeErr] = useState({});
   const [weightErr, setWeightErr] = useState({});
-  const [amountErr, setamountErr] = useState({})
-
+ 
   useEffect(() => {
     const request = JSON.parse(localStorage.getItem("request"));
     if (request) {
@@ -31,8 +29,7 @@ function Request() {
       setItem(request.item)
       setTruckType(request.truck_type)
       setWeight(request.weight)
-      setAmount(request.amount)
-    }
+     }
   }, [])
 
   const handSubmit = (e) => {
@@ -52,8 +49,7 @@ function Request() {
         "item": item,
         "weight": weight,
         "truck_type": truck_type,
-        "amount": amount
-      }
+       }
 
       localStorage.setItem("request", JSON.stringify(data))
       navigate("/detail")
@@ -101,10 +97,7 @@ function Request() {
       weightErr.weight = "What is the weight of your goods";
       isValid = false;
     }
-    if (!amount) {
-      amountErr.amount = "Amount required";
-      isValid = false;
-    }
+  
 
     setpick_upErr(pick_upErr);
     setdrop_offErr(drop_offErr);
@@ -112,8 +105,7 @@ function Request() {
     setItemErr(itemErr);
     setTypeErr(typeErr);
     setWeightErr(weightErr);
-    setamountErr(amountErr);
-    return isValid;
+     return isValid;
   };
 
 
@@ -191,21 +183,7 @@ function Request() {
               );
             })}
 
-            <input
-              type="text"
-              placeholder="Amount:"
-              className="input-home"
-              name="amount"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-            />
-            {Object.keys(amountErr).map((key) => {
-              return (
-                <p className="dash-error" key={amountErr}>
-                  {amountErr[key]}
-                </p>
-              );
-            })}
+             
 
 
             <select

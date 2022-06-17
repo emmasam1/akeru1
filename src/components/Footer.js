@@ -5,11 +5,11 @@ function Footer() {
   return (
     <>
       <div className="container-fiuld mt-3 pt-5 footer">
-        <div className="main_width d-flex footer_text_holder">
-          <div>
+        <div className="main_width row footer_text_holder">
+          <div className='col-md-2'>
             <Link className='link-light text-decoration-none' to="/"><img src={fl} alt="logo" className="footer_logo" /></Link>
           </div>
-          <div className="footer_col_holder">
+          <div className="col-md-8">
             <div className="row row-cols-4">
               <div className="col my_col_settings col-footer">
                 <h6 className="footer_h6">Services</h6>

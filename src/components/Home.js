@@ -46,7 +46,6 @@ function Home() {
       setItem(request.item)
       setTruckType(request.truck_type)
       setWeight(request.weight)
-      setAmount(request.amount)
     }
   }, [])
 
@@ -67,7 +66,6 @@ function Home() {
         "item": item,
         "weight": weight,
         "truck_type": truck_type,
-        "amount": amount
       }
 
       localStorage.setItem("request", JSON.stringify(data))
@@ -116,10 +114,7 @@ function Home() {
       weightErr.weight = "What is the weight of your goods";
       isValid = false;
     }
-    if (!amount) {
-      amountErr.amount = "Amount required";
-      isValid = false;
-    }
+   
 
     setpick_upErr(pick_upErr);
     setdrop_offErr(drop_offErr);
@@ -127,7 +122,6 @@ function Home() {
     setItemErr(itemErr);
     setTypeErr(typeErr);
     setWeightErr(weightErr);
-    setamountErr(amountErr);
     return isValid;
   };
 
@@ -222,21 +216,7 @@ function Home() {
                       );
                     })}
 
-                    <input
-                      type="text"
-                      placeholder="Amount:"
-                      className="input-home"
-                      name="amount"
-                      value={amount}
-                      onChange={(e) => setAmount(e.target.value)}
-                    />
-                    {Object.keys(amountErr).map((key) => {
-                      return (
-                        <p className="dash-error" key={amountErr}>
-                          {amountErr[key]}
-                        </p>
-                      );
-                    })}
+                    
 
                     <select
                       className="select"

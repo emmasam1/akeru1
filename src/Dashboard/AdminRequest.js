@@ -137,18 +137,18 @@ function Request() {
 
 
 
-
+//d-flex flex-sm-column justify-content-between flex-md-row flex-lg-row flex-xl-row testing-flex
   return (
     <>
       <div className="p-3 position-relative left-width-home left-width">
+        <div className="row content-center">
 
-        <div className="d-flex flex-sm-column justify-content-between flex-md-row flex-lg-row flex-xl-row testing-flex">
-          <NavLink to="#" className="link-dark text-decoration-none a" onClick={() => { switchTabsData(0) }}>
+          <NavLink to="#" className="col-md-4 link-dark text-decoration-none a" onClick={() => { switchTabsData(0) }}>
             <div className={`dash_link_bg_color pt-3  ${activeTabIndex == 0 ? "akeru-bg-primary" : ""}`}>
               <div className="d-flex justify-content-between p-3">
                 <h2 className="w900">{requestData.length}</h2>
                 <div className="line-h">
-                  <span>
+                  <span className="number-h4-text">
                     Pending
                     <br /> Requests
                   </span>
@@ -156,12 +156,12 @@ function Request() {
               </div>
             </div>
           </NavLink>
-          <NavLink to="#" className="link-dark text-decoration-none" onClick={() => { switchTabsData(1) }}>
+          <NavLink to="#" className=" col-md-4 link-dark text-decoration-none" onClick={() => { switchTabsData(1) }}>
             <div className={`dash_link_bg_color pt-3  ${activeTabIndex == 1 ? "akeru-bg-primary" : ""}`}>
               <div className="d-flex justify-content-between p-3">
                 <h2 className="w900">0</h2>
                 <div className="line-h">
-                  <span>
+                  <span className="number-h4-text">
                     Ongoing
                     <br /> Trips
                   </span>
@@ -169,13 +169,12 @@ function Request() {
               </div>
             </div>
           </NavLink>
-
-          <NavLink to="#" className="link-dark text-decoration-none" onClick={() => { switchTabsData(2) }}>
+          <NavLink to="#" className="col-md-4 link-dark text-decoration-none" onClick={() => { switchTabsData(2) }}>
             <div className={`dash_link_bg_color pt-3  ${activeTabIndex == 2 ? "akeru-bg-primary" : ""}`}>
               <div className=" d-flex justify-content-between p-3">
                 <h2 className="w900">0</h2>
                 <div className="line-h">
-                  <span>
+                  <span className="number-h4-text">
                     Completed
                     <br /> Trips
                   </span>
@@ -207,14 +206,14 @@ function Request() {
                   <th scope="col">S/N</th>
                   <th scope="col">PICK UP</th>
                   <th scope="col">DROP OFF</th>
-                  <th scope="col">ITEM</th>
-                  <th scope="col">PAID</th>
                   <th scope="col">WEIGHT</th>
+                  <th scope="col">ITEM</th>
                   <th scope="col">DATE</th>
                   <th scope="col">AMOUNT</th>
+                  <th scope="col">PAID</th>
+                  <th scope="col">PAYMENT TYPE</th>
                   <th scope="col">DRIVER</th>
                   <th scope="col">STATUS</th>
-                  <th scope="col">PAYMENT TYPE</th>
                   <th scope="col">ACTION</th>
                 </tr>
               </thead>
@@ -225,14 +224,14 @@ function Request() {
                       <td>{i + 1}</td>
                       <td>{e.pick_up}</td>
                       <td>{e.drop_off}</td>
-                      <td>{e.item}</td>
-                      <td>{e.is_paid ? <span className="badge bg-success">Paid</span> : <span className="badge bg-secondary">Awaiting..</span>}</td>
                       <td>{e.weight}</td>
+                      <td>{e.item}</td>
                       <td>{changeDate(e.date)}</td>
                       <td>₦{e.amount.toLocaleString()}</td>
+                      <td>{e.is_paid ? <span className="badge bg-success">Paid</span> : <span className="badge bg-secondary">Awaiting..</span>}</td>
+                      <td>{e.payment_type}</td>
                       <td>{e.driver_name}</td>
                       <td>{switchStatusBadge(e.status)}</td>
-                      <td>{e.payment_type}</td>
                       <td className="d-flex justify-content-center flex-column position-relative">
                         <div className="table-dropdown">
                           <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
@@ -240,7 +239,7 @@ function Request() {
                             {e.amount < 1  ? null : e.status=="pending"? <button className="btn" onClick={() => { setARequest(e); setAssignModal(true); }}>Assign</button>:null}
                             {e.status=="pending"?<button className="btn" onClick={() => { setARequest(e); setModal(true); setView(false) }}>Set qoute</button>:
                             <button className="btn" onClick={() => { setARequest(e); setModal(true); setView(true)}}>View</button>}
-                            <button className="btn text-danger" onClick={() => { setARequest(e); setDeleteModal(true); }}>Delete</button>
+                            {/* <button className="btn text-danger" onClick={() => { setARequest(e); setDeleteModal(true); }}>Delete</button> */}
 
                           </div>
                         </div>
