@@ -6,6 +6,8 @@ import Loader from "./Loader";
 import SetQuoteModal from "./Dash-Components/Set-Quote-Modal";
 import AssignDriverModal from "./Dash-Components/AssignModal";
 import DeleteModal from "./Dash-Components/DeleteModal";
+import ConvertDate from "./ConvertDate";
+
 
 function Withdrawals() {
   const [isLoading, setIsLoading] = useState(false);
@@ -38,6 +40,16 @@ function Withdrawals() {
 
     
   }, [refreshKey])
+
+  const getDriver=(id)=>{
+    axios.get(ROUTE.DRIVERS + `${id}`)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
 
   const updatePaginate = (data) => {
     setPaginate({ "page": data, "limit": paginate.limit, "pages": paginate.pages, "total": paginate.total })
@@ -126,11 +138,11 @@ function Withdrawals() {
               <tbody className="position-relative">
                 {isLoading ? <Loader /> : withdrawalData.map((e, i) => {
                   return (
-                    <tr key={e.user_id} id={e.user_id}>
+                    <tr key={e.driver_id} id={e.driver_id}>
                       <td>{i + 1}</td>
-                      <td>{"Driver"}</td>
+                      <td>{getDriver(e.driver_id)}</td>
                       <td>₦{e.amount.toLocaleString()}</td>
-                      <td>{changeDate(e.created_at)}</td>
+                      <td><ConvertDate date={e.created_at}/> </td>
                       <td>{switchStatusBadge(e.status)}</td>
                       <td className="d-flex justify-content-center flex-column position-relative">
                        {e.status?null:<button className="btn btn-secondary btn-sm" onClick={() => { setAWithdrawal(e); }}>Approve</button>}
@@ -138,7 +150,6 @@ function Withdrawals() {
                     </tr>
                   )
                 })}
-
               </tbody>
             </table>
             {approvalModal ? <DeleteModal closeModal={closeModal} deleteMethod={approveWithdrawal} refresh={refreshPageData}

@@ -6,6 +6,8 @@ import Loader from "./Loader";
 import SetQuoteModal from "./Dash-Components/Set-Quote-Modal";
 import AssignDriverModal from "./Dash-Components/AssignModal";
 import DeleteModal from "./Dash-Components/DeleteModal";
+import ConvertDate from "./ConvertDate";
+
 
 function Request() {
   const [isLoading, setIsLoading] = useState(false);
@@ -112,12 +114,42 @@ function Request() {
 
     var newDate = new Date(date)
     let year = newDate.getFullYear();
-    let month = newDate.getMonth();
+    let month = getMonth(newDate.getMonth());
     let day = newDate.getDay();
     let hr = newDate.getHours();
     let min = newDate.getMinutes();
-    return `${year}-${month}-${day} ${hr}:${min}`;
+
+    return `${year}-${month}-${day}`;
   }
+
+ const getMonth=(month)=>{
+  switch (month) {
+    case 0:
+      return "Jan";
+    case 1:
+      return "Feb";
+    case 2:
+      return "Mar";
+    case 3:
+      return "Apr";
+    case 4:
+      return "May";
+    case 5:
+      return "Jun";
+    case 6:
+      return "Jul";
+    case 7:
+      return "Aug";
+    case 8:
+      return "Sep";
+    case 9:
+      return "Oct";
+    case 10:
+      return "Nov";
+    case 11:
+      return "Dec";
+  }
+ }
 
   const deleteData = () => {
     axios.delete(ROUTE.REQUEST + `/${aRequest.request_id}`)
@@ -137,7 +169,7 @@ function Request() {
 
 
 
-//d-flex flex-sm-column justify-content-between flex-md-row flex-lg-row flex-xl-row testing-flex
+  //d-flex flex-sm-column justify-content-between flex-md-row flex-lg-row flex-xl-row testing-flex
   return (
     <>
       <div className="p-3 position-relative left-width-home left-width">
@@ -226,7 +258,7 @@ function Request() {
                       <td>{e.drop_off}</td>
                       <td>{e.weight}</td>
                       <td>{e.item}</td>
-                      <td>{changeDate(e.date)}</td>
+                      <td><ConvertDate date={e.date}/></td>
                       <td>₦{e.amount.toLocaleString()}</td>
                       <td>{e.is_paid ? <span className="badge bg-success">Paid</span> : <span className="badge bg-secondary">Awaiting..</span>}</td>
                       <td>{e.payment_type}</td>
@@ -236,9 +268,9 @@ function Request() {
                         <div className="table-dropdown">
                           <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                           <div className="table-dropdown-content r-0">
-                            {e.amount < 1  ? null : e.status=="pending"? <button className="btn" onClick={() => { setARequest(e); setAssignModal(true); }}>Assign</button>:null}
-                            {e.status=="pending"?<button className="btn" onClick={() => { setARequest(e); setModal(true); setView(false) }}>Set qoute</button>:
-                            <button className="btn" onClick={() => { setARequest(e); setModal(true); setView(true)}}>View</button>}
+                            {e.amount < 1 ? null : e.status == "pending" ? <button className="btn" onClick={() => { setARequest(e); setAssignModal(true); }}>Assign</button> : null}
+                            {e.status == "pending" ? <button className="btn" onClick={() => { setARequest(e); setModal(true); setView(false) }}>Set qoute</button> :
+                              <button className="btn" onClick={() => { setARequest(e); setModal(true); setView(true) }}>View</button>}
                             {/* <button className="btn text-danger" onClick={() => { setARequest(e); setDeleteModal(true); }}>Delete</button> */}
 
                           </div>
