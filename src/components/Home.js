@@ -76,18 +76,6 @@ function Home() {
       localStorage.setItem("request", JSON.stringify(data))
       navigate("/detail")
 
-      //   user_id: user_id,
-      //   drop_off: drop_off,
-      //   pick_up: pick_up,
-      //   date: date,
-      //   item: item,
-      //   weight: weight,
-      //   truck_type: truck_type,
-      //   amount: amount,
-      // };
-
-      localStorage.setItem("request", JSON.stringify(data));
-      navigate("/detail");
     } else {
       if (user == null) {
         alert("Please login before making a request");
