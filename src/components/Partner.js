@@ -17,14 +17,14 @@ import notification from "../image/notification.png";
 import pencil from "../image/pencil.png";
 import hand from "../image/hand.png";
 import lprice from "../image/low-price.png";
-import { Link } from 'react-router-dom';
-import Navbar from './Navbar';
-import Footer from './Footer';
+import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 function Partner() {
   return (
     <>
       <Navbar />
-      <div className="container-fliud d-flex justify-content-around hero_style hero-height hs">
+      <div className="container-fliud d-flex justify-content-around hero_style hero-height hs hero-sm-height">
         <div className="triangle"></div>
         <div className="triangle rotate"></div>
         <div className="triangle"></div>
@@ -32,19 +32,24 @@ function Partner() {
 
         <div className="main_width position-absolute">
           <div className="position-relative">
-            <div className="row">
-              <div className="col col-sm-6 pt-5 pt-style">
-                <div className=" w0">
+            <div className="akeru-column">
+              <div className="akeru-col">
+                <div className="w0">
                   <p className="hero_p_top_text m-0 w900">Own a truck?</p>
                   <h1 className="hero_h1_text">
-                  Become an <br/> Akeru’s partner
+                    Become an <br /> Akeru’s partner
                   </h1>
                   {/* <p className="hero_p_bottom_text pt-1">
                     Download the app and start earning
                   </p> */}
                   <div className="d-flex justify-left">
-                    <span className="m-2"><i class="bi bi-check2 m-1"></i> Instant pay out</span>
-                    <span className="m-2"> <i class="bi bi-check2 m-1"></i>Competitive pricing</span>
+                    <span className="m-2">
+                      <i className="bi bi-check2 m-1"></i> Instant pay out
+                    </span>
+                    <span className="m-2">
+                      {" "}
+                      <i className="bi bi-check2 m-1"></i>Competitive pricing
+                    </span>
                   </div>
                   <p className=" pt-2 ">Download the app and start earning</p>
                 </div>
@@ -53,25 +58,31 @@ function Partner() {
                   <img src={apple} alt="icon" />
                 </div>
               </div>
-              <div className="col col-sm-6 d-flex justify-content-around">
+              <div className="akeru-col d-flex justify-content-around display">
                 <img
                   src={home}
                   alt="icon"
                   className="image-width image-margin position-relative img-left sm-margin"
                 />
-                <img src={Ongoing} alt="icon" className="image-width sm-mobile-rel" />
+                <img
+                  src={Ongoing}
+                  alt="icon"
+                  className="image-width sm-mobile-rel"
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="  mt-3 mobile-sm-width">
+      <div className="mt-3 mobile-sm-width">
         <div className="algin-width">
           <div className="container px-3 py-3">
             <br />
             <br />
-            <h1 className="text-center how_it_works_title">Register as a Haulier on Akeru app </h1>
+            <h1 className="text-center how_it_works_title">
+              Register as a Haulier on Akeru app{" "}
+            </h1>
             <br />
             <br />
             <br />
@@ -79,32 +90,43 @@ function Partner() {
               <div className="col-md-3">
                 <img src={ic_download} alt="icon" />
                 <h5 className="how_it_works_col_title">Download the app.</h5>
-                <p className="how_it_works_col_desc">Akeru's app can be downloaded from the App Store for iPhone users or the Play Store for Android users.</p>
+                <p className="how_it_works_col_desc">
+                  Akeru's app can be downloaded from the App Store for iPhone
+                  users or the Play Store for Android users.
+                </p>
               </div>
               <div className="col-md-3">
                 <img src={user} alt="icon" />
                 <h5 className="how_it_works_col_title">Register.</h5>
-                <p className="how_it_works_col_desc">To begin using the app and getting order requests, create an account with Akeru.</p>
+                <p className="how_it_works_col_desc">
+                  To begin using the app and getting order requests, create an
+                  account with Akeru.
+                </p>
               </div>
               <div className="col-md-3">
                 <img src={ic_list} alt="icon" />
                 <h5 className="how_it_works_col_title">Upload documents.</h5>
-                <p className="how_it_works_col_desc">Upload all required documents to complete your registration as this may prevent you from receiving order request</p>
+                <p className="how_it_works_col_desc">
+                  Upload all required documents to complete your registration as
+                  this may prevent you from receiving order request
+                </p>
               </div>
               <div className="col-md-3">
                 <img src={truck} alt="icon" />
                 <h5 className="how_it_works_col_title">Enjoy the app</h5>
-                <p className="how_it_works_col_desc">Through the app you can request for Cash advance, manage your income and toggle on and off when you wish to accept orders</p>
+                <p className="how_it_works_col_desc">
+                  Through the app you can request for Cash advance, manage your
+                  income and toggle on and off when you wish to accept orders
+                </p>
               </div>
             </div>
           </div>
-          
         </div>
       </div>
 
       <div className="main_width div_color mt-3 mobile-sm-width">
         <div className="algin-width">
-          <div className="row">
+          <div className="row akeru-grid">
             <div className="col col-pad col-pad-left">
               <h2 className="w900 f32">Receive live order</h2>
               <p>
@@ -145,9 +167,13 @@ function Partner() {
       <div className="main_width div_color mt-3 mobile-sm-width">
         <div className="algin-width">
           <div className="container px-3">
-            <div className="row">
+            <div className="row akeru-flex ">
               <div className="col d-flex justify-content-start p-3">
-                <img src={second} alt="" className="img-style position-relative left-move mobile-sm-img" />
+                <img
+                  src={second}
+                  alt=""
+                  className="img-style position-relative left-move mobile-sm-img"
+                />
               </div>
 
               <div className="col col-pad-left">
@@ -199,15 +225,18 @@ function Partner() {
           <div className="container px-3">
             <div className="row">
               <div className="col d-flex justify-content-start p-3">
-                <img src={notification} alt="" className="img-style left-move position-relative mobile-sm-img" />
+                <img
+                  src={notification}
+                  alt=""
+                  className="img-style left-move position-relative mobile-sm-img"
+                />
               </div>
 
               <div className="col col-pad-left">
                 <h2 className="w900 f32">Get real time notification</h2>
                 <p className="mobile-sm-partner-p">
-                  Keep track of all activities by getting
-                  notifications of vital actions that needs your
-                  attention.
+                  Keep track of all activities by getting notifications of vital
+                  actions that needs your attention.
                 </p>
               </div>
             </div>
@@ -273,23 +302,38 @@ function Partner() {
         </div>
         <div className="own_item_holder container ">
           <div className="row justify-left">
-            <span className="col-md-6"><i class="bi bi-check-square-fill akeru-primary m-1"></i> No obligation</span>
-            <span className="col-md-6"> <i class="bi bi-check-square-fill akeru-primary m-1"></i>Full features</span>
+            <span className="col-md-6">
+              <i className="bi bi-check-square-fill akeru-primary m-1"></i> No
+              obligation
+            </span>
+            <span className="col-md-6">
+              {" "}
+              <i className="bi bi-check-square-fill akeru-primary m-1"></i>Full
+              features
+            </span>
           </div>
-          
+
           <div className="row justify-left mt-2">
-            <span className="col-md-6"><i class="bi bi-check-square-fill akeru-primary m-1"></i>Instant payout </span>
-            <span className="col-md-6"><i class="bi bi-check-square-fill akeru-primary m-1"></i> Reporting dashboard</span>
+            <span className="col-md-6">
+              <i className="bi bi-check-square-fill akeru-primary m-1"></i>Instant
+              payout{" "}
+            </span>
+            <span className="col-md-6">
+              <i className="bi bi-check-square-fill akeru-primary m-1"></i>{" "}
+              Reporting dashboard
+            </span>
           </div>
         </div>
         <div className="join_btn_holder">
-          <Link to='/signin' className="link-dark w900 footer_btn">
+          <Link to="/signin" className="link-dark w900 footer_btn">
             Join us
           </Link>
         </div>
       </div>
       <div className=" bg-img p-5 mw100 mobile-sm-pad">
-        <h2 className="text-white text-center w900 pt-5">What are you waiting for?</h2>
+        <h2 className="text-white text-center w900 pt-5">
+          What are you waiting for?
+        </h2>
         <p className="text-white text-center">
           Join thousands of our partners and start earning
         </p>
@@ -298,7 +342,6 @@ function Partner() {
           <img src={google} alt="icon" />
           <img src={apple} alt="icon" />
         </div>
-
       </div>
       <Footer />
     </>
