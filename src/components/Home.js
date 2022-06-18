@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import ROUTE from "../route.json";
 import { Link, useNavigate } from "react-router-dom";
 import truck from "../image/truck.png";
 import vector from "../image/Vector.png";

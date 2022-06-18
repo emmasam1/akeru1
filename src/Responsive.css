@@ -738,6 +738,10 @@
   .akeru-col-md {
     width: 100%;
   }
+  .akeru-flex {
+    flex-direction: column-reverse;
+    display: flex;
+  }
   .nf_div {
     width: 90%;
   }
