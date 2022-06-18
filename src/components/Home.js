@@ -1,4 +1,4 @@
-import React, { useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ROUTE from "../route.json";
 import { Link, useNavigate } from "react-router-dom";
@@ -17,7 +17,6 @@ import Footer from "./Footer";
 import Loading from "./Loading";
 
 function Home() {
-
   let navigate = useNavigate();
 
   const [pick_up, setpick_up] = useState("");
@@ -46,8 +45,15 @@ function Home() {
       setItem(request.item)
       setTruckType(request.truck_type)
       setWeight(request.weight)
+      setpick_up(request.pick_up);
+      setdrop_off(request.drop_off);
+      setdate(request.date);
+      setItem(request.item);
+      setTruckType(request.truck_type);
+      setWeight(request.weight);
+      setAmount(request.amount);
     }
-  }, [])
+  }, []);
 
   const handSubmit = (e) => {
     e.preventDefault();
@@ -56,7 +62,6 @@ function Home() {
     const user = JSON.parse(localStorage.getItem("user"));
 
     if (isValid && user) {
-
       let user_id = user.user_id;
       let data = {
         "user_id": user_id,
@@ -71,13 +76,23 @@ function Home() {
       localStorage.setItem("request", JSON.stringify(data))
       navigate("/detail")
 
+      //   user_id: user_id,
+      //   drop_off: drop_off,
+      //   pick_up: pick_up,
+      //   date: date,
+      //   item: item,
+      //   weight: weight,
+      //   truck_type: truck_type,
+      //   amount: amount,
+      // };
+
+      localStorage.setItem("request", JSON.stringify(data));
+      navigate("/detail");
     } else {
       if (user == null) {
-        alert("Please login before making a request")
-
+        alert("Please login before making a request");
       }
     }
-
   };
 
   const formValidation = () => {
@@ -265,7 +280,13 @@ function Home() {
                       );
                     })}
 
-                    <button className="my_btn w900"> <Loading loading={isLoading} false_text={"Request quote "}/> </button>
+                    <button className="my_btn w900">
+                      {" "}
+                      <Loading
+                        loading={isLoading}
+                        false_text={"Request quote "}
+                      />{" "}
+                    </button>
                   </div>
                 </form>
               </div>
@@ -275,8 +296,8 @@ function Home() {
       </div>
 
       <div className="main_width div_color mt-3">
-        <div className="row">
-          <div className="col-lg-6 col-md-6 col-sm-6">
+        <div className="akeru_column">
+          <div className="akeru-col">
             <div className="truck_section_margin truck_div_width">
               <h6 className="truck_h6_text">
                 Why companies prefer to use Akeru
@@ -288,84 +309,84 @@ function Home() {
                 communicate two really important product features with icons.
               </p>
             </div>
+            <div className="akeru_column">
+              <div className="akeru-col-md p-3">
+                <div>
+                  <div className="icon_holder d-flex justify-content-center">
+                    <img src={vector} alt="icon" className="vector_icon" />
+                  </div>
+                  <p className="truck_small_heading">Unbeatable support</p>
+                  <p className="truck_6rem_text">
+                    Our support are available 24/7 to answer any questions and
+                    give precise quotes
+                  </p>
+                </div>
+              </div>
+              <div className="akeru-col-md p-3">
+                <div>
+                  <div className="icon_holder d-flex justify-content-center">
+                    <img src={vector4} alt="icon" className="vector_icon4" />
+                  </div>
+                  <p className="truck_small_heading">Competitive pricing</p>
+                  <p className="truck_6rem_text">
+                    With over 10years in the industry our price will be the most
+                    competitive out there
+                  </p>
+                </div>
+              </div>
+            </div>
 
-            <div className="p-3">
-              <div className="row">
-                <div className="col-lg-6 col-md-6 col-sm-6">
-                  <div>
-                    <div className="icon_holder d-flex justify-content-center">
-                      <img src={vector} alt="icon" className="vector_icon" />
-                    </div>
-                    <p className="truck_small_heading">Unbeatable support</p>
-                    <p className="truck_6rem_text">
-                      Our support are available 24/7 to answer any questions and
-                      give precise quotes
-                    </p>
+            <div className="akeru_column">
+              <div className="akeru-col-md p-3">
+                <div>
+                  <div className="icon_holder d-flex justify-content-center">
+                    <img src={vector2} alt="icon" className="vector_icon2" />
                   </div>
+                  <p className="truck_small_heading">Insurance covered</p>
+                  <p className="truck_6rem_text">
+                    We ensured any fleets using the platform is fully insured
+                    including GIT.
+                  </p>
                 </div>
-                <div className="col-lg-6 col-md-6 col-sm-6">
-                  <div>
-                    <div className="icon_holder d-flex justify-content-center">
-                      <img src={vector4} alt="icon" className="vector_icon4" />
-                    </div>
-                    <p className="truck_small_heading">Competitive pricing</p>
-                    <p className="truck_6rem_text">
-                      With over 10years in the industry our price will be the
-                      most competitive out there
-                    </p>
+              </div>
+              <div className="akeru-col-md p-3">
+                <div>
+                  <div className="icon_holder d-flex justify-content-center">
+                    <img src={vector3} alt="icon" className="vector_icon2" />
                   </div>
-                </div>
-                <div className="col-lg-6 col-md-6 col-sm-6">
-                  <div>
-                    <div className="icon_holder d-flex justify-content-center">
-                      <img src={vector2} alt="icon" className="vector_icon2" />
-                    </div>
-                    <p className="truck_small_heading">Insurance covered</p>
-                    <p className="truck_6rem_text">
-                      We ensured any fleets using the platform is fully insured
-                      including GIT.
-                    </p>
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-6 col-sm-6">
-                  <div>
-                    <div className="icon_holder d-flex justify-content-center">
-                      <img src={vector3} alt="icon" className="vector_icon2" />
-                    </div>
-                    <p className="truck_small_heading">Automated logistics</p>
-                    <p className="truck_6rem_text">
-                      All process is automated and you can get updates on all
-                      stages till delivery
-                    </p>
-                  </div>
+                  <p className="truck_small_heading">Automated logistics</p>
+                  <p className="truck_6rem_text">
+                    All process is automated and you can get updates on all
+                    stages till delivery
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="col-lg-6 col-md-6 col-sm-6 display height">
-              <img src={truck} alt="truck" className="truck" />
-              <div className="lower_truck_div">
-                <div className="d-flex">
-                  <div className="rounded-circle d-flex justify-content-center round_div_style">
-                    <img src={vector6} alt="icon" />
-                  </div>
-                  <p className="round_div_p">Truck Requested</p>
+          <div className="akeru-col akeru-col-height display">
+            <img src={truck} alt="truck" className="truck" />
+            <div className="lower_truck_div">
+              <div className="d-flex">
+                <div className="rounded-circle d-flex justify-content-center round_div_style">
+                  <img src={vector6} alt="icon" />
                 </div>
-                <hr className="horizontal_line" />
-                <hr className="horizontal_line2" />
+                <p className="round_div_p">Truck Requested</p>
               </div>
+              <hr className="horizontal_line" />
+              <hr className="horizontal_line2" />
+            </div>
 
-              <div className="lower_truck_div2">
-                <div className="d-flex">
-                  <div className="rounded-circle d-flex justify-content-center round_div_style">
-                    <img src={vector5} alt="icon" />
-                  </div>
-                  <p className="round_div_p">1 hour to delivery</p>
+            <div className="lower_truck_div2">
+              <div className="d-flex">
+                <div className="rounded-circle d-flex justify-content-center round_div_style">
+                  <img src={vector5} alt="icon" />
                 </div>
-                <hr className="horizontal_line" />
-                <hr className="horizontal_line2" />
+                <p className="round_div_p">1 hour to delivery</p>
               </div>
+              <hr className="horizontal_line" />
+              <hr className="horizontal_line2" />
+            </div>
           </div>
         </div>
       </div>

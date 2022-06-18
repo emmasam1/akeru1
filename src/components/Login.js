@@ -90,7 +90,7 @@ function Login() {
   return (
     <>
       <Navbar />
-      <div className="container-fliud d-flex justify-content-around hero_style bg-sm-white login_div_height backgroundColor sm-hero-height login-container-heigh">
+      <div className="container-fliud d-flex justify-content-around hero_style bg-sm-white login_div_height backgroundColor sm-hero-height login-container-heigh hero_style-login-md">
         <div className="triangle triangle-login"></div>
         <div className="triangle rotate triangle-login"></div>
         <div className="triangle triangle-login"></div>
