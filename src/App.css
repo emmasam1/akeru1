@@ -1224,3 +1224,8 @@ label span input {
 .nav-tabs .nav-link{color: gray !important; font-weight: 700;}
 .accordion-header{background-color: #f1f1f1 !important;}
 .accordion-item{background-color: #f1f1f1 !important;}
+.copy-input{
+  color: white;
+  outline: none;
+  border: 0px;
+}

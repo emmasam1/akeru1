@@ -58,18 +58,20 @@ function SetQuoteModal(props) {
   }
 
   return (
-    <div className='overlay position-fixed d-flex align-self-center'>
+    <div className='overlay position-fixed d-flex align-self-center '>
       <div className="request-modal">
         <i className="bi bi-x-lg close-icon" onClick={() => props.closeModal()}></i>
         <h1 className="text-center req_h1 mt-2">{props.justView ? "View Request Details" : "Set Price For Quote"}</h1>
         <hr />
-        <div className="d-flex justify-content-between flex-mobile-d ">
-          <div className="g-col-6 grid-left p-3 bg-white rounded reqNext h400">
+       <div className='container dash-modal-container'>
+       <div className=" row ">
+          <div className="col-md-6   p-3 bg-white rounded reqNext  ">
 
             <p className="text-center req_first_p pt-2 w900">
-              <span>{props.data.pick_up} </span> &nbsp;{" "}
-              <img src={arrow} alt="icon" /> &nbsp;{" "}
+              <span>{props.data.pick_up} </span> &nbsp;{" "}<br/>
+              <img src={arrow} alt="icon" /> &nbsp;{" "}<br/>
               <span>{props.data.drop_off}</span>
+
             </p>
             <p className="text-center text-muted t-13 w900">{changeDate(props.data.date)}</p>
             <p className="text-center text-muted t-13 w900">
@@ -81,7 +83,7 @@ function SetQuoteModal(props) {
             <p className="text-center t-40 w900"><span className='text-muted ' >ITEM:</span>{props.data.item}</p>
 
           </div>
-          <div className="g-col-6 grid-right rounded bg-white p-3 reqNext h367">
+          <div className="col-md-6   rounded bg-white p-3  ">
             <h4 className="text-center w900 req_h4 mb-4">{props.data.weight.toUpperCase()} TRUCK</h4>
             <div className="border-bottom border-2 mb-1">
               <div className="d-flex justify-content-between ">
@@ -141,6 +143,7 @@ function SetQuoteModal(props) {
 
           </div>
         </div>
+       </div>
         <hr />
         {props.justView ? null : <div className="d-flex justify-content-center mt-3  mb-3 m37">
           <button

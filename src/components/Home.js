@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import ROUTE from "../route.json";
 import truck from "../image/truck.png";
 import vector from "../image/Vector.png";
 import vector2 from "../image/Vector2.png";
@@ -36,30 +38,13 @@ function Home() {
   useEffect(() => {
     const request = JSON.parse(localStorage.getItem("request"));
     if (request) {
-<<<<<<< Updated upstream
       setpick_up(request.pick_up);
       setdrop_off(request.drop_off);
       setdate(request.date);
       setItem(request.item);
       setTruckType(request.truck_type);
       setWeight(request.weight);
-      setpick_up(request.pick_up);
-      setdrop_off(request.drop_off);
-      setdate(request.date);
-      setItem(request.item);
-      setTruckType(request.truck_type);
-      setWeight(request.weight);
-      setAmount(request.amount);
     }
-=======
-      setpick_up(request.pick_up)
-      setdrop_off(request.drop_off)
-      setdate(request.date)
-      setItem(request.item)
-      setTruckType(request.truck_type)
-      setWeight(request.weight)
-      }
->>>>>>> Stashed changes
   }, []);
 
   const handSubmit = (e) => {
@@ -69,7 +54,9 @@ function Home() {
     const user = JSON.parse(localStorage.getItem("user"));
 
     if (isValid && user) {
+      setIsLoading(true)
       let user_id = user.user_id;
+
       let data = {
         user_id: user_id,
         drop_off: drop_off,
@@ -80,8 +67,17 @@ function Home() {
         truck_type: truck_type,
       };
 
-      localStorage.setItem("request", JSON.stringify(data));
-      navigate("/detail");
+      axios
+      .post(ROUTE.REQUEST,data)
+      .then(function (res) {
+        navigate(`/detail?request_id=${res.data.id}`);
+      })
+      .catch(function (err) {
+        setIsLoading(false)
+        console.log(err);
+        alert(err)
+      });
+      
     } else {
       if (user == null) {
         alert("Please login before making a request");
@@ -275,7 +271,7 @@ function Home() {
                       {" "}
                       <Loading
                         loading={isLoading}
-                        false_text={"Request quote "}
+                        false_text={"Request Quote"}
                       />{" "}
                     </button>
                   </div>

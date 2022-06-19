@@ -22,6 +22,7 @@ function Request() {
   const [drivers, setDrivers] = useState([])
   const [requestData, setRequestData] = useState([])
   const [refreshKey, setRefreshKey] = useState(0);
+  const [copyData, setCopyData] = useState("");
 
   useEffect(() => {
     setIsLoading(true)
@@ -79,6 +80,19 @@ function Request() {
     setModal(false)
     setAssignModal(false)
     setDeleteModal(false)
+  }
+
+  const copylink=(data)=>{
+    setCopyData(`${document.location.host}/detail?request_id=${data.request_id}`)
+    setTimeout(function () {
+    var copyText = document.getElementById("mail")
+    copyText.select()
+    copyText.setSelectionRange(0, 99999)
+    document.execCommand("copy")
+    setCopyData("")
+    alert("Request Copied")
+
+  }, 2000);
   }
 
   const switchStatusBadge = (data) => {
@@ -174,7 +188,7 @@ function Request() {
     <>
       <div className="p-3 position-relative left-width-home left-width">
         <div className="row content-center">
-
+        
           <NavLink to="#" className="col-md-4 link-dark text-decoration-none a" onClick={() => { switchTabsData(0) }}>
             <div className={`dash_link_bg_color pt-3  ${activeTabIndex == 0 ? "akeru-bg-primary" : ""}`}>
               <div className="d-flex justify-content-between p-3">
@@ -268,10 +282,12 @@ function Request() {
                         <div className="table-dropdown">
                           <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                           <div className="table-dropdown-content r-0">
+                            <button className="btn" onClick={() => { copylink(e);  }}>Copy Link</button>
                             {e.amount < 1 ? null : e.status == "pending" ? <button className="btn" onClick={() => { setARequest(e); setAssignModal(true); }}>Assign</button> : null}
                             {e.status == "pending" ? <button className="btn" onClick={() => { setARequest(e); setModal(true); setView(false) }}>Set qoute</button> :
                               <button className="btn" onClick={() => { setARequest(e); setModal(true); setView(true) }}>View</button>}
-                            {/* <button className="btn text-danger" onClick={() => { setARequest(e); setDeleteModal(true); }}>Delete</button> */}
+                             
+                            <button className="btn text-danger" onClick={() => { setARequest(e); setDeleteModal(true); }}>Delete</button>
 
                           </div>
                         </div>
@@ -306,6 +322,13 @@ function Request() {
             <br />
             <br />
             <br />
+            {copyData!=""?<input
+                readOnly
+                type="text"
+                className="copy-input"
+                value={copyData}
+                id="mail"
+              />:null}
           </div>
         </div>
       </div>

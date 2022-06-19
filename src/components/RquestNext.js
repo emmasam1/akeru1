@@ -1,17 +1,19 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ROUTE from "../route.json";
-import { useNavigate,Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import arrow from "../image/Arrow.png";
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Loading from "./Loading";
+import Loader from "./Loader";
 
 function RequestNext() {
- 
-  
+
+
   let navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const [pageLoading, setPageLoading] = useState(false);
   const [pick_up, setpick_up] = useState("");
   const [drop_off, setdrop_off] = useState("");
   const [date, setdate] = useState("");
@@ -26,83 +28,50 @@ function RequestNext() {
   useEffect(() => {
     let params = (new URL(document.location)).searchParams;
     let request_id = params.get("request_id");
-    if (requestData && request_id==null) {
-      setpick_up(requestData.pick_up)
-      setdrop_off(requestData.drop_off)
-      setdate(requestData.date)
-      setItem(requestData.item)
-      setTruckType(requestData.truck_type)
-      setWeight(requestData.weight)
-      setAmount(requestData.amount)
-      setService_fee(requestData.service_fee)
-    }else{
-     
+    if (request_id == null) {
+      navigate("/request")
+    } else {
+      setPageLoading(true)
       axios
-        .get(ROUTE.REQUEST+`/${request_id}`)
+        .get(ROUTE.REQUEST + `/${request_id}`)
         .then(function (res) {
           console.log(res.data);
-          setpick_up(res.data.pick_up )
-          setdrop_off( res.data.drop_off)
-          setdate(res.data.date )
-          setItem( res.data.item)
-          setTruckType(res.data.truck_type )
-          setWeight(res.data.weight )
-          setAmount(res.data.amount )
+          setpick_up(res.data.pick_up)
+          setdrop_off(res.data.drop_off)
+          setdate(res.data.date)
+          setItem(res.data.item)
+          setTruckType(res.data.truck_type)
+          setWeight(res.data.weight)
+          setAmount(res.data.amount)
           setService_fee(res.data.service_fee)
-
-          let data = {
-            "user_id": user.user_id,
-            "drop_off": drop_off,
-            "pick_up": pick_up,
-            "date": date,
-            "item": item,
-            "weight": weight,
-            "truck_type": truck_type,
-          }
-    
-          localStorage.setItem("request", JSON.stringify(data))
-          
+          setPageLoading(false)
         })
         .catch(function (err) {
-          setIsLoading(false)
+          setPageLoading(false)
           console.log(err);
           alert(err)
         });
     }
+
+
   }, [])
 
-  const sendToPayment=()=>{
-    if (requestData && user) {
-      setIsLoading(true)
-      
-      axios
-        .post(ROUTE.REQUEST,requestData)
-        .then(function (res) {
-          console.log(res);
-          localStorage.removeItem("request")
-          alert("Request create successfully")
-          navigate("/profile/pending")
-        })
-        .catch(function (err) {
-          setIsLoading(false)
-          console.log(err);
-          alert(err)
-        });
-    }
+  const sendToPayment = () => {
+    navigate("/payment")
   };
 
-    
+
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <div className="container-fliud d-flex justify-content-around backgroundColor pt-15 nrh hero_style login_div_height request_height pt-5">
         <div className="triangle"></div>
         <div className="triangle rotate"></div>
         <div className="triangle"></div>
         <div className="triangle rotate"></div>
         <div className="position-absolute main_width">
-          <div className="row ">
-            <div className="col-md-8   p-3 bg-white rounded reqNext ">
+          {pageLoading ? <Loader /> : <div className="row ">
+            <div className="col-md-8  p-3 bg-white rounded reqNext ">
               <h1 className="text-center req_h1">Your request summary</h1>
               <p className="text-center req_first_p pt-2 w900">
                 <span>{pick_up}</span> &nbsp;{" "}
@@ -133,14 +102,14 @@ function RequestNext() {
                 <div className="d-flex justify-content-between ">
                   <p className="req_pro">Amount</p>
                   <p className="req_pro_next">
-                    <span>&#8358;</span>{amount}
+                    <span>&#8358;</span>{amount.toLocaleString()}
                   </p>
                 </div>
 
                 <div className="d-flex justify-content-between">
                   <p className="req_pro w900">Service fee</p>
                   <p className="req_pro_next">
-                    <span>&#8358;</span>{service_fee}
+                    <span>&#8358;</span>{service_fee.toLocaleString()}
                   </p>
                 </div>
               </div>
@@ -149,20 +118,28 @@ function RequestNext() {
                 <div className="d-flex justify-content-between ">
                   <p className="req_pro">Subtotal</p>
                   <p className="req_pro_next">
-                    <span>&#8358;</span>1,050,000
+                    <span>&#8358;</span>{(amount+service_fee).toLocaleString()}
                   </p>
                 </div>
 
                 <div className="d-flex justify-content-between">
                   <p className="req_pro">Tax @ 7.5%</p>
                   <p className="req_pro_next">
-                    <span>&#8358;</span>1,128,750
+                    <span>&#8358;</span>{(amount*0.075).toLocaleString()}
                   </p>
                 </div>
+                
               </div>
+              
+              <div className="d-flex justify-content-between">
+                  <p className="req_pro"><b>Total</b></p>
+                  <p className="req_pro_next">
+                    <span>&#8358;</span>{(amount+service_fee + (amount*0.075)).toLocaleString()}
+                  </p>
+                </div>
 
               <div className="d-flex justify-content-center mt-3 m37">
-              <button className="my_btn link-dark text-decoration-none w-170 pro_p w900 p-3" onClick={()=>{sendToPayment();}}>  <Loading loading={isLoading} false_text={"Proceed to payment"}/></button>
+                <button className="my_btn link-dark text-decoration-none w-170 pro_p w900 p-3" onClick={() => { sendToPayment(); }}>  <Loading loading={isLoading} false_text={"Proceed to payment"} /></button>
                 {/* <Link
                   to="/payment"
                   className="link-dark text-decoration-none milestone_link pt-1 w-170 pro_p w900 p-0"
@@ -173,7 +150,7 @@ function RequestNext() {
               </div>
 
             </div>
-          </div>
+          </div>}
         </div>
       </div>
       <Footer />

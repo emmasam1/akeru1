@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import ROUTE from "../route.json";
 import axios from "axios";
 import Loader from "./Loader";
-
+import ConvertDate from './ConvertDate'
 function Pending() {
   const [isLoading, setIsLoading] = useState(false);
   const [modal, setModal] = useState(false);
@@ -140,7 +140,7 @@ function Pending() {
                       <td>{e.truck_type}</td>
                       <td>{e.is_paid ? <span className="badge bg-success">Paid</span> : <span className="badge bg-secondary">Awaiting..</span>}</td>
                       <td>{e.weight}</td>
-                      <td>{changeDate(e.date)}</td>
+                      <td> {e.date}</td>
                       <td>₦{e.amount.toLocaleString()}</td>
                       <td>{switchStatusBadge(e.status)}</td>
                       <td>{e.payment_type}</td>
