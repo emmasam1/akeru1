@@ -22,7 +22,7 @@ function RequestNext() {
   const [weight, setWeight] = useState("");
   const [amount, setAmount] = useState("")
   const [service_fee, setService_fee] = useState("")
-  const [request_id, setRequest_id] = useState("")
+  const [requestId, setRequestId] = useState("")
   const user = JSON.parse(localStorage.getItem("user"));
   const requestData = JSON.parse(localStorage.getItem("request"));
 
@@ -37,7 +37,7 @@ function RequestNext() {
         .get(ROUTE.REQUEST + `/${request_id}`)
         .then(function (res) {
           console.log(res.data);
-          setRequest_id(request_id)
+          setRequestId(request_id)
           setpick_up(res.data.pick_up)
           setdrop_off(res.data.drop_off)
           setdate(res.data.date)
@@ -91,7 +91,7 @@ function RequestNext() {
               </p>
               <div className="d-flex justify-content-center m37">
                 <Link
-                  to={`/request?request_id=${request_id}`}
+                  to={`/request?request_id=${requestId}`}
                   className="link-dark text-decoration-none pt-3 btn-req-link w900"
                 >
                   Edit request

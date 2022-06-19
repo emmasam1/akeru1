@@ -22,7 +22,8 @@ function Request() {
   const [typeErr, setTypeErr] = useState({});
   const [weightErr, setWeightErr] = useState({});
   const [pageLoading, setPageLoading] = useState(false);
-
+  const [requestId, setRequestId] = useState("")
+  
   useEffect(() => {
     let params = (new URL(document.location)).searchParams;
     let request_id = params.get("request_id");
@@ -34,6 +35,7 @@ function Request() {
         .get(ROUTE.REQUEST + `/${request_id}`)
         .then(function (res) {
           console.log(res.data);
+          setRequestId(request_id)
           setpick_up(res.data.pick_up)
           setdrop_off(res.data.drop_off)
           setdate(res.data.date)
@@ -72,7 +74,7 @@ function Request() {
       }
 
       localStorage.setItem("request", JSON.stringify(data))
-      navigate("/detail")
+      navigate(`/detail?request_id=${requestId}`)
 
     } else {
       if (user == null) {
@@ -140,7 +142,7 @@ function Request() {
 
         <div className="card_form_holder p-3 position-absolute mt-4">
           {pageLoading ? <Loader /> : <div>
-            <h1 className="text-center">Request a truck</h1>
+            <h1 className="text-center">Edit Request</h1>
 
             <form onSubmit={handSubmit}>
               <input
@@ -261,7 +263,7 @@ function Request() {
         Request quote
       </Link>
     </div> */}
-              <button className="my_btn w900 p-3"> Create Request</button>
+              <button className="my_btn w900 p-3"> Update Request</button>
             </form>
           </div>}
         </div>
