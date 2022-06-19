@@ -35,17 +35,7 @@ function Home() {
   const [amountErr, setamountErr] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    const request = JSON.parse(localStorage.getItem("request"));
-    if (request) {
-      setpick_up(request.pick_up);
-      setdrop_off(request.drop_off);
-      setdate(request.date);
-      setItem(request.item);
-      setTruckType(request.truck_type);
-      setWeight(request.weight);
-    }
-  }, []);
+
 
   const handSubmit = (e) => {
     e.preventDefault();
