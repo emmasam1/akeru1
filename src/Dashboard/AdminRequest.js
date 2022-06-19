@@ -18,6 +18,7 @@ function Request() {
   const [paginate, setPaginate] = useState({ "page": 1, "limit": 15, "pages": 0, "total": 0 });
   const [status, setStatus] = useState("pending");
   const [aRequest, setARequest] = useState({});
+  const [requestSummary, setRequestSummary] = useState({});
   const [activeTabIndex, setactiveTabIndex] = useState(0)
   const [drivers, setDrivers] = useState([])
   const [requestData, setRequestData] = useState([])
@@ -51,6 +52,16 @@ function Request() {
       .catch((err) => {
         console.log(err);
       })
+
+      axios.get(ROUTE.REQUEST+"/summary")
+      .then((res) => {
+        let requestData = res.data
+        setRequestSummary(requestData)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+
   }, [refreshKey])
 
   const updatePaginate = (data) => {
@@ -192,7 +203,7 @@ function Request() {
           <NavLink to="#" className="col-md-4 link-dark text-decoration-none a" onClick={() => { switchTabsData(0) }}>
             <div className={`dash_link_bg_color pt-3  ${activeTabIndex == 0 ? "akeru-bg-primary" : ""}`}>
               <div className="d-flex justify-content-between p-3">
-                <h2 className="w900">{requestData.length}</h2>
+                <h2 className="w900">{requestSummary.pending}</h2>
                 <div className="line-h">
                   <span className="number-h4-text">
                     Pending
@@ -205,7 +216,7 @@ function Request() {
           <NavLink to="#" className=" col-md-4 link-dark text-decoration-none" onClick={() => { switchTabsData(1) }}>
             <div className={`dash_link_bg_color pt-3  ${activeTabIndex == 1 ? "akeru-bg-primary" : ""}`}>
               <div className="d-flex justify-content-between p-3">
-                <h2 className="w900">0</h2>
+                <h2 className="w900">{requestSummary.ongoing}</h2>
                 <div className="line-h">
                   <span className="number-h4-text">
                     Ongoing
@@ -218,7 +229,7 @@ function Request() {
           <NavLink to="#" className="col-md-4 link-dark text-decoration-none" onClick={() => { switchTabsData(2) }}>
             <div className={`dash_link_bg_color pt-3  ${activeTabIndex == 2 ? "akeru-bg-primary" : ""}`}>
               <div className=" d-flex justify-content-between p-3">
-                <h2 className="w900">0</h2>
+                <h2 className="w900">{requestSummary.completed}</h2>
                 <div className="line-h">
                   <span className="number-h4-text">
                     Completed
@@ -228,8 +239,6 @@ function Request() {
               </div>
             </div>
           </NavLink>
-
-
 
         </div>
         <br />
@@ -246,7 +255,7 @@ function Request() {
                 </Link>
               </div>
             </div>
-            <table className="table table-hover  mt-4">
+            {isLoading ? <Loader /> :requestData.length < 1 ? <h1 className='text-center'>No {switchPageTitle(activeTabIndex)}  Yet</h1>: <table className="table table-hover  mt-4">
               <thead className="table-dark">
                 <tr>
                   <th scope="col">S/N</th>
@@ -264,7 +273,7 @@ function Request() {
                 </tr>
               </thead>
               <tbody className="position-relative">
-                {isLoading ? <Loader /> : requestData.map((e, i) => {
+                { requestData.map((e, i) => {
                   return (
                     <tr key={e.user_id} id={e.user_id}>
                       <td>{i + 1}</td>
@@ -298,7 +307,8 @@ function Request() {
                 })}
 
               </tbody>
-            </table>
+            </table>}
+           
             {modal ? <SetQuoteModal closeModal={closeModal} data={aRequest} refresh={refreshPageData} justView={view} /> : null}
             {assignModal ? <AssignDriverModal closeModal={closeModal} drivers={drivers} request={aRequest} refresh={refreshPageData} /> : null}
             {deleteModal ? <DeleteModal closeModal={closeModal} deleteMethod={deleteData} refresh={refreshPageData}

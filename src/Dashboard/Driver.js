@@ -86,7 +86,7 @@ function Driver() {
           {deleteModal ? <DeleteModal closeModal={handleClose} deleteMethod={deleteData}  refresh={refreshPageData}
            title="Delete Driver?" descp="Are you sure you want to delete this driver?" /> : null}
 
-          <table className="table table-hover  mt-4">
+           {isLoading ? <Loader /> :driverInfo.length < 1 ? <h1 className='text-center'>No Registered <br/>Drivers Yet</h1>: <table className="table table-hover  mt-4">
             <thead className="table-dark">
               <tr>
                 <th scope="col">S/N</th>
@@ -101,7 +101,7 @@ function Driver() {
               </tr>
             </thead>
             <tbody className="position-relative">
-              {isLoading ? <Loader /> : driverInfo.map((e, i) => {
+              { driverInfo.map((e, i) => {
                 return (
                   <tr key={e.driver_id}>
                     <td>{i + 1}</td>
@@ -127,7 +127,8 @@ function Driver() {
                 );
               })}
             </tbody>
-          </table>
+          </table>}
+          
           <br/>
             <br/>
             <br/>

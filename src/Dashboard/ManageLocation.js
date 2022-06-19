@@ -82,9 +82,9 @@ function ManageLocations() {
           return (
             <tr key={e.id}>
               <th scope="row">{i + 1}</th>
-              <td>{e.location_name}</td>
+              <td>{e.name}</td>
               <td className="d-flex justify-content-between">
-                <button className="btn btn-secondary btn-sm" data={e} onClick={()=>{setEditLocate(true);setLocatId(e.id);setLocatName(e.location_name);}}>
+                <button className="btn btn-secondary btn-sm" data={e} onClick={()=>{setEditLocate(true);setLocatId(e.id);setLocatName(e.name);}}>
                   Edit
                 </button>
                 <button className="btn btn-danger btn-sm" data={e} onClick={()=>{deleteLocation(e.id)}}>

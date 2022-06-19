@@ -107,7 +107,7 @@ function Withdrawals() {
                
               </div>
             </div>
-            <table className="table table-hover  mt-4">
+            {isLoading ? <Loader /> :withdrawalData.length < 1 ? <h1 className='text-center'>No Withdrawal Request</h1> :<table className="table table-hover  mt-4">
               <thead className="table-dark">
                 <tr>
                   <th scope="col">S/N</th>
@@ -119,7 +119,7 @@ function Withdrawals() {
                 </tr>
               </thead>
               <tbody className="position-relative">
-                {isLoading ? <Loader /> : withdrawalData.map((e, i) => {
+                { withdrawalData.map((e, i) => {
                   
                   return (
                     <tr key={i} id={e.driver_id}>
@@ -135,7 +135,8 @@ function Withdrawals() {
                   )
                 })}
               </tbody>
-            </table>
+            </table>}
+            
             {approvalModal ? <DeleteModal closeModal={closeModal} deleteMethod={approveWithdrawal} refresh={refreshPageData}
               title="Approve Withdrawal?" descp="Are you sure you want to approve this withdrawal?" /> : null}
 

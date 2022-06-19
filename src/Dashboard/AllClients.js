@@ -8,7 +8,7 @@ import DeleteClient from "./Dash-Components/DeleteClient";
 function AllClients() {
   const navigate = useNavigate();
 
-  if(localStorage.getItem('admin')==null){
+  if (localStorage.getItem('admin') == null) {
     navigate('/signin');
   }
   const [clientsInfo, setClientsInfo] = useState([]);
@@ -22,9 +22,9 @@ function AllClients() {
       .get(ROUTE.CLIENTS)
       .then((res) => {
         let clientsInfo = res.data.data;
-        if(!clientsInfo){
-         
-        }else{
+        if (!clientsInfo) {
+
+        } else {
           setIsLoading(false)
           setClientsInfo(clientsInfo);
         }
@@ -44,10 +44,9 @@ function AllClients() {
       <h3>All Customers</h3>
       <div className="card">
         <div className="card-body">
-          {modal ? <ClientModal handleClose={handleClose} data={aClient}/> : null}
-          {removeClient ? <DeleteClient handleClose={handleClose}/> : null}
-
-          <table className="table table-hover  mt-4">
+          {modal ? <ClientModal handleClose={handleClose} data={aClient} /> : null}
+          {removeClient ? <DeleteClient handleClose={handleClose} /> : null}
+          {isLoading ? <Loader /> : clientsInfo.length < 1 ? <h1 className='text-center'>No Clients</h1> : <table className="table table-hover  mt-4">
             <thead className="table-dark">
               <tr>
                 <th scope="col">S/N</th>
@@ -59,7 +58,7 @@ function AllClients() {
               </tr>
             </thead>
             <tbody className="position-relative">
-              {isLoading ? <Loader /> : clientsInfo.map((e, i) => {
+              {clientsInfo.map((e, i) => {
                 return (
                   <tr key={e.client_id}>
                     <td>{i + 1}</td>
@@ -68,13 +67,13 @@ function AllClients() {
                     <td>{e.email}</td>
                     <td>{e.phone}</td>
                     <td className="d-flex justify-content-center flex-column position-relative">
-                     
+
                       <div className="table-dropdown">
                         <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                         <div className="table-dropdown-content">
-                          <button className="btn" onClick={()=>{setModal(true); setAClient(e)}}>Edit</button>
-                          <button className="btn" onClick={()=>{setRemoveClient(true)}}>Delete</button>
-                          
+                          <button className="btn" onClick={() => { setModal(true); setAClient(e) }}>Edit</button>
+                          <button className="btn" onClick={() => { setRemoveClient(true) }}>Delete</button>
+
                         </div>
                       </div>
                     </td>
@@ -82,10 +81,11 @@ function AllClients() {
                 );
               })}
             </tbody>
-          </table>
-          <br/>
-            <br/>
-            <br/>
+          </table>}
+
+          <br />
+          <br />
+          <br />
         </div>
       </div>
     </div>

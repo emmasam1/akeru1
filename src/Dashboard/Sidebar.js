@@ -47,18 +47,6 @@ function Sidebar(props) {
             Requests
           </Link>
           <Link
-            to="/admin-dashboard/all-trucks"
-            onClick={() => setActive("trucks")}
-            className={`d-flex link-color text-decoration-none link-p font14 mb ${
-              active === "trucks" ? "dash-active" : ""
-            } `}
-          >
-            <span>
-              <img src={truck} alt="icon" className="img-fix" />
-            </span>
-            Trucks
-          </Link>
-          <Link
             to="/admin-dashboard/drivers"
             onClick={() => setActive("drivers")}
             className={`d-flex link-color text-decoration-none link-p font14 mb ${
@@ -69,18 +57,6 @@ function Sidebar(props) {
               <img src={driver} alt="icon" className="img-fix" />
             </span>
             Drivers
-          </Link>
-          <Link
-            to="/admin-dashboard/customers"
-            onClick={() => setActive("customers")}
-            className={`d-flex link-color text-decoration-none link-p font14 mb ${
-              active === "customers" ? "dash-active" : ""
-            } `}
-          >
-            <span>
-              <img src={user} alt="icon" className="img-fix" />
-            </span>
-            Customers
           </Link>
           <Link
             to="/admin-dashboard/withdrawals"
@@ -94,6 +70,32 @@ function Sidebar(props) {
             </span>
             Withdrawals
           </Link>
+          <Link
+            to="/admin-dashboard/all-trucks"
+            onClick={() => setActive("trucks")}
+            className={`d-flex link-color text-decoration-none link-p font14 mb ${
+              active === "trucks" ? "dash-active" : ""
+            } `}
+          >
+            <span>
+              <img src={truck} alt="icon" className="img-fix" />
+            </span>
+            Trucks
+          </Link>
+          
+          <Link
+            to="/admin-dashboard/customers"
+            onClick={() => setActive("customers")}
+            className={`d-flex link-color text-decoration-none link-p font14 mb ${
+              active === "customers" ? "dash-active" : ""
+            } `}
+          >
+            <span>
+              <img src={user} alt="icon" className="img-fix" />
+            </span>
+            Customers
+          </Link>
+          
           <Link
             to="/admin-dashboard/setting"
             onClick={() => setActive("settings")}

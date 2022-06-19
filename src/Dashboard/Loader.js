@@ -3,7 +3,7 @@ import loaderImg from '../image/hiw-truck.png'
 
 function Loader(){
     return(
-        <div className='d-flex justify-content-center position-absolute load-container'>
+        <div className='  load-container text-center'>
            <img src={loaderImg} alt="loader" className='loader' id='breathing-loader'/>
         </div>
     )
