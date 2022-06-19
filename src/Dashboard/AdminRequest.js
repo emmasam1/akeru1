@@ -285,7 +285,7 @@ function Request() {
                             <button className="btn" onClick={() => { copylink(e);  }}>Copy Link</button>
                             {e.amount < 1 ? null : e.status == "pending" ? <button className="btn" onClick={() => { setARequest(e); setAssignModal(true); }}>Assign</button> : null}
                             {e.status == "pending" ? <button className="btn" onClick={() => { setARequest(e); setModal(true); setView(false) }}>Set qoute</button> :
-                              <button className="btn" onClick={() => { setARequest(e); setModal(true); setView(true) }}>View</button>}
+                            <button className="btn" onClick={() => { setARequest(e); setModal(true); setView(true) }}>View</button>}
                              
                             <button className="btn text-danger" onClick={() => { setARequest(e); setDeleteModal(true); }}>Delete</button>
 

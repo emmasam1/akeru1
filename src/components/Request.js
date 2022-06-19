@@ -5,6 +5,7 @@ import Footer from './Footer'
 import axios from "axios";
 import ROUTE from "../route.json";
 import Loader from "../Dashboard/Loader";
+import Loading from "./Loading";
 function Request() {
 
   let navigate = useNavigate();
@@ -23,6 +24,7 @@ function Request() {
   const [weightErr, setWeightErr] = useState({});
   const [pageLoading, setPageLoading] = useState(false);
   const [requestId, setRequestId] = useState("")
+  const [isLoading, setIsLoading] = useState(false);
   
   useEffect(() => {
     let params = (new URL(document.location)).searchParams;
@@ -61,7 +63,7 @@ function Request() {
     const user = JSON.parse(localStorage.getItem("user"));
 
     if (isValid && user) {
-
+      setIsLoading(true)
       let user_id = user.user_id;
       let data = {
         "user_id": user_id,
@@ -73,8 +75,17 @@ function Request() {
         "truck_type": truck_type,
       }
 
-      localStorage.setItem("request", JSON.stringify(data))
-      navigate(`/detail?request_id=${requestId}`)
+      axios
+      .put(ROUTE.REQUEST+`/${requestId}`,data)
+      .then(function (res) {
+        navigate(`/detail?request_id=${requestId}`)
+      })
+      .catch(function (err) {
+        setIsLoading(false)
+        console.log(err);
+        alert(err)
+      });
+      
 
     } else {
       if (user == null) {
@@ -263,7 +274,10 @@ function Request() {
         Request quote
       </Link>
     </div> */}
-              <button className="my_btn w900 p-3"> Update Request</button>
+              <button className="my_btn w900 p-3">  <Loading
+                        loading={isLoading}
+                        false_text={"Update Request"}
+                      /></button>
             </form>
           </div>}
         </div>
