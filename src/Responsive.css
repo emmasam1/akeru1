@@ -37,13 +37,13 @@
     width: 100%;
   }
   .truck {
-    left: 92px !important;
+    left: 55px !important;
   }
   .lower_truck_div2 {
-    left: 35px;
+    left: 0px;
   }
   .lower_truck_div {
-    left: 35px;
+    left: 0px;
   }
   .nav_margin {
     margin: 0 30px 15px 0;
@@ -212,13 +212,13 @@
     width: 100% !important;
   } */
   .truck {
-    left: -50px;
+    left: 25px;
   }
   .lower_truck_div {
-    right: 110px;
+    right: 30px;
   }
   .lower_truck_div2 {
-    right: 115px;
+    right: 50px;
   }
   .milestone {
     flex-direction: column;

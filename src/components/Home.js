@@ -340,7 +340,7 @@ function Home() {
                       </p>
                     </div>
                   </div>
-                  <div className="col-lg-6 col">
+                  <div className="col-lg-6 col-md-12">
                     <div>
                       <div className="icon_holder d-flex justify-content-center">
                         <img
@@ -359,7 +359,7 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="col-sm-5 offset-sm-2 col-md-6 offset-md-0 display akeru-col-height">
+            <div className="col offset-md-0 display akeru-col-height">
             <img src={truck} alt="truck" className="truck" />
             <div className="lower_truck_div">
               <div className="d-flex">
