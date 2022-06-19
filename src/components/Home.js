@@ -280,7 +280,7 @@ function Home() {
       <div className="main_width div_color mt-3">
         <div className="container">
           <div className="row">
-            <div className="col-sm-6 col-md-6">
+            <div className="col">
               <div className="truck_section_margin truck_div_width">
                 <h6 className="truck_h6_text">
                   Why companies prefer to use Akeru
@@ -295,7 +295,7 @@ function Home() {
 
               <div className="container">
                 <div className="row">
-                  <div className="col-lg-6 col-md-6">
+                  <div className="col-lg-6 col-md-12">
                     <div>
                       <div className="icon_holder d-flex justify-content-center">
                         <img src={vector} alt="icon" className="vector_icon" />
@@ -307,7 +307,7 @@ function Home() {
                       </p>
                     </div>
                   </div>
-                  <div className="col-lg-6 col-md-6">
+                  <div className="col-lg-6 col-md-12">
                     <div>
                       <div className="icon_holder d-flex justify-content-center">
                         <img
@@ -324,7 +324,7 @@ function Home() {
                     </div>
                   </div>
 
-                  <div className="col-lg-6 col-md-6">
+                  <div className="col-lg-6 col-md-12">
                     <div>
                       <div className="icon_holder d-flex justify-content-center">
                         <img
@@ -340,7 +340,7 @@ function Home() {
                       </p>
                     </div>
                   </div>
-                  <div className="col-lg-6 col-md-6">
+                  <div className="col-lg-6 col">
                     <div>
                       <div className="icon_holder d-flex justify-content-center">
                         <img
