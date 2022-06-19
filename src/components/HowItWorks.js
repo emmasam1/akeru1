@@ -13,7 +13,7 @@ function Partner() {
       <Navbar />
 
 
-      <div className=" div_color mt-3 mobile-sm-width">
+      <div className=" div_color mt-3">
         <div className="algin-width">
           <div className="container px-3 py-3">
             <br />
