@@ -462,11 +462,11 @@ function Home() {
         </div>
         <div className="own_item_holder container ">
           <div className="row justify-left">
-            <span className="col-sm-5 col-md-12 col-lg-12">
+            <span className="col-sm-5 col-md-12 col-lg-6">
               <i className="bi bi-check-square-fill akeru-primary m-1"></i> No
               obligation
             </span>
-            <span className="col-sm-5 col-md-12 col-lg-12">
+            <span className="col-sm-5 col-md-12 col-lg-6">
               {" "}
               <i className="bi bi-check-square-fill akeru-primary m-1"></i>Full
               features
@@ -474,11 +474,11 @@ function Home() {
           </div>
 
           <div className="row justify-left mt-2 top-settings">
-            <span className="col-sm-5 col-md-12 col-lg-12">
+            <span className="col-sm-5 col-md-12 col-lg-6">
               <i className="bi bi-check-square-fill akeru-primary m-1"></i>
               Instant payout{" "}
             </span>
-            <span className="col-sm-5 col-md-12 col-lg-12">
+            <span className="col-sm-5 col-md-12 col-lg-6">
               <i className="bi bi-check-square-fill akeru-primary m-1"></i>{" "}
               Reporting dashboard
             </span>
