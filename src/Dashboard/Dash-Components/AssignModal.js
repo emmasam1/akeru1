@@ -40,7 +40,9 @@ function AssignDriverModal(props) {
                 <th scope="col">EMAIL</th>
                 <th scope="col">PHONE</th>
                 <th scope="col">CITY</th>
+                <th scope="col">ONLINE</th>
                 <th scope="col">RATING</th>
+                
                 <th scope="col">ACTION</th>
               </tr>
             </thead>
@@ -54,6 +56,7 @@ function AssignDriverModal(props) {
                       <td>{e.email}</td>
                       <td>{e.phone}</td>
                       <td>{e.city}</td>
+                      <td><span className="badge bg-info">Online</span></td>
                       <td>{e.rating}</td>
                       <td className="d-flex justify-content-center flex-column position-relative">
                         {props.request.driver_id ==e.driver_id?

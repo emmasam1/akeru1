@@ -636,6 +636,9 @@ input[type="text"]::placeholder {
   max-height: 350px;
   overflow-y: scroll;
 }
+td{
+  font-size: 14px !important;
+}
 
 .dash-modal-container::-webkit-scrollbar
  {

@@ -1,6 +1,7 @@
 import React from "react";
 function Details({ formData, setForm, navigation }) {
   const { truck, capacity, contact, phone, email, date } = formData
+  
   return (
     <>
       <div className="d-flex justify-content-between border-bottom mb-3 pt-2 pb-1">

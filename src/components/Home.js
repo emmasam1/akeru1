@@ -23,8 +23,7 @@ function Home() {
   const [item, setItem] = useState("");
   const [truck_type, setTruckType] = useState("");
   const [weight, setWeight] = useState("");
-  const [amount, setAmount] = useState("");
-
+ 
   const [pick_upErr, setpick_upErr] = useState({});
   const [drop_offErr, setdrop_offErr] = useState({});
   const [dateErr, setdateErr] = useState({});
@@ -37,6 +36,7 @@ function Home() {
   useEffect(() => {
     const request = JSON.parse(localStorage.getItem("request"));
     if (request) {
+<<<<<<< Updated upstream
       setpick_up(request.pick_up);
       setdrop_off(request.drop_off);
       setdate(request.date);
@@ -51,6 +51,15 @@ function Home() {
       setWeight(request.weight);
       setAmount(request.amount);
     }
+=======
+      setpick_up(request.pick_up)
+      setdrop_off(request.drop_off)
+      setdate(request.date)
+      setItem(request.item)
+      setTruckType(request.truck_type)
+      setWeight(request.weight)
+      }
+>>>>>>> Stashed changes
   }, []);
 
   const handSubmit = (e) => {

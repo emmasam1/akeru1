@@ -42,7 +42,7 @@ function Request() {
         console.log(err);
       })
 
-    axios.get(ROUTE.DRIVERS)
+    axios.get(ROUTE.DRIVERS+"?online=1&approved=1&sort=asc")
       .then((res) => {
         let requestData = res.data.data
         setDrivers(requestData)

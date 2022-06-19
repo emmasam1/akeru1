@@ -628,7 +628,8 @@
     min-height: calc(100vh - 54px);
   }
   .w700 {
-    width: 700px !important;
+    width: 100% !important;
+    margin: auto;
   }
   .triangle-login {
     display: none;

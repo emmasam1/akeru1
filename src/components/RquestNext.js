@@ -8,6 +8,8 @@ import Footer from './Footer';
 import Loading from "./Loading";
 
 function RequestNext() {
+ 
+  
   let navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [pick_up, setpick_up] = useState("");
@@ -17,12 +19,14 @@ function RequestNext() {
   const [truck_type, setTruckType] = useState("");
   const [weight, setWeight] = useState("");
   const [amount, setAmount] = useState("")
+  const [service_fee, setService_fee] = useState("")
   const user = JSON.parse(localStorage.getItem("user"));
   const requestData = JSON.parse(localStorage.getItem("request"));
 
   useEffect(() => {
-  
-    if (requestData) {
+    let params = (new URL(document.location)).searchParams;
+    let request_id = params.get("request_id");
+    if (requestData && request_id==null) {
       setpick_up(requestData.pick_up)
       setdrop_off(requestData.drop_off)
       setdate(requestData.date)
@@ -30,6 +34,40 @@ function RequestNext() {
       setTruckType(requestData.truck_type)
       setWeight(requestData.weight)
       setAmount(requestData.amount)
+      setService_fee(requestData.service_fee)
+    }else{
+     
+      axios
+        .get(ROUTE.REQUEST+`/${request_id}`)
+        .then(function (res) {
+          console.log(res.data);
+          setpick_up(res.data.pick_up )
+          setdrop_off( res.data.drop_off)
+          setdate(res.data.date )
+          setItem( res.data.item)
+          setTruckType(res.data.truck_type )
+          setWeight(res.data.weight )
+          setAmount(res.data.amount )
+          setService_fee(res.data.service_fee)
+
+          let data = {
+            "user_id": user.user_id,
+            "drop_off": drop_off,
+            "pick_up": pick_up,
+            "date": date,
+            "item": item,
+            "weight": weight,
+            "truck_type": truck_type,
+          }
+    
+          localStorage.setItem("request", JSON.stringify(data))
+          
+        })
+        .catch(function (err) {
+          setIsLoading(false)
+          console.log(err);
+          alert(err)
+        });
     }
   }, [])
 
@@ -93,7 +131,7 @@ function RequestNext() {
               <h4 className="text-center w900 req_h4 mb-4">{weight} {truck_type}</h4>
               <div className="border-bottom border-2 mb-3">
                 <div className="d-flex justify-content-between ">
-                  <p className="req_pro">{weight} {truck_type}X 1 with driver</p>
+                  <p className="req_pro">Amount</p>
                   <p className="req_pro_next">
                     <span>&#8358;</span>{amount}
                   </p>
@@ -102,7 +140,7 @@ function RequestNext() {
                 <div className="d-flex justify-content-between">
                   <p className="req_pro w900">Service fee</p>
                   <p className="req_pro_next">
-                    <span>&#8358;</span>50,000
+                    <span>&#8358;</span>{service_fee}
                   </p>
                 </div>
               </div>

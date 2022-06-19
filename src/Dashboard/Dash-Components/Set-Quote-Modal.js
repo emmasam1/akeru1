@@ -7,19 +7,24 @@ import axios from "axios";
 function SetQuoteModal(props) {
 
   const [amount, setAmount] = useState(props.data.amount);
-  const [service_fee, setService_fee] = useState("");
+  const [service_fee, setService_fee] = useState(props.data.service_fee);
   const [subtotal, setSubtotal] = useState(0);
   const [tax, setTax] = useState(0);
   const [total, setTotal] = useState(0);
 
-  const calculateQuote=()=>{
-   let subtotal= amount + service_fee;
-   let tax=amount*0.075;
-   let total=subtotal+tax
+  const calculateQuote = () => {
 
-   setTax(tax)
-   setSubtotal(subtotal)
-   setTotal(total)
+    setTimeout(function () {
+      let subtotal = parseFloat(amount) + parseFloat(service_fee);
+      let tax = amount * 0.075;
+      let total = subtotal + tax
+
+      setTax(tax)
+      setSubtotal(subtotal)
+      setTotal(total)
+
+    }, 2000);
+
 
   }
 
@@ -36,7 +41,7 @@ function SetQuoteModal(props) {
 
   const updateQuote = () => {
     if (amount != "") {
-      let data = { "request_id": props.data.request_id, "amount": parseFloat(amount) }
+      let data = { "request_id": props.data.request_id, "amount": amount ,"service_fee":service_fee}
       axios.post(ROUTE.REQUEST + `/set-quote`, data)
         .then((res) => {
           console.log(res);
@@ -80,7 +85,7 @@ function SetQuoteModal(props) {
             <h4 className="text-center w900 req_h4 mb-4">{props.data.weight.toUpperCase()} TRUCK</h4>
             <div className="border-bottom border-2 mb-1">
               <div className="d-flex justify-content-between ">
-                <p className="req_pro">Amount</p> 
+                <p className="req_pro">Amount</p>
                 <p className="req_pro_next">
                   {props.justView ? props.data.amount : <input
                     type="number"
@@ -88,7 +93,7 @@ function SetQuoteModal(props) {
                     className="input-home"
                     name="amount"
                     value={amount}
-                    onChange={(e) =>{setAmount(e.target.value); calculateQuote()}}
+                    onChange={(e) => { setAmount(e.target.value); calculateQuote() }}
                   />}
                 </p>
               </div>
@@ -102,7 +107,7 @@ function SetQuoteModal(props) {
                     className="input-home"
                     name="service Fee"
                     value={service_fee}
-                    onChange={(e) => {setService_fee(e.target.value); calculateQuote()}}
+                    onChange={(e) => { setService_fee(e.target.value); calculateQuote() }}
                   />}
                 </p>
               </div>

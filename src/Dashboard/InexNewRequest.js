@@ -1,6 +1,8 @@
 import React, { useEffect, useState }  from 'react'
 import axios from 'axios'
 import Loader from "./Loader";
+import ConvertDate from './ConvertDate';
+
 
 function InexNewRequest(){
     const [limitedRec, setLimitedRec] = useState([])
@@ -35,16 +37,7 @@ function InexNewRequest(){
         }
       }
 
-      const changeDate = (date) => {
-
-        var newDate = new Date(date)
-        let year = newDate.getFullYear();
-        let month = newDate.getMonth();
-        let day = newDate.getDay();
-        let hr = newDate.getHours();
-        let min = newDate.getMinutes();
-        return `${year}-${month}-${day} ${hr}:${min}`;
-      }
+   
 
     return(
         <div className="card">
@@ -78,7 +71,7 @@ function InexNewRequest(){
                     <td>{e.truck_type}</td>
                     <td>{e.is_paid ? <span className="badge bg-success">Paid</span> : <span className="badge bg-secondary">Awaiting..</span>}</td>
                     <td>{e.weight}</td>
-                    <td>{changeDate(e.date)}</td>
+                    <td><ConvertDate date={e.date}/></td>
                     <td>{e.amount}</td>
                     <td>{switchStatusBadge(e.status)}</td>
                     <td>{e.payment_type}</td>

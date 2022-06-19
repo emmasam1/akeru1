@@ -7,6 +7,7 @@ import SetQuoteModal from "./Dash-Components/Set-Quote-Modal";
 import AssignDriverModal from "./Dash-Components/AssignModal";
 import DeleteModal from "./Dash-Components/DeleteModal";
 import ConvertDate from "./ConvertDate";
+import DriverName from "./Dash-Components/DriverName";
 
 
 function Withdrawals() {
@@ -41,15 +42,7 @@ function Withdrawals() {
     
   }, [refreshKey])
 
-  const getDriver=(id)=>{
-    axios.get(ROUTE.DRIVERS + `${id}`)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-  }
+ 
 
   const updatePaginate = (data) => {
     setPaginate({ "page": data, "limit": paginate.limit, "pages": paginate.pages, "total": paginate.total })
@@ -75,16 +68,6 @@ function Withdrawals() {
 
  
 
-  const changeDate = (date) => {
-
-    var newDate = new Date(date)
-    let year = newDate.getFullYear();
-    let month = newDate.getMonth();
-    let day = newDate.getDay();
-    let hr = newDate.getHours();
-    let min = newDate.getMinutes();
-    return `${year}-${month}-${day} ${hr}:${min}`;
-  }
 
   const approveWithdrawal = () => {
     let data={ "withdrawal_id":aWithdrawal.withdrawal_id }
@@ -137,15 +120,16 @@ function Withdrawals() {
               </thead>
               <tbody className="position-relative">
                 {isLoading ? <Loader /> : withdrawalData.map((e, i) => {
+                  
                   return (
-                    <tr key={e.driver_id} id={e.driver_id}>
+                    <tr key={i} id={e.driver_id}>
                       <td>{i + 1}</td>
-                      <td>{getDriver(e.driver_id)}</td>
+                      <td><DriverName id={e.driver_id}/></td>
                       <td>₦{e.amount.toLocaleString()}</td>
                       <td><ConvertDate date={e.created_at}/> </td>
                       <td>{switchStatusBadge(e.status)}</td>
                       <td className="d-flex justify-content-center flex-column position-relative">
-                       {e.status?null:<button className="btn btn-secondary btn-sm" onClick={() => { setAWithdrawal(e); }}>Approve</button>}
+                       {e.status?null:<button className="btn btn-secondary btn-sm" onClick={() => { setApprovalModal(true); setAWithdrawal(e); }}>Approve</button>}
                       </td>
                     </tr>
                   )
