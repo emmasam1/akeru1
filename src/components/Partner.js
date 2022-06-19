@@ -34,7 +34,7 @@ function Partner() {
           <div className="position-relative">
             <div className="container">
               <div className="row">
-                <div className="col-lg-12 col-md-12">
+                <div className="col akeru_col">
                   <div className="w0">
                     <p className="hero_p_top_text m-0 w900">Own a truck?</p>
                     <h1 className="hero_h1_text">
