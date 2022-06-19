@@ -32,8 +32,9 @@ function Partner() {
 
         <div className="main_width position-absolute">
           <div className="position-relative">
-            <div className="akeru-column">
-              <div className="akeru-col">
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col">
                 <div className="w0">
                   <p className="hero_p_top_text m-0 w900">Own a truck?</p>
                   <h1 className="hero_h1_text">
@@ -57,8 +58,8 @@ function Partner() {
                   <img src={google} alt="icon" />
                   <img src={apple} alt="icon" />
                 </div>
-              </div>
-              <div className="akeru-col d-flex justify-content-around display">
+                </div>
+                <div className="col-sm-5 offset-sm-2 col-md-6 offset-md-0 display d-flex justify-content-around display">
                 <img
                   src={home}
                   alt="icon"
@@ -69,6 +70,7 @@ function Partner() {
                   alt="icon"
                   className="image-width sm-mobile-rel"
                 />
+                </div>
               </div>
             </div>
           </div>
@@ -315,8 +317,8 @@ function Partner() {
 
           <div className="row justify-left mt-2">
             <span className="col-md-6">
-              <i className="bi bi-check-square-fill akeru-primary m-1"></i>Instant
-              payout{" "}
+              <i className="bi bi-check-square-fill akeru-primary m-1"></i>
+              Instant payout{" "}
             </span>
             <span className="col-md-6">
               <i className="bi bi-check-square-fill akeru-primary m-1"></i>{" "}

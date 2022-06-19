@@ -19,6 +19,9 @@
   --tableHeaderColor: #F3F6F9;
 
 }
+.color1{
+  background-color: #006156;
+}
 body{
   font-family: "Inter", sans-serif;
 }

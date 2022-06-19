@@ -176,9 +176,10 @@
   /* NOT FOUND PAGE */
 
   /* HOME PAGE */
-  .akeru-col {
-    width: 100%;
-  }
+  .col-sm-6 {
+    width: 50%;
+    display: grid;
+}
   .hero_style {
     overflow: hidden;
     height: 945px;
@@ -211,13 +212,13 @@
     width: 100% !important;
   } */
   .truck {
-    left: 40px;
+    left: -50px;
   }
   .lower_truck_div {
-    right: 15px;
+    right: 110px;
   }
   .lower_truck_div2 {
-    right: 15px;
+    right: 115px;
   }
   .milestone {
     flex-direction: column;
