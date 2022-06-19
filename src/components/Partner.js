@@ -34,7 +34,7 @@ function Partner() {
           <div className="position-relative">
             <div className="container">
               <div className="row">
-                <div className="col-6 col-md-12 col-lg-6">
+                <div className="col-lg-12 col-md-12">
                   <div className="w0">
                     <p className="hero_p_top_text m-0 w900">Own a truck?</p>
                     <h1 className="hero_h1_text">
@@ -128,7 +128,7 @@ function Partner() {
 
       <div className="main_width div_color mt-3 mobile-sm-width">
         <div className="algin-width">
-          <div className="row">
+          <div className="row grid">
             <div className="col col-pad col-pad-left">
               <h2 className="w900 f32">Receive live order</h2>
               <p>
@@ -169,7 +169,7 @@ function Partner() {
       <div className="main_width div_color mt-3 mobile-sm-width">
         <div className="algin-width">
           <div className="container px-3">
-            <div className="row akeru-flex ">
+            <div className="row akeru-flex grid">
               <div className="col d-flex justify-content-start p-3">
                 <img
                   src={second}
@@ -192,7 +192,7 @@ function Partner() {
 
       <div className="main_width div_color mt-3 p-3 mobile-sm-width sm-padding">
         <div className="algin-width">
-          <div className="row">
+          <div className="row grid">
             <div className="col col-pad col-pad-left">
               <h2 className="w900 f32">Need fuel advance?</h2>
               <p className="p-text">
@@ -304,11 +304,11 @@ function Partner() {
         </div>
         <div className="own_item_holder container ">
           <div className="row justify-left">
-            <span className="col-md-6">
+            <span className="col-md-6 col-lg-6 col-sm-12">
               <i className="bi bi-check-square-fill akeru-primary m-1"></i> No
               obligation
             </span>
-            <span className="col-md-6">
+            <span className="col-md-6 col-lg-6 col-sm-12">
               {" "}
               <i className="bi bi-check-square-fill akeru-primary m-1"></i>Full
               features
@@ -316,11 +316,11 @@ function Partner() {
           </div>
 
           <div className="row justify-left mt-2">
-            <span className="col-md-6">
+            <span className="col-md-6 col-lg-6 col-sm-12">
               <i className="bi bi-check-square-fill akeru-primary m-1"></i>
               Instant payout{" "}
             </span>
-            <span className="col-md-6">
+            <span className="col-md-6 col-lg-6 col-sm-12">
               <i className="bi bi-check-square-fill akeru-primary m-1"></i>{" "}
               Reporting dashboard
             </span>

@@ -141,7 +141,7 @@ function Home() {
         <div className="main_width position-absolute">
           <div className="position-relative">
             <div className="row hero_pad_top">
-              <div className="col">
+              <div className="col-sm-6 akeru_col">
                 <div className="mw100">
                   <p className="hero_p_top_text m-0 w900 mw100">
                     Get a response within 1 minute
@@ -155,8 +155,8 @@ function Home() {
                   </p>
                 </div>
               </div>
-              <div className="offset-md-0 col offset-lg-0 d-flex justify-content-end d-flex-justify-content-center flex-settings">
-                <form onSubmit={handSubmit}>
+              <div className="col akeru_col offset-lg-0">
+                <form onSubmit={handSubmit} className="home-page-form-margin">
                   <div className="my_card">
                     <input
                       type="text"

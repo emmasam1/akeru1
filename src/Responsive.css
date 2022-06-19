@@ -1,4 +1,16 @@
 @media (min-width: 768px) and (-webkit-device-pixel-ratio: 2) {
+  .col-pad-left{
+    width: 100% !important;
+  }
+  .home-page-form-margin {
+    margin: 0 100px!important;
+}
+  .akeru_col{
+    width: 100% !important;
+  }
+  .grid{
+    display: grid;
+  }
  
   .hero_style-login-md {
     overflow: hidden;
@@ -151,6 +163,12 @@
 }
 
 @media only screen and (min-width: 600px) and (-webkit-device-pixel-ratio: 2) {
+  .home-page-form-margin{
+    margin: 0 40px;
+  }
+  .akeru_col{
+    width: 100% !important;
+  }
   /* NOT FOUND PAGE */
   .nf_div {
     width: 80%;
@@ -299,8 +317,23 @@
 }
 
 @media only screen and (min-width: 481px) and (max-width: 575px) and (-webkit-device-pixel-ratio: 2) {
+  .turck_p_text_holder {
+    margin: 10px 0 25px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+.truck_section_margin {
+    margin: 20px 0 0 0px;
+}
   .nf_div {
     width: 90%;
+  }
+  .akeru_col{
+    width: 100% !important;
+  }
+  .home-page-form-margin{
+    margin: 0 !important;
   }
   .nav_settings {
     margin: 10px 0 0 0 !important;
@@ -347,7 +380,7 @@
     overflow: hidden;
     width: 100% !important;
     padding: 0 0 200px 0;
-    height: 675px;
+    height: 725px;
   }
   .hs {
     height: 900px;
@@ -391,12 +424,6 @@
     font-size: 20px !important;
     padding: 0 5px 0 5px;
   }
-  .turck_p_text_holder {
-    width: 215px;
-  }
-  .truck_div_width {
-    width: 215px;
-  }
   .join_img_holder {
     width: 253px;
   }
@@ -426,7 +453,7 @@
   .own_truck {
     flex-direction: column;
     width: 95% !important;
-    height: 200px;
+    height: 230px;
   }
   .footer_h2_holder {
     padding: 10px 5px 0 10px;
@@ -589,7 +616,12 @@
   .hero-sm-height {
     height: 400px !important;
   }
-
+  .home-page-form-margin{
+    margin: 0 !important;
+  }
+  .akeru_col{
+    width: 100% !important;
+  }
   .nf_div {
     width: 90%;
   }
@@ -644,7 +676,7 @@
     overflow: hidden;
     width: 100% !important;
     padding: 0 0 200px 0;
-    height: 700px;
+    height: 725px;
   }
   .hs {
     height: 900px;
