@@ -32,44 +32,44 @@ function Partner() {
 
         <div className="main_width position-absolute">
           <div className="position-relative">
-            <div className="container-fluid">
+            <div className="container">
               <div className="row">
-                <div className="col">
-                <div className="w0">
-                  <p className="hero_p_top_text m-0 w900">Own a truck?</p>
-                  <h1 className="hero_h1_text">
-                    Become an <br /> Akeru’s partner
-                  </h1>
-                  {/* <p className="hero_p_bottom_text pt-1">
+                <div className="col-6 col-md-12 col-lg-6">
+                  <div className="w0">
+                    <p className="hero_p_top_text m-0 w900">Own a truck?</p>
+                    <h1 className="hero_h1_text">
+                      Become an <br /> Akeru’s partner
+                    </h1>
+                    {/* <p className="hero_p_bottom_text pt-1">
                     Download the app and start earning
                   </p> */}
-                  <div className="d-flex justify-left">
-                    <span className="m-2">
-                      <i className="bi bi-check2 m-1"></i> Instant pay out
-                    </span>
-                    <span className="m-2">
-                      {" "}
-                      <i className="bi bi-check2 m-1"></i>Competitive pricing
-                    </span>
+                    <div className="d-flex justify-left">
+                      <span className="m-2">
+                        <i className="bi bi-check2 m-1"></i> Instant pay out
+                      </span>
+                      <span className="m-2">
+                        {" "}
+                        <i className="bi bi-check2 m-1"></i>Competitive pricing
+                      </span>
+                    </div>
+                    <p className=" pt-2 ">Download the app and start earning</p>
                   </div>
-                  <p className=" pt-2 ">Download the app and start earning</p>
+                  <div className="d-flex justify-content-between partner-icon-width">
+                    <img src={google} alt="icon" />
+                    <img src={apple} alt="icon" />
+                  </div>
                 </div>
-                <div className="d-flex justify-content-between partner-icon-width">
-                  <img src={google} alt="icon" />
-                  <img src={apple} alt="icon" />
-                </div>
-                </div>
-                <div className="col-sm-12 col-md-6 offset-md-0 display d-flex justify-content-around display">
+                <div className="offset-md-0 col-6 col-lg-6 offset-lg-0 d-flex justify-content-around display">
                 <img
-                  src={home}
-                  alt="icon"
-                  className="image-width image-margin position-relative img-left sm-margin"
-                />
-                <img
-                  src={Ongoing}
-                  alt="icon"
-                  className="image-width sm-mobile-rel"
-                />
+                    src={home}
+                    alt="icon"
+                    className="image-width image-margin position-relative img-left sm-margin"
+                  />
+                  <img
+                    src={Ongoing}
+                    alt="icon"
+                    className="image-width sm-mobile-rel"
+                  />
                 </div>
               </div>
             </div>
@@ -89,7 +89,7 @@ function Partner() {
             <br />
             <br />
             <div className="row how_it_works_cols">
-              <div className="col-md-3">
+              <div className="col-lg-3 col-md-6">
                 <img src={ic_download} alt="icon" />
                 <h5 className="how_it_works_col_title">Download the app.</h5>
                 <p className="how_it_works_col_desc">
@@ -97,7 +97,7 @@ function Partner() {
                   users or the Play Store for Android users.
                 </p>
               </div>
-              <div className="col-md-3">
+              <div className="col-lg-3 col-md-6 col-sm-6">
                 <img src={user} alt="icon" />
                 <h5 className="how_it_works_col_title">Register.</h5>
                 <p className="how_it_works_col_desc">
@@ -105,7 +105,7 @@ function Partner() {
                   account with Akeru.
                 </p>
               </div>
-              <div className="col-md-3">
+              <div className="col-lg-3 col-md-6">
                 <img src={ic_list} alt="icon" />
                 <h5 className="how_it_works_col_title">Upload documents.</h5>
                 <p className="how_it_works_col_desc">
@@ -113,7 +113,7 @@ function Partner() {
                   this may prevent you from receiving order request
                 </p>
               </div>
-              <div className="col-md-3">
+              <div className="col-lg-3 col-md-6">
                 <img src={truck} alt="icon" />
                 <h5 className="how_it_works_col_title">Enjoy the app</h5>
                 <p className="how_it_works_col_desc">
@@ -128,7 +128,7 @@ function Partner() {
 
       <div className="main_width div_color mt-3 mobile-sm-width">
         <div className="algin-width">
-          <div className="row akeru-grid">
+          <div className="row">
             <div className="col col-pad col-pad-left">
               <h2 className="w900 f32">Receive live order</h2>
               <p>
@@ -351,3 +351,4 @@ function Partner() {
 }
 
 export default Partner;
+

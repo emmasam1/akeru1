@@ -136,7 +136,7 @@ function Home() {
         <div className="main_width position-absolute">
           <div className="position-relative">
             <div className="row hero_pad_top">
-              <div className=" col-md-6">
+              <div className="col">
                 <div className="mw100">
                   <p className="hero_p_top_text m-0 w900 mw100">
                     Get a response within 1 minute
@@ -150,7 +150,7 @@ function Home() {
                   </p>
                 </div>
               </div>
-              <div className=" col-md-6 d-flex justify-content-end d-flex-justify-content-center flex-settings">
+              <div className="offset-md-0 col offset-lg-0 d-flex justify-content-end d-flex-justify-content-center flex-settings">
                 <form onSubmit={handSubmit}>
                   <div className="my_card">
                     <input
@@ -457,11 +457,11 @@ function Home() {
         </div>
         <div className="own_item_holder container ">
           <div className="row justify-left">
-            <span className="col-md-6">
+            <span className="col-sm-5 col-md-12 col-lg-12">
               <i className="bi bi-check-square-fill akeru-primary m-1"></i> No
               obligation
             </span>
-            <span className="col-md-6">
+            <span className="col-sm-5 col-md-12 col-lg-12">
               {" "}
               <i className="bi bi-check-square-fill akeru-primary m-1"></i>Full
               features
@@ -469,11 +469,11 @@ function Home() {
           </div>
 
           <div className="row justify-left mt-2 top-settings">
-            <span className="col-md-6">
+            <span className="col-sm-5 col-md-12 col-lg-12">
               <i className="bi bi-check-square-fill akeru-primary m-1"></i>
               Instant payout{" "}
             </span>
-            <span className="col-md-6">
+            <span className="col-sm-5 col-md-12 col-lg-12">
               <i className="bi bi-check-square-fill akeru-primary m-1"></i>{" "}
               Reporting dashboard
             </span>

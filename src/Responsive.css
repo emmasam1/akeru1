@@ -1,11 +1,5 @@
-@media (min-width: 720px) and (max-width: 1024px) and (-webkit-device-pixel-ratio: 2) {
-  .akeru-grid {
-    display: grid !important;
-  }
-  .akeru-flex {
-    flex-direction: column-reverse;
-    display: flex;
-  }
+@media (min-width: 768px) and (-webkit-device-pixel-ratio: 2) {
+ 
   .hero_style-login-md {
     overflow: hidden;
     height: 500px !important;
@@ -19,7 +13,7 @@
   /* HOME PAGE */
   .hero_style {
     overflow: hidden !important;
-    height: 945px;
+    height: 850px !important;
   }
   .main_width {
     margin-top: 10px;
@@ -33,17 +27,17 @@
     background: transparent;
     padding: 0;
   }
-  .akeru-col {
-    width: 100%;
-  }
   .truck {
-    left: 55px !important;
+    left: 95px !important;
   }
-  .lower_truck_div2 {
-    left: 0px;
+  .col-lg-6 {
+    width: 50% !important;
   }
   .lower_truck_div {
-    left: 0px;
+    left: 35px;
+  }
+  .lower_truck_div2 {
+    left: 50px;
   }
   .nav_margin {
     margin: 0 30px 15px 0;
@@ -57,18 +51,6 @@
   }
   .height {
     height: 470px !important;
-  }
-  .col-lg-6 {
-    width: 50% !important;
-  }
-  .truck {
-    left: 40px;
-  }
-  .lower_truck_div {
-    right: 15px;
-  }
-  .lower_truck_div2 {
-    right: 15px;
   }
   .milestone {
     flex-direction: column;
@@ -176,10 +158,7 @@
   /* NOT FOUND PAGE */
 
   /* HOME PAGE */
-  .col-sm-6 {
-    width: 50%;
-    display: grid;
-}
+ 
   .hero_style {
     overflow: hidden;
     height: 945px;
@@ -208,9 +187,7 @@
   .height {
     height: 470px !important;
   }
-  /* .col-sm-6 {
-    width: 100% !important;
-  } */
+
   .truck {
     left: 25px;
   }
@@ -322,122 +299,6 @@
 }
 
 @media only screen and (min-width: 481px) and (max-width: 575px) and (-webkit-device-pixel-ratio: 2) {
-  /* .w90{
-      width: 90%;
-    }
-    .sm-margin_nav{
-      margin: 10px 0 10px 0 !important;
-    }
-    .truck {
-      width: 337px;
-      position: relative;
-      left: 100px;
-  }
-  .lower_truck_div {
-    position: absolute;
-    width: 176px;
-    height: 55px;
-    top: 265px;
-    right: 245px;
-    border-radius: 5px;
-    padding: 12px 15px 7px 18px;
-    background-color: var(--whiteColor);
-}
-.lower_truck_div2 {
-  height: 55px;
-  margin: 67px 0 0 180px;
-  right: 70px;
-  position: absolute;
-  border-radius: 5px;
-  padding: 12px 7px 7px 7px;
-  background-color: var(--trckDivColor);
-}
-    .hero_style{
-      overflow: hidden;
-      height: 700px;
-    }
-    .d-flex-justify-content-center {
-      display: flex !important;
-      justify-content: center !important;
-  }
-    .hero_h1_text{
-      font-size: 10vw;
-      width: 400px;
-      font-weight: bolder;
-    }
-    .main_width{
-      width: 95% !important;
-    }
-    .col-footer{
-        width: 50% !important;
-        padding: 20px 0 0 12px;
-      }
-      .footer{
-        padding: 6px !important;
-      }
-      .footer_text_holder{
-        width: 95% !important;
-        flex-direction: column;
-      }
-      .rmp{
-        padding: 0 0 0 0 !important;
-      }
-      .tac{
-        text-align: center !important;
-      }
-      .own_item_holder{
-        width: 455px !important;
-        margin: auto;
-      }
-      .footer_btn{
-        padding: 3px 20px 0 20px;
-        margin: 0 0 18px 0;
-      }
-      .md-moblie{
-        display: flex !important;
-        flex-direction: column;
-        align-items: center;
-        height: 235px;
-        padding: 15px 0 0 0 !important;
-      }
-      .footer_h2_holder{
-        width: 410px;
-        text-align: center;
-      }
-      .form-check-input {
-        width: 1rem !important;
-        height: 1rem !important;
-        margin: 7px 8px 0 0 !important;
-    }
-    .right {
-        right: 84px;
-    }
-    .lable_font{
-        font-size: 20px;
-    }
-    .join_btn_holder{
-        display: flex;
-        justify-content: center;
-        padding: 0 0 8px 0;
-        position: relative;
-        bottom: 15px;
-        width: 100%;
-     }
-     .md-p{
-         padding: 15px 0 0 0 !important;
-     }
-     .fd{
-         flex-direction: column;
-     }
-     .ht{
-         height: auto;
-     }
-     .sm{
-        margin: 20px auto 30px auto;
-     }
-     .tc{
-         text-align: center;
-     } */
   .nf_div {
     width: 90%;
   }
@@ -526,11 +387,6 @@
   .main_width {
     width: 100%;
   }
-  /* .truck{
-      width: 280px;
-      position: relative;
-      margin: 0 110px 0 0;
-    } */
   .truck_h6_text {
     font-size: 20px !important;
     padding: 0 5px 0 5px;
@@ -733,16 +589,7 @@
   .hero-sm-height {
     height: 400px !important;
   }
-  .akeru-col {
-    width: 100%;
-  }
-  .akeru-col-md {
-    width: 100%;
-  }
-  .akeru-flex {
-    flex-direction: column-reverse;
-    display: flex;
-  }
+
   .nf_div {
     width: 90%;
   }
@@ -836,11 +683,6 @@
   .main_width {
     width: 100%;
   }
-  /* .truck{
-      width: 280px;
-      position: relative;
-      margin: 0 110px 0 0;
-    } */
   .truck_h6_text {
     font-size: 20px !important;
     padding: 0 5px 0 5px;
