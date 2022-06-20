@@ -165,7 +165,7 @@ function Home() {
         <div className="main_width position-absolute">
           <div className="position-relative">
             <div className="row hero_pad_top">
-              <div className="col-md-6  ">
+              <div className="col-lg-6 col-md-12 ">
                 <div className="mw100">
                   <p className="hero_p_top_text m-0 w900 mw100">
                     Get a response within 1 minute
@@ -179,7 +179,7 @@ function Home() {
                   </p>
                 </div>
               </div>
-              <div className="col-md-6    ">
+              <div className="col-lg-6  col-md-12  ">
                 <form onSubmit={handSubmit} className="home-page-form-margin">
                   <div className="my_card">
                     <input

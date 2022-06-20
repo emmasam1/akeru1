@@ -1231,3 +1231,6 @@ label span input {
   outline: none;
   border: 0px;
 }
+.nav_settings{
+  padding-top: 10px;
+}

@@ -65,7 +65,7 @@ function Navbar() {
               </Link>
             </ul>
             <div className="row">
-               <div className="col-lg-6 col-md-12">
+               <div className="col-lg-4">
                {user ? null : <Link
                 to="/signin"
                 className="nav_margin link-dark text-decoration-none fw-bold fs-small nav_link_padding"
@@ -73,7 +73,7 @@ function Navbar() {
                 Login
               </Link>}
                </div>
-             <div className="col-lg-6 col-md-12">
+             <div className="col-lg-4 col-md-12 text-left">
              {user? <Link  to="/profile" className="link-dark"><i class="bi bi-person-circle fs-3"></i></Link> :<Link
                 to="/register"
                 className="link_border_style nav_margin register_link link-dark sm-margin_nav text-decoration-none fw-bold fs-small m-0"
