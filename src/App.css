@@ -20,7 +20,7 @@
 
 }
 .home-page-form-margin{
-  margin: 0 0 0 115px;
+  margin: 0 0 0 70px;
 }
 body{
   font-family: "Inter", sans-serif;
@@ -208,8 +208,9 @@ border-radius: 8px;
 }
 .my_card {
   background-color: var(--whiteColor);
-  width: 400px;
-  padding: 10px;
+  width: 90%;
+
+  padding: 20px;
 }
 .input-home {
   background-color: var(--inputBackground);
@@ -264,7 +265,7 @@ input[type="text"]::placeholder {
   outline: none;
   border: none;
   font-size: 16px;
-  padding: 10px 0;
+  padding: 13px 0;
   border-radius: 10px;
   background-color: #d0e1cc;
 }
