@@ -64,22 +64,23 @@ function Navbar() {
                 Partner
               </Link>
             </ul>
-            <div className="d-flex nav_flex_direction">
-               {user ? <button onClick={handleLogout} className="btn border-0 w900 btn-logout">
-               
-                Logout
-               </button> : <Link
+            <div className="row">
+               <div className="col-lg-6 col-md-12">
+               {user ? null : <Link
                 to="/signin"
                 className="nav_margin link-dark text-decoration-none fw-bold fs-small nav_link_padding"
               >
                 Login
               </Link>}
-              {user? <Link  to="/profile" className="link-dark"><i class="bi bi-person-circle fs-3"></i></Link> :<Link
+               </div>
+             <div className="col-lg-6 col-md-12">
+             {user? <Link  to="/profile" className="link-dark"><i class="bi bi-person-circle fs-3"></i></Link> :<Link
                 to="/register"
                 className="link_border_style nav_margin register_link link-dark sm-margin_nav text-decoration-none fw-bold fs-small m-0"
               >
                 Register
               </Link>}
+             </div>
               
             </div>
           </div>

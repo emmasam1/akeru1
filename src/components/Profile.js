@@ -105,6 +105,14 @@ function Proflie() {
     }
   }
 
+  const handleLogout = () => {
+    if(window.confirm("Are you sure you want to logout??")){
+     window.localStorage.clear();
+     navigate('/');
+     window.location.reload(); 
+    }
+   }
+
   const handleSave = async() => {
 
 
@@ -399,7 +407,17 @@ function Proflie() {
                         </div>
                       </div>
                       <br/><br/>
-                      <button className="btn edit_btn w900" onClick={handleSavePassword}> <Loading loading={isLoadingPass} false_text={"Save Password"} /></button>
+                      <div className="container">
+                        <div className="row">
+                          <div className="col">
+                          <button className="btn edit_btn w900" onClick={handleSavePassword}> <Loading loading={isLoadingPass} false_text={"Save Password"} /></button>
+                          </div>
+                          <div className="col-auto">
+                          <button className="btn   w900 btn-danger" onClick={handleLogout} > Logout <i class="bi bi-box-arrow-right"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                      
                     </div>
                   </div>
                 </div>
