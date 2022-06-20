@@ -33,7 +33,7 @@ function Partner() {
         <div className="main_width position-absolute">
           <div className="position-relative">
             <div className="container">
-              <div className="row">
+              <div className="row grid">
                 <div className="col akeru_col">
                   <div className="w0">
                     <p className="hero_p_top_text m-0 w900">Own a truck?</p>
@@ -225,7 +225,7 @@ function Partner() {
       <div className="main_width div_color mt-3 mobile-sm-width">
         <div className="algin-width">
           <div className="container px-3">
-            <div className="row">
+            <div className="row grid">
               <div className="col d-flex justify-content-start p-3">
                 <img
                   src={notification}
@@ -304,11 +304,11 @@ function Partner() {
         </div>
         <div className="own_item_holder container ">
           <div className="row justify-left">
-            <span className="col-md-6 col-lg-6 col-sm-12">
+            <span className="col-md-12 col-lg-12 col-sm-12">
               <i className="bi bi-check-square-fill akeru-primary m-1"></i> No
               obligation
             </span>
-            <span className="col-md-6 col-lg-6 col-sm-12">
+            <span className="col-md-12 col-lg-12 col-sm-12">
               {" "}
               <i className="bi bi-check-square-fill akeru-primary m-1"></i>Full
               features
@@ -316,11 +316,11 @@ function Partner() {
           </div>
 
           <div className="row justify-left mt-2">
-            <span className="col-md-6 col-lg-6 col-sm-12">
+            <span className="col-md-12 col-lg-12 col-sm-12">
               <i className="bi bi-check-square-fill akeru-primary m-1"></i>
               Instant payout{" "}
             </span>
-            <span className="col-md-6 col-lg-6 col-sm-12">
+            <span className="col-md-12 col-lg-12 col-sm-12">
               <i className="bi bi-check-square-fill akeru-primary m-1"></i>{" "}
               Reporting dashboard
             </span>

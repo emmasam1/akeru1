@@ -34,40 +34,6 @@ function Home() {
   const [weightErr, setWeightErr] = useState({});
   const [amountErr, setamountErr] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [locations, setLocations] = useState([]);
-  const [truckTypes, setTruckTypes] = useState([]);
-  const [tons, setTons] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(ROUTE.SITE_URL+"/locations")
-      .then((res) => {
-        let locate = res.data;
-        setLocations(locate);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    axios
-        .get(ROUTE.SITE_URL + "/tons")
-        .then((res) => {
-            let ton = res.data;
-            setTons(ton);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-
-        axios
-    .get(ROUTE.SITE_URL+"/truck-types")
-    .then((res) => {
-      let truckTypes = res.data;
-      setTruckTypes(truckTypes);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}, []);
 
 
 
@@ -94,7 +60,7 @@ function Home() {
       axios
       .post(ROUTE.REQUEST,data)
       .then(function (res) {
-        navigate(`/detail?request_id=${res.data.data.id}`);
+        navigate(`/detail?request_id=${res.data.id}`);
       })
       .catch(function (err) {
         setIsLoading(false)
@@ -165,7 +131,7 @@ function Home() {
         <div className="main_width position-absolute">
           <div className="position-relative">
             <div className="row hero_pad_top">
-              <div className="col-lg-6 col-md-12 ">
+              <div className="col-sm-6 akeru_col">
                 <div className="mw100">
                   <p className="hero_p_top_text m-0 w900 mw100">
                     Get a response within 1 minute
@@ -179,7 +145,7 @@ function Home() {
                   </p>
                 </div>
               </div>
-              <div className="col-lg-6  col-md-12  ">
+              <div className="col akeru_col offset-lg-0">
                 <form onSubmit={handSubmit} className="home-page-form-margin">
                   <div className="my_card">
                     <input
@@ -250,12 +216,18 @@ function Home() {
                       value={truck_type}
                       onChange={(e) => setTruckType(e.target.value)}
                     >
-                      <option value={""}>Select Type</option>
-                      {truckTypes.map((data) => {
-                      return (
-                        <option value={data.name} >{data.name}</option>
-                      );
-                    })}
+                      <option>Type</option>
+                      <option>Cover body</option>
+                      <option>Tanker</option>
+                      <option>Dumper</option>
+                      <option>Cage lift</option>
+                      <option>Tarpaulin</option>
+                      <option>Refridgerator</option>
+                      <option>Animal transporter</option>
+                      <option>Container transporter</option>
+                      <option>Timber carrier</option>
+                      <option>Van</option>
+                      <option>Platform</option>
                     </select>
                     {Object.keys(typeErr).map((key) => {
                       return (
@@ -272,12 +244,10 @@ function Home() {
                       onChange={(e) => setWeight(e.target.value)}
                     >
                       <option>Weight in Tons</option>
-                      {tons.map((data) => {
-                      return (
-                        <option value={data.amount} >{data.amount} Tons</option>
-                      );
-                    })}
-                      
+                      <option>10 Tons</option>
+                      <option>15 Tons</option>
+                      <option>20 Tons</option>
+                      <option>40 Tons</option>
                     </select>
                     {Object.keys(weightErr).map((key) => {
                       return (
