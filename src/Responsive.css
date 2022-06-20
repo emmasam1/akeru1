@@ -1,4 +1,7 @@
 @media (min-width: 768px) and (-webkit-device-pixel-ratio: 2) {
+  .profile_btn_request{
+    display: none;
+  }
   .col-pad-left{
     width: 100% !important;
   }
@@ -153,6 +156,12 @@
 }
 
 @media (max-width: 900px) and (-webkit-device-pixel-ratio: 2) {
+  .profile_btn_request{
+    display: none;
+  }
+  .profile_btn_request_mobile{
+    display: inline;
+  }
   .hero_h1_text{font-size: 50px !important;}
   .hero_p_bottom_text{font-size: 24px !important;}
   .my_card {
