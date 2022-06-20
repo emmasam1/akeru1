@@ -25,7 +25,41 @@ function Request() {
   const [pageLoading, setPageLoading] = useState(false);
   const [requestId, setRequestId] = useState("")
   const [isLoading, setIsLoading] = useState(false);
-  
+  const [locations, setLocations] = useState([]);
+  const [truckTypes, setTruckTypes] = useState([]);
+  const [tons, setTons] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(ROUTE.SITE_URL + "/locations")
+      .then((res) => {
+        let locate = res.data;
+        setLocations(locate);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    axios
+      .get(ROUTE.SITE_URL + "/tons")
+      .then((res) => {
+        let ton = res.data;
+        setTons(ton);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    axios
+      .get(ROUTE.SITE_URL + "/truck-types")
+      .then((res) => {
+        let truckTypes = res.data;
+        setTruckTypes(truckTypes);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   useEffect(() => {
     let params = (new URL(document.location)).searchParams;
     let request_id = params.get("request_id");
@@ -76,16 +110,16 @@ function Request() {
       }
 
       axios
-      .put(ROUTE.REQUEST+`/${requestId}`,data)
-      .then(function (res) {
-        navigate(`/detail?request_id=${requestId}`)
-      })
-      .catch(function (err) {
-        setIsLoading(false)
-        console.log(err);
-        alert(err)
-      });
-      
+        .put(ROUTE.REQUEST + `/${requestId}`, data)
+        .then(function (res) {
+          navigate(`/detail?request_id=${requestId}`)
+        })
+        .catch(function (err) {
+          setIsLoading(false)
+          console.log(err);
+          alert(err)
+        });
+
 
     } else {
       if (user == null) {
@@ -218,26 +252,18 @@ function Request() {
               })}
 
 
-
-
               <select
                 className="select"
                 name="truck_type"
                 value={truck_type}
                 onChange={(e) => setTruckType(e.target.value)}
               >
-                <option>Type</option>
-                <option>Cover body</option>
-                <option>Tanker</option>
-                <option>Dumper</option>
-                <option>Cage lift</option>
-                <option>Tarpaulin</option>
-                <option>Refridgerator</option>
-                <option>Animal transporter</option>
-                <option>Container transporter</option>
-                <option>Timber carrier</option>
-                <option>Van</option>
-                <option>Platform</option>
+                <option value={""}>Select Type</option>
+                {truckTypes.map((data) => {
+                  return (
+                    <option value={data.name} >{data.name}</option>
+                  );
+                })}
               </select>
               {Object.keys(typeErr).map((key) => {
                 return (
@@ -246,6 +272,7 @@ function Request() {
                   </p>
                 );
               })}
+
               <select
                 className="select"
                 name="weight"
@@ -253,10 +280,12 @@ function Request() {
                 onChange={(e) => setWeight(e.target.value)}
               >
                 <option>Weight in Tons</option>
-                <option>10 Tons</option>
-                <option>15 Tons</option>
-                <option>20 Tons</option>
-                <option>40 Tons</option>
+                {tons.map((data) => {
+                  return (
+                    <option value={data.amount} >{data.amount} Tons</option>
+                  );
+                })}
+
               </select>
               {Object.keys(weightErr).map((key) => {
                 return (
@@ -275,9 +304,9 @@ function Request() {
       </Link>
     </div> */}
               <button className="my_btn w900 p-3">  <Loading
-                        loading={isLoading}
-                        false_text={"Update Request"}
-                      /></button>
+                loading={isLoading}
+                false_text={"Update Request"}
+              /></button>
             </form>
           </div>}
         </div>

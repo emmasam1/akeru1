@@ -109,15 +109,17 @@ function Request() {
   const switchStatusBadge = (data) => {
     switch (data) {
       case "pending":
-        return <span className="badge bg-danger">Pending..</span>
+        return <span className="badge bg-secondary">Pending..</span>
       case "accepted":
         return <span className="badge bg-warning">Accepted</span>
       case "arrive_pickup":
         return <span className="badge bg-info">At Pickup</span>
       case "start_trip":
-        return <span className="badge bg-success">On Transit</span>
+        return <span className="badge bg-success">On Transit...</span>
       case "arrive_dropoff":
         return <span className="badge bg-dark">Completed</span>
+        case "arrive_dropoff":
+          return <span className="badge bg-danger">Cancelled</span>
       case "paused_trip":
         return <span className="badge bg-secondary">PAUSED</span>
     }

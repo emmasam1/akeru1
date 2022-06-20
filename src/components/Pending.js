@@ -4,11 +4,15 @@ import ROUTE from "../route.json";
 import axios from "axios";
 import Loader from "./Loader";
 import ConvertDate from './ConvertDate'
+import ConfirmModal from "./user-components/ConfirmModal";
+
+
+
 function Pending() {
   const [isLoading, setIsLoading] = useState(false);
   const [modal, setModal] = useState(false);
   const [assignModal, setAssignModal] = useState(false);
-  const [deleteModal, setDeleteModal] = useState(false);
+  const [confirmModal, setConfirmModal] = useState(false);
   const [paginate, setPaginate] = useState({ "page": 1, "limit": 10, "pages": 0, "total": 0 });
 
   const [aRequest, setARequest] = useState({});
@@ -46,17 +50,18 @@ function Pending() {
   }
 
   const closeModal = (props) => {
-    setModal(false)
-    setAssignModal(false)
-    setDeleteModal(false)
+
+    setConfirmModal(false)
   }
 
   const switchStatusBadge = (data) => {
     switch (data) {
       case "pending":
-        return <span className="badge bg-danger">{data}..</span>
+        return <span className="badge bg-secondary">Pending..</span>
       case "accepted":
-        return <span className="badge bg-info">{data}</span>
+        return <span className="badge bg-info">Accepted</span>
+        case "cancel":
+          return <span className="badge bg-daner">Cancelled</span>
     }
   }
 
@@ -84,8 +89,12 @@ function Pending() {
     return `${year}-${month}-${day} ${hr}:${min}`;
   }
 
-  const deleteData=()=>{
-    axios.delete(ROUTE.REQUEST+`/${aRequest.request_id}`)
+  const cancelRequest=()=>{
+    let data={
+      "request_id":aRequest.request_id,
+      "status":"cancelled"
+      }
+    axios.post(ROUTE.SITE_URL+`/requests/set-trip-status`, data)
       .then((res) => {
         closeModal()
         alert(res.data.msg)
@@ -104,7 +113,7 @@ function Pending() {
     <>
       <div className="d-flex justify-content-between mb-2">
         <div>
-          <h3 className="pro-h3-text">Pending order</h3>
+          <h3 className="pro-h3-text">Pending Orders</h3>
         </div>
         <div className="d-flex justify-content-between profile-button-holder">
           <button className="text-muted">Month</button>
@@ -112,6 +121,8 @@ function Pending() {
           <button className="text-muted clicked">Day</button>
         </div>
       </div>
+      {confirmModal ? <ConfirmModal closeModal={closeModal} confirmMethod={cancelRequest} refresh={refreshPageData}
+              title="Confirm Cancel Request?" descp="Are you sure you want to Cancel this request?" action_text="Yes" /> : null}
       <table className="table table-hover  mt-4">
               <thead className="table-dark">
                 <tr>
@@ -150,7 +161,7 @@ function Pending() {
                           <div className="table-dropdown-content r-0">
                             {e.status =="pending" ? null : <button className="btn" onClick={() => {setARequest(e); setAssignModal(true); }}>Track</button>}
                     
-                            {e.status =="pending" ? <button className="btn text-danger" onClick={() => { setARequest(e);  setDeleteModal(true); }}>Cancel</button>:null  }
+                            {e.status =="pending" ? <button className="btn text-danger" onClick={() => { setARequest(e);  setConfirmModal(true); }}>Cancel</button>:null  }
                             
 
                           </div>
