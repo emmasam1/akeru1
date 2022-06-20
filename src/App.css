@@ -910,6 +910,9 @@ thead{
   width: 60px;
   padding: 0 1px;
 }
+.profile_btn_request_mobile{
+  display: none;
+}
 /* PROFILE */
 
 /* PARTNER */
