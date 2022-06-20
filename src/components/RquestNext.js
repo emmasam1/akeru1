@@ -25,7 +25,7 @@ function RequestNext() {
   const [requestId, setRequestId] = useState("")
   const user = JSON.parse(localStorage.getItem("user"));
   const requestData = JSON.parse(localStorage.getItem("request"));
- 
+
 
   useEffect(() => {
     let params = (new URL(document.location)).searchParams;
@@ -100,53 +100,53 @@ function RequestNext() {
               </div>
             </div>
             <div className="col-md-4   rounded bg-white p-3 reqNext ">
-             {amount<1?<h4 className="text-center mt-5">Quote Pending... Check your email to receive the quote for this request</h4>: <div>
-              <h4 className="text-center w900 req_h4 mb-4">{weight} {truck_type}</h4>
-              <div className="border-bottom border-2 mb-3">
-                <div className="d-flex justify-content-between ">
-                  <p className="req_pro">Amount</p>
-                  <p className="req_pro_next">
-                    <span>&#8358;</span>{amount.toLocaleString()}
-                  </p>
+              <div>
+                <h4 className="text-center w900 req_h4 mb-4">{weight} {truck_type}</h4>
+                <div className="border-bottom border-2 mb-3">
+                  <div className="d-flex justify-content-between ">
+                    <p className="req_pro">Amount</p>
+                    <p className="req_pro_next">
+                      <span>&#8358;</span>{amount.toLocaleString()}
+                    </p>
+                  </div>
+
+                  <div className="d-flex justify-content-between">
+                    <p className="req_pro w900">Service fee</p>
+                    <p className="req_pro_next">
+                      <span>&#8358;</span>{service_fee.toLocaleString()}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="border-bottom border-2">
+                  <div className="d-flex justify-content-between ">
+                    <p className="req_pro">Subtotal</p>
+                    <p className="req_pro_next">
+                      <span>&#8358;</span>{(amount + service_fee).toLocaleString()}
+                    </p>
+                  </div>
+
+                  <div className="d-flex justify-content-between">
+                    <p className="req_pro">Tax @ 7.5%</p>
+                    <p className="req_pro_next">
+                      <span>&#8358;</span>{(amount * 0.075).toLocaleString()}
+                    </p>
+                  </div>
+
                 </div>
 
                 <div className="d-flex justify-content-between">
-                  <p className="req_pro w900">Service fee</p>
-                  <p className="req_pro_next">
-                    <span>&#8358;</span>{service_fee.toLocaleString()}
-                  </p>
-                </div>
-              </div>
-
-              <div className="border-bottom border-2">
-                <div className="d-flex justify-content-between ">
-                  <p className="req_pro">Subtotal</p>
-                  <p className="req_pro_next">
-                    <span>&#8358;</span>{(amount+service_fee).toLocaleString()}
-                  </p>
-                </div>
-
-                <div className="d-flex justify-content-between">
-                  <p className="req_pro">Tax @ 7.5%</p>
-                  <p className="req_pro_next">
-                    <span>&#8358;</span>{(amount*0.075).toLocaleString()}
-                  </p>
-                </div>
-                
-              </div>
-              
-              <div className="d-flex justify-content-between">
                   <p className="req_pro"><b>Total</b></p>
                   <p className="req_pro_next">
-                    <span>&#8358;</span>{(amount+service_fee + (amount*0.075)).toLocaleString()}
+                    <span>&#8358;</span>{(amount + service_fee + (amount * 0.075)).toLocaleString()}
                   </p>
                 </div>
 
-              <div className="d-flex justify-content-center mt-3 m37">
-                <button className="my_btn link-dark text-decoration-none w-170 pro_p w900 p-3" onClick={() => { sendToPayment(); }}>  <Loading loading={isLoading} false_text={"Proceed to payment"} /></button>
-    
+                <div className="d-flex justify-content-center mt-3 m37">
+                  {amount < 1 ? null : <button className="my_btn link-dark text-decoration-none w-170 pro_p w900 p-3" onClick={() => { sendToPayment(); }}>  <Loading loading={isLoading} false_text={"Proceed to payment"} /></button>
+                  }
+                </div>
               </div>
-              </div>}
 
             </div>
           </div>}
