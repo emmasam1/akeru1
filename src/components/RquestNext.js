@@ -100,6 +100,7 @@ function RequestNext() {
               </div>
             </div>
             <div className="col-md-4   rounded bg-white p-3 reqNext ">
+             {amount<1?<h4 className="text-center mt-5">Quote Pending... Check your email to receive the quote for this request</h4>: <div>
               <h4 className="text-center w900 req_h4 mb-4">{weight} {truck_type}</h4>
               <div className="border-bottom border-2 mb-3">
                 <div className="d-flex justify-content-between ">
@@ -143,14 +144,9 @@ function RequestNext() {
 
               <div className="d-flex justify-content-center mt-3 m37">
                 <button className="my_btn link-dark text-decoration-none w-170 pro_p w900 p-3" onClick={() => { sendToPayment(); }}>  <Loading loading={isLoading} false_text={"Proceed to payment"} /></button>
-                {/* <Link
-                  to="/payment"
-                  className="link-dark text-decoration-none milestone_link pt-1 w-170 pro_p w900 p-0"
-                >
-                  
-                  
-                </Link> */}
+    
               </div>
+              </div>}
 
             </div>
           </div>}

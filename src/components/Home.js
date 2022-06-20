@@ -94,7 +94,7 @@ function Home() {
       axios
       .post(ROUTE.REQUEST,data)
       .then(function (res) {
-        navigate(`/detail?request_id=${res.data.id}`);
+        navigate(`/detail?request_id=${res.data.data.id}`);
       })
       .catch(function (err) {
         setIsLoading(false)
