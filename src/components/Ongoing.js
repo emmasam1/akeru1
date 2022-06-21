@@ -16,18 +16,18 @@ function Ongoing() {
   const [activeTabIndex, setactiveTabIndex] = useState(0)
   const [drivers, setDrivers] = useState([])
   const [requestData, setRequestData] = useState([])
-   const [refreshKey, setRefreshKey] = useState(0);
-   const user = JSON.parse(localStorage.getItem("user"));
- 
+  const [refreshKey, setRefreshKey] = useState(0);
+  const user = JSON.parse(localStorage.getItem("user"));
+
   useEffect(() => {
     setIsLoading(true)
     axios.get(ROUTE.CLIENTS + `/requests?user_id=${user.user_id}&page=${paginate.page}&limit=${paginate.limit}&type=all&status=ongoing`)
       .then((res) => {
         console.log(res);
         let requestData = res.data.data
-       
+
         if (!requestData) {
-          
+
           console.log("waitung for data");
         } else {
           setRequestData(requestData)
@@ -39,11 +39,11 @@ function Ongoing() {
         console.log(err);
       })
 
-    
+
   }, [refreshKey])
 
   const updatePaginate = (data) => {
-    setPaginate({ "page": data, "limit": paginate.limit, "pages":  paginate.pages, "total": paginate.total })
+    setPaginate({ "page": data, "limit": paginate.limit, "pages": paginate.pages, "total": paginate.total })
     refreshPageData()
   }
 
@@ -65,8 +65,10 @@ function Ongoing() {
         return <span className="badge bg-success">On Transit... <i class="bi bi-truck"></i></span>
       case "arrive_dropoff":
         return <span className="badge bg-dark">Completed</span>
-        case "arrive_dropoff":
-          return <span className="badge bg-danger">Cancelled</span>
+      case "completed":
+        return <span className="badge bg-dark">Completed</span>
+      case "cancelled":
+        return <span className="badge bg-danger">Cancelled</span>
       case "paused_trip":
         return <span className="badge bg-secondary">PAUSED</span>
     }
@@ -96,8 +98,8 @@ function Ongoing() {
     return `${year}-${month}-${day} ${hr}:${min}`;
   }
 
-  const deleteData=()=>{
-    axios.delete(ROUTE.REQUEST+`/${aRequest.request_id}`)
+  const deleteData = () => {
+    axios.delete(ROUTE.REQUEST + `/${aRequest.request_id}`)
       .then((res) => {
         closeModal()
         alert(res.data.msg)
@@ -108,8 +110,8 @@ function Ongoing() {
       })
   }
 
-  const refreshPageData=()=>{
-    setRefreshKey(refreshKey => refreshKey +1)
+  const refreshPageData = () => {
+    setRefreshKey(refreshKey => refreshKey + 1)
   }
 
   return (
@@ -124,70 +126,70 @@ function Ongoing() {
           <button className="text-muted clicked">Day</button>
         </div>
       </div>
-      <table className="table table-hover  mt-4">
-              <thead className="table-dark">
-                <tr>
-                  <th scope="col">S/N</th>
-                  <th scope="col">PICK UP</th>
-                  <th scope="col">DROP OFF</th>
-                  <th scope="col">ITEM</th>
-                  <th scope="col">TRUCK TYPE</th>
-                  <th scope="col">PAID</th>
-                  <th scope="col">WEIGHT</th>
-                  <th scope="col">DATE</th>
-                  <th scope="col">AMOUNT</th>
-                  <th scope="col">STATUS</th>
-                  <th scope="col">PAYMENT TYPE</th>
-                  <th scope="col">ACTION</th>
-                </tr>
-              </thead>
-              <tbody className="position-relative">
-                {isLoading ? <Loader /> : requestData.map((e, i) => {
-                  return (
-                    <tr key={e.user_id} id={e.user_id}>
-                      <td>{i + 1}</td>
-                      <td>{e.pick_up}</td>
-                      <td>{e.drop_off}</td>
-                      <td>{e.item}</td>
-                      <td>{e.truck_type}</td>
-                      <td>{e.is_paid ? <span className="badge bg-success">Paid</span> : <span className="badge bg-secondary">Awaiting..</span>}</td>
-                      <td>{e.weight}</td>
-                      <td>{changeDate(e.date)}</td>
-                      <td>₦{e.amount.toLocaleString()}</td>
-                      <td>{switchStatusBadge(e.status)}</td>
-                      <td>{e.payment_type}</td>
-                      <td className="d-flex justify-content-center flex-column position-relative">
-                        <div className="table-dropdown">
-                          <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
-                          <div className="table-dropdown-content r-0">
-                             <button className="btn" onClick={() => {setARequest(e); setAssignModal(true); }}>Track</button>
-                          </div>
-                        </div>
+      {isLoading ? <Loader /> : requestData.length < 1 ? <h1 className='text-center'>No Pending Request Yet</h1> : <table className="table table-hover  mt-4">
+        <thead className="table-dark">
+          <tr>
+            <th scope="col">S/N</th>
+            <th scope="col">PICK UP</th>
+            <th scope="col">DROP OFF</th>
+            <th scope="col">ITEM</th>
+            <th scope="col">TRUCK TYPE</th>
+            <th scope="col">PAID</th>
+            <th scope="col">WEIGHT</th>
+            <th scope="col">DATE</th>
+            <th scope="col">AMOUNT</th>
+            <th scope="col">STATUS</th>
+            <th scope="col">PAYMENT TYPE</th>
+            <th scope="col">ACTION</th>
+          </tr>
+        </thead>
+        <tbody className="position-relative">
+          {isLoading ? <Loader /> : requestData.map((e, i) => {
+            return (
+              <tr key={e.user_id} id={e.user_id}>
+                <td>{i + 1}</td>
+                <td>{e.pick_up}</td>
+                <td>{e.drop_off}</td>
+                <td>{e.item}</td>
+                <td>{e.truck_type}</td>
+                <td>{e.is_paid ? <span className="badge bg-success">Paid</span> : <span className="badge bg-secondary">Awaiting..</span>}</td>
+                <td>{e.weight}</td>
+                <td>{changeDate(e.date)}</td>
+                <td>₦{e.amount.toLocaleString()}</td>
+                <td>{switchStatusBadge(e.status)}</td>
+                <td>{e.payment_type}</td>
+                <td className="d-flex justify-content-center flex-column position-relative">
+                  <div className="table-dropdown">
+                    <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
+                    <div className="table-dropdown-content r-0">
+                      <button className="btn" onClick={() => { setARequest(e); setAssignModal(true); }}>Track</button>
+                    </div>
+                  </div>
 
-                      </td>
-                    </tr>
-                  )
-                })}
+                </td>
+              </tr>
+            )
+          })}
 
-              </tbody>
-            </table>
-            
+        </tbody>
+      </table>}
 
-            <nav aria-label="Page navigation example">
-              <ul class="pagination">
-                {(() => {
-                  let row = []
-                  for (let index = 1; index < paginate.pages + 1; index++) {
 
-                    row.push(<li class="page-item"><button onClick={() => { updatePaginate(index)}} class={`page-link ${paginate.page == index ? "active" : ""}`} href="#">{index}</button></li>)
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          {(() => {
+            let row = []
+            for (let index = 1; index < paginate.pages + 1; index++) {
 
-                  }
-                  return row;
+              row.push(<li class="page-item"><button onClick={() => { updatePaginate(index) }} class={`page-link ${paginate.page == index ? "active" : ""}`} href="#">{index}</button></li>)
 
-                })()}
+            }
+            return row;
 
-              </ul>
-            </nav>
+          })()}
+
+        </ul>
+      </nav>
     </>
   );
 }

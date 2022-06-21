@@ -60,8 +60,18 @@ function Pending() {
         return <span className="badge bg-secondary">Pending..</span>
       case "accepted":
         return <span className="badge bg-info">Accepted</span>
-        case "cancel":
-          return <span className="badge bg-daner">Cancelled</span>
+      case "arrive_pickup":
+        return <span className="badge bg-info">At Pickup</span>
+      case "start_trip":
+        return <span className="badge bg-success">On Transit... <i class="bi bi-truck"></i></span>
+      case "arrive_dropoff":
+        return <span className="badge bg-dark">Completed</span>
+      case "completed":
+        return <span className="badge bg-dark">Completed</span>
+      case "cancelled":
+        return <span className="badge bg-danger">Cancelled</span>
+      case "paused_trip":
+        return <span className="badge bg-secondary">PAUSED</span>
     }
   }
 
@@ -123,7 +133,7 @@ function Pending() {
       </div>
       {confirmModal ? <ConfirmModal closeModal={closeModal} confirmMethod={cancelRequest} refresh={refreshPageData}
               title="Confirm Cancel Request?" descp="Are you sure you want to Cancel this request?" action_text="Yes" /> : null}
-      <table className="table table-hover  mt-4">
+              {isLoading ? <Loader /> :requestData.length < 1 ? <h1 className='text-center'>No Pending Request Yet</h1>:  <table className="table table-hover  mt-4">
               <thead className="table-dark">
                 <tr>
                   <th scope="col">S/N</th>
@@ -141,7 +151,7 @@ function Pending() {
                 </tr>
               </thead>
               <tbody className="position-relative">
-                {isLoading ? <Loader /> : requestData.map((e, i) => {
+                {requestData.map((e, i) => {
                   return (
                     <tr key={e.user_id} id={e.user_id}>
                       <td>{i + 1}</td>
@@ -173,7 +183,8 @@ function Pending() {
                 })}
 
               </tbody>
-            </table>
+            </table>}
+     
             
 
             <nav aria-label="Page navigation example">
