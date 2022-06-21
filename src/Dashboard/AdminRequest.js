@@ -115,10 +115,12 @@ function Request() {
       case "arrive_pickup":
         return <span className="badge bg-info">At Pickup</span>
       case "start_trip":
-        return <span className="badge bg-success">On Transit...</span>
+        return <span className="badge bg-success">On Transit...<i class="bi bi-truck"></i></span>
       case "arrive_dropoff":
         return <span className="badge bg-dark">Completed</span>
-        case "arrive_dropoff":
+        case "completed":
+          return <span className="badge bg-dark">Completed</span>
+      case "cancelled":
           return <span className="badge bg-danger">Cancelled</span>
       case "paused_trip":
         return <span className="badge bg-secondary">PAUSED</span>

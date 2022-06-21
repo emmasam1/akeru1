@@ -56,9 +56,19 @@ function Ongoing() {
   const switchStatusBadge = (data) => {
     switch (data) {
       case "pending":
-        return <span className="badge bg-danger">{data}..</span>
+        return <span className="badge bg-secondary">Pending..</span>
       case "accepted":
-        return <span className="badge bg-info">{data}</span>
+        return <span className="badge bg-info">Accepted</span>
+      case "arrive_pickup":
+        return <span className="badge bg-info">At Pickup</span>
+      case "start_trip":
+        return <span className="badge bg-success">On Transit... <i class="bi bi-truck"></i></span>
+      case "arrive_dropoff":
+        return <span className="badge bg-dark">Completed</span>
+        case "arrive_dropoff":
+          return <span className="badge bg-danger">Cancelled</span>
+      case "paused_trip":
+        return <span className="badge bg-secondary">PAUSED</span>
     }
   }
 
