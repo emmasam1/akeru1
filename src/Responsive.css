@@ -6,20 +6,6 @@
   .col-pad-left{
     width: 100% !important;
   }
-  .center-form{
-    display: flex;
-    justify-content: center;
-  }
-  .align-item-to-center{
-    width: 100%;
-  }
-  .own_item_holder {
-    width: 60% !important;
-    display: grid !important;
-    margin: 10px auto;
-    grid-template-columns: auto !important;
-    margin-top: -50px;
-}
   .home-page-form-margin {
     margin: 0 2px!important;
 }
@@ -97,11 +83,8 @@
   }
   .row_setting {
     display: grid;
-    grid-template-columns: auto auto !important;
+    grid-template-columns: auto auto;
     row-gap: 15px;
-  }
-  .my_col_settings{
-    width: 80%;
   }
   .own_truck {
     flex-direction: column;
@@ -166,12 +149,6 @@
     position: relative;
     right: 80px;
   }
-  .image-width{
-    right: -50px !important;
-  }
-  .img-left {
-    left: 190px !important;
-}
 
   /* REGISTER PAGE */
   .hero_style-reg {
@@ -204,23 +181,8 @@
 }
 
 @media only screen and (min-width: 600px) and (-webkit-device-pixel-ratio: 2) {
-  .row_setting {
-    display: grid;
-    grid-template-columns: auto auto !important;
-    row-gap: 15px;
-  }
-  .my_col_settings{
-    width: 80%;
-  }
   .home-page-form-margin{
     margin: 0 40px;
-  }
-  .align-item-to-center{
-    width: 100%;
-  }
-  .center-form{
-    display: flex;
-    justify-content: center;
   }
   .akeru_col{
     width: 100% !important;
@@ -286,7 +248,7 @@
   }
   .row_setting {
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: auto auto;
     row-gap: 15px;
   }
   .own_truck {
@@ -362,6 +324,15 @@
   }
 }
 
+@media (max-width: 900px) and (-webkit-device-pixel-ratio: 2) {
+  .how_it_works_cols {
+    text-align: center !important;
+  }
+
+  .how_it_works_col_title {
+    text-align: center;
+  }
+}
 
 @media only screen and (min-width: 481px) and (max-width: 575px) and (-webkit-device-pixel-ratio: 2) {
   .turck_p_text_holder {
