@@ -313,6 +313,9 @@
   margin: 0 20px 0 0;
   width: 190px;
 }
+.active_dash_tab{
+  border-bottom: 4px solid #000;
+}
 
 .notification-icon {
   width: 25px;
@@ -321,7 +324,7 @@
 }
 
 .sm-card {
-  width: 345px;
+  width: 100%;
   height: 190px;
   background-color: #fff;
 }

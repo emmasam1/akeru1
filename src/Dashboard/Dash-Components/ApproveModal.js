@@ -59,7 +59,9 @@ function ApproveModal(props) {
                   {props.data.rating}
                 </p>
               </div>
+              
             </div>
+           
           </div>
           <div className="col-md-6 rounded bg-white p-3 reqNext ">
             <div className="border-2 mb-3">
@@ -67,8 +69,6 @@ function ApproveModal(props) {
                 <p className="req_pro">Driver License</p><br />
                 <img src={`${ROUTE.SITE_URL}/${props.data.driver_license}`} className="document-img req_pro_next" alt="license_img" />
               </div>
-
-
               <div className="d-flex justify-content-between mb-2">
                 <p className="req_pro">Truck registration</p><br />
                 <img src={`${ROUTE.SITE_URL}/${props.data.truck_identification}`} className="document-img req_pro_next" alt="registration_img" />
@@ -77,10 +77,13 @@ function ApproveModal(props) {
                 <p className="req_pro">Truck insurance</p><br />
                 <img src={`${ROUTE.SITE_URL}/${props.data.truck_insurance}`} className="document-img req_pro_next" alt="truck_img" />
               </div>
-              <div className="d-flex justify-content-between mb-2">
+              <div className="d-flex justify-content-between">
                 <p className="req_pro">GIT insurance</p><br />
                 <img src={`${ROUTE.SITE_URL}/${props.data.git_insurance}`} className="document-img req_pro_next" alt=" git_img" />
               </div>
+              <small>If thses documents are not correct, Request driver to update documents </small>  
+              <small onClick={() => { props.requestDocuments() }} className="text-info" >
+              <u>Request Documents </u> </small>
             </div>
           </div>
         </div>

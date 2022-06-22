@@ -75,6 +75,28 @@ function Driver() {
       })
   }
 
+  const requestDocuments=()=>{
+    let data=aUser.account_process;
+    data.has_documents=false
+    data={"account_process":data}
+  
+    axios.put(ROUTE.DRIVERS+`/${aUser.driver_id}`,data)
+      .then((res) => {
+       
+        if(res.data.code==200){
+          alert("Documents requested")
+        }else{
+          alert(res.data.msg)
+        }
+        refreshPageData()
+        handleClose()
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("An error occured while approving driver, try again")
+      })
+  }
+
   return (
     <div className="p-3 position-relative left-width-home left-width left-width-mobile">
       <h3>All Drivers</h3>
@@ -82,7 +104,7 @@ function Driver() {
         <div className="card-body">
 
           {modal ? <EditUser data={aUser} handleClose={handleClose} refresh={refreshPageData}/> : null}
-          {approve ? <ApproveModal  data={aUser}  handleClose={handleClose} approveDriver={approveDriver}/> : null}
+          {approve ? <ApproveModal  data={aUser}  handleClose={handleClose} approveDriver={approveDriver} requestDocuments={requestDocuments}/> : null}
           {deleteModal ? <DeleteModal closeModal={handleClose} deleteMethod={deleteData}  refresh={refreshPageData}
            title="Delete Driver?" descp="Are you sure you want to delete this driver?" /> : null}
 
@@ -96,6 +118,8 @@ function Driver() {
                 <th scope="col">PHONE</th>
                 <th scope="col">CITY</th>
                 <th scope="col">RATING</th>
+                <th scope="col">DOCUMENTS</th>
+                <th scope="col">HAS TRUCK</th>
                 <th scope="col">APPROVAL</th>
                 <th scope="col">ACTION</th>
               </tr>
@@ -110,7 +134,9 @@ function Driver() {
                     <td>{e.email}</td>
                     <td>{e.phone}</td>
                     <td>{e.city}</td>
-                    <td>{e.rating}</td>
+                    <td>{e.rating}</td> 
+                    <td> {e.account_process.has_documents ? <span className="badge bg-success">Uploaded</span> : <span className="badge bg-secondary">Pending..</span>} </td>
+                    <td> {e.account_process.has_trucks ? <span className="badge bg-success">Uploaded</span> : <span className="badge bg-secondary">Pending..</span>} </td>
                     <td> {e.approved ? <span className="badge bg-success">Approved</span> : <span className="badge bg-secondary">Pending..</span>} </td>
                     <td className="d-flex justify-content-center flex-column position-relative">
                      
@@ -118,7 +144,7 @@ function Driver() {
                         <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                         <div className="table-dropdown-content">
                           {<button className="btn" onClick={()=>{setApprove(true); setAuser(e)}}> {e.approved?"View":"Approve"}</button>}
-                          <button className="btn" onClick={()=>{setModal(true); setAuser(e)}}>Edit</button>
+                          <button className="btn" onClick={()=>{setModal(true); setAuser(e)}}>Edit</button> 
                           <button className="btn text-danger" onClick={() => { setAuser(e);  setDeleteModal(true); }}>Delete</button>
                         </div>
                       </div>
