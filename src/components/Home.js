@@ -104,7 +104,7 @@ function Home() {
       
     } else {
       if (user == null) {
-        alert("Please login before making a request");
+        navigate(`/signin`);
       }
     }
   };

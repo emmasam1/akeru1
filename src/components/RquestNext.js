@@ -74,6 +74,9 @@ function RequestNext() {
         <div className="triangle rotate"></div>
         <div className="position-absolute main_width">
           {pageLoading ? <Loader /> : <div className="row ">
+
+              {amount<1?<div className="col-md-2 "></div>:null}
+
             <div className="col-md-8  p-3 bg-white rounded reqNext ">
               <h1 className="text-center req_h1">Your request summary</h1>
               <p className="text-center req_first_p pt-2 w900">
@@ -88,8 +91,9 @@ function RequestNext() {
               <p className="text-center t-40 w900">{weight} </p>
               <p className="text-center t-40 w900">{item}</p>
               <p className="text-center t-12 w900">
-                We will match you with a verified driver in 5 mins
+              {amount<1?<>We will send you a quote in 5 mins, <br/>Please check your email or refresh this page</>:<>We will match you with a verified driver in 5 mins</>}
               </p>
+
               <div className="d-flex justify-content-center m37">
                 <Link
                   to={`/request?request_id=${requestId}`}
@@ -98,8 +102,10 @@ function RequestNext() {
                   Edit request
                 </Link>
               </div>
+              
             </div>
-            <div className="col-md-4   rounded bg-white p-3 reqNext ">
+
+            {amount>0?<div className="col-md-4  rounded bg-white p-3 reqNext ">
               <div>
                 <h4 className="text-center w900 req_h4 mb-4">{weight} {truck_type}</h4>
                 <div className="border-bottom border-2 mb-3">
@@ -148,7 +154,7 @@ function RequestNext() {
                 </div>
               </div>
 
-            </div>
+            </div>:null}
           </div>}
         </div>
       </div>
