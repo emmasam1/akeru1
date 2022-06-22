@@ -20,6 +20,7 @@ function Proflie() {
   const [passError, setPassError] = React.useState("")
   const [userId, setUserId] = React.useState("")
   const [isLoading, setIsLoading] = React.useState(false);
+  const [clientSummary, setClientSummary] = React.useState({});
   const [isLoadingPass, setIsLoadingPass] = React.useState(false);
   const navigate = useNavigate();
 
@@ -28,7 +29,7 @@ function Proflie() {
       navigate('/signin');
     }
 
-    if (image.lenght < 1) return;
+    if (image.length < 1) return;
     const newImageurl = [];
     image.forEach((img) => newImageurl.push(URL.createObjectURL(img)));
     setImageURL(newImageurl);
@@ -44,6 +45,15 @@ function Proflie() {
         setEmail(res.data.email)
         setPhone(res.data.phone)
         setFullname(res.data.fullname)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+      axios
+      .get(`${ROUTE.CLIENTS}/${userlocal.user_id}/summary`)
+      .then((res) => {
+        setClientSummary(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -107,8 +117,13 @@ function Proflie() {
 
   const handleLogout = () => {
     if(window.confirm("Are you sure you want to logout??")){
-     window.localStorage.clear();
-     navigate('/');
+     window.localStorage.removeItem("user");
+     if(localStorage.getItem("personate") && localStorage.getItem("admin")){
+      navigate('/admin-dashboard/customers');
+     }else{
+      navigate('/');
+     }
+     
      window.location.reload(); 
     }
    }
@@ -140,10 +155,7 @@ function Proflie() {
       .catch((err) => {
         console.log(err);
         setIsLoading(false)
-      });
-
-      
-      
+      });      
   }
 
  const uploadProfilePhoto=(id)=>{
@@ -250,7 +262,7 @@ function Proflie() {
                 <Link to="/profile/pending" className="link-dark text-decoration-none col-md-4">
                   <div className={`pt-3  ${window.location.pathname == "/profile/pending" ? "on-going" : "pending"}`}>
                     <div className="d-flex justify-content-between p-3">
-                      <h2 className="w900">0</h2>
+                      <h2 className="w900">{clientSummary.pending}</h2>
                       <div className="line-h">
                         <span>
                           Pending
@@ -263,7 +275,7 @@ function Proflie() {
                 <Link to="/profile/ongoing" className="link-dark text-decoration-none col-md-4 ">
                   <div className={`pt-3  ${window.location.pathname == "/profile/ongoing" ? "on-going" : "pending"}`}>
                     <div className="d-flex justify-content-between p-3">
-                      <h2 className="w900">0</h2>
+                      <h2 className="w900">{clientSummary.ongoing}</h2>
                       <div className="line-h">
                         <span>
                           Ongoing
@@ -277,7 +289,7 @@ function Proflie() {
                 <Link to="/profile/complete" className="link-dark text-decoration-none col-md-4">
                   <div className={`pt-3  ${window.location.pathname == "/profile/complete" ? "on-going" : "pending"}`}>
                     <div className=" d-flex justify-content-between p-3">
-                      <h2 className="w900">0</h2>
+                      <h2 className="w900">{clientSummary.completed}</h2>
                       <div className="line-h">
                         <span>
                           Completed

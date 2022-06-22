@@ -7,6 +7,8 @@ import SetQuoteModal from "./Dash-Components/Set-Quote-Modal";
 import AssignDriverModal from "./Dash-Components/AssignModal";
 import DeleteModal from "./Dash-Components/DeleteModal";
 import ConvertDate from "./ConvertDate";
+import ClientName from "./Dash-Components/ClientName";
+import truck from "../image/request_img.png";
 
 
 function Request() {
@@ -263,8 +265,7 @@ function Request() {
               <thead className="table-dark">
                 <tr>
                   <th scope="col">S/N</th>
-                  <th scope="col">PICK UP</th>
-                  <th scope="col">DROP OFF</th>
+                  <th scope="col">PICK UP / DROP OFF</th>
                   <th scope="col">WEIGHT</th>
                   <th scope="col">ITEM</th>
                   <th scope="col">DATE</th>
@@ -279,10 +280,10 @@ function Request() {
               <tbody className="position-relative">
                 { requestData.map((e, i) => {
                   return (
-                    <tr key={e.user_id} id={e.user_id}>
-                      <td>{i + 1}</td>
-                      <td>{e.pick_up}</td>
-                      <td>{e.drop_off}</td>
+                    <tr key={i} id={i}>
+                      <td><img src={truck} className="request-truck"/></td>
+                      <td> <ClientName id={e.user_id} /> <br/>{e.pick_up}<i class="bi bi-arrow-right text-warning fs-6 m-2"></i>{e.drop_off}</td>
+                      
                       <td>{e.weight}</td>
                       <td>{e.item}</td>
                       <td><ConvertDate date={e.date}/></td>

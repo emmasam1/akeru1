@@ -43,8 +43,9 @@ function Register() {
           //console.log(res.data.msg);
         }
         else{
-
-          navigate("/request");
+          localStorage.setItem("user", JSON.stringify(res.data.data));
+          navigate("/profile");
+         
         }
        
       }).catch(err => {

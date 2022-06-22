@@ -111,6 +111,11 @@
   left: 20%;
   border-radius: 8px;
 }
+.request-truck{
+  width: 30px;
+  height: 30px;
+  margin-top: 20px;
+}
 
 .user-modal {
   width: 40%;
