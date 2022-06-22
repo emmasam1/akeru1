@@ -116,6 +116,10 @@
   height: 30px;
   margin-top: 20px;
 }
+.akeru-bg-primary {
+  background-color: #D0E1CC !important;
+  color: #000;
+}
 
 .user-modal {
   width: 40%;

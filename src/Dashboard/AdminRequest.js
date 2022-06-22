@@ -119,9 +119,9 @@ function Request() {
       case "start_trip":
         return <span className="badge bg-success">On Transit...<i class="bi bi-truck"></i></span>
       case "arrive_dropoff":
-        return <span className="badge bg-dark">Completed</span>
+        return <span className="badge akeru-bg-primary">Completed</span>
         case "completed":
-          return <span className="badge bg-dark">Completed</span>
+          return <span className="badge akeru-bg-primary">Completed</span>
       case "cancelled":
           return <span className="badge bg-danger">Cancelled</span>
       case "paused_trip":
@@ -277,6 +277,7 @@ function Request() {
                   <th scope="col">ACTION</th>
                 </tr>
               </thead>
+              
               <tbody className="position-relative">
                 { requestData.map((e, i) => {
                   return (
@@ -284,9 +285,9 @@ function Request() {
                       <td><img src={truck} className="request-truck"/></td>
                       <td> <ClientName id={e.user_id} /> <br/>{e.pick_up}<i class="bi bi-arrow-right text-warning fs-6 m-2"></i>{e.drop_off}</td>
                       
-                      <td>{e.weight}</td>
+                      <td>{e.weight} </td>
                       <td>{e.item}</td>
-                      <td><ConvertDate date={e.date}/></td>
+                      <td>{e.date}</td>
                       <td>₦{e.amount.toLocaleString()}</td>
                       <td>{e.is_paid ? <span className="badge bg-success">Paid</span> : <span className="badge bg-secondary">Awaiting..</span>}</td>
                       <td>{e.payment_type}</td>

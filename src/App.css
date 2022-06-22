@@ -1382,6 +1382,7 @@ label span input {
 
 .akeru-bg-primary {
   background-color: #D0E1CC !important;
+  color: #000;
 }
 
 .badge {

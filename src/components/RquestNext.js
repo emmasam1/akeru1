@@ -86,7 +86,7 @@ function RequestNext() {
               </p>
               <p className="text-center text-muted t-13 w900">{date}</p>
               <p className="text-center text-muted t-13 w900">
-                SKU : EV-NA-001
+                SKU : {(requestId).toUpperCase()}
               </p>
               <p className="text-center t-40 w900">{weight} </p>
               <p className="text-center t-40 w900">{item}</p>

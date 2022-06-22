@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import ROUTE from "../route.json";
 import axios from "axios";
 import Loader from "./Loader";
-
+import truck from "../image/request_img.png";
 
 function Ongoing() {
   const [isLoading, setIsLoading] = useState(false);
@@ -58,17 +58,17 @@ function Ongoing() {
       case "pending":
         return <span className="badge bg-secondary">Pending..</span>
       case "accepted":
-        return <span className="badge bg-info">Accepted</span>
+        return <span className="badge bg-warning">Accepted</span>
       case "arrive_pickup":
         return <span className="badge bg-info">At Pickup</span>
       case "start_trip":
-        return <span className="badge bg-success">On Transit... <i class="bi bi-truck"></i></span>
+        return <span className="badge bg-success">On Transit...<i class="bi bi-truck"></i></span>
       case "arrive_dropoff":
-        return <span className="badge bg-dark">Completed</span>
-      case "completed":
-        return <span className="badge bg-dark">Completed</span>
+        return <span className="badge akeru-bg-primary ">Completed</span>
+        case "completed":
+          return <span className="badge akeru-bg-primary ">Completed</span>
       case "cancelled":
-        return <span className="badge bg-danger">Cancelled</span>
+          return <span className="badge bg-danger">Cancelled</span>
       case "paused_trip":
         return <span className="badge bg-secondary">PAUSED</span>
     }
@@ -130,8 +130,7 @@ function Ongoing() {
         <thead className="table-dark">
           <tr>
             <th scope="col">S/N</th>
-            <th scope="col">PICK UP</th>
-            <th scope="col">DROP OFF</th>
+            <th scope="col">PICK UP / DROP OFF</th> 
             <th scope="col">ITEM</th>
             <th scope="col">TRUCK TYPE</th>
             <th scope="col">PAID</th>
@@ -147,14 +146,13 @@ function Ongoing() {
           {isLoading ? <Loader /> : requestData.map((e, i) => {
             return (
               <tr key={e.user_id} id={e.user_id}>
-                <td>{i + 1}</td>
-                <td>{e.pick_up}</td>
-                <td>{e.drop_off}</td>
+                <td><img src={truck}  /></td>
+                <td>{e.pick_up}<i class="bi bi-arrow-right text-warning fs-6 m-2"></i>{e.drop_off}</td>
                 <td>{e.item}</td>
                 <td>{e.truck_type}</td>
                 <td>{e.is_paid ? <span className="badge bg-success">Paid</span> : <span className="badge bg-secondary">Awaiting..</span>}</td>
                 <td>{e.weight}</td>
-                <td>{changeDate(e.date)}</td>
+                <td>{e.date}</td>
                 <td>₦{e.amount.toLocaleString()}</td>
                 <td>{switchStatusBadge(e.status)}</td>
                 <td>{e.payment_type}</td>
