@@ -20,7 +20,7 @@ function Navbar(props) {
       <div className="float-end d-flex justify-content-between user-info-holder">
         <img src={notification} alt="icon" className="notification-icon"/>
         <p className="user-info position-relative" >
-          Hi, <span>Sean</span>
+          Hi, <span>ADMIN</span>
         </p>
         <div className="rounded-circle user-img">
           <img src={user} alt="" className="img-fluid rounded-circle" />
