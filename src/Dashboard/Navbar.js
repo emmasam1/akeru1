@@ -1,6 +1,6 @@
 import React from "react";
 import notification from "../image/Notification.svg";
-import user from "../image/user.png";
+import user from "../image/dashuser.png";
 import { Link, useNavigate } from "react-router-dom";
 
 function Navbar(props) {
@@ -28,7 +28,6 @@ function Navbar(props) {
         <div className="dropdown">
           <i className="bi bi-caret-down-fill text-white position-relative admin-nav-dropdown" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></i>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li onClick={()=>{handleLogout()}}><Link className="dropdown-item" to="#">Logout</Link></li>
               <li><button className="dropdown-item btn" onClick={()=>handleLogout()}>Logout</button></li>
             </ul>
         </div>
