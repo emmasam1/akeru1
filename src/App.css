@@ -663,14 +663,14 @@ input[type="text"]::placeholder {
 
 .login_p_text {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 22px;
   letter-spacing: 0em;
   text-align: center;
 }
 
 .login_p_text span {
-  color: #607d8bd4;
+  color: #A7A8BB;
 }
 
 .form-label {
@@ -1420,12 +1420,20 @@ label span input {
   display: block;
 }
 
-.btn {
+.btn  {
+  border-radius: 8px !important;
+  padding: 12px 26px;
+   font-size: 14px;
+}
+
+.btn-akeru  {
   border-radius: 8px !important;
   padding: 18px 37px;
   background-color: var(--btnColor);
   font-weight: 700;
   font-size: 18px;
+  text-decoration: none;
+  border: 0px ;
 }
 
 .page-link {

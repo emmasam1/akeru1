@@ -447,7 +447,7 @@ function Home() {
           <div className="text-center pt-4 pb-4 col-auto">
             <Link
               to="/request"
-              className="link-dark btn"
+              className="link-dark btn-akeru"
             >
               Request a quote
             </Link>
@@ -509,7 +509,7 @@ function Home() {
           </div>
         </div>
         <div className="col-md-3  pt-2">
-          <Link to="/partner" className="link-dark  btn  ">
+          <Link to="/partner" className="link-dark  btn-akeru  ">
             Join us
           </Link>
         </div>

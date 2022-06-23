@@ -71,7 +71,7 @@ function Navbar() {
               </Link>
             </ul>
             <div className="row">
-               <div className="col-lg-6">
+               <div className="col-lg-3">
                {user ? null : <Link
                 to="/signin"
                 className="nav_margin link-dark text-decoration-none fw-bold nav_link_padding"

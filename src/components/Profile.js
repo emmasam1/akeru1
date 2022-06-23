@@ -378,7 +378,7 @@ function Proflie() {
                       <div className="mt-4 profile">
                         <h2 className="">Phone number</h2>
                         <div className="profile-text-holder">
-                          <input className="profile-text-holder border-0 outline-0 input-color"  value={phone} type="text" onChange={handlePhone} />
+                          <input className="profile-text-holder border-0 outline-0 input-color"  value={phone} type="number" onChange={handlePhone} />
                           {/* <span className=" p-1">0708822939929</span> */}
                         </div>
                       </div>
@@ -423,7 +423,7 @@ function Proflie() {
                       <div className="container">
                         <div className="row">
                           <div className="col">
-                          <button className="btn edit_btn w900" onClick={handleSavePassword}> <Loading loading={isLoadingPass} false_text={"Save Password"} /></button>
+                          <button className="btn w900" onClick={handleSavePassword}> <Loading loading={isLoadingPass} false_text={"Save Password"} /></button>
                           </div>
                           <div className="col-auto">
                           <button className="btn   w900 btn-danger" onClick={handleLogout} > Logout <i class="bi bi-box-arrow-right"></i></button>

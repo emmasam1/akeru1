@@ -174,7 +174,7 @@ function Register() {
                 Phone number
               </label>
               <input
-                type="text"
+                type="number"
                 pattern="[0-9]*"
                 className="login_input reg_margin"
                 id="exampleInputPhone"
@@ -217,8 +217,8 @@ function Register() {
                 
               })}
             </div>
-            <p className="text-center mt-3 tnc">I have read and agree to the <Link to="#" className="link-dark">Terms & Conditions</Link></p>
-            <div className="d-flex justify-content-center reg_btn_style"><button className="w900">Create account</button></div>
+            <p className="text-center mt-3 tnc">I have read and agree to the <Link to="/privacy-policy" className="link-dark">Privacy Policy</Link></p>
+            <div className="d-flex justify-content-center "><button className="w900 btn-akeru">Create account</button></div>
           </form>
           </div>
       </div>

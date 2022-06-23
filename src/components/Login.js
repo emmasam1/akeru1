@@ -157,8 +157,8 @@ function Login() {
             
               <ShowMessage  hasError={hasError} message={error}/>
             
-            <div className="btn_style d-flex justify-content-center">
-              <button className="login w900"><Loading loading={isLoading} false_text={"Sign in "}/> </button>
+            <div className=" d-flex justify-content-center">
+              <button className="login w900 btn-akeru"><Loading loading={isLoading} false_text={"Sign in "}/> </button>
             </div>
           </form>
           <div
