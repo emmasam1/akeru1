@@ -25,7 +25,7 @@ function Home() {
   const [item, setItem] = useState("");
   const [truck_type, setTruckType] = useState("");
   const [weight, setWeight] = useState("");
- 
+
   const [pick_upErr, setpick_upErr] = useState({});
   const [drop_offErr, setdrop_offErr] = useState({});
   const [dateErr, setdateErr] = useState({});
@@ -40,7 +40,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get(ROUTE.SITE_URL+"/locations")
+      .get(ROUTE.SITE_URL + "/locations")
       .then((res) => {
         let locate = res.data;
         setLocations(locate);
@@ -49,25 +49,25 @@ function Home() {
         console.log(err);
       });
     axios
-        .get(ROUTE.SITE_URL + "/tons")
-        .then((res) => {
-            let ton = res.data;
-            setTons(ton);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+      .get(ROUTE.SITE_URL + "/tons")
+      .then((res) => {
+        let ton = res.data;
+        setTons(ton);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
-        axios
-    .get(ROUTE.SITE_URL+"/truck-types")
-    .then((res) => {
-      let truckTypes = res.data;
-      setTruckTypes(truckTypes);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}, []);
+    axios
+      .get(ROUTE.SITE_URL + "/truck-types")
+      .then((res) => {
+        let truckTypes = res.data;
+        setTruckTypes(truckTypes);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
 
 
@@ -92,16 +92,16 @@ function Home() {
       };
 
       axios
-      .post(ROUTE.REQUEST,data)
-      .then(function (res) {
-        navigate(`/detail?request_id=${res.data.data.id}`);
-      })
-      .catch(function (err) {
-        setIsLoading(false)
-        console.log(err);
-        alert(err)
-      });
-      
+        .post(ROUTE.REQUEST, data)
+        .then(function (res) {
+          navigate(`/detail?request_id=${res.data.data.id}`);
+        })
+        .catch(function (err) {
+          setIsLoading(false)
+          console.log(err);
+          alert(err)
+        });
+
     } else {
       if (user == null) {
         navigate(`/signin`);
@@ -252,10 +252,10 @@ function Home() {
                     >
                       <option value={""}>Select Type</option>
                       {truckTypes.map((data) => {
-                      return (
-                        <option value={data.name} >{data.name}</option>
-                      );
-                    })}
+                        return (
+                          <option value={data.name} >{data.name}</option>
+                        );
+                      })}
                     </select>
                     {Object.keys(typeErr).map((key) => {
                       return (
@@ -273,11 +273,11 @@ function Home() {
                     >
                       <option>Weight in Tons</option>
                       {tons.map((data) => {
-                      return (
-                        <option value={data.amount} >{data.amount} Tons</option>
-                      );
-                    })}
-                      
+                        return (
+                          <option value={data.amount} >{data.amount} Tons</option>
+                        );
+                      })}
+
                     </select>
                     {Object.keys(weightErr).map((key) => {
                       return (
@@ -287,7 +287,7 @@ function Home() {
                       );
                     })}
 
-                    <button className="my_btn w900">
+                    <button className="my_btn w900 p-3">
                       {" "}
                       <Loading
                         loading={isLoading}
@@ -320,7 +320,7 @@ function Home() {
 
               <div className="container">
                 <div className="row">
-                  <div className="col-lg-6 col-md-12">
+                  <div className="col-lg-6 col-md-6">
                     <div>
                       <div className="icon_holder d-flex justify-content-center">
                         <img src={vector} alt="icon" className="vector_icon" />
@@ -332,13 +332,13 @@ function Home() {
                       </p>
                     </div>
                   </div>
-                  <div className="col-lg-6 col-md-12">
+                  <div className="col-lg-6 col-md-6">
                     <div>
                       <div className="icon_holder d-flex justify-content-center">
                         <img
                           src={vector4}
                           alt="icon"
-                          className="vector_icon4"
+                          className="vector_icon"
                         />
                       </div>
                       <p className="truck_small_heading">Competitive pricing</p>
@@ -349,13 +349,13 @@ function Home() {
                     </div>
                   </div>
 
-                  <div className="col-lg-6 col-md-12">
+                  <div className="col-lg-6 col-md-6">
                     <div>
                       <div className="icon_holder d-flex justify-content-center">
                         <img
                           src={vector2}
                           alt="icon"
-                          className="vector_icon2"
+                          className="vector_icon"
                         />
                       </div>
                       <p className="truck_small_heading">Insurance covered</p>
@@ -365,13 +365,13 @@ function Home() {
                       </p>
                     </div>
                   </div>
-                  <div className="col-lg-6 col-md-12">
+                  <div className="col-lg-6 col-md-6">
                     <div>
                       <div className="icon_holder d-flex justify-content-center">
                         <img
                           src={vector3}
                           alt="icon"
-                          className="vector_icon2"
+                          className="vector_icon"
                         />
                       </div>
                       <p className="truck_small_heading">Automated logistics</p>
@@ -385,28 +385,28 @@ function Home() {
               </div>
             </div>
             <div className="col offset-md-0 display akeru-col-height">
-            <img src={truck} alt="truck" className="truck" />
-            <div className="lower_truck_div">
-              <div className="d-flex">
-                <div className="rounded-circle d-flex justify-content-center round_div_style">
-                  <img src={vector6} alt="icon" />
+              <img src={truck} alt="truck" className="truck" />
+              <div className="lower_truck_div">
+                <div className="d-flex">
+                  <div className="rounded-circle d-flex justify-content-center round_div_style">
+                    <img src={vector6} alt="icon" />
+                  </div>
+                  <p className="round_div_p">Truck Requested</p>
                 </div>
-                <p className="round_div_p">Truck Requested</p>
+                <hr className="horizontal_line" />
+                <hr className="horizontal_line2" />
               </div>
-              <hr className="horizontal_line" />
-              <hr className="horizontal_line2" />
-            </div>
 
-            <div className="lower_truck_div2">
-              <div className="d-flex">
-                <div className="rounded-circle d-flex justify-content-center round_div_style">
-                  <img src={vector5} alt="icon" />
+              <div className="lower_truck_div2">
+                <div className="d-flex">
+                  <div className="rounded-circle d-flex justify-content-center round_div_style">
+                    <img src={vector5} alt="icon" />
+                  </div>
+                  <p className="round_div_p">1 hour to delivery</p>
                 </div>
-                <p className="round_div_p">1 hour to delivery</p>
+                <hr className="horizontal_line" />
+                <hr className="horizontal_line2" />
               </div>
-              <hr className="horizontal_line" />
-              <hr className="horizontal_line2" />
-            </div>
             </div>
           </div>
           {/* <div className="row">
@@ -420,7 +420,8 @@ function Home() {
         </div>
       </div>
 
-      <div className="main_width mt-3 bg_color d-flex justify-content-center pt-4 flex-column rmp">
+      <div className="main_width mt-3 bg_color d-flex justify-content-center pt-2 flex-column rmp">
+        <div className="p-5">
         <h1 className="text-center truck_h6_text">
           Join the list of companies that trust Shuttlers
         </h1>
@@ -429,11 +430,13 @@ function Home() {
           <img src={Casera} alt="icon" />
           <img src={unilever} alt="icon" />
         </div>
+        </div>
       </div>
 
       <div className="main_width mt-3 div_bg md-p">
-        <div className="m_auto milestone d-flex pt-5 pb-2 rmp fd ht">
-          <div className="tc">
+        <div className="container">
+        <div className="row  milestone  pt-5 pb-2 rmp fd ht ">
+          <div className="col-lg-8 col-md-6 pt-4">
             <h2 className="milestone_header truck_h6_text">
               Some of our milestones
             </h2>
@@ -441,33 +444,34 @@ function Home() {
               We’ve been really busy this year making thing like this happen
             </p>
           </div>
-          <div className="sm">
+          <div className="text-center pt-4 pb-4 col-auto">
             <Link
               to="/request"
-              className="milestone_link link-dark pt-3 w900 btn_p"
+              className="link-dark btn"
             >
               Request a quote
             </Link>
           </div>
         </div>
+        </div>
         <div className="col_div">
-          <div className="row row_setting">
-            <div className="col-lg-3 my_col_settings tac">
+          <div className="row pb-5">
+            <div className="col-md-3 col-sm-6 ">
               <h1 className="milestone_h1">36</h1>
               <p className="milestone_first_p">States covered</p>
               <p className="milestone_second_p">We are everywhere</p>
             </div>
-            <div className="col-lg-3 my_col_settings tac">
+            <div className="col-md-3 col-sm-6">
               <h1 className="milestone_h1">23</h1>
               <p className="milestone_first_p">Team members</p>
               <p className="milestone_second_p">Working right now</p>
             </div>
-            <div className="col-lg-3 my_col_settings tac">
+            <div className="col-md-3 col-sm-6">
               <h1 className="milestone_h1">10</h1>
               <p className="milestone_first_p">Fleet</p>
               <p className="milestone_second_p">Smooth cargo delivery</p>
             </div>
-            <div className="col-lg-3 my_col_settings tac">
+            <div className="col-md-3 col-sm-6">
               <h1 className="milestone_h1">2,142</h1>
               <p className="milestone_first_p">Request completed</p>
               <p className="milestone_second_p">We are not slowing down</p>
@@ -476,36 +480,36 @@ function Home() {
         </div>
       </div>
 
-      <div className="main_width mt-3 own_truck d-flex p-5 justify-content-between rmp md-moblie">
-        <div className="footer_h2_holder">
+      <div className="main_width mt-3 own_truck row     ">
+        <div className="col-md-4">
           <h2>Do you own a Truck? Join us and start earning</h2>
         </div>
-        <div className="own_item_holder container ">
-          <div className="row justify-left">
-            <span className="col-sm-5 col-md-12 col-lg-6">
+        <div className="col-md-5 ">
+          <div className="row justify-left pt-2">
+            <span className="col-sm-6  col-lg-6">
               <i className="bi bi-check-square-fill akeru-primary m-1"></i> No
               obligation
             </span>
-            <span className="col-sm-5 col-md-12 col-lg-6">
+            <span className="col-sm-6  col-lg-6">
               {" "}
               <i className="bi bi-check-square-fill akeru-primary m-1"></i>Full
               features
             </span>
           </div>
 
-          <div className="row justify-left mt-2 top-settings">
-            <span className="col-sm-5 col-md-12 col-lg-6">
+          <div className="row justify-left top-settings  pt-3">
+            <span className="col-sm-6  col-lg-6">
               <i className="bi bi-check-square-fill akeru-primary m-1"></i>
               Instant payout{" "}
             </span>
-            <span className="col-sm-5 col-md-12 col-lg-6">
+            <span className="col-sm-6  col-lg-6 ">
               <i className="bi bi-check-square-fill akeru-primary m-1"></i>{" "}
               Reporting dashboard
             </span>
           </div>
         </div>
-        <div className="join_btn_holder">
-          <Link to="/signin" className="link-dark w900 footer_btn">
+        <div className="col-md-3  pt-2">
+          <Link to="/partner" className="link-dark  btn  ">
             Join us
           </Link>
         </div>

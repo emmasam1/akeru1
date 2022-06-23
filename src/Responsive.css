@@ -1,5 +1,23 @@
 
-@media (min-width: 768px) and (-webkit-device-pixel-ratio: 2) {
+@media (max-width: 1024px)   {
+  .main_width{width: 90% !important;}
+  .own_truck{padding: 20px !important;}
+}
+
+@media (max-width:700px) {
+  .nav-container{
+    height: 95px !important;
+  }
+}
+
+@media (max-width:988px) {
+  .register_link {
+    background: transparent;
+    padding: 0;
+  }
+}
+@media (min-width: 768px)   {
+ 
   .profile_btn_request{
     display: none;
   }
@@ -29,20 +47,15 @@
   /* HOME PAGE */
   .hero_style {
     overflow: hidden !important;
-    height: 850px !important;
+    height: 549px  !important;
   }
-  .main_width {
-    margin-top: 10px;
-  }
+ 
   .nav_flex_direction {
     flex-direction: column !important;
     height: 75px !important;
     position: relative;
   }
-  .register_link {
-    background: transparent;
-    padding: 0;
-  }
+ 
   .truck {
     left: 95px !important;
   }
@@ -68,12 +81,7 @@
   .height {
     height: 470px !important;
   }
-  .milestone {
-    flex-direction: column;
-    padding-top: 15px !important;
-    height: 145px;
-    text-align: center;
-  }
+ 
   .sm {
     margin: 0 auto;
   }
@@ -86,11 +94,7 @@
     grid-template-columns: auto auto;
     row-gap: 15px;
   }
-  .own_truck {
-    flex-direction: column;
-    padding: 15px 15px 0 15px !important;
-    height: 230px;
-  }
+ 
   .own_item_holder {
     width: 90%;
     display: grid;
@@ -191,19 +195,14 @@
  
   .hero_style {
     overflow: hidden;
-    height: 945px;
+    height: 800px;
   }
-  .main_width {
-    margin-top: 10px;
-  }
+
   .nav_flex_direction {
     flex-direction: column;
     height: 70px;
   }
-  .register_link {
-    background: transparent;
-    padding: 0;
-  }
+ 
   .nav_margin {
     margin: 0 30px 15px 0;
   }
@@ -227,12 +226,7 @@
   .lower_truck_div2 {
     right: 50px;
   }
-  .milestone {
-    flex-direction: column;
-    padding-top: 15px !important;
-    height: 145px;
-    text-align: center;
-  }
+ 
   .sm {
     margin: 0 auto;
   }
@@ -245,11 +239,7 @@
     grid-template-columns: auto auto;
     row-gap: 15px;
   }
-  .own_truck {
-    flex-direction: column;
-    padding: 15px 15px 0 15px !important;
-    height: 230px;
-  }
+ 
   .own_item_holder {
     width: 90%;
     display: grid;
@@ -432,10 +422,7 @@
   .main_width {
     width: 100%;
   }
-  .truck_h6_text {
-    font-size: 20px !important;
-    padding: 0 5px 0 5px;
-  }
+ 
   .join_img_holder {
     width: 253px;
   }
@@ -446,11 +433,7 @@
   .rmp {
     padding: 0 0 0 0 !important;
   }
-  .milestone {
-    flex-direction: column !important;
-    padding: 18px 0px 0 0 !important;
-    height: 165px;
-  }
+
   .milestone_link {
     position: relative;
     bottom: 8px;
@@ -463,10 +446,8 @@
     text-align: center !important;
   }
   .own_truck {
-    flex-direction: column;
-    width: 95% !important;
-    height: 230px;
-  }
+     width: 95% !important;
+   }
   .footer_h2_holder {
     padding: 10px 5px 0 10px;
     margin: auto;
@@ -688,7 +669,7 @@
     overflow: hidden;
     width: 100% !important;
     padding: 0 0 200px 0;
-    height: 725px !important;
+    height: 750px !important;
   }
 
   .hs {
@@ -749,9 +730,7 @@
     padding: 0 0 0 0 !important;
   }
   .milestone {
-    flex-direction: column !important;
-    padding: 18px 0px 0 0 !important;
-    height: 165px;
+      height: 165px;
   }
   .milestone_link {
     position: relative;
@@ -762,10 +741,8 @@
     text-align: center !important;
   }
   .own_truck {
-    flex-direction: column;
-    width: 95% !important;
-    height: 300px;
-  }
+     width: 95% !important;
+   }
   .footer_h2_holder {
     width: 255px;
     padding: 10px 5px 0 10px;

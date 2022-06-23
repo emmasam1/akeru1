@@ -31,6 +31,9 @@ body {
 .akeru_column {
   width: 100%;
 }
+.akeru-primary{
+  color: var(--primaryColor) !important;
+}
 
 .akeru_column::after {
   display: table;
@@ -150,11 +153,11 @@ body {
 .nav-container {
   width: 100%;
   background-color: #FFF;
-  height: 75px;
+  height: 85px;
 }
 
 .logo {
-  width: 4.5rem;
+  width: 149px;
   bottom: 4px;
 }
 
@@ -173,10 +176,10 @@ body {
 }
 
 .register_link {
-
   padding: 18px 37px;
   background: #D0E1CC;
   border-radius: 8px;
+  font-size: 18px;
 }
 
 /* NAV */
@@ -331,8 +334,8 @@ input[type="text"]::placeholder {
 }
 
 .truck_h6_text {
-  font-size: 1.5rem;
-  font-weight: 900;
+  font-size: 32px !important;
+  font-weight: 700;
 }
 
 .truck_section_margin {
@@ -342,8 +345,7 @@ input[type="text"]::placeholder {
 .turck_p_text_holder {
   margin: 10px 0 25px 20px;
   font-size: 14px;
-  font-weight: 600;
-  width: 340px;
+ 
 }
 
 .truck_small_heading {
@@ -365,8 +367,8 @@ input[type="text"]::placeholder {
 }
 
 .vector_icon {
-  width: 13px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   position: relative;
   top: 10px;
 }
@@ -445,8 +447,7 @@ input[type="text"]::placeholder {
 
 .bg_color {
   background-color: var(--divColor);
-  height: 160px;
-}
+ }
 
 .bg_color h1 {
   font-size: 25px;
@@ -454,19 +455,19 @@ input[type="text"]::placeholder {
 
 .join_img_holder {
   margin: 0 auto;
-  width: 360px;
+  width: 40%;
 }
 
 .join_img_holder img {
-  width: 60px;
+  width: 80px;
   object-fit: contain;
 }
 
 .milestone {
-  height: 140px;
-  border-bottom: 2px solid #030303;
+   border-bottom: 2px solid #030303;
   justify-content: space-between;
   width: 96%;
+  margin: auto;
 }
 
 .milestone_link {
@@ -497,12 +498,12 @@ input[type="text"]::placeholder {
 }
 
 .milestone_h1 {
-  font-size: 2.5rem;
+  font-size: 64px;
   font-weight: 900;
 }
 
 .milestone_first_p {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
   margin: 0;
 }
@@ -513,8 +514,13 @@ input[type="text"]::placeholder {
 
 .own_truck {
   background-color: var(--turckDivColor2);
-  height: 150px;
-}
+  padding: 40px !important;
+ }
+ .own_truck  h2{
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+ }
 
 .own_item_holder {
   width: 40%;
@@ -1413,7 +1419,10 @@ label span input {
 
 .btn {
   border-radius: 8px !important;
-  padding: 10px 20px;
+  padding: 18px 37px;
+  background-color: var(--btnColor);
+  font-weight: 700;
+  font-size: 18px;
 }
 
 .page-link {

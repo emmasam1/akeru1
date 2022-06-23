@@ -48,10 +48,10 @@ function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0 m_auto">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 m_auto pt-3">
               <Link
                 to="/how-it-works"
-                className="nav_margin link-dark text-decoration-none fw-bold fs-small"
+                className="nav_margin link-dark text-decoration-none fw-bold  "
               >
                 How it works
               </Link>
@@ -65,24 +65,24 @@ function Navbar() {
 
               <Link
                 to="/partner"
-                className="nav_margin link-dark text-decoration-none fw-bold fs-small"
+                className="nav_margin link-dark text-decoration-none fw-bold  "
               >
                 Partner
               </Link>
             </ul>
             <div className="row">
-               <div className="col-lg-4">
+               <div className="col-lg-6">
                {user ? null : <Link
                 to="/signin"
-                className="nav_margin link-dark text-decoration-none fw-bold fs-small nav_link_padding"
+                className="nav_margin link-dark text-decoration-none fw-bold nav_link_padding"
               >
                 Login
               </Link>}
                </div>
-             <div className="col-lg-4 col-md-12 text-left">
+             <div className="col-lg-6 col-md-12 text-left">
              {user?<div className="d-flex"> {personate?<button onClick={backToAdmin}  className="nav_margin btn btn-sm btn-outline-warning ">Admin</button>:null} <Link  to="/profile" className="link-dark"><i class="bi bi-person-circle fs-3"></i></Link></div>  :<Link
                 to="/register"
-                className="link_border_style nav_margin register_link link-dark sm-margin_nav text-decoration-none fw-bold fs-small m-0"
+                className="link_border_style nav_margin register_link link-dark sm-margin_nav text-decoration-none fw-bold   m-0"
               >
                 Register
               </Link>}

@@ -25,7 +25,7 @@ function PrivacyPolicy() {
     return (
         <>
             <Navbar />
-            <div className="  mt-3 mobile-sm-width">
+            <div className="  mt-5 mobile-sm-width">
                 <div className="algin-width">
                     <div className="container px-3 py-3">
                         <br />

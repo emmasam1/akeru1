@@ -20,14 +20,12 @@ function Footer() {
               <div className="col my_col_settings col-footer">
                 <h6 className="footer_h6">Legal</h6>
                 <li className="footer_li"><Link className='link-light text-decoration-none' to="/privacy-policy">Privacy Policy</Link></li> 
-                <li className="footer_li"><Link className='link-light text-decoration-none' to="/faq">FAQ</Link></li>
-              </div>
+               </div>
               <div className="col my_col_settings col-footer">
                 <h6 className="footer_h6">More</h6>
                 <li className="footer_li">Fuel advance</li>
                 <li className="footer_li">Join us</li>
-                <li className="footer_li">Invest</li>
-              </div>
+               </div>
               <div className="col my_col_settings col-footer">
                 <h6 className="footer_h6">Contact us</h6>
                 <li className="footer_li">info@akeru.ng</li>

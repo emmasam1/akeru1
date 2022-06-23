@@ -60,6 +60,7 @@ function Partner() {
 
             </div>
             <br />
+            <br />
             <div className="row text-center">
               <div className="join_btn_holder">
                 <Link to='/signin' className="link-dark w900 footer_btn">
