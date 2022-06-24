@@ -1112,6 +1112,14 @@ thead {
   width: 280px;
 }
 
+.partner-icon-width img {
+  width: 48%;
+  height: 50px;
+  object-fit: contain;
+  
+}
+
+
 .image-width {
   width: 400px;
   height: 500px;
