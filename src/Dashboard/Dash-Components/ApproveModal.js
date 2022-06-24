@@ -61,6 +61,28 @@ function ApproveModal(props) {
               </div>
               
             </div>
+            <div className="border-bottom border-2 mb-2">
+
+              <div className="d-flex justify-content-between">
+                <p className="req_pro w900">Bank Name</p>
+                <p className="req_pro_next">
+                  {props.data.bank_details.bank_name}
+                </p>
+              </div>
+              <div className="d-flex justify-content-between">
+                <p className="req_pro w900">Account Name</p>
+                <p className="req_pro_next">
+                  {props.data.bank_details.account_name}
+                </p>
+              </div>
+              <div className="d-flex justify-content-between">
+                <p className="req_pro w900">Account Number</p>
+                <p className="req_pro_next">
+                  {props.data.bank_details.account_number}
+                </p>
+              </div>
+              
+            </div>
            
           </div>
           <div className="col-md-6 rounded bg-white p-3 reqNext ">

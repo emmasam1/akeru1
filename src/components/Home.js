@@ -313,8 +313,7 @@ function Home() {
               </div>
               <div className="turck_p_text_holder">
                 <p>
-                  This goes further than what you expected, here you can
-                  communicate two really important product features with icons.
+                Some key factors why we are most sort after by hauliers and manufacturers in Nigeria
                 </p>
               </div>
 

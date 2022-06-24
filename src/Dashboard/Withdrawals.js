@@ -18,6 +18,7 @@ function Withdrawals() {
   const [status, setStatus] = useState("pending");
   const [aWithdrawal, setAWithdrawal] = useState({});
   const [withdrawalData, setWithdrawalData] = useState([])
+  const [drivers, setdrivers] = useState([])
   const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
@@ -30,6 +31,11 @@ function Withdrawals() {
 
           console.log("waitung for data");
         } else {
+          withdrawalData.forEach(element => {
+            let data =  axios.get(ROUTE.DRIVERS + `/${element.driver_id}`)
+            data=data.data
+            element.driver_details=data
+          });
           setWithdrawalData(withdrawalData)
           setPaginate(res.data.paginate)
           setIsLoading(false)
@@ -124,7 +130,7 @@ function Withdrawals() {
                   return (
                     <tr key={i} id={e.driver_id}>
                       <td>{i + 1}</td>
-                      <td><DriverName id={e.driver_id}/></td>
+                      <td><DriverName id={e.driver_id}/> {e.driver_details.firstname}</td>
                       <td>₦{e.amount.toLocaleString()}</td>
                       <td><ConvertDate date={e.created_at}/> </td>
                       <td>{switchStatusBadge(e.status)}</td>
