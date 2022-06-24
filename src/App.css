@@ -156,7 +156,7 @@ body {
 .nav-container {
   width: 100%;
   background-color: #FFF;
-  height: 85px;
+  height: 88px;
 }
 
 .logo {
@@ -1005,19 +1005,16 @@ input[type="text"]::placeholder {
 }
 
 .search-div {
-  width: 510px;
+  width: 60%;
 }
 
-.search-div button {
-  border: none;
-  background-color: var(--btnColor);
-  font-size: 14px;
-  padding: 0 20px;
-}
+ 
 
 .search-input {
-  width: 355px;
+  width: 70%;
+  margin-right: 10px;
   outline: none;
+  padding-left: 20px;
   background-color: var(--inputBackground);
 }
 
@@ -1450,6 +1447,10 @@ label span input {
 .btn-akeru:hover{
   background-color: transparent;
   border: 1px solid #000;
+}
+.btn-akeru-danger{
+  background-color: red;
+
 }
 
 .page-link {

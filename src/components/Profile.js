@@ -385,12 +385,12 @@ function Proflie() {
                     </div>
                   </div>
                  <br/>
-                 <button className="btn edit_btn w900" onClick={handleSave}> <Loading loading={isLoading} false_text={"Save changes"} /></button>
+                 <button className="btn btn-akeru w900" onClick={handleSave}> <Loading loading={isLoading} false_text={"Save changes"} /></button>
                     </div>
                   </div>
                 </div>
-                <div className="col-md-2"></div>
-                <div className="col-md-4">
+                <div className="col-md-1"></div>
+                <div className="col-md-5">
                   <div className="card">
                     <div className="card-body">
                       <h4>Change Password</h4>
@@ -423,10 +423,10 @@ function Proflie() {
                       <div className="container">
                         <div className="row">
                           <div className="col">
-                          <button className="btn w900" onClick={handleSavePassword}> <Loading loading={isLoadingPass} false_text={"Save Password"} /></button>
+                          <button className="btn btn-akeru w900" onClick={handleSavePassword}> <Loading loading={isLoadingPass} false_text={"Save Password"} /></button>
                           </div>
                           <div className="col-auto">
-                          <button className="btn   w900 btn-danger" onClick={handleLogout} > Logout <i class="bi bi-box-arrow-right"></i></button>
+                          <button className="btn btn-akeru  btn-akeru-danger  w900 " onClick={handleLogout} > Logout <i class="bi bi-box-arrow-right"></i></button>
                           </div>
                         </div>
                       </div>

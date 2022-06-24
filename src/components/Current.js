@@ -11,7 +11,7 @@ function Current() {
 
         <div className="d-flex justify-content-between search-div">
           <input className="search-input border-0" />
-          <button>Track now</button>
+          <button className='btn btn-akeru'>Track now</button>
         </div>
       </div>
     </>

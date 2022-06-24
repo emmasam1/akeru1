@@ -7,24 +7,24 @@ function Footer() {
       <div className="container-fiuld mt-3 pt-5 footer">
         <div className="main_width row footer_text_holder">
           <div className='col-md-2'>
-            <Link className='link-light text-decoration-none' to="/"><img src={fl} alt="logo" className="footer_logo" /></Link>
+            <a className='link-light text-decoration-none' href="/"><img src={fl} alt="logo" className="footer_logo" /></a>
           </div>
           <div className="col-md-8">
             <div className="row row-cols-4">
               <div className="col my_col_settings col-footer">
                 <h6 className="footer_h6">Services</h6>
                 <li className="footer_li">Routes</li>
-                <li className="footer_li"><Link className='link-light text-decoration-none' to="/how-it-works">How It Works</Link></li>
-                <li className="footer_li"><Link className='link-light text-decoration-none' to="/request">Request Haulage</Link></li>
+                <li className="footer_li"><a className='link-light text-decoration-none' href="/how-it-works">How It Works</a></li>
+                <li className="footer_li"><a className='link-light text-decoration-none' href="/request">Request Haulage</a></li>
               </div>
               <div className="col my_col_settings col-footer">
                 <h6 className="footer_h6">Legal</h6>
-                <li className="footer_li"><Link className='link-light text-decoration-none' to="/privacy-policy">Privacy Policy</Link></li> 
+                <li className="footer_li"><a className='link-light text-decoration-none' href="/privacy-policy">Privacy Policy</a></li> 
                </div>
               <div className="col my_col_settings col-footer">
                 <h6 className="footer_h6">More</h6>
                 <li className="footer_li">Fuel advance</li>
-                <li className="footer_li">Join us</li>
+                <li className="footer_li"> <a href='/partner' className='link-light text-decoration-none' to="/partner">Join us</a></li>
                </div>
               <div className="col my_col_settings col-footer">
                 <h6 className="footer_h6">Contact us</h6>
