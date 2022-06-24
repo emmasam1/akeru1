@@ -34,6 +34,8 @@ import Trucks from "./Dashboard/Trucks";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import FAQ from "./components/Faq";
 import Withdrawals from "./Dashboard/Withdrawals";
+import NewRequest from "./components/NewRequest";
+
 function App() {
   return (
     <>
@@ -44,6 +46,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/register" element={<Register />} />
         <Route path="/request" element={<Request />} />
+        <Route path="/new-request" element={<NewRequest />} />
         <Route path="/detail" element={<RequestNext />} />
         <Route path="/partner" element={<Partner />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} /> 

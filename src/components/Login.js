@@ -46,7 +46,13 @@ function Login() {
             setError("Login Successful");
             setIsLoading(false)
             localStorage.setItem("user", JSON.stringify(res.data));
-            navigate("/Profile");
+           
+            if(localStorage.getItem("request")){
+              navigate("/new-request");
+            }else{
+              navigate("/Profile");
+            }
+            
             // console.log("success");
           }
         })

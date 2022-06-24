@@ -148,7 +148,7 @@ body {
   font-weight: 700;
 }
 
-.div_bg {
+.div_bg, .div_bg_home {
   background-color: var(--divColor);
 }
 
@@ -183,6 +183,11 @@ body {
   background: #D0E1CC;
   border-radius: 8px;
   font-size: 18px;
+  border: 1px solid #D0E1CC;
+}
+.register_link:hover{
+  background-color: transparent;
+  border: 1px solid #000;
 }
 
 /* NAV */
@@ -319,10 +324,16 @@ input[type="text"]::placeholder {
   cursor: pointer;
   outline: none;
   border: none;
-  font-size: 16px;
+  font-size: 18px;
   padding: 13px 0;
-  border-radius: 10px;
+  font-weight: 700;
+  border-radius: 8px;
   background-color: #d0e1cc;
+  border: 1px solid #d0e1cc;
+}
+.my_btn:hover{
+  background-color: transparent;
+  border: 1px solid #000;
 }
 
 .div_color {
@@ -674,8 +685,9 @@ input[type="text"]::placeholder {
 }
 
 .form-label {
-  font-size: 13px;
+  font-size: 14px;
   margin: 0;
+  font-weight: 600;
 }
 
 .login_icon_holder {
@@ -1433,7 +1445,11 @@ label span input {
   font-weight: 700;
   font-size: 18px;
   text-decoration: none;
-  border: 0px ;
+  border: 1px solid #D0E1CC;
+}
+.btn-akeru:hover{
+  background-color: transparent;
+  border: 1px solid #000;
 }
 
 .page-link {

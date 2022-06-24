@@ -129,14 +129,14 @@ function Partner() {
       <div className="main_width div_color mt-3 mobile-sm-width">
         <div className="algin-width">
           <div className="row ">
-            <div className="col-md-6 col-pad col-pad-left">
+            <div className="col col-pad col-pad-left">
               <h2 className="w900 f32">Receive live order</h2>
               <p>
                 With Akeru driver’s app all you need to do is to stay online and
                 you will receive a live request for your service.{" "}
               </p>
             </div>
-            <div className="col-md-6 d-flex justify-content-end p-3">
+            <div className="col d-flex justify-content-end p-3">
               <img src={incoming} alt="" className="img-style mobile-sm-img" />
               <div className="incoming-div position-absolute div-margin rounded">
                 <div className="d-flex p-2 justify-content-between dotted-bottom-div incoming-top-div">
@@ -178,7 +178,7 @@ function Partner() {
                 />
               </div>
 
-              <div className="col-md-6 col-pad-left">
+              <div className="col col-pad-left">
                 <h2 className="w900 f32">Receive multiple order</h2>
                 <p>
                   With your fleet of trucks be rest assured that with Akeru you
@@ -193,7 +193,7 @@ function Partner() {
       <div className="main_width div_color mt-3 p-3 mobile-sm-width sm-padding">
         <div className="algin-width">
           <div className="row  ">
-            <div className="col-md-6 col-pad-left">
+            <div className="col col-pad col-pad-left">
               <h2 className="w900 f32">Need fuel advance?</h2>
               <p className="p-text">
                 With Akeru you don’t have to worry about not having fuel to
@@ -201,7 +201,7 @@ function Partner() {
                 eligible to get one
               </p>
             </div>
-            <div className="col-md-6 d-flex justify-content-end">
+            <div className="col d-flex justify-content-end">
               <img src={home2} alt="" className="img-style mobile-sm-img" />
               <div className="incoming-div position-absolute div-margin rounded p-3 mobile-sm-incoming">
                 <div className="d-flex justify-content-between pt-4">
@@ -226,7 +226,7 @@ function Partner() {
         <div className="algin-width">
           <div className="container px-3">
             <div className="row">
-              <div className="col-md-6 d-flex justify-content-start p-3">
+              <div className="col d-flex justify-content-start p-3">
                 <img
                   src={notification}
                   alt=""
@@ -234,7 +234,7 @@ function Partner() {
                 />
               </div>
 
-              <div className="col-md-6 col-pad-left">
+              <div className="col col-pad-left">
                 <h2 className="w900 f32">Get real time notification</h2>
                 <p className="mobile-sm-partner-p">
                   Keep track of all activities by getting notifications of vital
@@ -249,11 +249,10 @@ function Partner() {
       <div className="main_width div_color mt-3 p-3 mobile-sm-width">
         <div className="container d-flex justify-content-center p-3">
           <h2 className="w900 f32">Features</h2>
-
-        </div> 
+        </div>
         <div className="row m-auto w80 pb-5">
           <div className=" col-md-4">
-            <div className="rounded div_bg add-shadow p-3 mt-3">
+            <div className="rounded div_bg add-shadow p-3 mt-4">
               <div className="rounded small-icon-div mt-4 mb-3 d-flex justify-content-center">
                 <img src={pencil} alt="icon" />
               </div>
@@ -272,7 +271,7 @@ function Partner() {
           </div>
 
           <div className=" col-md-4">
-            <div className="rounded div_bg add-shadow p-3 mt-3">
+            <div className="rounded div_bg add-shadow p-3 mt-4">
               <div className="rounded small-icon-div mt-4 mb-3 d-flex justify-content-center">
                 <img src={hand} alt="icon" />
               </div>
@@ -288,7 +287,7 @@ function Partner() {
           </div>
 
           <div className=" col-md-4 ">
-            <div className="rounded div_bg add-shadow p-3 mt-3">
+            <div className="rounded div_bg add-shadow p-3 mt-4">
               <div className="rounded small-icon-div mt-4 mb-3 d-flex justify-content-center">
                 <img src={lprice} alt="icon" />
               </div>

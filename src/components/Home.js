@@ -433,7 +433,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="main_width mt-3 div_bg md-p">
+      <div className="main_width mt-3 div_bg_home md-p">
         <div className="container">
         <div className="row  milestone  pt-5 pb-2 rmp fd ht ">
           <div className="col-lg-8 col-md-6 pt-4">
@@ -456,22 +456,22 @@ function Home() {
         </div>
         <div className="col_div">
           <div className="row pb-5">
-            <div className="col-md-3 col-sm-6 ">
+            <div className="col-lg-3 col-md-6 ">
               <h1 className="milestone_h1">36</h1>
               <p className="milestone_first_p">States covered</p>
               <p className="milestone_second_p">We are everywhere</p>
             </div>
-            <div className="col-md-3 col-sm-6">
+            <div className="col-lg-3 col-md-6 ">
               <h1 className="milestone_h1">23</h1>
               <p className="milestone_first_p">Team members</p>
               <p className="milestone_second_p">Working right now</p>
             </div>
-            <div className="col-md-3 col-sm-6">
+            <div className="col-lg-3  ">
               <h1 className="milestone_h1">10</h1>
               <p className="milestone_first_p">Fleet</p>
               <p className="milestone_second_p">Smooth cargo delivery</p>
             </div>
-            <div className="col-md-3 col-sm-6">
+            <div className="col-lg-3  ">
               <h1 className="milestone_h1">2,142</h1>
               <p className="milestone_first_p">Request completed</p>
               <p className="milestone_second_p">We are not slowing down</p>
@@ -508,7 +508,7 @@ function Home() {
             </span>
           </div>
         </div>
-        <div className="col-md-3  pt-2">
+        <div className="col-md-3  pt-4">
           <Link to="/partner" className="link-dark  btn-akeru  ">
             Join us
           </Link>

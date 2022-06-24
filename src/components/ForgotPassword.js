@@ -119,8 +119,8 @@ function ForgotPassword() {
 
               <ShowMessage  hasError={hasError} message={error}/>
             
-            <div className="btn_style d-flex justify-content-center">
-              <button className="login w900"><Loading loading={isLoading} false_text={"Recover password"}/> </button>
+            <div className=" d-flex justify-content-center">
+              <button className="login w900 btn-akeru"><Loading loading={isLoading} false_text={"Recover password"}/> </button>
             </div>
           </form>
           <div
