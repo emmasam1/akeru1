@@ -35,6 +35,7 @@ import PrivacyPolicy from "./components/PrivacyPolicy";
 import FAQ from "./components/Faq";
 import Withdrawals from "./Dashboard/Withdrawals";
 import NewRequest from "./components/NewRequest";
+import ChangePassword from "./components/ChangePassword";
 
 function App() {
   return (
@@ -50,6 +51,8 @@ function App() {
         <Route path="/detail" element={<RequestNext />} />
         <Route path="/partner" element={<Partner />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} /> 
+        <Route path="/change-password" element={<ChangePassword />} /> 
+        
         <Route path="/faq" element={<FAQ />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/profile" element={<Proflie />}>

@@ -130,13 +130,21 @@ function Withdrawals() {
                   return (
                     <tr key={i} id={e.driver_id}>
                       <td>{i + 1}</td>
-                      <td><DriverName id={e.driver_id}/> {e.driver_details.firstname}</td>
+                      <td><DriverName id={e.driver_id}/></td>
                       <td>₦{e.amount.toLocaleString()}</td>
                       <td><ConvertDate date={e.created_at}/> </td>
                       <td>{switchStatusBadge(e.status)}</td>
                       <td className="d-flex justify-content-center flex-column position-relative">
-                       {e.status?null:<button className="btn btn-secondary btn-sm" onClick={() => { setApprovalModal(true); setAWithdrawal(e); }}>Approve</button>}
-                      </td>
+
+                      <div className="table-dropdown">
+                        <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
+                        <div className="table-dropdown-content">
+                        {e.status?null:<button className="btn  btn-sm" onClick={() => { setApprovalModal(true); setAWithdrawal(e); }}>Approve</button>}
+
+                        </div>
+                      </div>
+                    </td>
+                      
                     </tr>
                   )
                 })}

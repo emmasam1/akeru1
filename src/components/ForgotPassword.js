@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import facebook from "../image/facebook1.png";
 import linkedin from "../image/linkedinimage.png";
-import bottle_bird from "../image/bird-bottle.png"; 
+import bottle_bird from "../image/bird-bottle.png";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ROUTE from "../route.json";
@@ -15,19 +15,20 @@ function ForgotPassword() {
 
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [emailErr, setEmailErr] = useState({});
   const [error, setError] = useState("");
 
   const handSubmit = (e) => {
-    
-    
+
+
     e.preventDefault();
-   
+
     const isValid = formValidation();
     if (isValid) {
       localStorage.setItem("forgot_email", email);
-      navigate("/Profile");
+      setShowSuccess(true)
 
       // setIsLoading(true)
       //   axios
@@ -38,7 +39,7 @@ function ForgotPassword() {
       //       setHasError(true)
       //       setError(res.data.msg);
       //       setIsLoading(false)
-            
+
       //       // console.log("invalide user details");
       //     } else {
       //       setHasError(false)
@@ -53,8 +54,8 @@ function ForgotPassword() {
       //     console.log(err);
       //     setIsLoading(false)
       //   });
-      
-      
+
+
     }
     //can clear from input here
   };
@@ -72,8 +73,8 @@ function ForgotPassword() {
       emailErr.email = "Invalid email format";
       isValid = false;
     }
-    
-    if (!email ) {
+
+    if (!email) {
     }
 
     setEmailErr(emailErr);
@@ -89,47 +90,58 @@ function ForgotPassword() {
         <div className="triangle triangle-login"></div>
         <div className="triangle rotate triangle-login"></div>
 
-        <div className="card_form_holder p-5 position-absolute mt-4">
-          <h1 className="text-center">Forgot your password?</h1>
+        <div className="card_form_holder p-5 position-absolute mt-5">
+         {showSuccess?   <div className="text-center">
 
-          <p className="text-center login_p_text">
-            <span>Don’t worry, it happens to the best of us.</span> </p>
-          <form onSubmit={handSubmit}>
-             
-            <div className="mb-3">
-              <label htmlFor="exampleInputEmail1" className="form-label">
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="login_input"
-                id="exampleInputEmail1"
-              />
-              {Object.keys(emailErr).map((key) => {
-                return (
-                  <p className="error" key={emailErr}>
-                    {emailErr[key]}
-                  </p>
-                );
-              })}
-            </div>
+          <img src={bottle_bird}/>
+            <h1 className="text-center">Check your email</h1>
 
-              <ShowMessage  hasError={hasError} message={error}/>
+            <p className="text-center login_p_text">
+              <span>Copy the code sent to your email, and go to the chage password page, to reset your password.</span> </p>
             
-            <div className=" d-flex justify-content-center">
-              <button className="login w900 btn-akeru"><Loading loading={isLoading} false_text={"Recover password"}/> </button>
-            </div>
-          </form>
-          <div
-            className="d-flex justify-content-between m_auto login_icon_holder
-          "
-          >
-            
+              <Link className="btn btn-akeru" to="/change-password">Change Password</Link>
+          </div>: <div>
+            <h1 className="text-center">Forgot your password?</h1>
 
-          </div>
+            <p className="text-center login_p_text">
+              <span>Don’t worry, it happens to the best of us.</span> </p>
+            <form onSubmit={handSubmit}>
+
+              <div className="mb-3">
+                <label htmlFor="exampleInputEmail1" className="form-label">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="login_input"
+                  id="exampleInputEmail1"
+                />
+                {Object.keys(emailErr).map((key) => {
+                  return (
+                    <p className="error" key={emailErr}>
+                      {emailErr[key]}
+                    </p>
+                  );
+                })}
+              </div>
+
+              <ShowMessage hasError={hasError} message={error} />
+
+              <div className=" d-flex justify-content-center">
+                <button className="login w900 btn-akeru"><Loading loading={isLoading} false_text={"Recover password"} /> </button>
+              </div>
+            </form>
+            <div
+              className="d-flex justify-content-between m_auto login_icon_holder
+"
+            >
+
+
+            </div>
+          </div>}
         </div>
       </div>
       <Footer />
