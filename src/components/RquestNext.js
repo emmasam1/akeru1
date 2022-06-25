@@ -94,14 +94,14 @@ function RequestNext() {
               {amount<1?<>We will send you a quote in 5 mins, <br/>Please check your email or refresh this page</>:<>We will match you with a verified driver in 5 mins</>}
               </p>
 
-              <div className="d-flex justify-content-center m37">
+             {amount<1? <div className="d-flex justify-content-center m37">
                 <Link
                   to={`/request?request_id=${requestId}`}
                   className="link-dark text-decoration-none pt-3 btn-req-link w900"
                 >
                   Edit request
                 </Link>
-              </div>
+              </div>:null}
               
             </div>
 

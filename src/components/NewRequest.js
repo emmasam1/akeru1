@@ -66,12 +66,8 @@ function NewRequest() {
     const isValid = formValidation();
 
     const user = JSON.parse(localStorage.getItem("user"));
-
-    if (isValid && user) {
-      setIsLoading(true)
-      let user_id = user.user_id;
+   
       let data = {
-        "user_id": user_id,
         "drop_off": drop_off,
         "pick_up": pick_up,
         "date": date,
@@ -80,9 +76,14 @@ function NewRequest() {
         "truck_type": truck_type,
       }
 
+    if (isValid && user) {
+      let user_id = user.user_id;
+      data.user_id= user_id
+      setIsLoading(true)
       axios
       .post(ROUTE.REQUEST, data)
       .then(function (res) {
+        localStorage.removeItem("request")
         navigate(`/detail?request_id=${res.data.data.id}`);
       })
       .catch(function (err) {
@@ -94,8 +95,8 @@ function NewRequest() {
 
     } else {
       if (user == null) {
-        alert("Please login before making a request")
-
+        localStorage.setItem("request", JSON.stringify(data))
+        navigate(`/signin`);
       }
     }
 
@@ -158,7 +159,7 @@ function NewRequest() {
 
         <div className="card_form_holder p-3 position-absolute mt-4">
            <div>
-            <h1 className="text-center">Edit Request</h1>
+            <h1 className="text-center"> Request For Haulage</h1>
 
             <form onSubmit={handSubmit}>
               <input

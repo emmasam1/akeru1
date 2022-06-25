@@ -76,24 +76,23 @@ function Home() {
     const isValid = formValidation();
 
     const user = JSON.parse(localStorage.getItem("user"));
-
+    let data = { 
+      drop_off: drop_off,
+      pick_up: pick_up,
+      date: date,
+      item: item,
+      weight: weight,
+      truck_type: truck_type,
+    };
     if (isValid && user) {
       setIsLoading(true)
       let user_id = user.user_id;
-
-      let data = {
-        user_id: user_id,
-        drop_off: drop_off,
-        pick_up: pick_up,
-        date: date,
-        item: item,
-        weight: weight,
-        truck_type: truck_type,
-      };
+      data.user_id= user_id
 
       axios
         .post(ROUTE.REQUEST, data)
         .then(function (res) {
+          localStorage.removeItem("request")
           navigate(`/detail?request_id=${res.data.data.id}`);
         })
         .catch(function (err) {
@@ -104,6 +103,7 @@ function Home() {
 
     } else {
       if (user == null) {
+        localStorage.setItem("request", JSON.stringify(data))
         navigate(`/signin`);
       }
     }
@@ -445,7 +445,7 @@ function Home() {
           </div>
           <div className="text-center pt-4 pb-4 col-auto">
             <a
-              href="/request"
+              href="/new-request"
               className="link-dark btn-akeru"
             >
               Request a quote
