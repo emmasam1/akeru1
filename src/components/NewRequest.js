@@ -159,7 +159,7 @@ function NewRequest() {
 
         <div className="card_form_holder p-3 position-absolute mt-4">
            <div>
-            <h1 className="text-center"> Request For Haulage</h1>
+            <h1 className="text-center"> Request a truck</h1>
 
             <form onSubmit={handSubmit}>
               <input
@@ -277,7 +277,7 @@ function NewRequest() {
     </div> */}
               <button className="my_btn w900 p-3">  <Loading
                 loading={isLoading}
-                false_text={"Create Request"}
+                false_text={"Request quote"}
               /></button>
             </form>
           </div>
