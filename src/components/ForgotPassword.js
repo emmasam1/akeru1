@@ -28,32 +28,31 @@ function ForgotPassword() {
     const isValid = formValidation();
     if (isValid) {
       localStorage.setItem("forgot_email", email);
-      setShowSuccess(true)
+      
 
-      // setIsLoading(true)
-      //   axios
-      //   .post(ROUTE.FORGOTPASSWORD, { email })
-      //   .then(function (res) {
-      //     if (res.data.error) {
-      //       console.log(res.data);
-      //       setHasError(true)
-      //       setError(res.data.msg);
-      //       setIsLoading(false)
+      setIsLoading(true)
+        axios
+        .post(ROUTE.FORGOTPASSWORD, { email })
+        .then(function (res) {
+          if (res.data.error) {
+            console.log(res.data);
+            setHasError(true)
+            setError(res.data.msg);
+            setIsLoading(false)
 
-      //       // console.log("invalide user details");
-      //     } else {
-      //       setHasError(false)
-      //       setError("Login Successful");
-      //       setIsLoading(false)
-      //       localStorage.setItem("user", JSON.stringify(res.data));
-      //       navigate("/Profile");
-      //       // console.log("success");
-      //     }
-      //   })
-      //   .catch(function (err) {
-      //     console.log(err);
-      //     setIsLoading(false)
-      //   });
+            // console.log("invalide user details");
+          } else {
+            setHasError(false)
+            setError("Login Successful");
+            setIsLoading(false)
+            setShowSuccess(true)
+            // console.log("success");
+          }
+        })
+        .catch(function (err) {
+          console.log(err);
+          setIsLoading(false)
+        });
 
 
     }

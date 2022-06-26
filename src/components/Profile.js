@@ -187,7 +187,7 @@ function Proflie() {
     console.log(data);
     setIsLoadingPass(true)
       axios
-        .post(`${ROUTE.SITE_URL}/accounts/change-passwd`, data)
+        .post(`${ROUTE.CHANGEPASSWORD}`, data)
         .then((res) => {
           alert(res.data.msg)
           setIsLoadingPass(false)
