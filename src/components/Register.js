@@ -8,12 +8,12 @@ import Loading from "./Loading";
 import ShowMessage from "./ShowMessage";
 function Register() {
   const navigate = useNavigate();
-  const [ fullname, setFullname ] = useState('')
-  const [ company, setCompany ] = useState('')
-  const [ email, setEmail ] = useState('')
-  const [ phone, setPhone ] = useState(0)
-  const [ passwd, setPasswd ] = useState('')
-  const [ compasswd, setComPasswd ] = useState('')
+  const [fullname, setFullname] = useState('')
+  const [company, setCompany] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState(0)
+  const [passwd, setPasswd] = useState('')
+  const [compasswd, setComPasswd] = useState('')
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -21,36 +21,36 @@ function Register() {
   // const [ err, setErr ] = useState({
   //   fullname,company,email,phone,passwd, compasswd
   // })
-  const [ fnErr, setFnErr ] = useState({})
-  const [ emailErr, setEmailErr ] = useState({})
-  const [ phoneErr, setPhoneErr ] = useState({})
-  const [ passwdErr, setPasswdErr ] = useState({})
-  const [ compasswdErr, setComPasswdErr ] = useState({})
+  const [fnErr, setFnErr] = useState({})
+  const [emailErr, setEmailErr] = useState({})
+  const [phoneErr, setPhoneErr] = useState({})
+  const [passwdErr, setPasswdErr] = useState({})
+  const [compasswdErr, setComPasswdErr] = useState({})
 
   const handSubmit = (e) => {
     e.preventDefault()
     const isValid = formValidation()
 
-    if(isValid){
+    if (isValid) {
       setIsLoading(true)
-      axios.post(ROUTE.REGISTER, {fullname, company, email, phone, passwd})
-      .then(res => {
-        if (res.data.error ) {
-          
-          setHasError(true)
+      axios.post(ROUTE.REGISTER, { fullname, company, email, phone, passwd })
+        .then(res => {
+          if (res.data.error) {
+
+            setHasError(true)
             setError(res.data.msg);
             setIsLoading(false)
-          //console.log(res.data.msg);
-        }
-        else{
-          localStorage.setItem("user", JSON.stringify(res.data.data));
-          navigate("/profile");
-         
-        }
-       
-      }).catch(err => {
-        console.log(err);
-      })
+            //console.log(res.data.msg);
+          }
+          else {
+            localStorage.setItem("user", JSON.stringify(res.data.data));
+            navigate("/profile");
+
+          }
+
+        }).catch(err => {
+          console.log(err);
+        })
     }
   }
 
@@ -76,8 +76,8 @@ function Register() {
     if (!email) {
       emailErr.email = "Email is required"
       isValid = false
-    } 
-    else if(!regex.test(email)){
+    }
+    else if (!regex.test(email)) {
       emailErr.email = "Invalid email format"
       isValid = false
     }
@@ -106,10 +106,10 @@ function Register() {
     return isValid
   }
 
-    return ( 
-        <>
-        <Navbar />
-        <div className="container-fliud d-flex justify-content-around bg-sm-white backgroundColor hero_style reg_div_height reg-mobile-height hero_style-reg">
+  return (
+    <>
+      <Navbar />
+      <div className="container-fliud d-flex justify-content-around bg-sm-white backgroundColor hero_style reg_div_height reg-mobile-height hero_style-reg">
         <div className="triangle triangle-login"></div>
         <div className="triangle rotate triangle-login"></div>
         <div className="triangle triangle-login"></div>
@@ -123,10 +123,10 @@ function Register() {
           </p>
 
           <form onSubmit={handSubmit}>
-          {error ? error : ""}
+            {error ? error : ""}
             <div className="mb-1">
               <label htmlFor="exampleInputName" className="form-label">
-              Your name
+                Your name
               </label>
               <input
                 type="text"
@@ -136,13 +136,13 @@ function Register() {
               />
               {Object.keys(fnErr).map((key) => {
                 return <><p className="error" key={fnErr}>{fnErr[key]}</p></>
-                
+
               })}
             </div>
 
             <div className="mb-1">
               <label htmlFor="exampleInputCompany" className="form-label">
-              Company<span className="option">(optional)</span>
+                Company<span className="option">(optional)</span>
               </label>
               <input
                 type="text"
@@ -165,7 +165,7 @@ function Register() {
               />
               {Object.keys(emailErr).map((key) => {
                 return <><p className="error" key={emailErr}>{emailErr[key]}</p></>
-                
+
               })}
             </div>
 
@@ -182,7 +182,7 @@ function Register() {
               />
               {Object.keys(phoneErr).map((key) => {
                 return <><p className="error" key={phoneErr}>{phoneErr[key]}</p></>
-                
+
               })}
             </div>
 
@@ -198,13 +198,13 @@ function Register() {
               />
               {Object.keys(passwdErr).map((key) => {
                 return <><p className="error" key={passwdErr}>{passwdErr[key]}</p></>
-                
+
               })}
             </div>
 
             <div className="mb-1">
               <label htmlFor="exampleInputConfirm" className="form-label">
-              Confirm Password
+                Confirm Password
               </label>
               <input
                 type="password"
@@ -214,17 +214,23 @@ function Register() {
               />
               {Object.keys(compasswdErr).map((key) => {
                 return <><p className="error" key={compasswdErr}>{compasswdErr[key]}</p></>
-                
+
               })}
             </div>
-            <p className="text-center mt-3 tnc">I have read and agree to the <Link to="/privacy-policy" className="link-dark">Privacy Policy</Link></p>
+
+            <div class="form-check mt-3 mb-3">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+              <label class="form-check-label" for="flexCheckDefault">
+               I have read and agree to the <Link to="/privacy-policy" className="link-dark">Privacy Policy</Link>
+              </label>
+            </div>
             <div className="d-flex justify-content-center "><button className="w900 btn-akeru">Create account</button></div>
           </form>
-          </div>
+        </div>
       </div>
       <Footer />
-        </>
-     );
+    </>
+  );
 }
 
 export default Register;
