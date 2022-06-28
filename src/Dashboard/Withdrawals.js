@@ -5,20 +5,23 @@ import axios from "axios";
 import Loader from "./Loader";
 import SetQuoteModal from "./Dash-Components/Set-Quote-Modal";
 import AssignDriverModal from "./Dash-Components/AssignModal";
-import DeleteModal from "./Dash-Components/DeleteModal";
+
 import ConvertDate from "./ConvertDate";
 import DriverName from "./Dash-Components/DriverName";
+import WithdrawalDriverDetails from "./Dash-Components/WithdrawalDriverDetails";
 
 
 function Withdrawals() {
   const [isLoading, setIsLoading] = useState(false);
 
-  const [approvalModal, setApprovalModal] = useState(false);
+  const [viewDriverDetails, setViewDriverDetails] = useState(false);
   const [paginate, setPaginate] = useState({ "page": 1, "limit": 10, "pages": 0, "total": 0 });
   const [status, setStatus] = useState("pending");
   const [aWithdrawal, setAWithdrawal] = useState({});
   const [withdrawalData, setWithdrawalData] = useState([])
   const [drivers, setdrivers] = useState([])
+  const [driver_id, setdriver_id] = useState("") 
+  const [driverDetails, setDriverDetails] = useState({})
   const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
@@ -59,7 +62,7 @@ function Withdrawals() {
 
   const closeModal = (props) => {
 
-    setApprovalModal(false)
+    setViewDriverDetails(false)
   }
 
   const switchStatusBadge = (data) => {
@@ -70,6 +73,18 @@ function Withdrawals() {
       return <span className="badge bg-danger">Pending..</span>
     }
     
+  }
+
+  const openDriverDetails=(driver_id)=>{
+    axios.get(ROUTE.DRIVERS + `/${driver_id}`)
+  .then((res) => {
+    console.log(res.data);
+    setDriverDetails(res.data)
+    setViewDriverDetails(true); 
+  })
+  .catch((err) => {
+    console.log(err);
+  })
   }
 
  
@@ -139,7 +154,7 @@ function Withdrawals() {
                       <div className="table-dropdown">
                         <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                         <div className="table-dropdown-content">
-                        {e.status?null:<button className="btn  btn-sm" onClick={() => { setApprovalModal(true); setAWithdrawal(e); }}>Approve</button>}
+                        {e.status?null:<button className="btn  btn-sm" onClick={() => {setAWithdrawal(e); openDriverDetails(e.driver_id);  }}>Approve</button>}
 
                         </div>
                       </div>
@@ -151,8 +166,7 @@ function Withdrawals() {
               </tbody>
             </table>}
             
-            {approvalModal ? <DeleteModal closeModal={closeModal} deleteMethod={approveWithdrawal} refresh={refreshPageData}
-              title="Approve Withdrawal?" descp="Are you sure you want to approve this withdrawal?" /> : null}
+            {viewDriverDetails ? <WithdrawalDriverDetails handleClose={closeModal} approveWithdrawal={approveWithdrawal} driver={driverDetails}   /> : null}
 
             <nav aria-label="Page navigation example">
               <ul class="pagination">
