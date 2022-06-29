@@ -225,7 +225,7 @@ function Register() {
             <div class="form-check mt-3 mb-3">
               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
               <label class="form-check-label" for="flexCheckDefault">
-               I have read and agree to the <span onClick={()=>routeToPage("/")} className="link-dark"><u>Privacy Policy</u></span>
+               I have read and agree to the <span onClick={()=>routeToPage("/privacy-policy")} className="link-dark"><u>Privacy Policy</u></span>
               </label>
             </div>
             <div className="d-flex justify-content-center "><button className="w900 btn-akeru">Create account</button></div>
