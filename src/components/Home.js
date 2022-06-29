@@ -37,12 +37,25 @@ function Home() {
   const [locations, setLocations] = useState([]);
   const [truckTypes, setTruckTypes] = useState([]);
   const [tons, setTons] = useState([]);
-  
+  const [hasLoaded, sethasLoaded] = useState(false);
   const routeToPage=(page)=>{
-    window.location.href=page
+      navigate(page)
   }
 
+  const scrollToTop = () =>{
+    window.scrollTo({
+      top: 0, 
+      behavior: 'smooth'
+      /* you can also use 'auto' behaviour
+         in place of 'smooth' */
+    });
+    sethasLoaded(true)
+  };
+
   useEffect(() => {
+    if(!hasLoaded){
+      scrollToTop()
+    }
     axios
       .get(ROUTE.SITE_URL + "/locations")
       .then((res) => {

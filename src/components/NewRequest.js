@@ -26,8 +26,25 @@ function NewRequest() {
   const [truckTypes, setTruckTypes] = useState([]);
   const [tons, setTons] = useState([]);
 
+  const [hasLoaded, sethasLoaded] = useState(false);
+  
+  const scrollToTop = () =>{
+      window.scrollTo({
+        top: 0, 
+        behavior: 'smooth'
+        /* you can also use 'auto' behaviour
+           in place of 'smooth' */
+      });
+      sethasLoaded(true)
+    };
+
+    useEffect(() => {
+      if(!hasLoaded){
+        scrollToTop()
+      } 
+    }, []);
+
   useEffect(() => {
-   
     axios
       .get(ROUTE.SITE_URL + "/tons")
       .then((res) => {

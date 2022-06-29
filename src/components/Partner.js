@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import google from "../image/appStore.png";
 import apple from "../image/apple.png";
 import home from "../image/home.png";
@@ -21,6 +21,23 @@ import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 function Partner() {
+  const [hasLoaded, sethasLoaded] = useState(false);
+  
+  const scrollToTop = () =>{
+      window.scrollTo({
+        top: 0, 
+        behavior: 'smooth'
+        /* you can also use 'auto' behaviour
+           in place of 'smooth' */
+      });
+      sethasLoaded(true)
+    };
+
+    useEffect(() => {
+      if(!hasLoaded){
+        scrollToTop()
+      } 
+    }, []);
   return (
     <>
       <Navbar />

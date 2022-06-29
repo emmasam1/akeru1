@@ -55,7 +55,7 @@ function Register() {
   }
 
   const routeToPage=(page)=>{
-    window.location.href=page
+    navigate(page)
   }
 
   // const phonChange = (e) => {

@@ -1,11 +1,13 @@
 import React from 'react'
 import fl from "../image/footerlogo.png";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 
 function Footer() {
+  const navigate = useNavigate();
   const routeToPage=(page)=>{
-    window.location.href=page
+    navigate(page)
   }
+  
   return (
     <>
       <div className="container-fiuld mt-3 pt-5 footer">

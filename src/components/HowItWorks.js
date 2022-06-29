@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import user from "../image/hiw_user.png";
 import truck from "../image/hiw-truck.png";
 import card from "../image/hiw-card.png";
@@ -8,6 +8,23 @@ import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 function Partner() {
+  const [hasLoaded, sethasLoaded] = useState(false);
+  
+  const scrollToTop = () =>{
+      window.scrollTo({
+        top: 0, 
+        behavior: 'smooth'
+        /* you can also use 'auto' behaviour
+           in place of 'smooth' */
+      });
+      sethasLoaded(true)
+    };
+
+    useEffect(() => {
+      if(!hasLoaded){
+        scrollToTop()
+      } 
+    }, []);
   return (
     <>
       <Navbar />
