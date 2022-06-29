@@ -37,6 +37,10 @@ function Home() {
   const [locations, setLocations] = useState([]);
   const [truckTypes, setTruckTypes] = useState([]);
   const [tons, setTons] = useState([]);
+  
+  const routeToPage=(page)=>{
+    window.location.href=page
+  }
 
   useEffect(() => {
     axios
@@ -444,12 +448,12 @@ function Home() {
             </p>
           </div>
           <div className="text-center pt-4 pb-4 col-auto">
-            <a
-              href="/new-request"
-              className="link-dark btn-akeru"
+            <div
+              onClick={()=>routeToPage("/new-request")}
+              className="link-dark btn btn-akeru"
             >
               Request a quote
-            </a>
+            </div>
           </div>
         </div>
         </div>
@@ -508,9 +512,14 @@ function Home() {
           </div>
         </div>
         <div className="col-md-3  pt-4">
-          <a href="/partner" className="link-dark  btn-akeru  ">
+          <div className="row">
+          <div className="col"></div>
+            <div className="col-auto">
+            <div   className="link-dark btn  btn-akeru "  onClick={()=>routeToPage("/partner")}>
             Join us
-          </a>
+          </div>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />

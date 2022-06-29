@@ -1088,6 +1088,13 @@ thead {
   bottom: 10px;
 }
 
+.link-light{
+  cursor: pointer;
+}
+
+.link-dark{
+  cursor: pointer;
+}
 
 
 .complete {
