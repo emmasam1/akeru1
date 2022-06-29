@@ -207,7 +207,7 @@ function Proflie() {
       <Navbar />
       <div className="container-fluid background test-height backgroundColor overflow-auto position-relative pro-top">
         <div className="main_width rounded proDivWhite test-height w700">
-        <div className="p-3"><Link to="/new-request" className="btn btn-outline-dark btn-sm profile_btn_request_mobile">New Request <i class="bi bi-truck"></i></Link></div>
+        <div className="p-3 mt-5"><Link to="/new-request" className="btn btn-outline-dark btn-sm profile_btn_request_mobile">New Request <i class="bi bi-truck"></i></Link></div>
           <nav className="d-flex justify-content-between">
             <div className="nav nav-tabs" id="nav-tab" role="tablist">
               <button
@@ -247,9 +247,9 @@ function Proflie() {
               >
                 Support
               </button>
-              
+               
             </div>
-            <div className="p-3"><a href="/new-request" className="btn btn-outline-dark btn-sm ">New Request <i class="bi bi-truck"></i></a></div>
+            <div className="p-3"><a href="/new-request" className="btn btn-outline-dark btn-sm profile_btn_request">New Request <i class="bi bi-truck"></i></a></div>
           </nav>
           <div className="tab-content p-4" id="nav-tabContent">
 
