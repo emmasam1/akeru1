@@ -319,13 +319,20 @@ function Proflie() {
                     <h4>Profile Info</h4>
                       <hr />
                     <div className="rounded-circle profile-img-holder">
-                    {imageURL.map((user) => (
+                    {imageURL.length==0?
+                     <img
+                     src={clientSummary.profile}
+                     className="rounded-circle image-div m-auto position-relative"
+                     alt="user-icon"
+                   />:
+                    
+                    imageURL.map((user) => (
                       <img
                         src={user}
                         className="rounded-circle image-div m-auto position-relative"
                         alt="user-icon"
                       />
-                    ))}
+                    )) }
                   </div>
                   <label
                     htmlFor="exampleInputEmail1"
