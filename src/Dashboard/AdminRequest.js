@@ -9,6 +9,7 @@ import DeleteModal from "./Dash-Components/DeleteModal";
 import ConvertDate from "./ConvertDate";
 import ClientName from "./Dash-Components/ClientName";
 import truck from "../image/request_img.png";
+import ViewPayment from "./Dash-Components/ViewPayment";
 
 
 function Request() {
@@ -17,6 +18,7 @@ function Request() {
   const [view, setView] = useState(false);
   const [assignModal, setAssignModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
+  const [paymentModal, setPaymentModal] = useState(false);
   const [paginate, setPaginate] = useState({ "page": 1, "limit": 15, "pages": 0, "total": 0 });
   const [status, setStatus] = useState("pending");
   const [aRequest, setARequest] = useState({});
@@ -93,6 +95,7 @@ function Request() {
     setModal(false)
     setAssignModal(false)
     setDeleteModal(false)
+    setPaymentModal(false)
   }
 
   const copylink=(data)=>{
@@ -301,12 +304,10 @@ function Request() {
                             {e.amount < 1 ? null : e.status == "pending" ? <button className="btn" onClick={() => { setARequest(e); setAssignModal(true); }}>Assign</button> : null}
                             {e.status == "pending" ? <button className="btn" onClick={() => { setARequest(e); setModal(true); setView(false) }}>Set qoute</button> :
                             <button className="btn" onClick={() => { setARequest(e); setModal(true); setView(true) }}>View</button>}
-                             
+                            {e.amount > 1? <button className="btn" onClick={() => { setARequest(e); setPaymentModal(true); }}>Payment</button>:null}
                             <button className="btn text-danger" onClick={() => { setARequest(e); setDeleteModal(true); }}>Delete</button>
-
                           </div>
                         </div>
-
                       </td>
                     </tr>
                   )
@@ -314,9 +315,9 @@ function Request() {
 
               </tbody>
             </table>}
-           
             {modal ? <SetQuoteModal closeModal={closeModal} data={aRequest} refresh={refreshPageData} justView={view} /> : null}
             {assignModal ? <AssignDriverModal closeModal={closeModal} drivers={drivers} request={aRequest} refresh={refreshPageData} /> : null}
+            {paymentModal ? <ViewPayment closeModal={closeModal}   request={aRequest} refresh={refreshPageData} /> : null}
             {deleteModal ? <DeleteModal closeModal={closeModal} deleteMethod={deleteData} refresh={refreshPageData}
               title="Delete Request?" descp="Are you sure you want to delete this request?" /> : null}
 

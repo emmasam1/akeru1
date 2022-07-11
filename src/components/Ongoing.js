@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate} from "react-router-dom";
 import ROUTE from "../route.json";
 import axios from "axios";
 import Loader from "./Loader";
 import truck from "../image/request_img.png";
 
 function Ongoing() {
+  let navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [modal, setModal] = useState(false);
   const [assignModal, setAssignModal] = useState(false);
@@ -113,6 +114,9 @@ function Ongoing() {
   const refreshPageData = () => {
     setRefreshKey(refreshKey => refreshKey + 1)
   }
+  const viewRequest=(requestId)=>{
+    navigate(`/detail?request_id=${requestId}`)
+  }
 
   return (
     <>
@@ -161,7 +165,8 @@ function Ongoing() {
                     <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                     <div className="table-dropdown-content r-0">
                       <button className="btn" onClick={() => { setARequest(e); setAssignModal(true); }}>Track</button>
-                    </div>
+                      <button className="btn" onClick={() => {viewRequest(e.request_id);  }}>View</button>
+                       </div>
                   </div>
 
                 </td>

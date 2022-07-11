@@ -614,9 +614,10 @@
 }
 
 .document-img {
-  width: 60%;
-  height: 70px;
+  width: 50%;
+  height: 80px;
   object-fit: cover;
+  object-position: top;
 }
 
 .dash-active {

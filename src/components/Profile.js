@@ -10,10 +10,12 @@ import Underconstruction from './Underconstruction';
 function Proflie() {
   const [image, setImage] = React.useState([]);
   const [imageURL, setImageURL] = React.useState([]);
+  const [selectedImage, setselectedImage] = React.useState("");
   const [company, setCompany] = React.useState("")
   const [email, setEmail] = React.useState("")
   const [phone, setPhone] = React.useState("")
   const [fullname, setFullname] = React.useState("")
+  const [profileImg, setProfileImg] = React.useState("")
   const [oldPassword, setOldPassword] = React.useState("")
   const [newPassword, setNewPassword] = React.useState("")
   const [confrimPassword, setConfrimPassword] = React.useState("")
@@ -33,6 +35,7 @@ function Proflie() {
     const newImageurl = [];
     image.forEach((img) => newImageurl.push(URL.createObjectURL(img)));
     setImageURL(newImageurl);
+
   }, [image]);
 
   React.useEffect(() => {
@@ -45,6 +48,7 @@ function Proflie() {
         setEmail(res.data.email)
         setPhone(res.data.phone)
         setFullname(res.data.fullname)
+        setProfileImg(res.data.profile)
       })
       .catch((err) => {
         console.log(err);
@@ -66,6 +70,8 @@ function Proflie() {
 
   function ImageChange(e) {
     setImage([...e.target.files]);
+    setselectedImage(e.target.files[0])
+    
   }
 
 
@@ -137,7 +143,6 @@ function Proflie() {
     bodyFormData.append('fullname', fullname);
     bodyFormData.append('company', company);
     bodyFormData.append('phone', phone);
-    bodyFormData.append('profile', imageURL[0]);
     setIsLoading(true)
      axios
       .putForm(`${ROUTE.CLIENTS}/${userlocal.user_id}`, bodyFormData)
@@ -160,7 +165,7 @@ function Proflie() {
 
  const uploadProfilePhoto=(id)=>{
   var imgFormData = new FormData();
-  imgFormData.append('profile', imageURL[0]);
+  imgFormData.append('profile', selectedImage);
 
    axios
       .putForm(`${ROUTE.SITE_URL}/resources/${id}/client`, imgFormData)
@@ -321,7 +326,7 @@ function Proflie() {
                     <div className="rounded-circle profile-img-holder">
                     {imageURL.length==0?
                      <img
-                     src={clientSummary.profile}
+                     src={profileImg}
                      className="rounded-circle image-div m-auto position-relative"
                      alt="user-icon"
                    />:

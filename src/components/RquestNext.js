@@ -39,6 +39,7 @@ function RequestNext() {
         .then(function (res) {
           console.log(res.data);
           setRequestId(request_id)
+          localStorage.setItem("request_id", request_id)
           setpick_up(res.data.pick_up)
           setdrop_off(res.data.drop_off)
           setdate(res.data.date)

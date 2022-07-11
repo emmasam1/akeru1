@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate} from "react-router-dom";
 import ROUTE from "../route.json";
 import axios from "axios";
 import Loader from "./Loader";
 
 function Complete() {
+  let navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [modal, setModal] = useState(false);
   const [assignModal, setAssignModal] = useState(false);
@@ -101,6 +102,10 @@ function Complete() {
     setRefreshKey(refreshKey => refreshKey +1)
   }
 
+  const viewRequest=(requestId)=>{
+    navigate(`/detail?request_id=${requestId}`)
+  }
+
   return (
     <>
       <div className="d-flex justify-content-between mb-2">
@@ -149,6 +154,7 @@ function Complete() {
                         <div className="table-dropdown">
                           <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                           <div className="table-dropdown-content r-0">
+                          <button className="btn" onClick={() => {viewRequest(e.request_id);  }}>View</button>
                              <button className="btn" onClick={() => {setARequest(e); setAssignModal(true); }}>Track</button>
                           </div>
                         </div>

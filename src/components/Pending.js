@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import ROUTE from "../route.json";
 import axios from "axios";
 import Loader from "./Loader";
@@ -8,6 +8,7 @@ import ConfirmModal from "./user-components/ConfirmModal";
 import truck from "../image/request_img.png";
 
 function Pending() {
+  let navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [modal, setModal] = useState(false);
   const [assignModal, setAssignModal] = useState(false);
@@ -49,8 +50,11 @@ function Pending() {
   }
 
   const closeModal = (props) => {
-
     setConfirmModal(false)
+  }
+
+  const viewRequest=(requestId)=>{
+    navigate(`/detail?request_id=${requestId}`)
   }
 
   const switchStatusBadge = (data) => {
@@ -167,11 +171,9 @@ function Pending() {
                         <div className="table-dropdown">
                           <span><i className="bi bi-three-dots btn btn-light fs-6" ></i></span>
                           <div className="table-dropdown-content r-0">
-                            {e.status =="pending" ? null : <button className="btn" onClick={() => {setARequest(e); setAssignModal(true); }}>Track</button>}
-                    
-                            {e.status =="pending" ? <button className="btn text-danger" onClick={() => { setARequest(e);  setConfirmModal(true); }}>Cancel</button>:null  }
-                            
-
+                          {e.status =="pending" ? null : <button className="btn" onClick={() => {setARequest(e); setAssignModal(true); }}>Track</button>}
+                          <button className="btn" onClick={() => {viewRequest(e.request_id);  }}>View</button>
+                          {e.status =="pending" ? <button className="btn text-danger" onClick={() => { setARequest(e);  setConfirmModal(true); }}>Cancel</button>:null  }
                           </div>
                         </div>
 

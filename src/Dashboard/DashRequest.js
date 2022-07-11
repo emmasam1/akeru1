@@ -4,6 +4,8 @@ import axios from "axios";
 import search from "../image/Search.svg";
 import ROUTE from "../route.json";
 import Results from "./Results";
+import ViewPayment from "./Dash-Components/ViewPayment";
+
 function DashRequest() {
   const navigate = useNavigate();
 

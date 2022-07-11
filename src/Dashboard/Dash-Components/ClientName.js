@@ -7,7 +7,6 @@ function ClientName(props){
     useEffect(() => {
     axios.get(ROUTE.CLIENTS + `/${props.id}`)
     .then((res) => {
-      console.log(res.data);
         if(res.data.fullname && res.data.company){
           setClient(`${(res.data.fullname).toUpperCase()} ${(res.data.company).toUpperCase()}`)
         }

@@ -1,10 +1,24 @@
 import React from "react";
 import upload from "../image/upload.svg";
+import axios from "axios";
+import { useNavigate, Link } from 'react-router-dom';
+import ROUTE from "../route.json";
+import Loading from "./Loading";
 function Bank() {
   const [image, setImage] = React.useState([]);
   const [imageURL, setImageURL] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [requestId, setRequestId] = React.useState("");
+  const [selectedImage, setselectedImage] = React.useState("");
+  let navigate = useNavigate();
   React.useEffect(() => {
-    if (image.lenght < 1) return;
+    let request_id = localStorage.getItem("request_id");
+    if (request_id == null) {
+      navigate("/profile")
+    }else{
+      setRequestId(request_id)
+    }
+    if (image.length < 1) return;
     const newImageurl = [];
     image.forEach((img) => newImageurl.push(URL.createObjectURL(img)));
     setImageURL(newImageurl);
@@ -12,7 +26,24 @@ function Bank() {
 
   function ImageChange(e) {
     setImage([...e.target.files]);
+    setselectedImage(e.target.files[0])
   }
+
+  const uploadPayment=()=>{
+     
+    var imgFormData = new FormData();
+    imgFormData.append('receipt', selectedImage);
+    
+     axios
+        .putForm(`${ROUTE.SITE_URL}/resources/${requestId}/bank-transfer`, imgFormData)
+        .then((res) => {
+          console.log(res.data);
+          alert("Payment Uploaded")
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+   }
 
   return (
     <>
@@ -37,9 +68,9 @@ function Bank() {
               <input type="file" id="myfile" name="myfile" onChange={ImageChange}/>
             </span>
           </label>
-          <span className="text-center">Please upload proof of trasnfer</span>
+          <span className="text-center">Please upload proof of transfer</span>
         </div>
-        <button className="mt-4 bank-btn btn w900">Submit</button>
+        <button className="btn btn-akeru w900 mt-4" onClick={()=>uploadPayment()}> <Loading loading={isLoading} false_text={"Upload Payment"} /></button>
       </div>
     </>
   );

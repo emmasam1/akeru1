@@ -13,7 +13,7 @@ import driver from "../image/DashDriver.png";
 import Trips from './Trips';
 import ClientName from "./Dash-Components/ClientName";
 import truck from "../image/request_img.png";
-
+import ViewPayment from "./Dash-Components/ViewPayment";
 function DashboardHome() {
   const navigate = useNavigate();
 
@@ -31,6 +31,7 @@ function DashboardHome() {
   const [view, setView] = useState(false);
   const [assignModal, setAssignModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
+  const [paymentModal, setPaymentModal] = useState(false);
   const [paginate, setPaginate] = useState({ "page": 1, "limit": 8, "pages": 0, "total": 0 });
   const [status, setStatus] = useState("pending");
   const [aRequest, setARequest] = useState({});
@@ -145,7 +146,9 @@ function DashboardHome() {
     setModal(false)
     setAssignModal(false)
     setDeleteModal(false)
+    setPaymentModal(false)
   }
+
 
   const copylink=(data)=>{
     setCopyData(`${document.location.host}/detail?request_id=${data.request_id}`)
@@ -341,6 +344,8 @@ function DashboardHome() {
                             {e.amount < 1 ? null : e.status == "pending" ? <button className="btn" onClick={() => { setARequest(e); setAssignModal(true); }}>Assign</button> : null}
                             {e.status == "pending" ? <button className="btn" onClick={() => { setARequest(e); setModal(true); setView(false) }}>Set qoute</button> :
                             <button className="btn" onClick={() => { setARequest(e); setModal(true); setView(true) }}>View</button>}
+                            {e.amount > 1? <button className="btn" onClick={() => { setARequest(e); setPaymentModal(true); }}>Payment</button>:null}
+
                           </div>
                         </div>
 
@@ -351,7 +356,7 @@ function DashboardHome() {
 
               </tbody>
             </table>}
-           
+            {paymentModal ? <ViewPayment closeModal={closeModal}   request={aRequest} refresh={refreshPageData} /> : null}
             {modal ? <SetQuoteModal closeModal={closeModal} data={aRequest} refresh={refreshPageData} justView={view} /> : null}
             {assignModal ? <AssignDriverModal closeModal={closeModal} drivers={drivers} request={aRequest} refresh={refreshPageData} /> : null}
             

@@ -4,14 +4,14 @@ import truck from "../../image/truck.png";
 import ROUTE from "../../route.json";
 import DriverTrucks from "./DriverTrucks";
 function ApproveModal(props) {
-  //console.log(props.data.driver_id);
+//console.log(props.data);
 
   return (
     <div className='overlay position-fixed d-flex align-self-center'>
       <div className="request-modal">
         <i className="bi bi-x-lg close-icon" onClick={() => props.handleClose()}></i>
         <h1 className="text-center req_h1 mt-2">Driver Details {props.data.approved ? "" : " For Approval"}</h1>
-        <p className="text-center">Click on the images to view the documents</p>
+        <p className="text-center">Click on the document title to view the documents</p>
         <hr />
        <div className='container dash-modal-container'>
        <div className="row   ">
@@ -88,22 +88,22 @@ function ApproveModal(props) {
           <div className="col-md-6 rounded bg-white p-3 reqNext ">
             <div className="border-2 mb-3">
               <div className="d-flex justify-content-between mb-2 ">
-                <p className="req_pro">Driver License</p><br />
-                <img src={`${ROUTE.SITE_URL}/${props.data.driver_license}`} className="document-img req_pro_next" alt="license_img" />
+              <a href={`${ROUTE.SITE_URL}/resources/${props.data.driver_license}`} target="_blank"  className="req_pro"> Driver License</a><br />
+               <img src={`${ROUTE.SITE_URL}/resources/${props.data.driver_license}`} className="document-img req_pro_next" alt="license_img" />
               </div>
               <div className="d-flex justify-content-between mb-2">
-                <p className="req_pro">Truck registration</p><br />
-                <img src={`${ROUTE.SITE_URL}/${props.data.truck_identification}`} className="document-img req_pro_next" alt="registration_img" />
+              <a href={`${ROUTE.SITE_URL}/resources/${props.data.truck_identification}`} target="_blank" className="req_pro"> Truck registration</a><br />
+                  <img src={`${ROUTE.SITE_URL}/resources/${props.data.truck_identification}`} className="document-img req_pro_next" alt="registration_img" />
               </div>
               <div className="d-flex justify-content-between mb-2">
-                <p className="req_pro">Truck insurance</p><br />
-                <img src={`${ROUTE.SITE_URL}/${props.data.truck_insurance}`} className="document-img req_pro_next" alt="truck_img" />
+              <a href={`${ROUTE.SITE_URL}/resources/${props.data.truck_insurance}`} target="_blank" className="req_pro"> Truck insurance</a><br />
+                 <img src={`${ROUTE.SITE_URL}/resources/${props.data.truck_insurance}`} className="document-img req_pro_next" alt="truck_img" />
               </div>
               <div className="d-flex justify-content-between">
-                <p className="req_pro">GIT insurance</p><br />
-                <img src={`${ROUTE.SITE_URL}/${props.data.git_insurance}`} className="document-img req_pro_next" alt=" git_img" />
+              <a href={`${ROUTE.SITE_URL}/resources/${props.data.git_insurance}`} target="_blank" className="req_pro">  GIT insurance</a><br />
+                <img src={`${ROUTE.SITE_URL}/resources/${props.data.git_insurance}`} className="document-img req_pro_next" alt=" git_img" />
               </div>
-              <small>If thses documents are not correct, Request driver to update documents </small>  
+              <small>If these documents are not correct, Request driver to update documents </small>  
               <small onClick={() => { props.requestDocuments() }} className="text-info" >
               <u>Request Documents </u> </small>
             </div>
