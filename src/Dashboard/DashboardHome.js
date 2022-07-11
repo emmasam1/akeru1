@@ -359,7 +359,8 @@ function DashboardHome() {
             {paymentModal ? <ViewPayment closeModal={closeModal}   request={aRequest} refresh={refreshPageData} /> : null}
             {modal ? <SetQuoteModal closeModal={closeModal} data={aRequest} refresh={refreshPageData} justView={view} /> : null}
             {assignModal ? <AssignDriverModal closeModal={closeModal} drivers={drivers} request={aRequest} refresh={refreshPageData} /> : null}
-            
+            <br/>
+            <button className="btn btn-akeru" onClick={()=>navigate("/admin-dashboard/request")}> View All</button>
       </div>
     </div>
   );

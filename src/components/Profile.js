@@ -207,6 +207,10 @@ function Proflie() {
     
   }
 
+  const viewRequest=(requestId)=>{
+    navigate(`/detail?request_id=${requestId}`)
+  }
+
   return (
     <>
       <Navbar />

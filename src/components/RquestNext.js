@@ -23,6 +23,7 @@ function RequestNext() {
   const [amount, setAmount] = useState("")
   const [service_fee, setService_fee] = useState("")
   const [requestId, setRequestId] = useState("")
+  const [status, setStatus] = useState("")
   const user = JSON.parse(localStorage.getItem("user"));
   const requestData = JSON.parse(localStorage.getItem("request"));
 
@@ -48,6 +49,7 @@ function RequestNext() {
           setWeight(res.data.weight)
           setAmount(res.data.amount)
           setService_fee(res.data.service_fee)
+          setStatus(res.data.status)
           setPageLoading(false)
         })
         .catch(function (err) {
@@ -63,6 +65,27 @@ function RequestNext() {
   const sendToPayment = () => {
     navigate("/payment")
   };
+
+  const switchStatusBadge = (data) => {
+    switch (data) {
+      case "pending":
+        return <span className="badge bg-secondary">Pending..</span>
+      case "accepted":
+        return <span className="badge bg-warning">Accepted</span>
+      case "arrive_pickup":
+        return <span className="badge bg-info">At Pickup</span>
+      case "start_trip":
+        return <span className="badge bg-success">On Transit...<i class="bi bi-truck"></i></span>
+      case "arrive_dropoff":
+        return <span className="badge akeru-bg-primary">Completed</span>
+        case "completed":
+          return <span className="badge akeru-bg-primary">Completed</span>
+      case "cancelled":
+          return <span className="badge bg-danger">Cancelled</span>
+      case "paused_trip":
+        return <span className="badge bg-secondary">PAUSED</span>
+    }
+  }
 
 
   return (
@@ -87,13 +110,18 @@ function RequestNext() {
               </p>
               <p className="text-center text-muted t-13 w900">{date}</p>
               <p className="text-center text-muted t-13 w900">
-                SKU : {(requestId).toUpperCase()}
+                ORDER ID :<b> {requestId}</b>
               </p>
               <p className="text-center t-40 w900">{weight} </p>
               <p className="text-center t-40 w900">{item}</p>
+             
               <p className="text-center t-12 w900">
               {amount<1?<>We will send you a quote in 5 mins, <br/>Please check your email or refresh this page</>:<>We will match you with a verified driver in 5 mins</>}
               </p>
+             {status=="pending"?null: <div className="text-center">
+             <span>Trip-Status: <h3 >{switchStatusBadge(status)}</h3></span>
+              </div>}
+              
 
              {amount<1? <div className="d-flex justify-content-center m37">
                 <Link

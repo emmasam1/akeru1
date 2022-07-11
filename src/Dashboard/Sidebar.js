@@ -9,6 +9,10 @@ import user from "../image/User.svg";
 import akeru from "../image/footerlogo.png";
 
 function Sidebar(props) {
+
+ 
+
+
   const [active, setActive] = useState("index");
 
   return (
