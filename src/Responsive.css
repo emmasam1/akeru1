@@ -734,9 +734,7 @@
   .rmp {
     padding: 0 0 0 0 !important;
   }
-  .milestone {
-      height: 165px;
-  }
+ 
   .milestone_link {
     position: relative;
     bottom: 8px;

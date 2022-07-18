@@ -361,6 +361,13 @@ function DashboardHome() {
             {assignModal ? <AssignDriverModal closeModal={closeModal} drivers={drivers} request={aRequest} refresh={refreshPageData} /> : null}
             <br/>
             <button className="btn btn-akeru" onClick={()=>navigate("/admin-dashboard/request")}> View All</button>
+            {copyData!=""?<input
+                readOnly
+                type="text"
+                className="copy-input"
+                value={copyData}
+                id="mail"
+              />:null}
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ function Footer() {
             <div className="row row-cols-4">
               <div className="col my_col_settings col-footer">
                 <h6 className="footer_h6">Services</h6>
-                <li className="footer_li">Routes</li>
+                 
                 <li className="footer_li"><div className='link-light text-decoration-none'    onClick={()=>routeToPage("/how-it-works")}>How It Works</div></li>
                 <li className="footer_li"><div className='link-light text-decoration-none'    onClick={()=>routeToPage("/request")}>Request Haulage</div></li>
               </div>

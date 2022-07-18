@@ -183,7 +183,7 @@ body {
   background: #D0E1CC;
   border-radius: 8px;
   font-size: 18px;
-  border: 1px solid #D0E1CC;
+  border: 1px solid #fff;
 }
 .register_link:hover{
   background-color: transparent;
