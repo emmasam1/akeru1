@@ -63,7 +63,7 @@ function RequestNext() {
   }, [])
 
   const sendToPayment = () => {
-    navigate("/payment")
+    navigate("/payment/bank-transfer")
   };
 
   const switchStatusBadge = (data) => {
@@ -112,10 +112,10 @@ function RequestNext() {
               <p className="text-center text-muted t-13 w900">
                 ORDER ID :<b> {requestId}</b>
               </p>
-              <p className="text-center t-40 w900">{weight} </p>
-              <p className="text-center t-40 w900">{item}</p>
+              <p className="text-center t-40 w900">{weight}-Tons </p>
+              <p className="text-center t-40 w900"> {item}</p>
              
-              <p className="text-center t-12 w900">
+              <p className="text-center t-12 w900 text-info " >
               {amount<1?<>We will send you a quote in 5 mins, <br/>Please check your email or refresh this page</>:<>We will match you with a verified driver in 5 mins</>}
               </p>
              {status=="pending"?null: <div className="text-center">
@@ -136,7 +136,7 @@ function RequestNext() {
 
             {amount>0?<div className="col-md-4  rounded bg-white p-3 reqNext ">
               <div>
-                <h4 className="text-center w900 req_h4 mb-4">{weight} {truck_type}</h4>
+                <h4 className="text-center w900 req_h4 mb-4">{weight}-Ton {truck_type}</h4>
                 <div className="border-bottom border-2 mb-3">
                   <div className="d-flex justify-content-between ">
                     <p className="req_pro">Amount</p>

@@ -16,18 +16,19 @@ function Payment() {
         <div className="card_form_holder p-4 position-absolute mt-4 w40 r9">
           <h1 className="text-center">Payment type</h1>
           <ul className="nav nav-tabs border-0 mb-3">
-            <li className="nav-item border-0 settings">
-              <Link to="/payment"
-               onClick={() => setActive("index")}
-               className= {`nav-link border-0 link-dark  text-muted ${ active === "index" ? "active" : ""  } `} 
-               aria-current="page" >
-                Credit / debit card
+            
+            <li className="nav-item">
+              <Link to="/payment/bank-transfer" onClick={() => setActive("index")}
+               className= {`nav-link border-0 link-dark  text-muted ${ active === "index" ? "active" : ""  } `} >
+                Bank transfer
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/payment/bank-transfer" onClick={() => setActive("bank")}
-               className= {`nav-link border-0 link-dark  text-muted ${ active === "bank" ? "active" : ""  } `} >
-                Bank transfer
+            <li className="nav-item border-0 settings">
+              <Link to="/payment/card"
+               onClick={() => setActive("card")}
+               className= {`nav-link border-0 link-dark  text-muted ${ active === "card" ? "active" : ""  } `} 
+               aria-current="page" >
+                Credit / debit card
               </Link>
             </li>
           </ul>

@@ -62,7 +62,7 @@ function App() {
           <Route path="complete" element={<Complete />} />
         </Route>
         <Route path="/payment" element={<Payment />}>
-          <Route path="" element={<Card />} />
+          <Route path="card" element={<Card />} />
           <Route path="bank-transfer" element={<Bank />} />
         </Route>
         <Route path="/admin-dashboard" element={<Dashboard />}>
