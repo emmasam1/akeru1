@@ -132,13 +132,17 @@ body {
 }
 
 .main_width {
-  width: 80% !important;
+  width: 90% !important;
   margin: 0 auto;
 }
 
 .m_auto {
   margin: 0 auto !important;
 }
+.nav_right{
+  display: inline-block; text-align: right; width: 100%
+}
+ 
 
 .w100 {
   padding: 10px 73px !important;
@@ -159,6 +163,10 @@ body {
   height: 88px;
 }
 
+.sm_nav_width{
+  width: 75%;
+  margin: auto;
+}
 .logo {
   width: 149px;
   bottom: 4px;
@@ -195,10 +203,10 @@ body {
 .hero_style {
   padding: 10px 0 100px 0;
   position: relative;
-  
   height: 100vh;
-  
 }
+
+ 
 
 .hero_style img{
   width: 100%;
@@ -254,7 +262,7 @@ body {
 .hero_h1_text {
   color: var(--linkColor);
   font-family: Inter;
-  font-size: 60px;
+  font-size: 58px;
   font-weight: 700;
 
 
@@ -476,11 +484,11 @@ input[type="text"]::placeholder {
 
 .join_img_holder {
   margin: 0 auto;
-  width: 40%;
+  width: 50%;
 }
 
 .join_img_holder img {
-  width: 80px;
+  width: 100px;
   object-fit: contain;
 }
 
@@ -1461,9 +1469,10 @@ label span input {
   padding: 18px 37px;
   background-color: var(--btnColor);
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   text-decoration: none;
   border: 1px solid #D0E1CC;
+  margin: 10px;
 }
 .btn-akeru:hover{
   background-color: transparent;

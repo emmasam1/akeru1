@@ -12,6 +12,10 @@ import vector6 from "../image/Vector6.png";
 import cola from "../image/Big_cola.png";
 import Casera from "../image/The-La-Casera.png";
 import unilever from "../image/unilever.png";
+import reckitt from "../image/reckitt.png";
+import p_and_g from "../image/p_and_g.png";
+import nestle from "../image/nestle.png";
+import pandagric from "../image/pandagric.png";
 import video from "../image/video.png";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -176,13 +180,13 @@ function Home() {
       <Navbar />
       <div className="container-fliud d-flex justify-content-around hero_style">
 
-
         <div className=" position-absolute">
           <div className="position-relative">
             <div className="row hero_pad_top">
-              <div className="col-lg-6 col-md-12 ">
+            <div className="col-lg-1 col-md-12 "></div>
+              <div className="col-lg-5 col-md-12 ">
                 <div className="main_width">
-                  <div className=" mw100">
+                  <div className="mw100 pl-5">
                     <p className="hero_p_top_text m-0 w900 mw100">
                       Get a response within 1 minute
                     </p>
@@ -215,7 +219,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-6 col-md-12  ">
+               <div className="col-lg-6 col-md-12  ">
                 <img src={video} alt="icon" />
               </div>
             </div>
@@ -349,6 +353,13 @@ function Home() {
             <img src={cola} alt="icon" />
             <img src={Casera} alt="icon" />
             <img src={unilever} alt="icon" />
+            <img src={pandagric} alt="icon" /> 
+          </div>
+          <br/>
+          <div className="d-flex justify-content-around join_img_holder">
+            <img src={p_and_g} alt="icon" />
+            <img src={nestle} alt="icon" />
+            <img src={reckitt} alt="icon" /> 
           </div>
         </div>
       </div>

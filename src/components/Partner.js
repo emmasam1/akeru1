@@ -17,6 +17,7 @@ import notification from "../image/notification.png";
 import pencil from "../image/pencil.png";
 import hand from "../image/hand.png";
 import lprice from "../image/low-price.png";
+import group_2 from "../image/group_2.png";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -41,17 +42,13 @@ function Partner() {
   return (
     <>
       <Navbar />
-      <div className="container-fliud d-flex justify-content-around hero_style hero-height hs hero-sm-height">
-        <div className="triangle"></div>
-        <div className="triangle rotate"></div>
-        <div className="triangle"></div>
-        <div className="triangle rotate"></div>
-
+      <div className="container-fliud d-flex justify-content-around hero_style  ">
         <div className="main_width position-absolute">
           <div className="position-relative">
             <div className="container">
               <div className="row">
-                <div className="col akeru_col">
+              <div className="col-lg-1 "></div>
+                <div className="col-lg-5 col-md-12  ">
                   <div className="w0">
                     <p className="hero_p_top_text m-0 w900">Own a truck?</p>
                     <h1 className="hero_h1_text">
@@ -77,16 +74,15 @@ function Partner() {
                   </div>
                 </div>
                 <div className="offset-md-0 col-6 col-lg-6 offset-lg-0 d-flex justify-content-around display">
+                  <div className="pt-5 right-partner-side"> 
                   <img
-                    src={home}
+                    src={group_2}
                     alt="icon"
-                    className="image-width image-margin position-relative img-left sm-margin"
+
                   />
-                  <img
-                    src={Ongoing}
-                    alt="icon"
-                    className="image-width sm-mobile-rel"
-                  />
+                  </div>
+                  
+                   
                 </div>
               </div>
             </div>

@@ -11,6 +11,10 @@
 }
 
 @media (max-width:988px) {
+  .nav_right{
+    display: block !important;
+    text-align: left;
+  }
   .register_link {
     background: transparent;
     padding: 0;

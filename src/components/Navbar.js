@@ -31,7 +31,7 @@ function Navbar() {
 
   return (
     <div className="fixed-top bg-white nav-container">
-       <nav className="navbar navbar-expand-lg navbar-light bg-white main_width fixed-top sm_nav_width">
+       <nav className="navbar navbar-expand-lg navbar-light bg-white   fixed-top sm_nav_width">
         <div className="container-fluid nav_settings">
           <Link to="/" className="navbar-brand">
             <img src={logo} alt="logo" className="logo position-relative" />
@@ -48,7 +48,7 @@ function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0 m_auto pt-3">
+            <ul className="navbar-nav  mb-2 mb-lg-0  nav_right pt-3">
               <Link
                 to="/how-it-works"
                 className="nav_margin link-dark text-decoration-none fw-bold  "
