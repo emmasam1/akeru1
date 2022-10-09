@@ -12,10 +12,9 @@ import vector6 from "../image/Vector6.png";
 import cola from "../image/Big_cola.png";
 import Casera from "../image/The-La-Casera.png";
 import unilever from "../image/unilever.png";
-import video from "../image/video.png";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import Loading from "./Loading";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Loading from "../components/Loading";
 
 function Home() {
   let navigate = useNavigate();
@@ -39,13 +38,13 @@ function Home() {
   const [truckTypes, setTruckTypes] = useState([]);
   const [tons, setTons] = useState([]);
   const [hasLoaded, sethasLoaded] = useState(false);
-  const routeToPage = (page) => {
-    navigate(page)
+  const routeToPage=(page)=>{
+      navigate(page)
   }
 
-  const scrollToTop = () => {
+  const scrollToTop = () =>{
     window.scrollTo({
-      top: 0,
+      top: 0, 
       behavior: 'smooth'
       /* you can also use 'auto' behaviour
          in place of 'smooth' */
@@ -54,7 +53,7 @@ function Home() {
   };
 
   useEffect(() => {
-    if (!hasLoaded) {
+    if(!hasLoaded){
       scrollToTop()
     }
     axios
@@ -94,7 +93,7 @@ function Home() {
     const isValid = formValidation();
 
     const user = JSON.parse(localStorage.getItem("user"));
-    let data = {
+    let data = { 
       drop_off: drop_off,
       pick_up: pick_up,
       date: date,
@@ -105,7 +104,7 @@ function Home() {
     if (isValid && user) {
       setIsLoading(true)
       let user_id = user.user_id;
-      data.user_id = user_id
+      data.user_id= user_id
 
       axios
         .post(ROUTE.REQUEST, data)
@@ -175,48 +174,145 @@ function Home() {
     <>
       <Navbar />
       <div className="container-fliud d-flex justify-content-around hero_style">
+        <div className="triangle"></div>
+        <div className="triangle rotate"></div>
+        <div className="triangle"></div>
+        <div className="triangle rotate"></div>
 
-
-        <div className=" position-absolute">
+        <div className="main_width position-absolute">
           <div className="position-relative">
             <div className="row hero_pad_top">
               <div className="col-lg-6 col-md-12 ">
-                <div className="main_width">
-                  <div className=" mw100">
-                    <p className="hero_p_top_text m-0 w900 mw100">
-                      Get a response within 1 minute
-                    </p>
-                    <h1 className="hero_h1_text w900 mw100">
-                      On-demand road haulage and logistics for companies
-                    </h1>
-                    <p className="hero_p_bottom_text pt-1 ">
-                      Get your goods delivered on time, save time and cost, with insurance cover.
-                      Increase sales and loyalty.
-                    </p>
-                    <div className="row">
-                      <div className="col">
-                        <div
-                          onClick={() => routeToPage("/new-request")}
-                          className="link-dark btn btn-akeru"
-                        >
-                          Request a quote
-                        </div>
-                      </div>
-                      <div className="col">
-                        <div
-                          onClick={() => routeToPage("/partner")}
-                          className="link-dark btn btn-akeru  btn-akeru-dark"
-                        >
-                          Become a carrier
-                        </div>
-                      </div>
-                    </div>
-                    <p className=" pt-4">By signing up, you agree to the Terms of Service</p>
-                  </div>
+                <div className="mw100">
+                  <p className="hero_p_top_text m-0 w900 mw100">
+                    Get a response within 1 minute
+                  </p>
+                  <h1 className="hero_h1_text w900 mw100">
+                  On-demand road haulage and logistics for companies
+                  </h1>
+                  <p className="hero_p_bottom_text pt-1 ">
+                  Get your goods delivered on time, save time and cost, with insurance cover. 
+Increase sales and loyalty.
+                  </p>
                 </div>
               </div>
-              <div className="col-lg-6 col-md-12  ">
-                <img src={video} alt="icon" />
+              <div className="col-lg-6  col-md-12  ">
+                <form onSubmit={handSubmit} className="home-page-form-margin">
+                  <div className="my_card">
+                    <input
+                      type="text"
+                      placeholder="pick up:"
+                      className="input-home"
+                      name="pick_up"
+                      value={pick_up}
+                      onChange={(e) => setpick_up(e.target.value)}
+                    />
+                    {Object.keys(pick_upErr).map((key) => {
+                      return (
+                        <p className="dash-error" key={pick_upErr}>
+                          {pick_upErr[key]}
+                        </p>
+                      );
+                    })}
+                    <input
+                      type="text"
+                      placeholder="To:"
+                      className="input-home"
+                      name="drop_off"
+                      value={drop_off}
+                      onChange={(e) => setdrop_off(e.target.value)}
+                    />
+                    {Object.keys(drop_offErr).map((key) => {
+                      return (
+                        <p className="dash-error" key={drop_offErr}>
+                          {drop_offErr[key]}
+                        </p>
+                      );
+                    })}
+                    <input
+                      type="date"
+                      placeholder="When:"
+                      className="input-home input-date"
+                      name="date"
+                      value={date}
+                      onChange={(e) => setdate(e.target.value)}
+                    />
+                    {Object.keys(dateErr).map((key) => {
+                      return (
+                        <p className="dash-error" key={dateErr}>
+                          {dateErr[key]}
+                        </p>
+                      );
+                    })}
+
+                    <input
+                      type="text"
+                      placeholder="Item:"
+                      className="input-home"
+                      name="item"
+                      value={item}
+                      onChange={(e) => setItem(e.target.value)}
+                    />
+                    {Object.keys(itemErr).map((key) => {
+                      return (
+                        <p className="dash-error" key={itemErr}>
+                          {itemErr[key]}
+                        </p>
+                      );
+                    })}
+
+                    <select
+                      className="select"
+                      name="truck_type"
+                      value={truck_type}
+                      onChange={(e) => setTruckType(e.target.value)}
+                    >
+                      <option value={""}>Select Type</option>
+                      {truckTypes.map((data) => {
+                        return (
+                          <option value={data.name} >{data.name}</option>
+                        );
+                      })}
+                    </select>
+                    {Object.keys(typeErr).map((key) => {
+                      return (
+                        <p className="dash-error" key={typeErr}>
+                          {typeErr[key]}
+                        </p>
+                      );
+                    })}
+
+                    <select
+                      className="select"
+                      name="weight"
+                      value={weight}
+                      onChange={(e) => setWeight(e.target.value)}
+                    >
+                      <option>Weight in Tons</option>
+                      {tons.map((data) => {
+                        return (
+                          <option value={data.amount} >{data.amount} Tons</option>
+                        );
+                      })}
+
+                    </select>
+                    {Object.keys(weightErr).map((key) => {
+                      return (
+                        <p className="dash-error" key={weightErr}>
+                          {weightErr[key]}
+                        </p>
+                      );
+                    })}
+
+                    <button className="my_btn w900 p-3">
+                      {" "}
+                      <Loading
+                        loading={isLoading}
+                        false_text={"Request Quote"}
+                      />{" "}
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -234,7 +330,7 @@ function Home() {
               </div>
               <div className="turck_p_text_holder">
                 <p>
-                  Some key factors why we are most sort after by hauliers and manufacturers in Nigeria
+                Some key factors why we are most sort after by hauliers and manufacturers in Nigeria
                 </p>
               </div>
 
@@ -342,37 +438,37 @@ function Home() {
 
       <div className="main_width mt-3 bg_color d-flex justify-content-center pt-2 flex-column rmp">
         <div className="p-5">
-          <h1 className="text-center truck_h6_text">
-            Join the list of companies that trust Shuttlers
-          </h1>
-          <div className="d-flex justify-content-around join_img_holder">
-            <img src={cola} alt="icon" />
-            <img src={Casera} alt="icon" />
-            <img src={unilever} alt="icon" />
-          </div>
+        <h1 className="text-center truck_h6_text">
+          Join the list of companies that trust Shuttlers
+        </h1>
+        <div className="d-flex justify-content-around join_img_holder">
+          <img src={cola} alt="icon" />
+          <img src={Casera} alt="icon" />
+          <img src={unilever} alt="icon" />
+        </div>
         </div>
       </div>
 
       <div className="main_width mt-3 div_bg_home md-p">
         <div className="container">
-          <div className="row  milestone  pt-5 pb-2 rmp fd ht ">
-            <div className="col-lg-8 col-md-6 pt-4">
-              <h2 className="milestone_header truck_h6_text">
-                Some of our milestones
-              </h2>
-              <p className="milestone_text">
-                We’ve been really busy this year making things like this happen
-              </p>
-            </div>
-            <div className="text-center pt-4 pb-4 col-auto">
-              <div
-                onClick={() => routeToPage("/new-request")}
-                className="link-dark btn btn-akeru"
-              >
-                Request a quote
-              </div>
+        <div className="row  milestone  pt-5 pb-2 rmp fd ht ">
+          <div className="col-lg-8 col-md-6 pt-4">
+            <h2 className="milestone_header truck_h6_text">
+              Some of our milestones
+            </h2>
+            <p className="milestone_text">
+              We’ve been really busy this year making things like this happen
+            </p>
+          </div>
+          <div className="text-center pt-4 pb-4 col-auto">
+            <div
+              onClick={()=>routeToPage("/new-request")}
+              className="link-dark btn btn-akeru"
+            >
+              Request a quote
             </div>
           </div>
+        </div>
         </div>
         <div className="col_div">
           <div className="row pb-5">
@@ -430,11 +526,11 @@ function Home() {
         </div>
         <div className="col-md-3  pt-4">
           <div className="row">
-            <div className="col"></div>
+          <div className="col"></div>
             <div className="col-auto">
-              <div className="link-dark btn  btn-akeru " onClick={() => routeToPage("/partner")}>
-                Join us
-              </div>
+            <div   className="link-dark btn  btn-akeru "  onClick={()=>routeToPage("/partner")}>
+            Join us
+          </div>
             </div>
           </div>
         </div>

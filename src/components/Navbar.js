@@ -53,7 +53,7 @@ function Navbar() {
                 to="/how-it-works"
                 className="nav_margin link-dark text-decoration-none fw-bold  "
               >
-                How it works
+               Carriers
               </Link>
 
               {/* <Link
@@ -67,10 +67,10 @@ function Navbar() {
                 to="/partner"
                 className="nav_margin link-dark text-decoration-none fw-bold  "
               >
-                Partner
+                Invest with us
               </Link>
             </ul>
-            <div className="row">
+            {/* <div className="row">
                <div className="col-lg-3">
                {user ? null : <Link
                 to="/signin"
@@ -88,7 +88,7 @@ function Navbar() {
               </Link>}
              </div>
               
-            </div>
+            </div> */}
           </div>
         </div>
       </nav>
