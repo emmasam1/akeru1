@@ -194,7 +194,7 @@ function Home() {
                       On-demand road haulage and logistics for companies
                     </h1>
                     <p className="hero_p_bottom_text pt-1 ">
-                      Get your goods delivered on time, save time and cost, with insurance cover.
+                      Get your goods delivered on time, save time and cost, with insurance cover. <br/>
                       Increase loyalty.
                     </p>
                     <div className="row">
