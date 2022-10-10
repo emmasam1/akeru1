@@ -220,7 +220,7 @@ function Home() {
                 </div>
               </div>
               <div className="col-lg-6 col-md-12  ">
-                <video autoPlay muted loop id="myVideo">
+                <video  loop muted autoPlay playsinline id="myVideo">
                   <source src={video} type="video/mp4" />
                   Your browser does not support HTML5 video.
                 </video> 
