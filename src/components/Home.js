@@ -195,7 +195,7 @@ function Home() {
                     </h1>
                     <p className="hero_p_bottom_text pt-1 ">
                       Get your goods delivered on time, save time and cost, with insurance cover. <br/>
-                      Increase loyalty.
+                      Increase sales and loyalty
                     </p>
                     <div className="row">
                       <div className="col">
