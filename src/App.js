@@ -5,7 +5,7 @@ import "./Responsive.css";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
-
+import Underconstruction from "./components/Underconstruction";
 import Request from "./components/Request";
 import RequestNext from "./components/RquestNext";
 import Proflie from "./components/Profile";
@@ -52,6 +52,8 @@ function App() {
         <Route path="/partner" element={<Partner />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} /> 
         <Route path="/change-password" element={<ChangePassword />} /> 
+        <Route path="/underconstruction" element={<Underconstruction />} /> 
+        
         
         <Route path="/faq" element={<FAQ />} />
         <Route path="/how-it-works" element={<HowItWorks />} />

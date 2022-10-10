@@ -64,7 +64,7 @@ function Navbar() {
               </Link> */}
 
               <Link
-                to="/partner"
+                to="/underconstruction"
                 className="nav_margin link-dark text-decoration-none fw-bold  "
               >
                 Invest with us
