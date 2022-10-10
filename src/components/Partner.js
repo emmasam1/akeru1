@@ -52,18 +52,18 @@ function Partner() {
                   <div className="w0">
                     <p className="hero_p_top_text m-0 w900">Own a truck?</p>
                     <h1 className="hero_h1_text">
-                      Become an <br /> Akeru’s partner
+                    Earn more hauling with Akeru  
                     </h1>
                     {/* <p className="hero_p_bottom_text pt-1">
                     Download the app and start earning
                   </p> */}
                     <div className="d-flex justify-left">
                       <span className="m-2">
-                        <i className="bi bi-check2 m-1"></i> Instant pay out
+                      <i className="bi bi-check-square-fill akeru-primary m-1"></i> Instant pay out
                       </span>
                       <span className="m-2">
                         {" "}
-                        <i className="bi bi-check2 m-1"></i>Competitive pricing
+                        <i className="bi bi-check-square-fill akeru-primary m-1"></i>Competitive pricing
                       </span>
                     </div>
                     <p className=" pt-2 ">Download the app and start earning</p>

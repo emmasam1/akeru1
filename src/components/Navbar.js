@@ -50,7 +50,7 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav  mb-2 mb-lg-0  nav_right pt-3">
               <Link
-                to="/how-it-works"
+                to="/partner"
                 className="nav_margin link-dark text-decoration-none fw-bold  "
               >
                Carriers

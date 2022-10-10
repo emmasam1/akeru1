@@ -16,7 +16,7 @@ import reckitt from "../image/reckitt.png";
 import p_and_g from "../image/p_and_g.png";
 import nestle from "../image/nestle.png";
 import pandagric from "../image/pandagric.png";
-import video from "../image/video.png";
+import video from "../image/video.mp4";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Loading from "./Loading";
@@ -183,7 +183,7 @@ function Home() {
         <div className=" position-absolute">
           <div className="position-relative">
             <div className="row hero_pad_top">
-            <div className="col-lg-1 col-md-12 "></div>
+              <div className="col-lg-1 col-md-12 "></div>
               <div className="col-lg-5 col-md-12 ">
                 <div className="main_width">
                   <div className="mw100 pl-5">
@@ -219,8 +219,11 @@ function Home() {
                   </div>
                 </div>
               </div>
-               <div className="col-lg-6 col-md-12  ">
-                <img src={video} alt="icon" />
+              <div className="col-lg-6 col-md-12  ">
+                <video autoPlay muted loop id="myVideo">
+                  <source src={video} type="video/mp4" />
+                  Your browser does not support HTML5 video.
+                </video> 
               </div>
             </div>
           </div>
@@ -353,13 +356,13 @@ function Home() {
             <img src={cola} alt="icon" />
             <img src={Casera} alt="icon" />
             <img src={unilever} alt="icon" />
-            <img src={pandagric} alt="icon" /> 
+            <img src={pandagric} alt="icon" />
           </div>
-          <br/>
+          <br />
           <div className="d-flex justify-content-around join_img_holder">
             <img src={p_and_g} alt="icon" />
             <img src={nestle} alt="icon" />
-            <img src={reckitt} alt="icon" /> 
+            <img src={reckitt} alt="icon" />
           </div>
         </div>
       </div>
