@@ -484,7 +484,7 @@ input[type="text"]::placeholder {
 
 .join_img_holder {
   margin: 0 auto;
-  width: 50%;
+  width: 70%;
 }
 
 .join_img_holder img {
@@ -1472,7 +1472,7 @@ label span input {
   font-size: 16px;
   text-decoration: none;
   border: 1px solid #D0E1CC;
-  margin: 10px;
+ 
 }
 .btn-akeru:hover{
   background-color: transparent;

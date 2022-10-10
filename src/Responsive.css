@@ -11,6 +11,13 @@
 }
 
 @media (max-width:988px) {
+  .hero_p_top_text{
+    padding-top: 100px;
+  }
+  .btn-akeru{
+    font-size: 12px;
+    padding: 18px 27px;
+  }
   .nav_right{
     display: block !important;
     text-align: left;
@@ -170,7 +177,8 @@
 }
 
 @media (max-width: 900px) and (-webkit-device-pixel-ratio: 2) {
-  .hero_h1_text{font-size: 50px !important;}
+  .hero_h1_text{font-size: 30px !important;}
+  
   .hero_p_bottom_text{font-size: 24px !important;}
   .my_card {
     background-color: var(--whiteColor);

@@ -201,7 +201,7 @@ function Home() {
                       <div className="col">
                         <div
                           onClick={() => routeToPage("/new-request")}
-                          className="link-dark btn btn-akeru"
+                          className="link-dark btn btn-akeru mt-2"
                         >
                           Request a quote
                         </div>
@@ -209,7 +209,7 @@ function Home() {
                       <div className="col">
                         <div
                           onClick={() => routeToPage("/partner")}
-                          className="link-dark btn btn-akeru  btn-akeru-dark"
+                          className="link-dark btn btn-akeru  btn-akeru-dark mt-2"
                         >
                           Become a carrier
                         </div>
@@ -352,6 +352,7 @@ function Home() {
           <h1 className="text-center truck_h6_text">
             Join the list of companies that trust Shuttlers
           </h1>
+          <br/>
           <div className="d-flex justify-content-around join_img_holder">
             <img src={cola} alt="icon" />
             <img src={Casera} alt="icon" />
