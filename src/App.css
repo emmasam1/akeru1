@@ -668,7 +668,7 @@ input[type="text"]::placeholder {
 
 /* LOGIN */
 .login_div_height {
-  padding: 0 0 130px 0;
+  padding: 80px 0 130px 0;
   height: 612px;
 }
 
@@ -762,7 +762,7 @@ input[type="text"]::placeholder {
 
 .reg_div_height {
   height: 812px;
-  padding: 0;
+  padding: 100px 0 300px 0 ;
 }
 
 /* REGISTER */

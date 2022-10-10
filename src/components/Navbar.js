@@ -48,7 +48,7 @@ function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav  mb-2 mb-lg-0  nav_right pt-3">
+            <ul className="navbar-nav  mb-2 mb-lg-0  me-auto m_auto"> 
               <Link
                 to="/partner"
                 className="nav_margin link-dark text-decoration-none fw-bold  "
@@ -58,7 +58,7 @@ function Navbar() {
 
               {/* <Link
                 to="/route"
-                className="nav_margin link-dark text-decoration-none fw-bold fs-small"
+                className="nav_margin link-dark text-decoration-none fw-bold fs-small nav_right"
               >
                 Route
               </Link> */}
@@ -70,7 +70,7 @@ function Navbar() {
                 Invest with us
               </Link>
             </ul>
-            {/* <div className="row">
+            <div className="row">
                <div className="col-lg-3">
                {user ? null : <Link
                 to="/signin"
@@ -88,7 +88,7 @@ function Navbar() {
               </Link>}
              </div>
               
-            </div> */}
+            </div>
           </div>
         </div>
       </nav>

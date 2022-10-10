@@ -448,7 +448,7 @@ function Home() {
             <div className="col"></div>
             <div className="col-auto">
               <div className="link-dark btn  btn-akeru " onClick={() => routeToPage("/partner")}>
-                Join us
+                Become a Carrier
               </div>
             </div>
           </div>
