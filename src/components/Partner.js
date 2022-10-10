@@ -78,6 +78,7 @@ function Partner() {
                   <img
                     src={group_2}
                     alt="icon"
+                    className="pt-4"
 
                   />
                   </div>
