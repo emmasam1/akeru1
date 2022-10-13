@@ -20,6 +20,12 @@ import video from "../image/video.mp4";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Loading from "./Loading";
+import Icon1 from '../image/log(1).png'
+import Icon2 from '../image/log(2).png'
+import Icon3 from '../image/log(3).png'
+import Icon4 from '../image/log(4).png'
+import Icon5 from '../image/hiw-truck.png'
+import Girl from '../image/girl.png'
 
 function Home() {
   let navigate = useNavigate();
@@ -347,18 +353,18 @@ function Home() {
         </div>
       </div>
 
-      <div className="main_width div_color mt-3">
+      <div className="main_width div_colors mt-4">
         <div className="container">
           <div className="row">
-            <div className="col">
+            <div className="col-lg-6 col-md-12">
               <div className="truck_section_margin truck_div_width">
                 <h6 className="truck_h6_text">
-                  Why companies prefer to use Akeru
+                  Why Carriers love us
                 </h6>
               </div>
               <div className="turck_p_text_holder">
                 <p>
-                  Some key factors why we are most sort after by hauliers and manufacturers in Nigeria
+                Earn more driving with us, get more visibilities and scale your business faster.
                 </p>
               </div>
 
@@ -367,12 +373,11 @@ function Home() {
                   <div className="col-lg-6 col-md-6">
                     <div>
                       <div className="icon_holder d-flex justify-content-center">
-                        <img src={vector} alt="icon" className="vector_icon" />
+                        <img src={Icon2} alt="icon" className="vector_icon" />
                       </div>
-                      <p className="truck_small_heading">Unbeatable support</p>
+                      <p className="truck_small_heading">Instant payout</p>
                       <p className="truck_6rem_text">
-                        Our support are available 24/7 to answer any questions
-                        and give precise quotes
+                      Get 100% instant payment upon delivery of goods 
                       </p>
                     </div>
                   </div>
@@ -380,15 +385,14 @@ function Home() {
                     <div>
                       <div className="icon_holder d-flex justify-content-center">
                         <img
-                          src={vector4}
+                          src={Icon4}
                           alt="icon"
                           className="vector_icon"
                         />
                       </div>
-                      <p className="truck_small_heading">Competitive pricing</p>
+                      <p className="truck_small_heading">Transparency</p>
                       <p className="truck_6rem_text">
-                        With over 10years in the industry our price will be the
-                        most competitive out there
+                      Our negotiations and delivery are transparent and no hidden charge whatsoever.
                       </p>
                     </div>
                   </div>
@@ -397,15 +401,14 @@ function Home() {
                     <div>
                       <div className="icon_holder d-flex justify-content-center">
                         <img
-                          src={vector2}
+                          src={Icon1}
                           alt="icon"
                           className="vector_icon"
                         />
                       </div>
-                      <p className="truck_small_heading">Insurance covered</p>
+                      <p className="truck_small_heading">Instant loading</p>
                       <p className="truck_6rem_text">
-                        We ensured any fleets using the platform is fully
-                        insured including GIT.
+                      No wait time for all orders coming from us. You load instantly when you get to the depot
                       </p>
                     </div>
                   </div>
@@ -413,43 +416,29 @@ function Home() {
                     <div>
                       <div className="icon_holder d-flex justify-content-center">
                         <img
-                          src={vector3}
+                          src={Icon3}
                           alt="icon"
                           className="vector_icon"
                         />
                       </div>
-                      <p className="truck_small_heading">Automated logistics</p>
+                      <p className="truck_small_heading">Round trip guaranteed</p>
                       <p className="truck_6rem_text">
-                        All process is automated and you can get updates on all
-                        stages till delivery
+                      Increase your sales and profitability by getting a round trip order with Akeru
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="col offset-md-0 display akeru-col-height">
-              <img src={truck} alt="truck" className="truck" />
-              <div className="lower_truck_div">
-                <div className="d-flex">
-                  <div className="rounded-circle d-flex justify-content-center round_div_style">
-                    <img src={vector6} alt="icon" />
+            <div className="col-lg-5 col-md-12  display akeru-col-height">
+              <img src={Girl} alt="truck" className="truck" />
+              <div className="lower_truck_divs">
+                <div className="con">
+                  <div className=" d-flex  ">
+                    <img src={Icon5} alt="icon" />
                   </div>
-                  <p className="round_div_p">Truck Requested</p>
+                  <p className="round_div_ps">New Akeru order, please accept !</p>
                 </div>
-                <hr className="horizontal_line" />
-                <hr className="horizontal_line2" />
-              </div>
-
-              <div className="lower_truck_div2">
-                <div className="d-flex">
-                  <div className="rounded-circle d-flex justify-content-center round_div_style">
-                    <img src={vector5} alt="icon" />
-                  </div>
-                  <p className="round_div_p">1 hour to delivery</p>
-                </div>
-                <hr className="horizontal_line" />
-                <hr className="horizontal_line2" />
               </div>
             </div>
           </div>
