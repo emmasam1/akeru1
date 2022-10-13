@@ -609,12 +609,12 @@ function Home() {
               <p className="milestone_second_p">Working right now</p>
             </div>
             <div className="col-lg-3  ">
-              <h1 className="milestone_h1">10</h1>
+              <h1 className="milestone_h1">200+</h1>
               <p className="milestone_first_p">Fleet</p>
               <p className="milestone_second_p">Smooth cargo delivery</p>
             </div>
             <div className="col-lg-3  ">
-              <h1 className="milestone_h1">2,142</h1>
+              <h1 className="milestone_h1">12.4k</h1>
               <p className="milestone_first_p">Request completed</p>
               <p className="milestone_second_p">We are not slowing down</p>
             </div>
