@@ -34,6 +34,7 @@ import Icon10 from '../image/con(5).png'
 import Icon11 from '../image/con(6).png'
 import Icon12 from '../image/con(7).png'
 import Icon13 from '../image/con(8).png'
+import Icon14 from '../image/mainn.png'
 
 function Home() {
   let navigate = useNavigate();
@@ -544,18 +545,33 @@ function Home() {
             Join the list of companies that trust Akeru
           </h1>
           <br/>
-          <div className="d-flex justify-content-around join_img_holder">
+          <div className="row">
+            <div className="col-md-3 mt-5">
             <img src={cola} alt="icon" />
+            </div>
+            <div className="col-md-3 mt-5">
             <img src={Casera} alt="icon" />
+            </div>
+            <div className="col-md-3 mt-5">
             <img src={unilever} alt="icon" />
+            </div>
+            <div className="col-md-3 mt-5">
             <img src={pandagric} alt="icon" />
-          </div>
-          <br />
-          <div className="d-flex justify-content-around join_img_holder">
-            <img src={p_and_g} alt="icon" />
+            </div>
+            <div className="col-md-3 mt-5">
             <img src={nestle} alt="icon" />
+            </div>
+            <div className="col-md-3 mt-5">
+            <img src={Icon14} alt="icon" className="trans"/>
+            </div>
+            <div className="col-md-3 mt-5">
             <img src={reckitt} alt="icon" />
+            </div>
+            <div className="col-md-3 mt-5">
+            <img src={p_and_g} alt="icon" />
+            </div>
           </div>
+
         </div>
       </div>
 
