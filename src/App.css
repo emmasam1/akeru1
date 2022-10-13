@@ -772,6 +772,7 @@ input[type="text"]::placeholder {
 
 .reg_btn_style button {
   border: none;
+ 
   outline: none;
   cursor: pointer;
   background-color: var(--bottonColor);
