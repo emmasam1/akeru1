@@ -31,7 +31,7 @@ import Icon7 from '../image/con(2).png'
 import Icon8 from '../image/con(3).png'
 import Icon9 from '../image/con(4).png'
 import Icon10 from '../image/con(5).png'
-import Icon611 from '../image/con(6).png'
+import Icon11 from '../image/con(6).png'
 import Icon12 from '../image/con(7).png'
 import Icon13 from '../image/con(8).png'
 
@@ -468,13 +468,69 @@ function Home() {
           </h1>
           <p className="text-center">We are signing on contracts and providing top notch services to our clients in different sectors.</p>
           <div className="">
-            <div className="row mt-5">
-              <div className="col-md-3">
+            <div className="row ">
+              <div className="col-md-3 mt-5">
                 <div className="notch">
                   <div className="text-center ov_bg">
                     <img src={Icon13} alt="" />
                   </div>
                   <p className="text-center m-0">Manufacture</p>
+                </div>
+              </div>
+              <div className="col-md-3 mt-5">
+                <div className="notch">
+                  <div className="text-center ov_bg">
+                    <img src={Icon7} alt="" />
+                  </div>
+                  <p className="text-center m-0">Oil & Gas</p>
+                </div>
+              </div>
+              <div className="col-md-3 mt-5">
+                <div className="notch">
+                  <div className="text-center ov_bg">
+                    <img src={Icon6} alt="" />
+                  </div>
+                  <p className="text-center m-0">Pharmaceutical</p>
+                </div>
+              </div>
+              <div className="col-md-3 mt-5">
+                <div className="notch">
+                  <div className="text-center ov_bg">
+                    <img src={Icon8} alt="" />
+                  </div>
+                  <p className="text-center m-0">FMCG</p>
+                </div>
+              </div>
+              <div className="col-md-3 mt-5">
+                <div className="notch">
+                  <div className="text-center ov_bg">
+                    <img src={Icon9} alt="" />
+                  </div>
+                  <p className="text-center m-0">Construction</p>
+                </div>
+              </div>
+              <div className="col-md-3 mt-5">
+                <div className="notch">
+                  <div className="text-center ov_bg pt-5 pb-5">
+                    <img src={Icon10} alt="" />
+                  </div>
+                  <p className="text-center m-0">Agriculture</p>
+                </div>
+              </div>
+              <div className="col-md-3 mt-5">
+                <div className="notch">
+                  <div className="text-center ov_bg">
+                    <img src={Icon12} alt="" />
+                  </div>
+                  <p className="text-center m-0">Vehicle haulage</p>
+                </div>
+              </div>
+              <div className="col-md-3 mt-5">
+                <div className="notch">
+                  <div className="text-center ov_bg">
+                    <img src={Icon11} alt="" />
+                  </div>
+                  <p className="text-center m-0">Mining</p>
                 </div>
               </div>
             </div>
