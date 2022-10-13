@@ -347,10 +347,127 @@ function Home() {
         </div>
       </div>
 
+      <div className="main_width div_color mt-3">
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <div className="truck_section_margin truck_div_width">
+                <h6 className="truck_h6_text">
+                  Why companies prefer to use Akeru
+                </h6>
+              </div>
+              <div className="turck_p_text_holder">
+                <p>
+                  Some key factors why we are most sort after by hauliers and manufacturers in Nigeria
+                </p>
+              </div>
+
+              <div className="container">
+                <div className="row">
+                  <div className="col-lg-6 col-md-6">
+                    <div>
+                      <div className="icon_holder d-flex justify-content-center">
+                        <img src={vector} alt="icon" className="vector_icon" />
+                      </div>
+                      <p className="truck_small_heading">Unbeatable support</p>
+                      <p className="truck_6rem_text">
+                        Our support are available 24/7 to answer any questions
+                        and give precise quotes
+                      </p>
+                    </div>
+                  </div>
+                  <div className="col-lg-6 col-md-6">
+                    <div>
+                      <div className="icon_holder d-flex justify-content-center">
+                        <img
+                          src={vector4}
+                          alt="icon"
+                          className="vector_icon"
+                        />
+                      </div>
+                      <p className="truck_small_heading">Competitive pricing</p>
+                      <p className="truck_6rem_text">
+                        With over 10years in the industry our price will be the
+                        most competitive out there
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="col-lg-6 col-md-6">
+                    <div>
+                      <div className="icon_holder d-flex justify-content-center">
+                        <img
+                          src={vector2}
+                          alt="icon"
+                          className="vector_icon"
+                        />
+                      </div>
+                      <p className="truck_small_heading">Insurance covered</p>
+                      <p className="truck_6rem_text">
+                        We ensured any fleets using the platform is fully
+                        insured including GIT.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="col-lg-6 col-md-6">
+                    <div>
+                      <div className="icon_holder d-flex justify-content-center">
+                        <img
+                          src={vector3}
+                          alt="icon"
+                          className="vector_icon"
+                        />
+                      </div>
+                      <p className="truck_small_heading">Automated logistics</p>
+                      <p className="truck_6rem_text">
+                        All process is automated and you can get updates on all
+                        stages till delivery
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col offset-md-0 display akeru-col-height">
+              <img src={truck} alt="truck" className="truck" />
+              <div className="lower_truck_div">
+                <div className="d-flex">
+                  <div className="rounded-circle d-flex justify-content-center round_div_style">
+                    <img src={vector6} alt="icon" />
+                  </div>
+                  <p className="round_div_p">Truck Requested</p>
+                </div>
+                <hr className="horizontal_line" />
+                <hr className="horizontal_line2" />
+              </div>
+
+              <div className="lower_truck_div2">
+                <div className="d-flex">
+                  <div className="rounded-circle d-flex justify-content-center round_div_style">
+                    <img src={vector5} alt="icon" />
+                  </div>
+                  <p className="round_div_p">1 hour to delivery</p>
+                </div>
+                <hr className="horizontal_line" />
+                <hr className="horizontal_line2" />
+              </div>
+            </div>
+          </div>
+          {/* <div className="row">
+            <div className="col-sm-6 col-md-5 col-lg-6">
+              .col-sm-6 .col-md-5 .col-lg-6
+            </div>
+            <div className="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">
+              .col-sm-6 .col-md-5 .offset-md-2 .col-lg-6 .offset-lg-0
+            </div>
+          </div> */}
+        </div>
+      </div>
+
       <div className="main_width mt-3 bg_color d-flex justify-content-center pt-2 flex-column rmp">
         <div className="p-5">
           <h1 className="text-center truck_h6_text">
-            Join the list of companies that trust Shuttlers
+            Join the list of companies that trust Akeru
           </h1>
           <br/>
           <div className="d-flex justify-content-around join_img_holder">
