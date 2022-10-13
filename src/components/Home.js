@@ -26,6 +26,14 @@ import Icon3 from '../image/log(3).png'
 import Icon4 from '../image/log(4).png'
 import Icon5 from '../image/hiw-truck.png'
 import Girl from '../image/girl.png'
+import Icon6 from '../image/con(1).png'
+import Icon7 from '../image/con(2).png'
+import Icon8 from '../image/con(3).png'
+import Icon9 from '../image/con(4).png'
+import Icon10 from '../image/con(5).png'
+import Icon611 from '../image/con(6).png'
+import Icon12 from '../image/con(7).png'
+import Icon13 from '../image/con(8).png'
 
 function Home() {
   let navigate = useNavigate();
@@ -450,6 +458,27 @@ function Home() {
               .col-sm-6 .col-md-5 .offset-md-2 .col-lg-6 .offset-lg-0
             </div>
           </div> */}
+        </div>
+      </div>
+
+      <div className="main_width mt-3 bg_color d-flex justify-content-center pt-2 flex-column rmp">
+        <div className="p-5">
+          <h1 className="text-center truck_h6_text">
+            Sectors we serve
+          </h1>
+          <p className="text-center">We are signing on contracts and providing top notch services to our clients in different sectors.</p>
+          <div className="">
+            <div className="row mt-5">
+              <div className="col-md-3">
+                <div className="notch">
+                  <div className="text-center ov_bg">
+                    <img src={Icon13} alt="" />
+                  </div>
+                  <p className="text-center m-0">Manufacture</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
