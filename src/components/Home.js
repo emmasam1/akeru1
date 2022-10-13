@@ -545,6 +545,7 @@ function Home() {
             Join the list of companies that trust Akeru
           </h1>
           <br/>
+          <center>
           <div className="row">
             <div className="col-md-3 mt-5">
             <img src={cola} alt="icon" />
@@ -571,6 +572,7 @@ function Home() {
             <img src={p_and_g} alt="icon" />
             </div>
           </div>
+          </center>
 
         </div>
       </div>
