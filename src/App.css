@@ -433,11 +433,14 @@ input[type="text"]::placeholder {
   background: #D0E1CC;
   display: flex;
   align-items: center;
-  border-radius: 100px;
+  border-radius: 500px;
   margin-bottom: 10px;
  }
 .trans{
   width: 100%;
+}
+.expand{
+  width: 130px;
 }
 .notch img{
   width: 70px;

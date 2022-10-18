@@ -547,20 +547,20 @@ function Home() {
           <br/>
           <center>
           <div className="row">
-            <div className="col-md-3 mt-5">
-            <img src={cola} alt="icon" />
+            <div className="col-md-3 mt-5" >
+            <img src={cola} alt="icon" className="w-100"/>
             </div>
             <div className="col-md-3 mt-5">
-            <img src={Casera} alt="icon" />
+            <img src={Casera} alt="icon" className="expand"/>
             </div>
             <div className="col-md-3 mt-5">
-            <img src={unilever} alt="icon" />
+            <img src={unilever} alt="icon" className="expand"/>
             </div>
             <div className="col-md-3 mt-5">
-            <img src={pandagric} alt="icon" />
+            <img src={pandagric} alt="icon" className=""/>
             </div>
             <div className="col-md-3 mt-5">
-            <img src={nestle} alt="icon" />
+            <img src={nestle} alt="icon"/>
             </div>
             <div className="col-md-3 mt-5">
             <img src={Icon14} alt="icon" className="trans"/>
@@ -569,7 +569,7 @@ function Home() {
             <img src={reckitt} alt="icon" />
             </div>
             <div className="col-md-3 mt-5">
-            <img src={p_and_g} alt="icon" />
+            <img src={p_and_g} alt="icon"/>
             </div>
           </div>
           </center>
