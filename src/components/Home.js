@@ -328,6 +328,8 @@ function Home() {
             </div>
             <div className="col offset-md-0 display akeru-col-height">
               <img src={truck} alt="truck" className="truck" />
+             
+              <div className="">
               <div className="lower_truck_div">
                 <div className="d-flex">
                   <div className="rounded-circle d-flex justify-content-center round_div_style">
@@ -337,6 +339,17 @@ function Home() {
                 </div>
                 <hr className="horizontal_line" />
                 <hr className="horizontal_line2" />
+              </div>
+              <div className="lower_truck_divss">
+                <div className="d-flex">
+                  <div className="rounded-circle d-flex justify-content-center round_div_style">
+                    <img src={vector6} alt="icon" />
+                  </div>
+                  <p className="round_div_p">Live Tracking</p>
+                </div>
+                <hr className="horizontal_line" />
+                <hr className="horizontal_line2" />
+              </div>
               </div>
 
               <div className="lower_truck_div2">
