@@ -327,7 +327,7 @@ function Request() {
                   let row = []
                   for (let index = 1; index < paginate.pages + 1; index++) {
 
-                    row.push(<li class="page-item"><button onClick={() => { updatePaginate(index) }} class={`page-link ${paginate.page == index ? "active" : ""}`} href="#">{index}</button></li>)
+                    row.push(<li className="page-item"><button onClick={() => { updatePaginate(index) }} className={`page-link ${paginate.page == index ? "active" : ""}`} href="#">{index}</button></li>)
 
                   }
                   return row;
